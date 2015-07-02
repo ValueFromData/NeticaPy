@@ -1,0 +1,73 @@
+
+<HTML>
+<HEAD>
+<TITLE>Netica(TM) API Programmer's Reference Manual; API Funtion: GetError_ns</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/rightFrame.css" TITLE="Style">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="COPYRIGHT" CONTENT="&copy; 2012 Norsys Software Corp.">
+<SCRIPT language="javascript" type="text/javascript" >
+function loader1() {
+
+if (window.top) { //catch inf. loops
+  if (window.top.document.location.href.indexOf( '?loadPg=' ) >= 0 ) return;
+  if (window.top.frames.length >= 2) return;
+}
+  
+var url  = document.location.href;
+var pos  = url.lastIndexOf( '/' );
+var pos1 = pos - 10;
+var main = url.substring( 0, pos1 );
+var fn   = url.substring( pos + 1 );
+
+var newHref = main + "/index.html?loadPg=" + fn;
+document.location.href = newHref;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY topmargin=6 marginheight=6 onload="loader1()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="../images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<!-- <span CLASS=fnNameHeader>GetError_ns</span> -->
+<p><div CLASS=PT><table CLASS=PT><tr VALIGN="top"> <td NOWRAP class=name><span CLASS=PTFntype>report_ns*</span><span CLASS=PTFnName>&nbsp;GetError_ns</span>&nbsp;(</td> <td class=paramList><span CLASS=nonbreaking><span CLASS=PTParamType>environ_ns*</span>&nbsp;&nbsp;<span CLASS=PTParamName>env</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>errseverity_ns</span>&nbsp;&nbsp;<span CLASS=PTParamName>severity</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>const report_ns*</span>&nbsp;&nbsp;<span CLASS=PTParamName>after</span></span>&nbsp;)</td></tr></table></div>
+<p><div CLASS=desc><p>If <span CLASS="paramNm">after</span> is <span CLASS="reservedWord">NULL</span>, this returns a report for the first error in environment <span CLASS="paramNm">env</span> which is at least as serious as <span CLASS="paramNm">severity</span>.
+<p>If <span CLASS="paramNm">after</span> is an error report currently in <span CLASS="paramNm">env</span>, then the next error after it (at least as serious as  <span CLASS="paramNm">severity</span>) will be returned.  This can be used to step through the errors, as shown in the second example below.
+<p>If there is no such error to be returned, GetError_ns returns <span CLASS="reservedWord">NULL</span>.
+<p><span CLASS="paramNm">severity</span> must be one of  <span CLASS="constantNm">NOTHING_ERR</span>, <span CLASS="constantNm">REPORT_ERR</span>, <span CLASS="constantNm">NOTICE_ERR</span>, <span CLASS="constantNm">WARNING_ERR</span>, <span CLASS="constantNm">ERROR_ERR</span>, or <span CLASS="constantNm">XXX_ERR</span>  (for a description of these see <a href="ErrorSeverity_ns.html">ErrorSeverity_ns</a>).
+<p>This function can be used to report every error condition detected by (or occurring within) any Netica function except <a href="InitNetica2_bn.html">InitNetica2_bn</a> and <a href="CloseNetica_bn.html">CloseNetica_bn</a> (for these two functions you should use their return values to check for errors), and <a href="NewNeticaEnviron_ns.html">NewNeticaEnviron_ns</a> (its errors will be detected by the subsequent call to <a href="InitNetica2_bn.html">InitNetica2_bn</a>).
+<p>Use <a href="ErrorNumber_ns.html">ErrorNumber_ns</a> to get its error number, and <a href="ErrorMessage_ns.html">ErrorMessage_ns</a> to get an error message for it.
+<p><b>Multithreading Note.</b> In a multithreading environment, GetError_ns is well-behaved in that it only returns errors that were caused by the current (the calling) thread.
+</div>
+<p><span CLASS=sectionNm>Version:</span><div CLASS=version>This function is available in all versions.<passageIndent2/><p></div>
+<p><span CLASS=sectionNm>See also:</span><div CLASS=see_also><table CLASS="seeAlso"><tr><td VALIGN="top"><a href="ErrorMessage_ns.html">ErrorMessage_ns</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Gets a message for the error report</td></tr><tr><td VALIGN="top"><a href="ErrorNumber_ns.html">ErrorNumber_ns</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Gets the identification number for the error report</td></tr><tr><td VALIGN="top"><a href="ErrorSeverity_ns.html">ErrorSeverity_ns</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Returns how serious the error is</td></tr><tr><td VALIGN="top"><a href="ClearError_ns.html">ClearError_ns</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Removes the error report from the system</td></tr></table></div>
+<p><span CLASS=sectionNm>Example:</span><pre CLASS=example>
+// The following prints each serious error and then removes it
+//
+while ((error = GetError_ns (env, ERROR_ERR, NULL)) != NULL){
+    printf ("%s&#092;n", ErrorMessage_ns (error));
+    ClearError_ns (error);
+}
+</pre><span CLASS=sectionNm>Example 2:</span><pre CLASS=example><div CLASS=desc>The following function is available in <FONT face="Courier">NeticaEx.c</FONT>:</div>
+// This function prints all the serious errors (without removing them)
+//   that are currently registered with the environment in global variable 'env'.
+//
+void PrintErrors (void){
+    report_ns* error = NULL;
+    while (1) {
+        error = GetError_ns (env, ERROR_ERR, error);
+        if (!error)  break;
+        printf ("%s&#092;n", ErrorMessage_ns (error));
+    }
+}
+</pre></div>
+</BODY>
+</HTML>

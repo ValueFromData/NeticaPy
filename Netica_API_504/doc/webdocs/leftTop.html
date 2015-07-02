@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<LINK REL="stylesheet" TYPE="text/css" HREF="css/leftTopFrame.css" TITLE="Style">
+<SCRIPT LANGUAGE="JavaScript" type="text/javascript">
+//var ns4=window.top.document.layers?window.top.document.layers:document.layers;
+
+var ns4 = (document.layers);
+var ie4 = (document.all && !document.getElementById);
+var ie5 = (document.all && document.getElementById);
+var ns6 = (!document.all && document.getElementById);
+
+function loadCategories() {
+    if (!document.getElementById) {
+       var fm = top.frames["leftFrame"];
+       if (fm != null ) {
+//test w. IE4
+         fm.location = "";
+       }
+    }     
+    else {
+       //var fm = parent.parent.document.getElementById('rightFrm');
+       var fm = top.document.getElementById('rightFrm');
+       if (fm != null ) fm.src = "functions/" + fn + ".html";
+   }
+}
+</SCRIPT> 
+</HEAD>
+
+<BODY bgcolor=white topmargin=3>
+<form><input type=button class=buttonManual name="MANUAL"    value=" MANUAL " onClick="JAVASCRIPT: void openManualInPlainWindow();">&nbsp;&nbsp;&nbsp;<input type=button class=buttonCategories name="CATEGORIES" value=" INDEX " onClick="JAVASCRIPT:loadCategories();"></form>
+</BODY>
+</HTML>

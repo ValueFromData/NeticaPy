@@ -1,0 +1,53 @@
+
+<HTML>
+<HEAD>
+<TITLE>Netica(TM) API Programmer's Reference Manual; API Funtion: AddNodeToList_bn</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/rightFrame.css" TITLE="Style">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="COPYRIGHT" CONTENT="&copy; 2012 Norsys Software Corp.">
+<SCRIPT language="javascript" type="text/javascript" >
+function loader1() {
+
+if (window.top) { //catch inf. loops
+  if (window.top.document.location.href.indexOf( '?loadPg=' ) >= 0 ) return;
+  if (window.top.frames.length >= 2) return;
+}
+  
+var url  = document.location.href;
+var pos  = url.lastIndexOf( '/' );
+var pos1 = pos - 10;
+var main = url.substring( 0, pos1 );
+var fn   = url.substring( pos + 1 );
+
+var newHref = main + "/index.html?loadPg=" + fn;
+document.location.href = newHref;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY topmargin=6 marginheight=6 onload="loader1()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="../images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<!-- <span CLASS=fnNameHeader>AddNodeToList_bn</span> -->
+<p><div CLASS=PT><table CLASS=PT><tr VALIGN="top"> <td NOWRAP class=name><span CLASS=PTFntype>void</span><span CLASS=PTFnName>&nbsp;AddNodeToList_bn</span>&nbsp;(</td> <td class=paramList><span CLASS=nonbreaking><span CLASS=PTParamType>node_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>node</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>nodelist_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>nodes</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>int</span>&nbsp;&nbsp;<span CLASS=PTParamName>index</span></span>&nbsp;)</td></tr></table></div>
+<p><div CLASS=desc><p>Inserts <span CLASS="paramNm">node</span> into the list <span CLASS="paramNm">nodes</span>, so that its position is <span CLASS="paramNm">index</span>, making the list one longer, and maintaining the order of the rest of the nodes.
+<p><span CLASS="paramNm">index</span> can range from zero (which adds <span CLASS="paramNm">node</span> to the front), to <a href="LengthNodeList_bn.html">LengthNodeList_bn</a>(<span CLASS="paramNm">nodes</span>) (which adds <span CLASS="paramNm">node</span> to the end), or it can be <span CLASS="constantNm">LAST_ENTRY</span>, which also adds <span CLASS="paramNm">node</span> to the end.
+<p>If <span CLASS="paramNm">index</span> is outside these bounds, or the system runs out of memory, the list will not be modified and an error will be generated.
+<p>Adding nodes to the end of the list executes the fastest.
+<p>You can also build a node list by creating it full length using <a href="NewNodeList2_bn.html">NewNodeList2_bn</a>, and then filling it with <a href="SetNthNode_bn.html">SetNthNode_bn</a>.
+
+</div>
+<p><span CLASS=sectionNm>Version:</span><div CLASS=version>In versions previous to 2.10, <span CLASS="reservedWord">INT_MAX</span> was used instead of <span CLASS="constantNm">LAST_ENTRY</span><passageIndent2/><p></div>
+<p><span CLASS=sectionNm>See also:</span><div CLASS=see_also><table CLASS="seeAlso"><tr><td VALIGN="top"><a href="RemoveNthNode_bn.html">RemoveNthNode_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">(reverse operation)  Removes a node from the list, shortening it</td></tr><tr><td VALIGN="top"><a href="SetNthNode_bn.html">SetNthNode_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Put a node in the list without increasing its length</td></tr><tr><td VALIGN="top"><a href="LengthNodeList_bn.html">LengthNodeList_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Find maximum value for index</td></tr><tr><td VALIGN="top"><a href="NewNodeList2_bn.html">NewNodeList2_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Create the node list to start with</td></tr><tr><td VALIGN="top"><a href="DupNodeList_bn.html">DupNodeList_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">To duplicate a list before modifying it</td></tr></table></div>
+<p></div>
+</BODY>
+</HTML>

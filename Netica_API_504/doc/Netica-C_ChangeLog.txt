@@ -1,0 +1,39 @@
+
+
+Changelog  for Netica-C
+
+Note that not all releases were made publicly available.
+
+5.04  2012-01-21
+- Many major speed improvments, especially when operating in a multi-threaded environment.
+- Further improvements to time-series net and dynamic bayes net (DBN) capability 
+  (e.g. titles of nodes are now augmented with their point in time during expansion).
+- Improved or added functions ExpandNet_bn, SetNodeInputDelay_bn, SetNodePersistance_bn, GetNodeAtTime_bn.
+- Can enter "action values" to nodes, which follow semantics of Pearl's do-calculus.  
+  Added functions: EnterAction_bn, EnterActionValue_bn, EnterActionRandomized_bn
+- Major improvements to GenerateRandomCase_bn (including using some determinstic forward propagation for continuous real values), and fixing some bugs:
+    Generating a random case by forward sampling didnt work right if there was a CPT with UNDEF_PROB, where the whole row wasnt UNDEF_PROB
+    Generating a random case by join tree could fail with an error #2078
+- Major upgrade to callback system in speed and functionality.  
+  One result is that when nodes and nets are duplicated, now their listeners are duplicated as well.
+- Added function RetractFindingsOfNodes to NeticaEx.
+- Improved reading values from case files and its error reporting.  
+  Now handles ">70" if there is a discrete node with the state title ">70" (earlier it tried to interpret that as a UVF value)
+- Fixed problem in the way versions 5.02 and 5.03 saved printer settings to file, that made it not readable by older versions of Netica (example 4.16).
+- Expanded on the 'options' parameter for CopyNet_bn, CopyNodes_bn, which can control what gets copied.
+	
+5.03  2011-08-11
+- When entering a calibration finding that conflicts with the finding already at the node, now removes the original finding first.
+- Can now learn from cases when starting with no CPT supplied, but experience value supplied (table with all entries the same).
+- While EM learning from a case file having a case inconsistent with the Bayes net, now puts the IDnum of the case in the error message.
+
+5.02  2011-04-09
+- Fixed a memory leak which occured (only) when reversing links in a net with visual information.
+- GetStateNamed_bn couldn't handle NULL for 'name'
+- Major improvements to time-series net and dynamic bayes net (DBN) capability.  
+  Expand net now takes a burn-in time to generate initial-state nodes, etc.  
+- Improved Netica's architecture for pseudo-random operations, and made it possible to act deterministically under multi-threading
+- Added the random funcs: NewRandomGenerator_ns, DeleteRandomGen_ns, SetNetRandomGen_bn, GetRandomGenState_ns, GenerateRandomNumbers_ns.  
+  GenerateRandomCase_bn now takes a randgen_ns.
+- Added ControlConcurrency_ns, and made all of Netica able to concurrently run Bayes nets in separate threads if desired.
+

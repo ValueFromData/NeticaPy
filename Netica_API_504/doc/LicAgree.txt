@@ -1,0 +1,129 @@
+
+
+          NORSYS LICENSE AGREEMENT FOR NETICA         Norsys Agreement #116
+          -----------------------------------
+
+
+1. By downloading, copying, or using the Netica software you are agreeing 
+to be bound by the terms of this license. If you do not agree to the 
+terms of this license, do not download, or promptly delete the unused 
+software, and notify Norsys for a full refund.
+
+
+GRANT and RESTRICTED USE. 
+2. Norsys Software Corp. ("Norsys") hereby grants you, the licensee, a
+non-exclusive license to use the Netica Application and Netica API software 
+products ("Netica") subject to the provisions contained herein.
+
+3. For the purposes of this Agreement, your site is defined as your university,
+school or home if you have an educational/personal license, or your company if
+you have a commercial license, but in any case also restricted to a single 
+geographical region of less than 2 kilometers in diameter.  If you are not 
+using Netica with a password, your site can be any of the above as you choose.
+
+4. You may make unlimited copies of Netica or its documentation, provided they
+are copied unmodified and in their entirety, including their copyright notice.
+Netica may be installed on a local network, or otherwise distributed at your 
+site.  Netica may be used by multiple people at your site, providing they all 
+follow the provisions of this Agreement.  If you wish to use Netica as part 
+of a web server, or as part of software that you distribute, special licenses 
+for those purposes must be obtained from Norsys.
+
+5. If you know a password (also termed a "license number") for Netica, you must 
+make reasonable effort to ensure that the knowledge of, and the use of, that 
+password remains restricted to your site, and, unless you have a site license, 
+or a "No Charge" license, that the number of computers simultaneously running 
+Netica with that password is never more than the number of copies of Netica 
+purchased for your site, even if Netica is embedded in other software.  
+You must not use Netica with a password that has not been issued by Norsys to 
+a member of your site, or which has been obtained in a way which violates this 
+Agreement.
+
+6. You must not modify Netica, or its password protection, or use a modified 
+version of Netica, but you may create software which contains Netica, in which 
+case all provisions of this Agreement still apply to the embedded Netica.  
+The derived software must contain a valid copyright notice, either your own or 
+the Norsys copyright notice.
+
+7. You acknowledge that Netica in source code form remains a confidential trade
+secret of Norsys and therefore you agree not to attempt to decipher,
+decompile, disassemble, reverse engineer or otherwise reduce Netica to a
+human-perceivable form, or allow others to do so.
+
+8. TITLE.  Netica and its documentation is protected by the copyright laws of
+Canada and international copyright treaties.  Netica and its documentation is
+not sold to you, but licensed for your use.  Norsys maintains all title,
+ownership rights, and intellectual property rights to Netica and its
+documentation.  No license, right or interest in any trademark, trade name or
+service mark are granted under this Agreement.
+
+9. DISCLAIMER OF WARRANTY.  You expressly acknowledge and agree that use of
+Netica is at your sole risk.  Netica and related documents are provided 
+"AS IS" and without warranty of any kind and Norsys EXPRESSLY DISCLAIMS ALL
+WARRANTIES, EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.  NORSYS
+DOES NOT WARRANT THAT THE FUNCTIONS CONTAINED IN NETICA WILL MEET YOUR
+REQUIREMENTS, OR THAT THE OPERATION OF NETICA WILL BE UNINTERRUPTED OR
+ERROR-FREE, OR THAT DEFECTS IN NETICA WILL BE CORRECTED.  FURTHERMORE, NORSYS
+DOES NOT WARRANT OR MAKE ANY REPRESENTATIONS REGARDING THE USE OR THE RESULTS
+OF THE USE OF NETICA OR RELATED DOCUMENTATION IN TERMS OF THEIR CORRECTNESS,
+ACCURACY, RELIABILITY, OR OTHERWISE.  NO ORAL OR WRITTEN INFORMATION OR ADVICE
+GIVEN BY NORSYS OR A NORSYS AUTHORIZED REPRESENTATIVE SHALL CREATE A WARRANTY
+OR IN ANY WAY INCREASE THE SCOPE OF THIS WARRANTY.  SHOULD THE NETICA SOFTWARE
+PROVE DEFECTIVE, YOU (AND NOT NORSYS OR A NORSYS AUTHORIZED REPRESENTATIVE)
+ASSUME THE ENTIRE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.  SOME
+JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF IMPLIED WARRANTIES, SO THIS
+EXCLUSION MAY NOT APPLY TO YOU.
+
+10. LIMITATION OF LIABILITY.  UNDER NO CIRCUMSTANCES SHALL NORSYS OR ITS SUPPLIERS
+OR RESELLERS BE LIABLE TO YOU OR ANY OTHER PARTY FOR ANY INDIRECT, SPECIAL,
+INCIDENTAL, OR CONSEQUENTIAL DAMAGES OF ANY CHARACTER, WHETHER BASED ON
+CONTRACT, TORT, WARRANTY OR OTHER LEGAL OR EQUITABLE GROUNDS, INCLUDING,
+WITHOUT LIMITATION, DAMAGES FOR LOSS OF GOODWILL, WORK STOPPAGE, LOST PROFITS,
+OR LOST DATA, THAT RESULT FROM THE USE OR INABILITY TO USE NETICA OR ITS
+DOCUMENTATION, EVEN IF NORSYS HAS BEEN INFORMED OF THE POSSIBILITY OF SUCH
+DAMAGES.  NORSYS IS NOT RESPONSIBLE FOR, AND DOES NOT MAKE ANY REPRESENTATION,
+WARRANTY, OR CONDITION CONCERNING PRODUCT, SOFTWARE, OR DOCUMENTATION NOT
+MANUFACTURED BY NORSYS, SUCH AS THIRD-PARTIES' PROGRAMS THAT ARE DESIGNED
+USING NORSYS SOFTWARE OR WHICH INCLUDE NORSYS PROGRAMS, FILES, OR INFORMATION.
+SOME JURISDICTIONS DO NOT ALLOW THE LIMITATION OR EXCLUSION OF LIABILITY FOR
+INCIDENTAL OR CONSEQUENTIAL DAMAGES, SO THIS LIMITATION AND EXCLUSION MAY NOT
+APPLY TO YOU.  In no event shall Norsys's total liability to you for all
+damages, losses, and causes of action (whether in contract, tort (including
+negligence), or otherwise) exceed the amount paid by you for Netica.
+
+11. EXPORT CONTROLS.  You may not download or otherwise export or re-export Netica
+or its documentation or any other Norsys technical data except in full
+compliance with all Canadian and other applicable laws and regulations. 
+By downloading or using Netica, you are agreeing to the foregoing and you are
+representing and warranting that you are not located in any country to which
+Canada has embargoed goods.
+
+12. TERMINATION.  This Agreement is effective until terminated.  Norsys may
+terminate this Agreement at any time, and without notice, if you fail to
+comply with any provision of this Agreement.  Upon termination you must
+destroy all copies of the Netica software, all parts or modifications of the
+Netica software including parts or modifications embedded in other software,
+all Netica documentation, and any other relevant information received from
+Norsys, that is in your possession or that you have supplied or made available
+to a third party.
+
+13. GENERAL.  This Agreement constitutes the entire agreement between the parties
+concerning the subject matter thereof.  No amendment to or modification of
+this Agreement will be binding unless in writing and signed by you and an
+authorized officer of Norsys.  THE ACCEPTANCE OF ANY PURCHASE ORDER PLACED BY
+YOU IS EXPRESSLY MADE CONDITIONAL ON YOUR ASSENT TO THE TERMS SET FORTH
+HEREIN, AND NORSYS AGREES TO FURNISH NETICA AND DOCUMENTATION ONLY UPON THESE
+TERMS AND NOT THOSE CONTAINED IN YOUR PURCHASE ORDER.  This Agreement shall be
+governed by, subject to and interpreted in accordance with Canadian law, and
+you and Norsys shall submit to the jurisdiction of the Canadian court.  If for
+any reason a court of competent jurisdiction finds any provision of this
+Agreement to be unenforceable, that provision shall be enforced to the maximum
+extent permissible so as to affect the intent of the parties, and the
+remainder of the agreement shall continue in full force and effect.  
+
+Norsys Software Corp.
+3512 West 23rd Ave.
+Vancouver, BC, Canada
+V6S 1K5
+

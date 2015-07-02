@@ -1,0 +1,172 @@
+// ~->[DNET-1]->~
+
+// File created by Norsys using Netica 3.24 on Jun 15, 2007 at 04:53:20.
+
+bnet BreastCancer {
+autoupdate = TRUE;
+whenchanged = 1181908374;
+
+visual V2 {
+	defdispform = BELIEFBARS;
+	nodelabeling = TITLE;
+	NodeMaxNumEntries = 50;
+	nodefont = font {shape= "Arial"; size= 10;};
+	linkfont = font {shape= "Arial"; size= 9;};
+	windowposn = (122, 12, 861, 479);
+	resolution = 72;
+	drawingbounds = (1080, 720);
+	showpagebreaks = FALSE;
+	usegrid = TRUE;
+	gridspace = (6, 6);
+	NodeSet Node {BuiltIn = 1; Color = 0xc0c0c0;};
+	NodeSet Nature {BuiltIn = 1; Color = 0xf8eed2;};
+	NodeSet Deterministic {BuiltIn = 1; Color = 0xd3caa6;};
+	NodeSet Finding {BuiltIn = 1; Color = 0xc8c8c8;};
+	NodeSet Constant {BuiltIn = 1; Color = 0xffffff;};
+	NodeSet ConstantValue {BuiltIn = 1; Color = 0xffffb4;};
+	NodeSet Utility {BuiltIn = 1; Color = 0xffbdbd;};
+	NodeSet Decision {BuiltIn = 1; Color = 0xdee8ff;};
+	NodeSet Documentation {BuiltIn = 1; Color = 0xf0fafa;};
+	NodeSet Title {BuiltIn = 1; Color = 0xffffff;};
+	PrinterSetting A {
+		margins = (1270, 1270, 1270, 1270);
+		landscape = FALSE;
+		magnify = 1;
+		};
+	};
+
+node Malignancy {
+	kind = NATURE;
+	discrete = TRUE;
+	states = (Malignant, Benign);
+	levels = (4, 2);
+	parents = ();
+	whenchanged = 1181546232;
+	visual V2 {
+		center = (354, 38);
+		height = 1;
+		};
+	};
+
+node ClumpThickness {
+	kind = NATURE;
+	discrete = FALSE;
+	levels = (1, 3, 5, 10);
+	parents = (Malignancy);
+	whenchanged = 1181908374;
+	visual V2 {
+		center = (90, 54);
+		dispform = BELIEFBARS;
+		height = 2;
+		link 1 {
+			path = ((265, 43), (172, 49));
+			};
+		};
+	};
+
+node UniformityOfCellSize {
+	kind = NATURE;
+	discrete = FALSE;
+	levels = (1, 1, 5, 10);
+	parents = (Malignancy);
+	whenchanged = 1181908374;
+	visual V2 {
+		center = (114, 150);
+		height = 3;
+		link 1 {
+			path = ((274, 76), (196, 113));
+			};
+		};
+	};
+
+node UniformityOfCellShape {
+	kind = NATURE;
+	discrete = FALSE;
+	levels = (1, 1, 5, 10);
+	parents = (Malignancy);
+	whenchanged = 1181908374;
+	visual V2 {
+		center = (144, 246);
+		height = 4;
+		};
+	};
+
+node MarginalAdhesion {
+	kind = NATURE;
+	discrete = FALSE;
+	levels = (1, 1, 4, 10);
+	parents = (Malignancy);
+	whenchanged = 1181908374;
+	visual V2 {
+		center = (168, 342);
+		height = 5;
+		};
+	};
+
+node SingleEpithelialCellSize {
+	kind = NATURE;
+	discrete = FALSE;
+	levels = (1, 2, 2, 10);
+	parents = (Malignancy);
+	whenchanged = 1181908374;
+	visual V2 {
+		center = (354, 342);
+		height = 10;
+		};
+	};
+
+node BareNuclei {
+	kind = NATURE;
+	discrete = FALSE;
+	levels = (1, 1, 9, 10);
+	parents = (Malignancy);
+	whenchanged = 1181908374;
+	visual V2 {
+		center = (540, 342);
+		height = 6;
+		};
+	};
+
+node BlandChromatin {
+	kind = NATURE;
+	discrete = FALSE;
+	levels = (1, 2, 3, 10);
+	parents = (Malignancy);
+	whenchanged = 1181908374;
+	visual V2 {
+		center = (564, 246);
+		height = 7;
+		};
+	};
+
+node NormalNucleoli {
+	kind = NATURE;
+	discrete = FALSE;
+	levels = (1, 1, 6, 10);
+	parents = (Malignancy);
+	whenchanged = 1181908374;
+	visual V2 {
+		center = (594, 150);
+		height = 8;
+		link 1 {
+			path = ((434, 76), (513, 113));
+			};
+		};
+	};
+
+node Mitoses {
+	kind = NATURE;
+	discrete = FALSE;
+	levels = (1, 1, 3, 10);
+	parents = (Malignancy);
+	whenchanged = 1181908374;
+	visual V2 {
+		center = (618, 54);
+		height = 9;
+		link 1 {
+			path = ((444, 43), (537, 49));
+			};
+		};
+	};
+ElimOrder = (ClumpThickness, UniformityOfCellSize, UniformityOfCellShape, MarginalAdhesion, SingleEpithelialCellSize, BareNuclei, BlandChromatin, NormalNucleoli, Malignancy, Mitoses);
+};

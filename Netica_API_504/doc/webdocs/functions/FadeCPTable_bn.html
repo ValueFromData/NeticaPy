@@ -1,0 +1,78 @@
+
+<HTML>
+<HEAD>
+<TITLE>Netica(TM) API Programmer's Reference Manual; API Funtion: FadeCPTable_bn</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/rightFrame.css" TITLE="Style">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="COPYRIGHT" CONTENT="&copy; 2012 Norsys Software Corp.">
+<SCRIPT language="javascript" type="text/javascript" >
+function loader1() {
+
+if (window.top) { //catch inf. loops
+  if (window.top.document.location.href.indexOf( '?loadPg=' ) >= 0 ) return;
+  if (window.top.frames.length >= 2) return;
+}
+  
+var url  = document.location.href;
+var pos  = url.lastIndexOf( '/' );
+var pos1 = pos - 10;
+var main = url.substring( 0, pos1 );
+var fn   = url.substring( pos + 1 );
+
+var newHref = main + "/index.html?loadPg=" + fn;
+document.location.href = newHref;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY topmargin=6 marginheight=6 onload="loader1()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="../images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<!-- <span CLASS=fnNameHeader>FadeCPTable_bn</span> -->
+<p><div CLASS=PT><table CLASS=PT><tr VALIGN="top"> <td NOWRAP class=name><span CLASS=PTFntype>void</span><span CLASS=PTFnName>&nbsp;FadeCPTable_bn</span>&nbsp;(</td> <td class=paramList><span CLASS=nonbreaking><span CLASS=PTParamType>node_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>node</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>double</span>&nbsp;&nbsp;<span CLASS=PTParamName>degree</span></span>&nbsp;)</td></tr></table></div>
+<p><div CLASS=desc><p>Smoothes the conditional probabilities (CPT) of <span CLASS="paramNm">node</span> to indicate greater uncertainty, which accounts for the idea that the world may have changed a little since they were last learned.
+<p><span CLASS="paramNm">degree</span> must be between 0 and 1, with 0 having no effect and 1 creating uniform distributions with no experience.  Calling <a href="FadeCPTable_bn.html">FadeCPTable_bn</a> once with <span CLASS="paramNm">degree</span> = 1-d, and again with <span CLASS="paramNm">degree</span> = 1-f, is equivalent to a single call with <span CLASS="paramNm">degree</span> = 1-df.
+<p>The global variable <span CLASS="paramNm">BaseExperience_bn</span> is used in the calculation as shown below.  It's value should be the same as it was when the learning from cases was done (if it was).  It must be greater than 0, and the most common value for it is 1 (1/2 is also commonly used).  You will normally set it to one of these choices, depending on your philosophy, and leave it that way permanently.
+<p>Each of the probabilities in the node's conditional probability table is modified as follows (where prob and exper are the old values of probability and experience, and prob' and exper' are the new values):
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<span CLASS="code">prob'&nbsp;&nbsp;= normalize (prob * exper - (prob * exper - <span CLASS="paramNm">BaseExperience_bn</span>) * <span CLASS="paramNm">degree</span>)</span>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;<span CLASS="code">prob'&nbsp;&nbsp;= normalize (prob * exper * (1 - <span CLASS="paramNm">degree</span>) + <span CLASS="paramNm">degree</span>  * <span CLASS="paramNm">BaseExperience_bn</span>)</span>
+<br>&nbsp;&nbsp;exper' is obtained as the normalization factor from above.  So:
+<br>&nbsp;&nbsp;&nbsp;&nbsp;<span CLASS="code">prob' * exper' = prob * exper * (1 - <span CLASS="paramNm">degree</span>) + <span CLASS="paramNm">degree</span> * <span CLASS="paramNm">BaseExperience_bn</span></span>
+<p>When learning in a changing environment, you would normally call FadeCPTable_bn every once in a while, so that what has been recently learned is more strongly weighted than what was learned long ago.  If an occurrence time for each case is known, and the cases are learned sequentially through time, then the amount of fading to be done is:<br><span CLASS="paramNm">degree</span> = 1 - r<sup><FONT face="Symbol">D</FONT>t</sup>  where <FONT face="Symbol">D</FONT>t is the amount of time since the last fading was done, and r is a number less than, but close to, 1 and depends on the units of time and how quickly the environment is changing.  See the example below.
+
+</div>
+<p><span CLASS=sectionNm>Version:</span><div CLASS=version>In versions previous to 2.10, this function was named <b>FadeProbs_bn</b>.<passageIndent2/><p></div>
+<p><span CLASS=sectionNm>See also:</span><div CLASS=see_also><table CLASS="seeAlso"><tr><td VALIGN="top"><a href="ReviseCPTsByFindings_bn.html">ReviseCPTsByFindings_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Is passed a 'degree', which also can be used to weight the impact of learning a case</td></tr><tr><td VALIGN="top"><a href="GetNodeProbs_bn.html">GetNodeProbs_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Read out the faded probabilities table</td></tr><tr><td VALIGN="top"><a href="GetNodeExperience_bn.html">GetNodeExperience_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Read out the faded experience table</td></tr></table></div>
+<p><span CLASS=sectionNm>Example:</span><pre CLASS=example><div CLASS=desc>The following function is available in <FONT face="Courier">NeticaEx.c</FONT>:</div>
+// The following does the same fading for a list of nodes:
+//
+void FadeCPTsForNodes (const nodelist_bn* nodes, double degree){
+    int nn, num_nodes = LengthNodeList_bn (nodes);
+    for (nn = 0;  nn &lt; num_nodes;  ++nn)
+        FadeCPTable_bn (NthNode_bn (nodes, nn), degree);
+}</pre><span CLASS=sectionNm>Example 2:</span><pre CLASS=example>
+// The following bit of code may be executed in a loop which is
+//   traversed as the cases are learned, in order to do the
+//   required fading:
+//     time - the occurrence time of the last case learned
+//     lasttime - a number initialized to the time of the 1st case
+//     mindelay - a number controlling how often fading is done
+//     rate - a number determining how much fading is done
+//     net - the net being learned
+if (time - lasttime &gt;= mindelay){
+    double degree = 1 - pow (rate, time - lasttime);
+    FadeCPTsForNodes (GetNetNodes_bn (net), degree);
+    lasttime = time;
+}
+</pre></div>
+</BODY>
+</HTML>

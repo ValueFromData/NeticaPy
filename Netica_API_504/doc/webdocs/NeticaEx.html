@@ -1,0 +1,1192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+	<HEAD>
+		<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<META name="description" content="colored NeticaEx.c source file">
+		<META name="author" content="Gilles Bannay">
+		<META name="generator" content="C2HTML Version 1.10">
+		<META name="copyright" content="(C) 2002 EIC2 SA">
+		<META name="reply-to" content="gilles.bannay@free.fr">
+		<TITLE>NeticaEx.c</TITLE>
+	</HEAD>
+<BODY BGCOLOR=#FFFFFF>
+<PRE>
+<FONT COLOR=#006000>/* 
+ * NeticaEx.c
+ *
+ * Extra and Example (external) Source Code for Netica API, version 2.00 or higher.
+ *
+ * Copyright (C) 1992-2007 by Norsys Software Corp.
+ * The software in this file may be copied, modified, and/or included in 
+ * derivative works without charge or obligation.
+ * Norsys makes no warranty that this software is without defects.
+ *
+ */
+
+</FONT><FONT COLOR=#770077>#include &lt;stdio.h&gt;
+#include &lt;assert.h&gt;
+#include &lt;limits.h&gt;
+
+#include "Netica.h"
+#include "NeticaEx.h"
+
+</FONT>environ_ns* env;
+
+#pragma warning (disable: <FONT COLOR=#0000ff>4996</FONT>)     <FONT COLOR=#006000>// using the regular version of Standard Library, instead of Microsoft's secure one, because we need to be portable
+
+
+<A name='#main_ex'></A>
+/*_____________________________________________________________________________ main_ex
+All programs using Netica API should contain code equivalent to this.
+One possibility is to copy this code into your own routine named "main".
+No Netica API function should be called before NewNeticaEnviron_ns or after 
+  CloseNetica_bn, and most of them must not be called before InitNetica2_bn.
+*/
+</FONT><FONT COLOR=#770077>#include &lt;stdlib.h&gt;
+
+</FONT><FONT COLOR=#ff0000>int </FONT>main_ex (<FONT COLOR=#ff0000>void</FONT>){
+    <FONT COLOR=#ff0000>char </FONT>mesg[MESG_LEN_ns];
+    environ_ns* env;
+    <FONT COLOR=#ff0000>int </FONT>res;
+        
+    env = NewNeticaEnviron_ns (NULL, NULL, NULL);    <FONT COLOR=#006000>/* substitute your license string for the first NULL if desired */
+    </FONT>res = InitNetica2_bn (env, mesg);
+    printf (<FONT COLOR=#0060b0>"%s\n"</FONT>, mesg);
+    <FONT COLOR=#a06000>if </FONT>(res &lt; <FONT COLOR=#0000ff>0</FONT>)  exit (-<FONT COLOR=#0000ff>1</FONT>);
+    <FONT COLOR=#006000>/* 
+     * &lt;rest of program&gt;
+     */ 
+    </FONT>res = CloseNetica_bn (env, mesg);
+    printf (<FONT COLOR=#0060b0>"%s\n"</FONT>, mesg);
+    <FONT COLOR=#a06000>return </FONT>(res &lt; <FONT COLOR=#0000ff>0 </FONT>? -<FONT COLOR=#0000ff>1 </FONT>: <FONT COLOR=#0000ff>0</FONT>);
+    }
+
+<A name='#GetNode'></A>
+<FONT COLOR=#006000>/*_____________________________________________________________________________ GetNode
+Like GetNodeNamed_bn, but generates an error if the name doesn't exist.
+*/
+</FONT>node_bn* GetNode (<FONT COLOR=#ff0000>char</FONT>* node_name, net_bn* net){
+    node_bn* node = GetNodeNamed_bn (node_name, net);
+    <FONT COLOR=#a06000>if </FONT>(node == NULL)
+        NewError (env, <FONT COLOR=#0000ff>900</FONT>, ERROR_ERR,
+                 <FONT COLOR=#0060b0>"GetNode: There is no node named '%s' in net '%s'"</FONT>,
+                  node_name, GetNetName_bn (net));
+    <FONT COLOR=#a06000>return </FONT>node;
+}
+
+<A name='#EnterFinding'></A>
+<FONT COLOR=#006000>/*________________________________________________________________________ EnterFinding
+Like EnterFinding_bn, but is passed names (C strings) instead.
+*/
+</FONT><FONT COLOR=#ff0000>void </FONT>EnterFinding (<FONT COLOR=#ff0000>char</FONT>* node_name, <FONT COLOR=#ff0000>char</FONT>* state_name, net_bn* net){
+    node_bn* node = GetNode (node_name, net);
+    state_bn state = GetStateNamed_bn (state_name, node);
+    EnterFinding_bn (node, state);
+}
+
+<A name='#SetNodeFinding'></A>
+<FONT COLOR=#006000>/*______________________________________________________________________ SetNodeFinding
+This routine may be useful if we are not sure whether node
+  already has a finding, but if it does we just want to override it.
+*/
+</FONT><FONT COLOR=#ff0000>void </FONT>SetNodeFinding (node_bn* node, state_bn state){
+    net_bn* net = GetNodeNet_bn (node);
+    <FONT COLOR=#ff0000>int </FONT>saved = SetNetAutoUpdate_bn (net, <FONT COLOR=#0000ff>0</FONT>);   <FONT COLOR=#006000>// turning it off can greatly aid efficiency
+    </FONT>RetractNodeFindings_bn (node);
+    EnterFinding_bn (node, state);
+    SetNetAutoUpdate_bn (net, saved);
+}
+
+<A name='#SetNodeValue'></A>
+<FONT COLOR=#006000>/*________________________________________________________________________ SetNodeValue
+This routine may be useful if we are not sure whether node
+  already has a finding, but if it does we just want to override it.
+*/
+</FONT><FONT COLOR=#ff0000>void </FONT>SetNodeValue (node_bn* node, <FONT COLOR=#ff0000>double </FONT>value){
+    net_bn* net = GetNodeNet_bn (node);
+    <FONT COLOR=#ff0000>int </FONT>saved = SetNetAutoUpdate_bn (net, <FONT COLOR=#0000ff>0</FONT>);   <FONT COLOR=#006000>// turning it off can greatly aid efficiency
+    </FONT>RetractNodeFindings_bn (node);
+    EnterNodeValue_bn (node, value);
+    SetNetAutoUpdate_bn (net, saved);
+}
+
+<A name='#GetNodeBelief'></A>
+<FONT COLOR=#006000>/*_______________________________________________________________________ GetNodeBelief
+Like GetNodeBeliefs_bn, but is passed names (C strings) instead,
+  and it returns the belief for a single state.
+*/
+</FONT><FONT COLOR=#ff0000>double </FONT>GetNodeBelief (<FONT COLOR=#ff0000>char</FONT>* node_name, <FONT COLOR=#ff0000>char</FONT>* state_name, net_bn* net){
+    node_bn* node = GetNode (node_name, net);
+    state_bn state = GetStateNamed_bn (state_name, node);
+    <FONT COLOR=#ff0000>const </FONT>prob_bn* beliefs = GetNodeBeliefs_bn (node);
+    <FONT COLOR=#a06000>if </FONT>(!beliefs)  <FONT COLOR=#a06000>return </FONT>UNDEF_DBL;
+    <FONT COLOR=#a06000>return  </FONT>beliefs[state];
+}
+
+<A name='#SetNodeProbs'></A>
+<FONT COLOR=#006000>/*________________________________________________________________________ SetNodeProbs
+This routine is meant to be a more convenient (but slower) version of
+  SetNodeProbs_bn.  Its first argument is the node whose probabilities we are setting.
+  This is followed by the names of the conditioning states of its parents as C strings.
+  Finally comes a list of doubles, being the probabilities for each of the states of
+  the node.
+For example:   SetNodeProbs (Temperature, "Windy", "Low", 0.6, 0.3, 0.1);
+  means that the probability that Temperature is in its first state given that its
+  first parent is in state "Windy" and its second parent is in state "Low" is 0.6, 
+  the probability its in its second state is 0.3, and that its in its third state is 0.1.
+Since the function prototype uses "...", you must be very careful to pass doubles
+  for the probabilities (e.g. passing 0 instead of 0.0 will get you in trouble).
+If time efficiency is critical, and you must set large probability tables,
+  use SetNodeProbs_bn directly instead of this routine.
+___________*/
+
+</FONT><FONT COLOR=#770077>#include &lt;stdarg.h&gt;
+#define ARR_SIZE 20
+
+</FONT><FONT COLOR=#ff0000>void </FONT>SetNodeProbs (node_bn* node, ...){
+    state_bn parent_states[ARR_SIZE];
+    prob_bn probs[ARR_SIZE];
+    <FONT COLOR=#ff0000>char</FONT>* statename;
+    state_bn state, numstates = GetNodeNumberStates_bn (node);
+    <FONT COLOR=#ff0000>const </FONT>nodelist_bn* parents = GetNodeParents_bn (node);
+    <FONT COLOR=#ff0000>int </FONT>pn, numparents = LengthNodeList_bn (parents);
+    va_list ap;
+    <FONT COLOR=#a06000>if </FONT>(numstates &gt; ARR_SIZE || numparents &gt; ARR_SIZE){
+        NewError_ns (env, <FONT COLOR=#0000ff>0</FONT>, XXX_ERR, <FONT COLOR=#0060b0>"SetNodeProbs: Array size defined too small"</FONT>);
+        return;
+    }
+    va_start (ap, node);
+    <FONT COLOR=#a06000>for </FONT>(pn = <FONT COLOR=#0000ff>0</FONT>;  pn &lt; numparents;  ++pn){
+        statename = va_arg (ap, <FONT COLOR=#ff0000>char</FONT>*);
+        <FONT COLOR=#a06000>if </FONT>(statename[<FONT COLOR=#0000ff>0</FONT>] == <FONT COLOR=#0060b0>'*'</FONT>)  parent_states[pn] = EVERY_STATE;
+        <FONT COLOR=#a06000>else </FONT>parent_states[pn] = GetStateNamed_bn (statename, NthNode_bn (parents, pn));
+    }
+    <FONT COLOR=#a06000>for </FONT>(state = <FONT COLOR=#0000ff>0</FONT>;  state &lt; numstates;  ++state)
+        probs[state] = (prob_bn) va_arg (ap, <FONT COLOR=#ff0000>double</FONT>);
+    va_end (ap);
+    SetNodeProbs_bn (node, parent_states, probs);
+}
+
+<FONT COLOR=#ff0000>void </FONT>SetNodeFuncState (node_bn* node, state_bn value, ...){
+    <FONT COLOR=#ff0000>char</FONT>* statename;
+    state_bn parent_states[ARR_SIZE];
+    <FONT COLOR=#ff0000>const </FONT>nodelist_bn* parents = GetNodeParents_bn (node);
+    <FONT COLOR=#ff0000>int </FONT>pn, numparents = LengthNodeList_bn (parents);
+    va_list ap;
+    <FONT COLOR=#a06000>if </FONT>(numparents &gt; ARR_SIZE){
+        NewError_ns (env, <FONT COLOR=#0000ff>0</FONT>, XXX_ERR, <FONT COLOR=#0060b0>"SetNodeFuncState: Array size defined too small"</FONT>);
+        return;
+    }
+    va_start (ap, value);
+    <FONT COLOR=#a06000>for </FONT>(pn = <FONT COLOR=#0000ff>0</FONT>;  pn &lt; numparents;  ++pn){
+        statename = va_arg (ap, <FONT COLOR=#ff0000>char</FONT>*);
+        <FONT COLOR=#a06000>if </FONT>(statename[<FONT COLOR=#0000ff>0</FONT>] == <FONT COLOR=#0060b0>'*'</FONT>)  parent_states[pn] = EVERY_STATE;
+        <FONT COLOR=#a06000>else </FONT>parent_states[pn] = GetStateNamed_bn (statename, NthNode_bn (parents, pn));
+    }
+    va_end (ap);
+    SetNodeFuncState_bn (node, parent_states, value);
+}
+
+<FONT COLOR=#ff0000>void </FONT>SetNodeFuncReal (node_bn* node, <FONT COLOR=#ff0000>double </FONT>value, ...){
+    <FONT COLOR=#ff0000>char</FONT>* statename;
+    state_bn parent_states[ARR_SIZE];
+    <FONT COLOR=#ff0000>const </FONT>nodelist_bn* parents = GetNodeParents_bn (node);
+    <FONT COLOR=#ff0000>int </FONT>pn, numparents = LengthNodeList_bn (parents);
+    va_list ap;
+    <FONT COLOR=#a06000>if </FONT>(numparents &gt; ARR_SIZE){
+        NewError_ns (env, <FONT COLOR=#0000ff>0</FONT>, XXX_ERR, <FONT COLOR=#0060b0>"SetNodeFuncReal: Array size defined too small"</FONT>);
+        return;
+    }
+    va_start (ap, value);
+    <FONT COLOR=#a06000>for </FONT>(pn = <FONT COLOR=#0000ff>0</FONT>;  pn &lt; numparents;  ++pn){
+        statename = va_arg (ap, <FONT COLOR=#ff0000>char</FONT>*);
+        <FONT COLOR=#a06000>if </FONT>(statename[<FONT COLOR=#0000ff>0</FONT>] == <FONT COLOR=#0060b0>'*'</FONT>)  parent_states[pn] = EVERY_STATE;
+        <FONT COLOR=#a06000>else </FONT>parent_states[pn] = GetStateNamed_bn (statename, NthNode_bn (parents, pn));
+    }
+    va_end (ap);
+    SetNodeFuncReal_bn (node, parent_states, value);
+}
+
+<FONT COLOR=#ff0000>void </FONT>SetNodeExper (node_bn* node, <FONT COLOR=#ff0000>double </FONT>value, ...){
+    <FONT COLOR=#ff0000>char</FONT>* statename;
+    state_bn parent_states[ARR_SIZE];
+    <FONT COLOR=#ff0000>const </FONT>nodelist_bn* parents = GetNodeParents_bn (node);
+    <FONT COLOR=#ff0000>int </FONT>pn, numparents = LengthNodeList_bn (parents);
+    va_list ap;
+    <FONT COLOR=#a06000>if </FONT>(numparents &gt; ARR_SIZE){
+        NewError_ns (env, <FONT COLOR=#0000ff>0</FONT>, XXX_ERR, <FONT COLOR=#0060b0>"SetNodeExper: Array size defined too small"</FONT>);
+        return;
+    }
+    va_start (ap, value);
+    <FONT COLOR=#a06000>for </FONT>(pn = <FONT COLOR=#0000ff>0</FONT>;  pn &lt; numparents;  ++pn){
+        statename = va_arg (ap, <FONT COLOR=#ff0000>char</FONT>*);
+        <FONT COLOR=#a06000>if </FONT>(statename[<FONT COLOR=#0000ff>0</FONT>] == <FONT COLOR=#0060b0>'*'</FONT>)  parent_states[pn] = EVERY_STATE;
+        <FONT COLOR=#a06000>else </FONT>parent_states[pn] = GetStateNamed_bn (statename, NthNode_bn (parents, pn));
+    }
+    va_end (ap);
+    SetNodeExperience_bn (node, parent_states, value);
+}
+
+<FONT COLOR=#770077>#undef ARR_SIZE
+
+<A name='#MakeProbsUniform'></A>
+</FONT><FONT COLOR=#006000>/*____________________________________________________________________ MakeProbsUniform
+Gives the passed node a uniform conditional probability distribution
+  (i.e. all the probabilities the same).
+*/
+</FONT><FONT COLOR=#770077>#include &lt;stdlib.h&gt;
+
+</FONT><FONT COLOR=#ff0000>void </FONT>MakeProbsUniform (node_bn* node){
+    <FONT COLOR=#ff0000>int </FONT>st, num_states  = GetNodeNumberStates_bn (node);
+    <FONT COLOR=#ff0000>int </FONT>pn, num_parents = LengthNodeList_bn (GetNodeParents_bn (node));
+    prob_bn*  uniform = (prob_bn*) malloc (num_states  * <FONT COLOR=#a06000>sizeof </FONT>(prob_bn));
+    state_bn* pstates = (state_bn*) malloc (num_parents * <FONT COLOR=#a06000>sizeof </FONT>(state_bn));
+    <FONT COLOR=#a06000>for </FONT>(st = <FONT COLOR=#0000ff>0</FONT>;  st &lt; num_states;  ++st)  uniform[st] = (prob_bn) (<FONT COLOR=#0000ff>1.0 </FONT>/ num_states);
+    <FONT COLOR=#a06000>for </FONT>(pn = <FONT COLOR=#0000ff>0</FONT>;  pn &lt; num_parents; ++pn)  pstates[pn] = EVERY_STATE;
+    SetNodeProbs_bn (node, pstates, uniform);
+    free (uniform);  free (pstates);
+}
+
+<A name='#GetNodeAllProbs'></A>
+<FONT COLOR=#006000>/*_____________________________________________________________________ GetNodeAllProbs
+Puts all the conditional probabilities of 'node' into the array 'probs'.
+If 'node' doesn't have any cond probs, 'probs' will be left unchanged.
+You could allocate 'probs' as follows:
+  int num_entries = SizeCartesianProduct (GetNodeParents_bn (node)) *
+                    GetNodeNumberStates_bn (node)
+  probs = (prob_bn*) malloc (num_entries) * sizeof (prob_bn);
+*/
+</FONT><FONT COLOR=#ff0000>void </FONT>GetNodeAllProbs (node_bn* node, prob_bn* probs, <FONT COLOR=#ff0000>int </FONT>num_entries){
+    <FONT COLOR=#ff0000>const </FONT>prob_bn *prs;
+    <FONT COLOR=#ff0000>int </FONT>i;
+    assert (num_entries == SizeCartesianProduct (GetNodeParents_bn (node)) *
+                           GetNodeNumberStates_bn (node));
+    prs = GetNodeProbs_bn (node, NULL);
+    <FONT COLOR=#a06000>if </FONT>(prs)
+        <FONT COLOR=#a06000>for </FONT>(i = <FONT COLOR=#0000ff>0</FONT>;  i &lt; num_entries;  ++i)  probs[i] = prs[i];
+}
+
+<A name='#NextStates'></A>
+<FONT COLOR=#006000>/*__________________________________________________________________________ NextStates
+STATES is a list of node states, one for each node of NODES.
+This cycles through all possible configurations (i.e. elements of the cartesian
+product) of STATES, odometer style, with the last state changing fastest.
+It returns TRUE when all the configurations have been examined (i.e., when it
+"rolls over" to all zeros again).
+Don't forget to initialize STATES before calling it the first time (usually 
+to all zeros).
+See SizeCartesianProduct to calculate how many iterations will be made.
+*/
+</FONT>bool_ns NextStates (state_bn* states, <FONT COLOR=#ff0000>const </FONT>nodelist_bn* nodes){
+    <FONT COLOR=#ff0000>int </FONT>nn;
+    <FONT COLOR=#a06000>for </FONT>(nn = LengthNodeList_bn (nodes) - <FONT COLOR=#0000ff>1</FONT>;  nn &gt;= <FONT COLOR=#0000ff>0</FONT>;  --nn){
+        <FONT COLOR=#a06000>if </FONT>(++states[nn] &lt; GetNodeNumberStates_bn (NthNode_bn (nodes, nn)))
+            <FONT COLOR=#a06000>return </FONT>FALSE;
+        states[nn] = <FONT COLOR=#0000ff>0</FONT>;
+        }
+    <FONT COLOR=#a06000>return </FONT>TRUE;
+    }
+
+<A name='#PrintNodeList'></A>
+<FONT COLOR=#006000>/*_______________________________________________________________________ PrintNodeList
+Prints out the names of the nodes in the list passed to it.
+You may need to print a newline ('\n') before the writing appears.
+See also NodeListToString.
+*/
+</FONT><FONT COLOR=#ff0000>void </FONT>PrintNodeList (nodelist_bn* nodes){
+    <FONT COLOR=#ff0000>int </FONT>i, numnodes = LengthNodeList_bn (nodes);
+    <FONT COLOR=#a06000>for </FONT>(i = <FONT COLOR=#0000ff>0</FONT>;  i &lt; numnodes;  ++i){
+        <FONT COLOR=#a06000>if </FONT>(i != <FONT COLOR=#0000ff>0</FONT>)  printf (<FONT COLOR=#0060b0>", "</FONT>);
+        printf (<FONT COLOR=#0060b0>"%s"</FONT>, GetNodeName_bn (NthNode_bn (nodes, i)));
+    }
+}
+
+<A name='#FindNodeNamed'></A>
+<FONT COLOR=#006000>/*_______________________________________________________________________ FindNodeNamed
+Returns the index of the node identified by 'name' in the list 'nodes',
+  or -1 if it doesn't appear.
+All of 'nodes' must be in the same net.
+*/
+</FONT><FONT COLOR=#ff0000>int </FONT>FindNodeNamed (<FONT COLOR=#ff0000>const char</FONT>* name, <FONT COLOR=#ff0000>const </FONT>nodelist_bn* nodes){
+    <FONT COLOR=#a06000>if </FONT>(LengthNodeList_bn (nodes) == <FONT COLOR=#0000ff>0</FONT>)  <FONT COLOR=#a06000>return </FONT>-<FONT COLOR=#0000ff>1</FONT>;
+    <FONT COLOR=#a06000>else </FONT>{
+        net_bn* net = GetNodeNet_bn (NthNode_bn (nodes, <FONT COLOR=#0000ff>0</FONT>));
+        node_bn* node = GetNodeNamed_bn (name, net);
+        <FONT COLOR=#a06000>if </FONT>(node == NULL)  <FONT COLOR=#a06000>return </FONT>-<FONT COLOR=#0000ff>1</FONT>;
+        <FONT COLOR=#a06000>return </FONT>IndexOfNodeInList_bn (node, nodes, <FONT COLOR=#0000ff>0</FONT>);
+    }
+}
+
+<A name='#IndexOfNodeInList'></A>
+<FONT COLOR=#006000>/*___________________________________________________________________ IndexOfNodeInList
+Like IndexOfNodeInList_bn, but generates an error if there is not exactly
+  one instance of 'node' in list 'nodes'.
+*/
+</FONT><FONT COLOR=#ff0000>int </FONT>IndexOfNodeInList (<FONT COLOR=#ff0000>const </FONT>node_bn* node, <FONT COLOR=#ff0000>const </FONT>nodelist_bn* nodes){
+    <FONT COLOR=#ff0000>int </FONT>i = IndexOfNodeInList_bn (node, nodes, <FONT COLOR=#0000ff>0</FONT>);
+    <FONT COLOR=#a06000>if </FONT>(i == -<FONT COLOR=#0000ff>1</FONT>)
+        NewError (env, <FONT COLOR=#0000ff>901</FONT>, ERROR_ERR,
+                 <FONT COLOR=#0060b0>"IndexOfNodeInList: There is no node '%s' in the list"</FONT>,
+                 node ? GetNodeName_bn (node) : <FONT COLOR=#0060b0>"null"</FONT>);
+    <FONT COLOR=#a06000>else </FONT>{
+        <FONT COLOR=#ff0000>int </FONT>second = IndexOfNodeInList_bn (node, nodes, i + <FONT COLOR=#0000ff>1</FONT>);
+        <FONT COLOR=#a06000>if </FONT>(second != -<FONT COLOR=#0000ff>1</FONT>)
+            NewError (env, <FONT COLOR=#0000ff>902</FONT>, ERROR_ERR,
+                     <FONT COLOR=#0060b0>"IndexOfNodeInList: There is more than one instance of node '%s' in the list"</FONT>,
+                     node ? GetNodeName_bn (node) : <FONT COLOR=#0060b0>"null"</FONT>);
+    }
+    <FONT COLOR=#a06000>return </FONT>i;
+}
+
+<A name='#RemoveOneNodeFromList'></A>
+<FONT COLOR=#006000>/*_______________________________________________________________ RemoveOneNodeFromList
+Removes 'node' from the list 'nodes'.
+'node' must be in the list, and appear only once, or an error is generated.
+*/
+</FONT><FONT COLOR=#ff0000>void </FONT>RemoveOneNodeFromList (node_bn* node, nodelist_bn* nodes){
+    <FONT COLOR=#ff0000>int </FONT>i = IndexOfNodeInList (node, nodes);
+    RemoveNthNode_bn (nodes, i);
+}
+
+<A name='#RemoveNodeFromListIfThere'></A>
+<FONT COLOR=#006000>/*___________________________________________________________ RemoveNodeFromListIfThere
+Removes the first occurrence of 'node' from the list.
+If 'node' doesn't appear in the list, it does nothing.
+*/
+</FONT><FONT COLOR=#ff0000>void </FONT>RemoveNodeFromListIfThere (node_bn* node, nodelist_bn* nodes){
+    <FONT COLOR=#ff0000>int </FONT>i = IndexOfNodeInList_bn (node, nodes, <FONT COLOR=#0000ff>0</FONT>);
+    <FONT COLOR=#a06000>if </FONT>(i != -<FONT COLOR=#0000ff>1</FONT>) RemoveNthNode_bn (nodes, i);
+}
+
+<A name='#RemoveNthNodeFast'></A>
+<FONT COLOR=#006000>/*___________________________________________________________________ RemoveNthNodeFast
+This achieves the same purpose as RemoveNthNode_bn.
+Since removing the last node is fastest, this will execute
+  more quickly (for long lists), but the order won't be maintained.
+*/
+</FONT><FONT COLOR=#ff0000>void </FONT>RemoveNthNodeFast (<FONT COLOR=#ff0000>int </FONT>index, nodelist_bn* nodes){
+    node_bn* lastnode = RemoveNthNode_bn (nodes, LAST_ENTRY);
+    SetNthNode_bn (nodes, index, lastnode);
+}
+
+<A name='#DeleteLink'></A>
+<FONT COLOR=#006000>/*__________________________________________________________________________ DeleteLink
+Removes the single link from node 'parent' to node 'child'.
+If there is no link from 'parent' to 'child', or more than one, it generates an error.
+See also DeleteLinks (to delete any and all links from 'parent' to 'child').
+*/
+</FONT><FONT COLOR=#ff0000>void </FONT>DeleteLink (node_bn* parent, node_bn* child){
+    <FONT COLOR=#ff0000>int </FONT>pn = IndexOfNodeInList (parent, GetNodeParents_bn (child));
+    DeleteLink_bn (pn, child);
+}
+
+<A name='#DeleteLinksEntering'></A>
+<FONT COLOR=#006000>/*_________________________________________________________________ DeleteLinksEntering
+Removes all links entering the passed node.
+*/
+</FONT><FONT COLOR=#ff0000>void </FONT>DeleteLinksEntering (node_bn* child){
+    <FONT COLOR=#ff0000>int </FONT>pn, num_parents = LengthNodeList_bn (GetNodeParents_bn (child));
+    <FONT COLOR=#a06000>for </FONT>(pn = <FONT COLOR=#0000ff>0</FONT>;  pn &lt; num_parents;  ++pn)
+        DeleteLink_bn (<FONT COLOR=#0000ff>0</FONT>, child);       <FONT COLOR=#006000>/* 0 since indexes change with each deletion */
+</FONT>}
+
+<A name='#SwitchNodeParent'></A>
+<FONT COLOR=#006000>/*____________________________________________________________________ SwitchNodeParent
+Like SwitchNodeParent_bn, but accepts the parent node instead of a
+  link index.
+Switches the link from parent -&gt; child to go from new_parent -&gt; child.
+Assumes there is already exactly one link from parent to child.
+*/
+</FONT><FONT COLOR=#ff0000>void </FONT>SwitchNodeParent (node_bn* parent, node_bn* child, node_bn* new_parent){
+    <FONT COLOR=#ff0000>int </FONT>link_index = IndexOfNodeInList (parent, GetNodeParents_bn (child));
+    SwitchNodeParent_bn (link_index, child, new_parent);
+}
+
+<A name='#DeleteNodes'></A>
+<FONT COLOR=#006000>/*_________________________________________________________________________ DeleteNodes
+Removes all of 'nodes' from their net, and frees them and node list 'nodes'.
+*/
+</FONT><FONT COLOR=#ff0000>void </FONT>DeleteNodes (nodelist_bn* nodes){
+    <FONT COLOR=#ff0000>int </FONT>i, num = LengthNodeList_bn (nodes);
+    <FONT COLOR=#a06000>for </FONT>(i = <FONT COLOR=#0000ff>0</FONT>;  i &lt; num;  ++i){
+        node_bn* node = NthNode_bn (nodes, i);
+        SetNthNode_bn (nodes, i, NULL);             <FONT COLOR=#006000>/* so node list stays legal */
+        </FONT>DeleteNode_bn (node);
+    }
+    DeleteNodeList_bn (nodes);
+}
+
+<A name='#IsLinkDisconnected'></A>
+<FONT COLOR=#006000>/*__________________________________________________________________ IsLinkDisconnected
+Returns whether link 'link_index' entering 'node' is disconnected.
+*/
+</FONT>bool_ns IsLinkDisconnected (<FONT COLOR=#ff0000>int </FONT>link_index, <FONT COLOR=#ff0000>const </FONT>node_bn* node){
+    <FONT COLOR=#ff0000>const </FONT>node_bn* parent = NthNode_bn (GetNodeParents_bn (node), link_index);
+    <FONT COLOR=#a06000>return </FONT>GetNodeKind_bn (parent) == DISCONNECTED_NODE;
+}
+
+<A name='#TransferNodes'></A>
+<FONT COLOR=#006000>/*_______________________________________________________________________ TransferNodes
+This transfers nodes from the net they are in to new_net,
+  and returns a new list of the new nodes in the same order as they
+  appeared in nodes.  The old list is freed.
+In the process each node in nodes is freed, and a new one created,
+  so be sure you don't have any dangling pointers to the old nodes.
+Don't forget to free the nodelist_bn returned when you are done with it.
+*/
+</FONT>nodelist_bn* TransferNodes (nodelist_bn* nodes, net_bn* new_net){
+    <FONT COLOR=#ff0000>int </FONT>nn, num_nodes = LengthNodeList_bn (nodes);
+    nodelist_bn* new_nodes = CopyNodes_bn (nodes, new_net, NULL);
+    <FONT COLOR=#a06000>for </FONT>(nn = <FONT COLOR=#0000ff>0</FONT>;  nn &lt; num_nodes;  ++nn)
+        DeleteNode_bn (NthNode_bn (nodes, nn));
+    DeleteNodeList_bn (nodes);         <FONT COLOR=#006000>/* because its full of invalid pointers */
+    </FONT><FONT COLOR=#a06000>return </FONT>new_nodes;
+}
+
+<A name='#DupNode'></A>
+<FONT COLOR=#006000>/*_____________________________________________________________________________ DupNode
+Handy function to duplicate a single node within its net.
+*/
+</FONT>node_bn* DupNode (node_bn* node){
+    <FONT COLOR=#a06000>return </FONT>DuplicateNode (node, GetNodeNet_bn (node));
+}
+
+<A name='#DuplicateNode'></A>
+<FONT COLOR=#006000>/*_______________________________________________________________________ DuplicateNode
+Handy function to duplicate a single node into a new net.
+*/
+</FONT>node_bn* DuplicateNode (node_bn* node, net_bn* new_net){
+    node_bn* new_node;
+    nodelist_bn *newnodes, *nodes = NewNodeList_bn (<FONT COLOR=#0000ff>1</FONT>, env);
+    SetNthNode_bn (nodes, <FONT COLOR=#0000ff>0</FONT>, node);
+    newnodes = CopyNodes_bn (nodes, new_net, NULL);
+    new_node = NthNode_bn (newnodes, <FONT COLOR=#0000ff>0</FONT>);
+    DeleteNodeList_bn (nodes);
+    DeleteNodeList_bn (newnodes);
+    <FONT COLOR=#a06000>return </FONT>new_node;
+}
+
+<A name='#DuplicateNet'></A>
+<FONT COLOR=#006000>/*________________________________________________________________________ DuplicateNet
+Duplicates a whole net.
+Normally you would use CopyNet_bn for that, but this is useful if you want to
+  customize the code to do something different while duplicating.
+A new name is passed (you could pass GetNetName_bn(net) if you wanted that 
+  duplicated as well).
+It makes the user-data pointer of the new net NULL, but you may want to copy the 
+  pointer or duplicate the data it points to (some pointers within it may have 
+  to be resolved in a similar style as ElimOrder list).
+It doesn't duplicate visual info (node positions, etc.) or user fields.
+Another way to duplicate a net, which will duplicate all fields, is to save the
+  net to file (a stream buffer in memory, for speed), and read it back.
+*/
+</FONT>net_bn* DuplicateNet (net_bn* net, <FONT COLOR=#ff0000>const char</FONT>* newname){
+    nodelist_bn* neworder;
+    net_bn* new_net = NewNet_bn (newname, env);
+    nodelist_bn* new_nodes = CopyNodes_bn (GetNetNodes_bn (net), new_net, NULL);
+
+    neworder = MapNodeList (GetNetElimOrder_bn (net), new_net);
+    SetNetElimOrder_bn (new_net, neworder);
+    DeleteNodeList_bn (neworder);
+
+    DeleteNodeList_bn (new_nodes);
+    SetNetAutoUpdate_bn (new_net, GetNetAutoUpdate_bn (net));
+    SetNetTitle_bn (new_net, GetNetTitle_bn (net));
+    SetNetComment_bn (new_net, GetNetComment_bn (net));
+    <FONT COLOR=#006000>// SetNetUserData_bn (new_net, 0, GetNetUserData_bn (net, 0));      // You may want this behaviour, but it would be different from CopyNet_bn
+    </FONT>SetNetUserData_bn (new_net, <FONT COLOR=#0000ff>0</FONT>, NULL);
+    <FONT COLOR=#a06000>return </FONT>new_net;
+}
+
+<A name='#NetNamed'></A>
+<FONT COLOR=#006000>/*____________________________________________________________________________ NetNamed
+Returns the first net with NAME, if there is one, otherwise NULL.
+*/
+</FONT><FONT COLOR=#770077>#include &lt;string.h&gt;
+
+</FONT>net_bn* NetNamed (<FONT COLOR=#ff0000>const char</FONT>* name){
+    <FONT COLOR=#ff0000>int </FONT>nth = <FONT COLOR=#0000ff>0</FONT>;
+    net_bn* net;
+    <FONT COLOR=#a06000>do </FONT>{
+        net = GetNthNet_bn (nth++, env);
+    } <FONT COLOR=#a06000>while </FONT>(net &amp;&amp; strcmp (name, GetNetName_bn (net)) != <FONT COLOR=#0000ff>0</FONT>);
+    <FONT COLOR=#a06000>return </FONT>net;
+}
+
+<A name='#FormCliqueWith'></A>
+<FONT COLOR=#006000>/*______________________________________________________________________ FormCliqueWith
+Ensures that the next compilation will produce a clique containing all
+  of 'nodes', by adding a single-state node which has 'nodes' as parents.
+This function is useful for the JointProbability_bn function, since that function works
+  much faster if all of its nodes are in the same clique (providing it is going to
+  be called multiple times after compiling, and 'nodes' is a short list).
+This function returns the node added, or NULL only if it wasn't necc to add one.
+  Its effects can be completely undone by calling DeleteNode_bn on the node it returns 
+  (when it returns nonNULL).
+*/
+</FONT>node_bn* FormCliqueWith (<FONT COLOR=#ff0000>const </FONT>nodelist_bn* nodes){
+    net_bn* net;
+    node_bn* new_node;
+    <FONT COLOR=#ff0000>int </FONT>i, num_nodes = LengthNodeList_bn (nodes);
+    <FONT COLOR=#a06000>if </FONT>(num_nodes &lt;= <FONT COLOR=#0000ff>1</FONT>)  <FONT COLOR=#a06000>return </FONT>NULL;
+    net = GetNodeNet_bn (NthNode_bn (nodes, <FONT COLOR=#0000ff>0</FONT>));
+    new_node = NewNode_bn (NULL, <FONT COLOR=#0000ff>1</FONT>, net);
+    <FONT COLOR=#a06000>for </FONT>(i = <FONT COLOR=#0000ff>0</FONT>;  i &lt; num_nodes;  ++i)
+        AddLink_bn (NthNode_bn (nodes, i), new_node);
+    <FONT COLOR=#a06000>return </FONT>new_node;
+}
+
+<A name='#AbsorbNode'></A>
+<FONT COLOR=#006000>/*__________________________________________________________________________ AbsorbNode
+Handy function to absorb a single node.
+*/
+</FONT><FONT COLOR=#ff0000>void </FONT>AbsorbNode (node_bn* node){
+    nodelist_bn* nodes = NewNodeList_bn (<FONT COLOR=#0000ff>1</FONT>, env);
+    SetNthNode_bn (nodes, <FONT COLOR=#0000ff>0</FONT>, node);
+    AbsorbNodes_bn (nodes);
+}
+
+<A name='#DeleteNetTables'></A>
+<FONT COLOR=#006000>/*_____________________________________________________________________ DeleteNetTables
+Removes the CPT and other tables from all nodes in the net.
+*/
+</FONT><FONT COLOR=#ff0000>void </FONT>DeleteNetTables (net_bn* net){
+    <FONT COLOR=#ff0000>int </FONT>n;
+    <FONT COLOR=#ff0000>const </FONT>nodelist_bn *nodes = GetNetNodes_bn (net);
+    <FONT COLOR=#a06000>for </FONT>(n = <FONT COLOR=#0000ff>0</FONT>;  n &lt; LengthNodeList_bn (nodes);  n++)
+        DeleteNodeTables_bn (NthNode_bn (nodes,n));
+}
+
+<A name='#FadeCPTables'></A>
+<FONT COLOR=#006000>/*________________________________________________________________________ FadeCPTables
+The following does the same fading for a list of nodes:
+*/
+</FONT><FONT COLOR=#ff0000>void </FONT>FadeCPTables (<FONT COLOR=#ff0000>const </FONT>nodelist_bn* nodes, <FONT COLOR=#ff0000>double </FONT>degree){
+    <FONT COLOR=#ff0000>int </FONT>nn, num = LengthNodeList_bn (nodes);
+    <FONT COLOR=#a06000>for </FONT>(nn = <FONT COLOR=#0000ff>0</FONT>;  nn &lt; num;  ++nn)
+        FadeCPTable_bn (NthNode_bn (nodes, nn), degree);
+}
+
+<A name='#PrintNeticaVersion'></A>
+<FONT COLOR=#006000>/*__________________________________________________________________ PrintNeticaVersion
+Don't call this routine until the global variable env has been 
+  initialized by a call to NewNeticaEnviron_ns in the normal way.
+*/
+</FONT><FONT COLOR=#ff0000>void </FONT>PrintNeticaVersion (<FONT COLOR=#ff0000>void</FONT>){
+    <FONT COLOR=#ff0000>const char</FONT>* version;
+    GetNeticaVersion_bn (env, &amp;version);
+    printf (<FONT COLOR=#0060b0>"Version of Netica running: %s\n"</FONT>, version);
+}
+
+<A name='#PrintErrors'></A>
+<FONT COLOR=#006000>/*_________________________________________________________________________ PrintErrors
+This prints messages for all the serious errors currently registered with
+  the environment in global variable 'env'.
+*/
+</FONT><FONT COLOR=#ff0000>void </FONT>PrintErrors (<FONT COLOR=#ff0000>void</FONT>){
+    report_ns* error = NULL;
+    <FONT COLOR=#a06000>while </FONT>(<FONT COLOR=#0000ff>1</FONT>) {
+        error = GetError_ns (env, ERROR_ERR, error);
+        <FONT COLOR=#a06000>if </FONT>(!error)  break;
+        printf (<FONT COLOR=#0060b0>"%d - %s\n"</FONT>, (<FONT COLOR=#ff0000>int</FONT>) ErrorNumber_ns (error), ErrorMessage_ns (error));
+    }
+}
+
+<A name='#NewError'></A>
+<FONT COLOR=#006000>/*____________________________________________________________________________ NewError
+Like NewError_ns, but with printf style arguments for the error message.
+You must be very careful that your error message length is limited so that it
+  doesn't run over the declared buffer size, which you may want to make a little
+  bigger or smaller.
+For an example of its use, see the code for the "GetNode" function, in NeticaEx.c.
+*/
+</FONT><FONT COLOR=#770077>#include &lt;stdarg.h&gt;
+
+</FONT>report_ns* NewError (environ_ns* env, <FONT COLOR=#ff0000>int </FONT>number, errseverity_ns severity, <FONT COLOR=#ff0000>const char</FONT>* mesg, ...){
+    va_list ap;
+    <FONT COLOR=#ff0000>char </FONT>buf[<FONT COLOR=#0000ff>400</FONT>];
+    va_start (ap, mesg);
+    vsprintf (buf, mesg, ap);                   <FONT COLOR=#006000>// The below is better, but if your system doesn't have it, use this instead
+    // vsnprintf (buf, sizeof (buf), mesg, ap);
+    </FONT>va_end (ap);
+    <FONT COLOR=#a06000>return  </FONT>NewError_ns (env, number, severity, buf);
+}
+
+<A name='#ClearErrors'></A>
+<FONT COLOR=#006000>/*_________________________________________________________________________ ClearErrors
+Removes and frees all errors recorded with environment env 
+  which are as serious as SEVERITY, or less serious.
+Does the same function as ClearErrors_ns, but is less efficient.
+*/
+</FONT><FONT COLOR=#ff0000>void </FONT>ClearErrors (environ_ns* env, errseverity_ns severity){
+    report_ns* error = NULL;
+    <FONT COLOR=#a06000>while </FONT>(<FONT COLOR=#0000ff>1</FONT>){
+        error = GetError_ns (env, NOTHING_ERR, error);
+        <FONT COLOR=#a06000>if </FONT>(error == NULL)  break;
+        <FONT COLOR=#a06000>if </FONT>(ErrorSeverity_ns (error) &lt;= severity)
+            ClearError_ns (error);
+    }
+}
+
+<A name='#StrLen'></A>
+<FONT COLOR=#006000>/*____________________________________________________________________________ StrLen
+Does the same thing as the ANSI function 'strlen', but returns int.
+*/
+</FONT><FONT COLOR=#ff0000>static int </FONT>StrLen (<FONT COLOR=#ff0000>const char</FONT>* str){
+    size_t n;
+    <FONT COLOR=#ff0000>const char</FONT>* sp = str;
+    <FONT COLOR=#a06000>while </FONT>(*sp) ++sp;
+    n = sp - str;
+    <FONT COLOR=#a06000>if </FONT>(n &gt; INT_MAX)  <FONT COLOR=#a06000>return </FONT>INT_MAX;       <FONT COLOR=#006000>// You may want to throw an error here instead, but in the intended usage, this should not create a problem
+    </FONT><FONT COLOR=#a06000>return </FONT>(<FONT COLOR=#ff0000>int</FONT>)n;                          <FONT COLOR=#006000>// Conversion from size_t to int won't be a problem, because of above check
+    </FONT>}
+
+<A name='#SetNetUserString'></A>
+<FONT COLOR=#006000>/*__________________________________________________________________ SetNetUserString
+*/
+</FONT><FONT COLOR=#ff0000>void </FONT>SetNetUserString (net_bn* node, <FONT COLOR=#ff0000>const char</FONT>* fieldname, <FONT COLOR=#ff0000>const char</FONT>* str){
+    SetNetUserField_bn (node, fieldname, str, StrLen (str), <FONT COLOR=#0000ff>0</FONT>);
+}
+
+<A name='#GetNetUserString'></A>
+<FONT COLOR=#006000>/*__________________________________________________________________ GetNetUserString
+*/
+</FONT><FONT COLOR=#ff0000>const char</FONT>* GetNetUserString (net_bn* net, <FONT COLOR=#ff0000>const char</FONT>* fieldname){
+    <FONT COLOR=#a06000>return </FONT>GetNetUserField_bn (net, fieldname, NULL, <FONT COLOR=#0000ff>0</FONT>);
+}
+
+<A name='#SetNetUserInt'></A>
+<FONT COLOR=#006000>/*____________________________________________________________________ SetNetUserInt
+*/
+</FONT><FONT COLOR=#ff0000>void </FONT>SetNetUserInt (net_bn* net, <FONT COLOR=#ff0000>const char</FONT>* fieldname, <FONT COLOR=#ff0000>int </FONT>num){
+    <FONT COLOR=#ff0000>char </FONT>buf[<FONT COLOR=#0000ff>22</FONT>];
+    sprintf (buf, <FONT COLOR=#0060b0>"%d"</FONT>, (<FONT COLOR=#ff0000>int</FONT>)num);                  <FONT COLOR=#006000>// The below is better, but if your system doesn't have it, use this instead
+//  snprintf (buf, sizeof(buf), "%d", (int)num);
+    </FONT>SetNetUserField_bn (net, fieldname, buf, StrLen (buf), <FONT COLOR=#0000ff>0</FONT>);
+}
+
+<A name='#GetNetUserInt'></A>
+<FONT COLOR=#006000>/*____________________________________________________________________ GetNetUserInt
+*/
+</FONT><FONT COLOR=#ff0000>long </FONT>GetNetUserInt (net_bn* net, <FONT COLOR=#ff0000>const char</FONT>* fieldname){
+    <FONT COLOR=#ff0000>int </FONT>length;
+    <FONT COLOR=#ff0000>const char</FONT>* str = GetNetUserField_bn (net, fieldname, &amp;length, <FONT COLOR=#0000ff>0</FONT>);
+    <FONT COLOR=#a06000>if </FONT>(length == -<FONT COLOR=#0000ff>1</FONT>)
+        NewError (env, <FONT COLOR=#0000ff>903</FONT>, ERROR_ERR,
+                 <FONT COLOR=#0060b0>"GetNetUserInt: There is no user field named '%s' in net '%s'"</FONT>,
+                  fieldname, GetNetName_bn (net));
+    <FONT COLOR=#a06000>else </FONT>{
+        <FONT COLOR=#ff0000>char</FONT>* end;
+        <FONT COLOR=#ff0000>long </FONT>num = strtol (str, &amp;end, <FONT COLOR=#0000ff>10</FONT>);
+        <FONT COLOR=#a06000>if </FONT>(*end != <FONT COLOR=#0000ff>0</FONT>)
+            NewError (env, <FONT COLOR=#0000ff>904</FONT>, ERROR_ERR,
+                     <FONT COLOR=#0060b0>"GetNetUserInt: Field named '%s' of net '%s' was not storing an integer"</FONT>,
+                      fieldname, GetNetName_bn (net));
+        <FONT COLOR=#a06000>else return </FONT>num;
+    }
+    <FONT COLOR=#a06000>return </FONT><FONT COLOR=#0000ff>0</FONT>;
+}
+
+<A name='#SetNetUserNumber'></A>
+<FONT COLOR=#006000>/*_________________________________________________________________ SetNetUserNumber
+*/
+</FONT><FONT COLOR=#ff0000>void </FONT>SetNetUserNumber (net_bn* net, <FONT COLOR=#ff0000>const char</FONT>* fieldname, <FONT COLOR=#ff0000>double </FONT>num){
+    <FONT COLOR=#ff0000>char </FONT>buf[<FONT COLOR=#0000ff>65</FONT>];
+    sprintf (buf, <FONT COLOR=#0060b0>"%g"</FONT>, (<FONT COLOR=#ff0000>double</FONT>)num);                   <FONT COLOR=#006000>// The below is better, but if your system doesn't have it, use this instead
+//  snprintf (buf, sizeof(buf), "%g", (double)num);
+    </FONT>SetNetUserField_bn (net, fieldname, buf, StrLen (buf), <FONT COLOR=#0000ff>0</FONT>);
+}
+
+<A name='#GetNetUserNumber'></A>
+<FONT COLOR=#006000>/*_________________________________________________________________ GetNetUserNumber
+*/
+</FONT><FONT COLOR=#ff0000>double </FONT>GetNetUserNumber (net_bn* net, <FONT COLOR=#ff0000>const char</FONT>* fieldname){
+    <FONT COLOR=#ff0000>int </FONT>length;
+    <FONT COLOR=#ff0000>const char</FONT>* str = GetNetUserField_bn (net, fieldname, &amp;length, <FONT COLOR=#0000ff>0</FONT>);
+    <FONT COLOR=#a06000>if </FONT>(length == -<FONT COLOR=#0000ff>1</FONT>)
+        NewError (env, <FONT COLOR=#0000ff>905</FONT>, ERROR_ERR,
+                 <FONT COLOR=#0060b0>"GetNetUserNumber: There is no user field named '%s' in net '%s'"</FONT>,
+                  fieldname, GetNetName_bn (net));
+    <FONT COLOR=#a06000>else </FONT>{
+        <FONT COLOR=#ff0000>char</FONT>* end;
+        <FONT COLOR=#ff0000>double </FONT>num = strtod (str, &amp;end);
+        <FONT COLOR=#a06000>if </FONT>(*end != <FONT COLOR=#0000ff>0</FONT>)
+            NewError (env, <FONT COLOR=#0000ff>906</FONT>, ERROR_ERR,
+                     <FONT COLOR=#0060b0>"GetNetUserNumber: Field named '%s' of net '%s' was not storing a number"</FONT>,
+                      fieldname, GetNetName_bn (net));
+        <FONT COLOR=#a06000>else return </FONT>num;
+    }
+    <FONT COLOR=#a06000>return </FONT><FONT COLOR=#0000ff>0</FONT>;
+}
+
+<A name='#SetNodeUserString'></A>
+<FONT COLOR=#006000>/*_________________________________________________________________ SetNodeUserString
+*/
+</FONT><FONT COLOR=#ff0000>void </FONT>SetNodeUserString (node_bn* node, <FONT COLOR=#ff0000>const char</FONT>* fieldname, <FONT COLOR=#ff0000>const char</FONT>* str){
+    SetNodeUserField_bn (node, fieldname, str, StrLen (str), <FONT COLOR=#0000ff>0</FONT>);
+}
+
+<A name='#GetNodeUserString'></A>
+<FONT COLOR=#006000>/*_________________________________________________________________ GetNodeUserString
+*/
+</FONT><FONT COLOR=#ff0000>const char</FONT>* GetNodeUserString (node_bn* node, <FONT COLOR=#ff0000>const char</FONT>* fieldname){
+    <FONT COLOR=#a06000>return </FONT>GetNodeUserField_bn (node, fieldname, NULL, <FONT COLOR=#0000ff>0</FONT>);
+}
+
+<A name='#SetNodeUserInt'></A>
+<FONT COLOR=#006000>/*____________________________________________________________________ SetNodeUserInt
+*/
+</FONT><FONT COLOR=#ff0000>void </FONT>SetNodeUserInt (node_bn* node, <FONT COLOR=#ff0000>const char</FONT>* fieldname, <FONT COLOR=#ff0000>int </FONT>num){
+    <FONT COLOR=#ff0000>char </FONT>buf[<FONT COLOR=#0000ff>22</FONT>];
+    sprintf (buf, <FONT COLOR=#0060b0>"%d"</FONT>, (<FONT COLOR=#ff0000>int</FONT>)num);                  <FONT COLOR=#006000>// The below is better, but if your system doesn't have it, use this instead
+//  snprintf (buf, sizeof(buf), "%d", (int)num);
+    </FONT>SetNodeUserField_bn (node, fieldname, buf, StrLen (buf), <FONT COLOR=#0000ff>0</FONT>);
+}
+
+<A name='#GetNodeUserInt'></A>
+<FONT COLOR=#006000>/*____________________________________________________________________ GetNodeUserInt
+*/
+</FONT><FONT COLOR=#ff0000>long </FONT>GetNodeUserInt (node_bn* node, <FONT COLOR=#ff0000>const char</FONT>* fieldname){
+    <FONT COLOR=#ff0000>int </FONT>length;
+    <FONT COLOR=#ff0000>const char</FONT>* str = GetNodeUserField_bn (node, fieldname, &amp;length, <FONT COLOR=#0000ff>0</FONT>);
+    <FONT COLOR=#a06000>if </FONT>(length == -<FONT COLOR=#0000ff>1</FONT>)
+        NewError (env, <FONT COLOR=#0000ff>903</FONT>, ERROR_ERR,
+                 <FONT COLOR=#0060b0>"GetNodeUserInt: There is no user field named '%s' in node '%s'"</FONT>,
+                  fieldname, GetNodeName_bn (node));
+    <FONT COLOR=#a06000>else </FONT>{
+        <FONT COLOR=#ff0000>char</FONT>* end;
+        <FONT COLOR=#ff0000>long </FONT>num = strtol (str, &amp;end, <FONT COLOR=#0000ff>10</FONT>);
+        <FONT COLOR=#a06000>if </FONT>(*end != <FONT COLOR=#0000ff>0</FONT>)
+            NewError (env, <FONT COLOR=#0000ff>904</FONT>, ERROR_ERR,
+                     <FONT COLOR=#0060b0>"GetNodeUserInt: Field named '%s' of node '%s' was not storing an integer"</FONT>,
+                      fieldname, GetNodeName_bn (node));
+        <FONT COLOR=#a06000>else return </FONT>num;
+    }
+    <FONT COLOR=#a06000>return </FONT><FONT COLOR=#0000ff>0</FONT>;
+}
+
+<A name='#SetNodeUserNumber'></A>
+<FONT COLOR=#006000>/*_________________________________________________________________ SetNodeUserNumber
+*/
+</FONT><FONT COLOR=#ff0000>void </FONT>SetNodeUserNumber (node_bn* node, <FONT COLOR=#ff0000>const char</FONT>* fieldname, <FONT COLOR=#ff0000>double </FONT>num){
+    <FONT COLOR=#ff0000>char </FONT>buf[<FONT COLOR=#0000ff>65</FONT>];
+    sprintf (buf, <FONT COLOR=#0060b0>"%g"</FONT>, (<FONT COLOR=#ff0000>double</FONT>)num);                   <FONT COLOR=#006000>// The below is better, but if your system doesn't have it, use this instead
+//  snprintf (buf, sizeof(buf), "%g", (double)num);
+    </FONT>SetNodeUserField_bn (node, fieldname, buf, StrLen (buf), <FONT COLOR=#0000ff>0</FONT>);
+}
+
+<A name='#GetNodeUserNumber'></A>
+<FONT COLOR=#006000>/*_________________________________________________________________ GetNodeUserNumber
+*/
+</FONT><FONT COLOR=#ff0000>double </FONT>GetNodeUserNumber (node_bn* node, <FONT COLOR=#ff0000>const char</FONT>* fieldname){
+    <FONT COLOR=#ff0000>int </FONT>length;
+    <FONT COLOR=#ff0000>const char</FONT>* str = GetNodeUserField_bn (node, fieldname, &amp;length, <FONT COLOR=#0000ff>0</FONT>);
+    <FONT COLOR=#a06000>if </FONT>(length == -<FONT COLOR=#0000ff>1</FONT>)
+        NewError (env, <FONT COLOR=#0000ff>905</FONT>, ERROR_ERR,
+                 <FONT COLOR=#0060b0>"GetNodeUserNumber: There is no user field named '%s' in node '%s'"</FONT>,
+                  fieldname, GetNodeName_bn (node));
+    <FONT COLOR=#a06000>else </FONT>{
+        <FONT COLOR=#ff0000>char</FONT>* end;
+        <FONT COLOR=#ff0000>double </FONT>num = strtod (str, &amp;end);
+        <FONT COLOR=#a06000>if </FONT>(*end != <FONT COLOR=#0000ff>0</FONT>)
+            NewError (env, <FONT COLOR=#0000ff>906</FONT>, ERROR_ERR,
+                     <FONT COLOR=#0060b0>"GetNodeUserNumber: Field named '%s' of node '%s' was not storing a number"</FONT>,
+                      fieldname, GetNodeName_bn (node));
+        <FONT COLOR=#a06000>else return </FONT>num;
+    }
+    <FONT COLOR=#a06000>return </FONT><FONT COLOR=#0000ff>0</FONT>;
+}
+
+<A name='#PrintConfusionMatrix'></A>
+<FONT COLOR=#006000>/*_____________________________________________________________ PrintConfusionMatrix
+Prints a confusion matrix table.  Use after a tester_bn has run its tests.
+
+Sample output:
+Confusion matrix for Cancer:
+        Present  Absent   Actual
+        11       1        Present
+        4        184      Absent
+*/
+</FONT><FONT COLOR=#ff0000>void </FONT>PrintConfusionMatrix (tester_bn* tester, node_bn* node){
+    <FONT COLOR=#ff0000>int </FONT>i,a,p;
+    <FONT COLOR=#ff0000>int </FONT>numstates = GetNodeNumberStates_bn (node);
+    printf (<FONT COLOR=#0060b0>"Confusion matrix for %s:\n"</FONT>, GetNodeName_bn (node));
+    <FONT COLOR=#a06000>for </FONT>(i=0;  i &lt; numstates;  ++i)
+        printf (<FONT COLOR=#0060b0>"\t %10s"</FONT>, GetNodeStateName_bn (node, i));
+    printf (<FONT COLOR=#0060b0>"\t Actual\n"</FONT>);
+    <FONT COLOR=#a06000>for </FONT>(a=0;  a &lt; numstates;  ++a){
+        <FONT COLOR=#a06000>for </FONT>(p=0;  p &lt; numstates;  ++p)
+            printf (<FONT COLOR=#0060b0>"\t %10d"</FONT>, (<FONT COLOR=#ff0000>int</FONT>) GetTestConfusion_bn (tester, node, p, a));
+        printf (<FONT COLOR=#0060b0>"\t %s\n"</FONT>, GetNodeStateName_bn (node, a));
+    }
+    printf (<FONT COLOR=#0060b0>"\n"</FONT>);
+}
+
+
+<FONT COLOR=#006000>/*======================= NOT IN REFERENCE MANUAL ========================*/
+
+
+<A name='#CopyNodeRelation_bn'></A>
+/*________________________________________________________________ CopyNodeRelation_bn
+Copies the probability relation of node 'src' into node 'dest'.
+src and dest must have compatible parents (e.g. same number of states), but perhaps in 
+  a different order.  parent_order_dest consists of parents of src, but in the order of
+  equivalent parents of dest.  If the parents of src and dest are in the same order,
+  just call it as:   CopyNodeRelation_bn (dest, src, GetNodeParents_bn (src));
+src and dest do not need to be in the same net.
+*/
+</FONT><FONT COLOR=#ff0000>void </FONT>CopyNodeRelation_bn (node_bn* dest, <FONT COLOR=#ff0000>const </FONT>node_bn* src, <FONT COLOR=#ff0000>const </FONT>nodelist_bn* parent_order_dest){
+    <FONT COLOR=#ff0000>const </FONT>nodelist_bn* src_parents = GetNodeParents_bn (src);
+    <FONT COLOR=#ff0000>int </FONT>num_parents = LengthNodeList_bn (src_parents);
+    state_bn* src_states = (state_bn*) calloc (num_parents, <FONT COLOR=#a06000>sizeof </FONT>(state_bn));
+    state_bn* dest_states = (state_bn*) calloc (num_parents, <FONT COLOR=#a06000>sizeof </FONT>(state_bn));
+    <FONT COLOR=#a06000>while </FONT>(<FONT COLOR=#0000ff>1</FONT>){
+        <FONT COLOR=#ff0000>const </FONT>prob_bn* probs = GetNodeProbs_bn (src, src_states);
+        SetNodeProbs_bn (dest, dest_states, probs);
+        <FONT COLOR=#a06000>if </FONT>(NextStates (src_states, src_parents))  break;
+        MapStateList_bn (src_states, src_parents, dest_states, parent_order_dest);
+        <FONT COLOR=#a06000>if </FONT>(GetError_ns (env, ERROR_ERR, NULL))  break;
+    }
+    free (src_states);
+    free (dest_states);
+}
+
+<A name='#MultiDimnIndex'></A>
+<FONT COLOR=#006000>/*______________________________________________________________________ MultiDimnIndex
+int multidimn_index (const state_bn states[], const nodelist_bn* nodes){
+    int numnodes = LengthNodeList_bn (nodes);
+    if (numnodes == 0)  return 0;               // or below will fail
+    int index = *states++;
+    bndlist afterfirst (const_cast&lt;bnode**&gt; (nodes.getArr()) + 1, nodes.num() - 1);
+    SCAN_VEC (bndlist, bndp, afterfirst){
+        index = index * (*bndp)-&gt;var.numstates + *states++;
+        }
+    return index;
+    }
+*/
+
+</FONT><FONT COLOR=#ff0000>int </FONT>MultiDimnIndex (<FONT COLOR=#ff0000>const </FONT>state_bn states[], <FONT COLOR=#ff0000>const </FONT>nodelist_bn* nodes){
+    <FONT COLOR=#ff0000>int </FONT>index = <FONT COLOR=#0000ff>0</FONT>;
+    <FONT COLOR=#ff0000>int </FONT>numnodes = LengthNodeList_bn (nodes);
+    <FONT COLOR=#ff0000>int </FONT>i;
+    <FONT COLOR=#a06000>for </FONT>( i = <FONT COLOR=#0000ff>0</FONT>;  i &lt; numnodes;  i++){
+        node_bn* node = NthNode_bn (nodes, i);
+        index = index * GetNodeNumberStates_bn (node) + *states++;  <FONT COLOR=#006000>/* Borland C++ 5.0 erroneosly says this is a const violation */
+        </FONT>}
+    <FONT COLOR=#a06000>return </FONT>index;
+    }
+
+<A name='#SizeCartesianProduct'></A>
+<FONT COLOR=#006000>/*________________________________________________________________ SizeCartesianProduct
+Returns the size of the cartesian product of the states of nodes,
+  or 0 if one of nodes is continuous and not discretized.
+Returns DBL_MAX if the size is greater than DBL_MAX (this type of overflow is not
+  uncommon, since the values returned can be very large).
+See NextStates to scan through them odometer style.
+*/
+</FONT><FONT COLOR=#770077>#include &lt;float.h&gt;
+
+</FONT><FONT COLOR=#ff0000>double </FONT>SizeCartesianProduct (<FONT COLOR=#ff0000>const </FONT>nodelist_bn* nodes){
+    <FONT COLOR=#ff0000>double </FONT>size = <FONT COLOR=#0000ff>1</FONT>;
+    <FONT COLOR=#ff0000>int </FONT>nn;
+    <FONT COLOR=#a06000>for </FONT>(nn = <FONT COLOR=#0000ff>0</FONT>;  nn &lt; LengthNodeList_bn (nodes);  ++nn){
+        <FONT COLOR=#ff0000>int </FONT>num_states = GetNodeNumberStates_bn (NthNode_bn (nodes, nn));
+        <FONT COLOR=#a06000>if </FONT>(num_states == <FONT COLOR=#0000ff>0</FONT>)  <FONT COLOR=#a06000>return </FONT><FONT COLOR=#0000ff>0</FONT>;
+        <FONT COLOR=#a06000>if </FONT>(num_states + <FONT COLOR=#0000ff>1 </FONT>&gt; DBL_MAX / size)  <FONT COLOR=#a06000>return </FONT>DBL_MAX;
+        size *= num_states;
+        }
+    <FONT COLOR=#a06000>return </FONT>size;
+}
+
+<A name='#MapNode ___ MapNodeList'></A>
+<FONT COLOR=#006000>/*_____________________________________________________________ MapNode ___ MapNodeList
+Returns the node from net DEST_NET which is equivalent to NODE passed.
+Equivalency is determined by the nodes having the same name.
+This routine may seem like an inefficient way to map nodes, but since GetNodeNamed_bn
+  uses a hashing table, it scales okay to large networks.
+MapNodeList does the same thing for a whole list of nodes.  Don't forget to free the
+  node list it returns.
+*/
+</FONT>node_bn* MapNode (<FONT COLOR=#ff0000>const </FONT>node_bn* node, <FONT COLOR=#ff0000>const </FONT>net_bn* dest_net){
+    <FONT COLOR=#a06000>return </FONT>GetNodeNamed_bn (GetNodeName_bn (node), dest_net);
+}
+
+nodelist_bn* MapNodeList (<FONT COLOR=#ff0000>const </FONT>nodelist_bn* nodes, <FONT COLOR=#ff0000>const </FONT>net_bn* dest_net){
+    node_bn* oldnode,* newnode;
+    nodelist_bn* new_nodes;
+    <FONT COLOR=#ff0000>int </FONT>nn, numnodes = LengthNodeList_bn (nodes);
+    <FONT COLOR=#a06000>if </FONT>(nodes == NULL)  <FONT COLOR=#a06000>return </FONT>NULL;
+    new_nodes = NewNodeList_bn (numnodes, env);
+    <FONT COLOR=#a06000>for </FONT>(nn = <FONT COLOR=#0000ff>0</FONT>;  nn &lt; numnodes;  ++nn){
+        oldnode = NthNode_bn (nodes, nn);
+        newnode = GetNodeNamed_bn (GetNodeName_bn (oldnode), dest_net);
+        SetNthNode_bn (new_nodes, nn, newnode);
+    }
+    <FONT COLOR=#a06000>return </FONT>new_nodes;
+}
+
+<A name='#MapNodeList1'></A>
+<FONT COLOR=#006000>/*________________________________________________________________________ MapNodeList1
+This does the same sort of thing as MapNodeList, but defines the mapping
+  in terms of 2 matching lists of nodes, rather than identical node names in different
+  networks.  It is useful when the names of matching nodes might be different 
+  (e.g. duplicating into a net which already has nodes with the same names), 
+  or when duplicating within one net.
+WARNING: This modifies the user-data slots, so if you are already using them, you
+  should change this routine to just use a field of the structure you have at each 
+  node's user-data slot.
+To compare with MapNodeList, see how DuplicateNet uses that routine, and compare with:
+
+net_bn* DuplicateNet (net_bn* net, const char* newname){
+    nodelist_bn* neworder;
+    net_bn* new_net = NewNet_bn (newname, env);
+    const nodelist_bn* oldnodes = GetNetNodes_bn (net);
+    nodelist_bn* newnodes = CopyNodes_bn (oldnodes, new_net, NULL);
+
+    neworder = MapNodeList1 (GetNetElimOrder_bn (net), oldnodes, newnodes);
+    SetNetElimOrder_bn (new_net, neworder);
+    DeleteNodeList_bn (neworder);
+    ...
+____________*/
+
+</FONT>nodelist_bn* MapNodeList1 (<FONT COLOR=#ff0000>const </FONT>nodelist_bn* nodes, <FONT COLOR=#ff0000>const </FONT>nodelist_bn* src_nodes, <FONT COLOR=#ff0000>const </FONT>nodelist_bn* dest_nodes){
+    nodelist_bn* new_nodes;
+    <FONT COLOR=#ff0000>int </FONT>nn, numnodes = LengthNodeList_bn (src_nodes);
+    <FONT COLOR=#a06000>if </FONT>(nodes == NULL)  <FONT COLOR=#a06000>return </FONT>NULL;
+    <FONT COLOR=#a06000>for </FONT>(nn = <FONT COLOR=#0000ff>0</FONT>;  nn &lt; numnodes;  ++nn)
+        SetNodeUserData_bn (NthNode_bn (src_nodes, nn), <FONT COLOR=#0000ff>0</FONT>, NthNode_bn (dest_nodes, nn));    <FONT COLOR=#006000>/* src_nodes[nn].userptr = dest_nodes[nn]  */
+    </FONT>numnodes = LengthNodeList_bn (nodes);
+    new_nodes = NewNodeList_bn (numnodes, env);
+    <FONT COLOR=#a06000>for </FONT>(nn = <FONT COLOR=#0000ff>0</FONT>;  nn &lt; numnodes;  ++nn)
+        SetNthNode_bn (new_nodes, nn, (node_bn*) GetNodeUserData_bn (NthNode_bn (nodes, nn), <FONT COLOR=#0000ff>0</FONT>));      <FONT COLOR=#006000>/* new_nodes[nn] = nodes[nn].userptr  */
+    </FONT><FONT COLOR=#a06000>return </FONT>new_nodes;
+}
+
+<A name='#DeleteLinks'></A>
+<FONT COLOR=#006000>/*_________________________________________________________________________ DeleteLinks
+Removes all links from node 'parent' to node 'child' (usually there is
+  only 0 or 1 link).
+It iterates backwards through the list of parents, since each time a link is removed,
+  the indexes of all the links following it changes.
+See also DeleteLink (for when it is known there is exactly one).
+*/
+</FONT><FONT COLOR=#ff0000>void </FONT>DeleteLinks (node_bn* parent, node_bn* child){
+    <FONT COLOR=#a06000>while </FONT>(<FONT COLOR=#0000ff>1</FONT>){
+        <FONT COLOR=#ff0000>const </FONT>nodelist_bn* parents = GetNodeParents_bn (child);
+        <FONT COLOR=#ff0000>int </FONT>pn = IndexOfNodeInList_bn (parent, parents, <FONT COLOR=#0000ff>0</FONT>);
+        <FONT COLOR=#a06000>if </FONT>(pn == -<FONT COLOR=#0000ff>1</FONT>) break;
+        DeleteLink_bn (pn, child);
+    }
+}
+
+<A name='#DisconnectNodeGroup'></A>
+<FONT COLOR=#006000>/*_________________________________________________________________ DisconnectNodeGroup
+This disconnects a group of nodes from the rest of the net,
+  without removing any of the links between members of the group,
+  and returns a new list of the new nodes in the same order as they
+  appeared in nodes.  The old list nodes is freed.
+In the process each node in nodes is freed, and a new one created,
+  so be sure you don't have any dangling pointers to the old nodes.
+It uses TransferNodes, which is defined in the example above.
+*/
+</FONT>nodelist_bn* DisconnectNodeGroup (nodelist_bn* nodes){
+    net_bn* net,* scratch_net;
+    nodelist_bn* new_nodes;
+    <FONT COLOR=#ff0000>int </FONT>num_nodes = LengthNodeList_bn (nodes);
+    <FONT COLOR=#a06000>if </FONT>(num_nodes == <FONT COLOR=#0000ff>0</FONT>)  <FONT COLOR=#a06000>return </FONT>nodes;     <FONT COLOR=#006000>/* otherwise next line will fail */
+    </FONT>net = GetNodeNet_bn (NthNode_bn (nodes, <FONT COLOR=#0000ff>0</FONT>));
+    scratch_net = NewNet_bn (<FONT COLOR=#0060b0>"temp"</FONT>, env);
+    new_nodes = TransferNodes (nodes, scratch_net);
+    new_nodes = TransferNodes (new_nodes, net);
+    DeleteNodeList_bn (nodes);               <FONT COLOR=#006000>/* because its full of invalid pointers */
+    </FONT>DeleteNet_bn (scratch_net);
+    <FONT COLOR=#a06000>return </FONT>new_nodes;
+}
+
+<A name='#NodeListToString'></A>
+<FONT COLOR=#006000>/*____________________________________________________________________ NodeListToString
+Returns a freshly allocated, null terminated, C char string containing
+  the names of all the nodes in the passed list, separated by commas.
+This may be useful during development / debugging.
+Don't forget to free the string returned, using 'free'.
+See also PrintNodeList.
+*/
+</FONT><FONT COLOR=#770077>#include &lt;string.h&gt;
+
+</FONT><FONT COLOR=#ff0000>char</FONT>* NodeListToString (<FONT COLOR=#ff0000>const </FONT>nodelist_bn* nodes){
+    <FONT COLOR=#ff0000>int </FONT>nn, num_nodes = LengthNodeList_bn (nodes);
+    <FONT COLOR=#ff0000>char</FONT>* str = (<FONT COLOR=#ff0000>char</FONT>*) malloc (num_nodes * (NAME_MAX_ns + <FONT COLOR=#0000ff>2</FONT>) + <FONT COLOR=#0000ff>1</FONT>);
+    <FONT COLOR=#ff0000>char</FONT>* pstr = str;
+    <FONT COLOR=#a06000>if </FONT>(str == NULL)  <FONT COLOR=#a06000>return </FONT>NULL;                           <FONT COLOR=#006000>/* out of memory */
+    </FONT><FONT COLOR=#a06000>for </FONT>(nn = <FONT COLOR=#0000ff>0</FONT>;  nn &lt; num_nodes;  ++nn){
+        <FONT COLOR=#a06000>if </FONT>(NthNode_bn (nodes, nn) != NULL){
+            <FONT COLOR=#ff0000>const char</FONT>* node_name = GetNodeName_bn (NthNode_bn (nodes, nn));
+            strcpy (pstr, node_name);
+            pstr += strlen (node_name);
+            }
+        <FONT COLOR=#a06000>if </FONT>(nn &lt; num_nodes - <FONT COLOR=#0000ff>1</FONT>)  {*pstr++ = <FONT COLOR=#0060b0>','</FONT>;  *pstr++ = <FONT COLOR=#0060b0>' '</FONT>;}
+        }
+    *pstr = <FONT COLOR=#0060b0>'\0'</FONT>;                                           <FONT COLOR=#006000>/* null terminate */
+    </FONT><FONT COLOR=#a06000>return </FONT>str;
+}
+
+<A name='#CountCasesInFile'></A>
+<FONT COLOR=#006000>/*____________________________________________________________________ CountCasesInFile
+Counts the number of cases in a case file.
+This is not very efficient; if you just needed the number of cases it would be better
+  to just count the number of relevant lines in the file.  However, if you wanted to 
+  filter out some cases, or count categories of cases, this will make a good template.
+*/
+</FONT><FONT COLOR=#ff0000>long </FONT>CountCasesInFile (stream_ns* casefile){
+    nodelist_bn* empty_nodes = NewNodeList_bn (<FONT COLOR=#0000ff>0</FONT>, env);
+    <FONT COLOR=#ff0000>long </FONT>numcases = <FONT COLOR=#0000ff>0</FONT>;
+    caseposn_bn caseposn = FIRST_CASE;
+    <FONT COLOR=#a06000>while </FONT>(<FONT COLOR=#0000ff>1</FONT>){
+        ReadNetFindings_bn (&amp;caseposn, casefile, empty_nodes, NULL, NULL);
+        <FONT COLOR=#a06000>if </FONT>(caseposn == NO_MORE_CASES)  break;
+        <FONT COLOR=#a06000>if </FONT>(GetError_ns (env, ERROR_ERR, NULL))  break;
+        ++numcases;
+        caseposn = NEXT_CASE;
+    }
+    DeleteNodeList_bn (empty_nodes);
+    <FONT COLOR=#a06000>return </FONT>numcases;
+}
+
+<A name='#RemoveUnusedStates'></A>
+<FONT COLOR=#006000>/*__________________________________________________________________ RemoveUnusedStates
+Removes from NODE those states that have zero probability of occuring,
+  according to the CPT of NODE.
+Returns the number of states removed.
+Note: Some other states may have zero probability of occuring if the rest of the
+  net indicates it.
+*/
+</FONT><FONT COLOR=#ff0000>int </FONT>RemoveUnusedStates (node_bn* node){
+    <FONT COLOR=#ff0000>int </FONT>num_states  = GetNodeNumberStates_bn (node);
+    <FONT COLOR=#ff0000>int </FONT>num_parents = LengthNodeList_bn (GetNodeParents_bn (node));
+    <FONT COLOR=#ff0000>int </FONT>num_zero = num_states;
+    state_bn st, *parent_states = (state_bn*) calloc (num_parents, <FONT COLOR=#a06000>sizeof </FONT>(state_bn));
+    <FONT COLOR=#ff0000>int</FONT>* nonzero_states = (<FONT COLOR=#ff0000>int</FONT>*) calloc (num_states, <FONT COLOR=#a06000>sizeof </FONT>(<FONT COLOR=#ff0000>int</FONT>));
+    <FONT COLOR=#a06000>while </FONT>(<FONT COLOR=#0000ff>1</FONT>){
+        <FONT COLOR=#ff0000>const </FONT>prob_bn* probs = GetNodeProbs_bn (node, parent_states);
+        <FONT COLOR=#a06000>if </FONT>(!probs)  break;
+        <FONT COLOR=#a06000>for </FONT>(st = <FONT COLOR=#0000ff>0</FONT>;  st &lt; num_states;  ++st)
+            <FONT COLOR=#a06000>if </FONT>(nonzero_states[st] == <FONT COLOR=#0000ff>0  </FONT>&amp;&amp;  probs[st] != <FONT COLOR=#0000ff>0</FONT>){
+                nonzero_states[st] = <FONT COLOR=#0000ff>1</FONT>;
+                --num_zero;
+            }
+        <FONT COLOR=#a06000>if </FONT>(num_zero == <FONT COLOR=#0000ff>0</FONT>)  break;      <FONT COLOR=#006000>/* quit early, because there aren't any */
+        </FONT><FONT COLOR=#a06000>if </FONT>(NextStates (parent_states, GetNodeParents_bn (node)))  break;
+        <FONT COLOR=#a06000>if </FONT>(GetError_ns (env, ERROR_ERR, NULL))  break;
+    }
+    <FONT COLOR=#a06000>for </FONT>(st = num_states - <FONT COLOR=#0000ff>1</FONT>;  st &gt;= <FONT COLOR=#0000ff>0</FONT>;  --st)
+        <FONT COLOR=#a06000>if </FONT>(nonzero_states[st] == <FONT COLOR=#0000ff>0</FONT>)
+            RemoveNodeState_bn (node, st);
+    free (parent_states);
+    free (nonzero_states);
+    <FONT COLOR=#a06000>return </FONT>num_zero;
+}
+
+<A name='#MakeInverseOrdering'></A>
+<FONT COLOR=#006000>/*__________________________________________________________________ MakeInverseOrdering
+Given ORDER, a permutation array, this creates the inverse order:
+  invorder[order[i]] = i
+Useful to use with ReorderNodeStates_bn.
+*/
+</FONT><FONT COLOR=#ff0000>int</FONT>* MakeInverseOrdering (<FONT COLOR=#ff0000>const int </FONT>order[], <FONT COLOR=#ff0000>int </FONT>num, <FONT COLOR=#ff0000>int </FONT>invorder[]){
+    <FONT COLOR=#ff0000>int </FONT>i;
+    <FONT COLOR=#a06000>for </FONT>(i = <FONT COLOR=#0000ff>0</FONT>;  i &lt; num;  ++i)  invorder[i] = -<FONT COLOR=#0000ff>1</FONT>;      <FONT COLOR=#006000>/* to help catch missing entries in order */
+    </FONT><FONT COLOR=#a06000>for </FONT>(i = <FONT COLOR=#0000ff>0</FONT>;  i &lt; num;  ++i)  invorder[order[i]] = i;
+    <FONT COLOR=#a06000>return </FONT>invorder;
+    }
+
+
+<FONT COLOR=#006000>/*=============================== OBSOLETE =================================*/
+
+
+<A name='#SetNodeStateNames'></A>
+/*___________________________________________________________________ SetNodeStateNames
+
+OBSOLETE - New software should use SetNodeStateNames_bn instead of this.
+
+This wraps several calls to SetNodeStateName_bn into one.
+For instance to give the node 'Weather' its 3 state names you could call:
+
+    SetNodeStateNames (Weather, "sunny", "cloudy", "rainy");
+*/
+</FONT><FONT COLOR=#770077>#include &lt;stdarg.h&gt;
+
+</FONT><FONT COLOR=#ff0000>void </FONT>SetNodeStateNames (node_bn* node, ...){
+    state_bn state, numstates = GetNodeNumberStates_bn (node);
+    va_list ap;
+    va_start (ap, node);
+    <FONT COLOR=#a06000>for </FONT>(state = <FONT COLOR=#0000ff>0</FONT>;  state &lt; numstates;  ++state)
+        SetNodeStateName_bn (node, state, va_arg (ap, <FONT COLOR=#ff0000>char</FONT>*));
+    va_end (ap);
+}
+
+<A name='#SetNodeFuncValue'></A>
+<FONT COLOR=#006000>/*____________________________________________________________________ SetNodeFuncValue
+OBSOLETE - New software should use SetNodeFuncState or SetNodeFuncReal.
+*/
+</FONT><FONT COLOR=#770077>#define ARR_SIZE 20
+
+</FONT><FONT COLOR=#ff0000>void </FONT>SetNodeFuncValue (node_bn* node, <FONT COLOR=#ff0000>double </FONT>value, ...){
+    <FONT COLOR=#ff0000>char</FONT>* statename;
+    state_bn parent_states[ARR_SIZE];
+    <FONT COLOR=#ff0000>const </FONT>nodelist_bn* parents = GetNodeParents_bn (node);
+    <FONT COLOR=#ff0000>int </FONT>pn, numparents = LengthNodeList_bn (parents);
+    va_list ap;
+    <FONT COLOR=#a06000>if </FONT>(numparents &gt; ARR_SIZE){
+        NewError_ns (env, <FONT COLOR=#0000ff>0</FONT>, XXX_ERR, <FONT COLOR=#0060b0>"SetNodeFuncValue: Array size defined too small"</FONT>);
+        return;
+    }
+    va_start (ap, value);
+    <FONT COLOR=#a06000>for </FONT>(pn = <FONT COLOR=#0000ff>0</FONT>;  pn &lt; numparents;  ++pn){
+        statename = va_arg (ap, <FONT COLOR=#ff0000>char</FONT>*);
+        <FONT COLOR=#a06000>if </FONT>(statename[<FONT COLOR=#0000ff>0</FONT>] == <FONT COLOR=#0060b0>'*'</FONT>)  parent_states[pn] = EVERY_STATE;
+        <FONT COLOR=#a06000>else </FONT>parent_states[pn] = GetStateNamed_bn (statename, NthNode_bn (parents, pn));
+    }
+    va_end (ap);
+    <FONT COLOR=#a06000>if </FONT>(GetNodeType_bn (node) == DISCRETE_TYPE)
+         SetNodeFuncState_bn (node, parent_states, (<FONT COLOR=#ff0000>int</FONT>)value);
+    <FONT COLOR=#a06000>else </FONT>SetNodeFuncReal_bn  (node, parent_states, value);
+}
+<FONT COLOR=#770077>#undef ARR_SIZE
+
+<A name='#ExpectedValue'></A>
+</FONT><FONT COLOR=#006000>/*________________________________________________________________________ ExpectedValue
+OBSOLETE - New software should use the built-in function GetNodeExpectedValue_bn.
+*/
+</FONT><FONT COLOR=#ff0000>double </FONT>ExpectedValue (node_bn* node, <FONT COLOR=#ff0000>double</FONT>* std_dev){
+    <FONT COLOR=#a06000>return </FONT>GetNodeExpectedValue_bn (node, std_dev, NULL, NULL);     <FONT COLOR=#006000>/* this function now built in */
+</FONT>}
+
+<A name='#PositionInNodeList'></A>
+<FONT COLOR=#006000>/*__________________________________________________________________ PositionInNodeList
+OBSOLETE - New software should use IndexOfNodeInList_bn instead.
+*/
+</FONT><FONT COLOR=#ff0000>int </FONT>PositionInNodeList (<FONT COLOR=#ff0000>const </FONT>node_bn* node, <FONT COLOR=#ff0000>const </FONT>nodelist_bn* nodes){
+    <FONT COLOR=#a06000>return </FONT>IndexOfNodeInList_bn (node, nodes, <FONT COLOR=#0000ff>0</FONT>);
+}
+
+<A name='#RemoveNodeFromList'></A>
+<FONT COLOR=#006000>/*__________________________________________________________________ RemoveNodeFromList
+OBSOLETE - New software should use RemoveOneNodeFromList or RemoveNodeFromListIfThere.
+*/
+</FONT><FONT COLOR=#ff0000>void </FONT>RemoveNodeFromList (node_bn* node, nodelist_bn* nodes){
+    RemoveNodeFromListIfThere (node, nodes);
+}
+
+<A name='#SetNodeAllProbs'></A>
+<FONT COLOR=#006000>/*_____________________________________________________________________ SetNodeAllProbs
+OBSOLETE - New software should use SetNodeProbs_bn, passing NULL for psts.
+*/
+</FONT><FONT COLOR=#ff0000>void </FONT>SetNodeAllProbs (node_bn* node, <FONT COLOR=#ff0000>const </FONT>prob_bn* probs){
+    SetNodeProbs_bn (node, NULL, probs);
+}
+
+
+</PRE>
+</BODY>
+</HTML>
+

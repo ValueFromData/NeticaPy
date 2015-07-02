@@ -1,0 +1,50 @@
+
+<HTML>
+<HEAD>
+<TITLE>Netica(TM) API Programmer's Reference Manual; API Funtion: NewLearner_bn</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/rightFrame.css" TITLE="Style">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="COPYRIGHT" CONTENT="&copy; 2012 Norsys Software Corp.">
+<SCRIPT language="javascript" type="text/javascript" >
+function loader1() {
+
+if (window.top) { //catch inf. loops
+  if (window.top.document.location.href.indexOf( '?loadPg=' ) >= 0 ) return;
+  if (window.top.frames.length >= 2) return;
+}
+  
+var url  = document.location.href;
+var pos  = url.lastIndexOf( '/' );
+var pos1 = pos - 10;
+var main = url.substring( 0, pos1 );
+var fn   = url.substring( pos + 1 );
+
+var newHref = main + "/index.html?loadPg=" + fn;
+document.location.href = newHref;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY topmargin=6 marginheight=6 onload="loader1()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="../images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<!-- <span CLASS=fnNameHeader>NewLearner_bn</span> -->
+<p><div CLASS=PT><table CLASS=PT><tr VALIGN="top"> <td NOWRAP class=name><span CLASS=PTFntype>learner_bn*</span><span CLASS=PTFnName>&nbsp;NewLearner_bn</span>&nbsp;(</td> <td class=paramList><span CLASS=nonbreaking><span CLASS=PTParamType>learn_method_bn</span>&nbsp;&nbsp;<span CLASS=PTParamName>method</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;char*</span>&nbsp;&nbsp;<span CLASS=PTParamName>options</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>environ_ns*</span>&nbsp;&nbsp;<span CLASS=PTParamName>env</span></span>&nbsp;)</td></tr></table></div>
+<p><div CLASS=desc><p>Creates and returns a new <span CLASS="classType">learner_bn</span> object for use in learning of CPTs from case data, and associates it with a given Netica environment.
+<p>After creating this object, you use it to set the learning parameters you want, and then you pass it to a learning function, such as <a href="LearnCPTs_bn.html">LearnCPTs_bn</a>, to actually perform the learning on some net using some data file.  When done, you discard the <span CLASS="classType">learner_bn</span> with <a href="DeleteLearner_bn.html">DeleteLearner_bn</a>.
+<p>Pass <span CLASS="reservedWord">NULL</span> for <span CLASS="paramNm">options</span>; it is only for future expansion.
+<p><span CLASS="paramNm">method</span> must be one of <span CLASS="constantNm">COUNTING_LEARNING</span>, <span CLASS="constantNm">EM_LEARNING</span>, or <span CLASS="constantNm">GRADIENT_DESCENT_LEARNING</span>.  See <a href="LearnCPTs_bn.html">LearnCPTs_bn</a> for a description of how each learning algorithm operates.</div>
+<p><span CLASS=sectionNm>Version:</span><div CLASS=version>Versions 2.26 and later have this function.<passageIndent2/><p></div>
+<p><span CLASS=sectionNm>See also:</span><div CLASS=see_also><table CLASS="seeAlso"><tr><td VALIGN="top"><a href="SetLearnerMaxIters_bn.html">SetLearnerMaxIters_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Set the maximum number of iterations (if applicable) it will do when learning</td></tr><tr><td VALIGN="top"><a href="SetLearnerMaxTol_bn.html">SetLearnerMaxTol_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Set the maximum tolerance (if applicable) it will allow before termination</td></tr><tr><td VALIGN="top"><a href="LearnCPTs_bn.html">LearnCPTs_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Performs the learning</td></tr><tr><td VALIGN="top"><a href="DeleteLearner_bn.html">DeleteLearner_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Discard the <span CLASS="classType">learner_bn</span></td></tr><tr><td VALIGN="top"><a href="NewRandomGenerator_ns.html">NewRandomGenerator_ns</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">May also want this to control randomization</td></tr></table></div>
+<p><span CLASS=sectionNm>Example:</span><pre CLASS=example><div CLASS=desc>See <a href="AddDBCasesToCaseset_cs.html">AddDBCasesToCaseset_cs</a></div></pre></div>
+</BODY>
+</HTML>

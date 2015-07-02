@@ -1,0 +1,55 @@
+
+<HTML>
+<HEAD>
+<TITLE>Netica(TM) API Programmer's Reference Manual; API Funtion: GenerateRandomCase_bn</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/rightFrame.css" TITLE="Style">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="COPYRIGHT" CONTENT="&copy; 2012 Norsys Software Corp.">
+<SCRIPT language="javascript" type="text/javascript" >
+function loader1() {
+
+if (window.top) { //catch inf. loops
+  if (window.top.document.location.href.indexOf( '?loadPg=' ) >= 0 ) return;
+  if (window.top.frames.length >= 2) return;
+}
+  
+var url  = document.location.href;
+var pos  = url.lastIndexOf( '/' );
+var pos1 = pos - 10;
+var main = url.substring( 0, pos1 );
+var fn   = url.substring( pos + 1 );
+
+var newHref = main + "/index.html?loadPg=" + fn;
+document.location.href = newHref;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY topmargin=6 marginheight=6 onload="loader1()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="../images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<!-- <span CLASS=fnNameHeader>GenerateRandomCase_bn</span> -->
+<p><div CLASS=PT><table CLASS=PT><tr VALIGN="top"> <td NOWRAP class=name><span CLASS=PTFntype>int</span><span CLASS=PTFnName>&nbsp;GenerateRandomCase_bn</span>&nbsp;(</td> <td class=paramList><span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;nodelist_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>nodes</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>sampling_bn</span>&nbsp;&nbsp;<span CLASS=PTParamName>method</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>double</span>&nbsp;&nbsp;<span CLASS=PTParamName>timeout</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>randgen_ns*</span>&nbsp;&nbsp;<span CLASS=PTParamName>rand</span></span>&nbsp;)</td></tr></table></div>
+<p><div CLASS=desc><p>
+Generates a random case for <span CLASS="paramNm">nodes</span> (i.e., positive findings for each of them), by sampling from a probability distribution matching that of the net containing <span CLASS="paramNm">nodes</span>, and conditioned on all findings already entered in the net.   Returns 0 or greater if it was successful, otherwise negative.
+<p>If <span CLASS="paramNm">method</span> is <span CLASS="constantNm">JOIN_TREE_SAMPLING</span>, then the net must be compiled, and the junction tree is used to do very fast sampling with no rejections (i.e., findings don't slow it down).
+<p>If <span CLASS="paramNm">method</span> is <span CLASS="constantNm">FORWARD_SAMPLING</span>, then forward sampling is used.  This evaluates equations directly if they are available, rather than just using CPT entries (which may just approximate the equation).  However, it uses a rejection method, so it may be very slow if the findings currently entered are improbable.
+<p>If <span CLASS="paramNm">method</span> is <span CLASS="constantNm">DEFAULT_SAMPLING</span> (the recommended value), then the default method is used.  Currently this is method <span CLASS="constantNm">FORWARD_SAMPLING</span> if rejections won't be a problem or the net is uncompiled, otherwise method <span CLASS="constantNm">JOIN_TREE_SAMPLING</span>.
+<p><span CLASS="paramNm">timeout</span> indicates how much time to allocate for the task (in relative units).  If it cannot finish in time, it will return a negative quantity (no Netica error will be generated).  If <span CLASS="paramNm">method</span> is <span CLASS="constantNm">JOIN_TREE_SAMPLING</span>, or no findings are entered, then it always returns successfully, and within a fixed amount of time, so then <span CLASS="paramNm">timeout</span> is ignored.
+<p>For <span CLASS="paramNm">rand</span> you can pass an object created by <a href="NewRandomGenerator_ns.html">NewRandomGenerator_ns</a> to control the pseudo-random number sequence.  It has the same effect effect as associating <span CLASS="paramNm">rand</span> to the net with <a href="SetNetRandomGen_bn.html">SetNetRandomGen_bn</a>; see that function for more info.
+<p>Uses the <span CLASS="classType">randgen_ns</span> <span CLASS="paramNm">rand</span> passed to it to generate the case.  If <span CLASS="reservedWord">NULL</span> is passed, it uses the <span CLASS="classType">randgen_ns</span> associated with the net by <a href="SetNetRandomGen_bn.html">SetNetRandomGen_bn</a>.  If there is no <span CLASS="classType">randgen_ns</span> associated with the net, it uses Netica's internal global <span CLASS="classType">randgen_ns</span> (which is slightly slower due to the required mutex protection).
+<p><b>WARNING:</b>: Be sure to remove unwanted findings first (e.g., with <a href="RetractNetFindings_bn.html">RetractNetFindings_bn</a>), otherwise it will take them into account.  For example, if you call this function multiple times without retracting between, the node findings will not change.</div>
+<p><span CLASS=sectionNm>Version:</span><div CLASS=version>In versions previous to 2.26, this function did not have the <span CLASS="paramNm">rand</span> parameter.<br>In versions previous to 2.09, this function was named <b>RandomCase_bn</b>.<br>In versions previous to 1.07, this function always used forward sampling.<passageIndent2/><p></div>
+<p><span CLASS=sectionNm>See also:</span><div CLASS=see_also><table CLASS="seeAlso"><tr><td VALIGN="top"><a href="GetNodeFinding_bn.html">GetNodeFinding_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Retrieve the random value generated</td></tr><tr><td VALIGN="top"><a href="GetNodeValueEntered_bn.html">GetNodeValueEntered_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Retrieve the random value generated for a continuous node</td></tr><tr><td VALIGN="top"><a href="NewNodeList2_bn.html">NewNodeList2_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Create the node list</td></tr><tr><td VALIGN="top"><a href="RetractNetFindings_bn.html">RetractNetFindings_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Probably want to call this first</td></tr><tr><td VALIGN="top"><a href="NewRandomGenerator_ns.html">NewRandomGenerator_ns</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">To control the sequence of cases produced</td></tr></table></div>
+<p><span CLASS=sectionNm>Example:</span><pre CLASS=example>See <a href="NewRandomGenerator_ns.html">NewRandomGenerator_ns</a></pre></div>
+</BODY>
+</HTML>

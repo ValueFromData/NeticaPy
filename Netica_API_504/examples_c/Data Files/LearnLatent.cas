@@ -1,0 +1,12 @@
+
+// 100K cases following the distribution of the "Learn Latent.dne" bayes net
+
+NumCases	R	S	T
+22912	false	false	false
+4096	false	false	true
+4688	false	true	false
+1104	false	true	true
+35808	true	false	false
+7584	true	false	true
+14592	true	true	false
+9216	true	true	true

@@ -1,0 +1,88 @@
+
+<HTML>
+<HEAD>
+<TITLE>Netica(TM) API Programmer's Reference Manual; API Funtion: NewNetTester_bn</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/rightFrame.css" TITLE="Style">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="COPYRIGHT" CONTENT="&copy; 2012 Norsys Software Corp.">
+<SCRIPT language="javascript" type="text/javascript" >
+function loader1() {
+
+if (window.top) { //catch inf. loops
+  if (window.top.document.location.href.indexOf( '?loadPg=' ) >= 0 ) return;
+  if (window.top.frames.length >= 2) return;
+}
+  
+var url  = document.location.href;
+var pos  = url.lastIndexOf( '/' );
+var pos1 = pos - 10;
+var main = url.substring( 0, pos1 );
+var fn   = url.substring( pos + 1 );
+
+var newHref = main + "/index.html?loadPg=" + fn;
+document.location.href = newHref;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY topmargin=6 marginheight=6 onload="loader1()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="../images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<!-- <span CLASS=fnNameHeader>NewNetTester_bn</span> -->
+<p><div CLASS=PT><table CLASS=PT><tr VALIGN="top"> <td NOWRAP class=name><span CLASS=PTFntype>tester_bn*</span><span CLASS=PTFnName>&nbsp;NewNetTester_bn</span>&nbsp;(</td> <td class=paramList><span CLASS=nonbreaking><span CLASS=PTParamType>nodelist_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>test_nodes</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>nodelist_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>unobsv_nodes</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>int</span>&nbsp;&nbsp;<span CLASS=PTParamName>tests</span></span>&nbsp;)</td></tr></table></div>
+<p><div CLASS=desc><p>Creates a <span CLASS="classType">tester_bn</span> which is a tool for grading a Bayes net, using a set of real cases to see how well the predictions or diagnosis of the net match the actual cases.  It is not for decision networks.
+<p><span CLASS="paramNm">test_nodes</span> are the nodes that the Bayes net will predict and get rated on.  Their values in the case file are all hidden from the Bayes net (i.e., unobserved) whenever a case is read.  For each such case, the  Bayes net does a prediction and compares that prediction with the true value from the case file, accumulating statistics as it goes.
+<p>If <span CLASS="paramNm">unobsv_nodes</span> is non-<span CLASS="reservedWord">NULL</span>, then the nodes it contains will also be unobserved.  It is okay if it repeats nodes already in <span CLASS="paramNm">test_nodes</span>.
+<p>Pass -1 for <span CLASS="paramNm">tests</span>.
+<p>After creating the <span CLASS="classType">tester_bn</span> object, you run the tests using <a href="TestWithCaseset_bn.html">TestWithCaseset_bn</a>, and then read out the results of the tests with the GetTest... functions.  When done, you discard the <span CLASS="classType">tester_bn</span> with <a href="DeleteNetTester_bn.html">DeleteNetTester_bn</a>.
+<p>IMPORTANT:  Before calling <a href="TestWithCaseset_bn.html">TestWithCaseset_bn</a>, you may want to call <a href="RetractNetFindings_bn.html">RetractNetFindings_bn</a> to remove any findings entered, because otherwise those findings will be considered while testing each case in the file.
+<p>The same net-testing capability is available as "Cases -> Test With Cases" in Netica Application.</div>
+<p><span CLASS=sectionNm>Version:</span><div CLASS=version>Versions 2.08 and later have this function.<passageIndent2/><p></div>
+<p><span CLASS=sectionNm>See also:</span><div CLASS=see_also><table CLASS="seeAlso"><tr><td VALIGN="top"><a href="TestWithCaseset_bn.html">TestWithCaseset_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Accumulate case data into the test</td></tr><tr><td VALIGN="top"><a href="GetTestConfusion_bn.html">GetTestConfusion_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Get elements of the confusion matrix</td></tr><tr><td VALIGN="top"><a href="GetTestErrorRate_bn.html">GetTestErrorRate_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Get fraction of test cases where prediction failed</td></tr><tr><td VALIGN="top"><a href="GetTestLogLoss_bn.html">GetTestLogLoss_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Get the "logarithmic loss" score of the test</td></tr><tr><td VALIGN="top"><a href="GetTestQuadraticLoss_bn.html">GetTestQuadraticLoss_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Get the "quadratic loss" score of the test</td></tr><tr><td VALIGN="top"><a href="DeleteNetTester_bn.html">DeleteNetTester_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Free up tester and all its resources</td></tr><tr><td VALIGN="top"><a href="NewNodeList2_bn.html">NewNodeList2_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Create the node lists</td></tr></table></div>
+<p><span CLASS=sectionNm>Example:</span><pre CLASS=example>
+net_bn* net = ReadNet_bn (NewFileStream_ns ("ChestClinic.dne", env, NULL), NO_VISUAL_INFO);
+nodelist_bn* unobsv_nodes = NewNodeList2_bn (0, net);
+nodelist_bn*   test_nodes = NewNodeList2_bn (0, net);
+node_bn* test_node = GetNodeNamed_bn ("Cancer", net);
+AddNodeToList_bn (test_node, test_nodes, LAST_ENTRY);
+// Now make the unobserved nodes list out of other factors not known during diagnosis:
+AddNodeToList_bn (GetNodeNamed_bn ("Tuberculosis", net), unobsv_nodes, LAST_ENTRY);
+AddNodeToList_bn (GetNodeNamed_bn ("Bronchitis", net), unobsv_nodes, LAST_ENTRY);
+AddNodeToList_bn (GetNodeNamed_bn ("TbOrCa", net), unobsv_nodes, LAST_ENTRY);
+RetractNetFindings_bn (net);   // IMPORTANT: Otherwise any findings will be part of tests !!
+CompileNet_bn (net);
+
+tester_bn* tester = NewNetTester_bn (test_nodes, unobsv_nodes, -1);
+
+stream_ns* casefile = NewFileStream_ns ("ChestClinic.cas", env, NULL);
+caseset_cs* caseset = NewCaseset_cs ("ChestClinicCases", env);
+AddFileToCaseset_cs (caseset, casefile, 1.0, NULL);
+TestWithCaseset_bn (tester, caseset); 
+
+PrintConfusionMatrix (tester, test_node); // defined in example for GetTestConfusion_bn
+printf ("Error rate = %f %&#092;n", 100 * GetTestErrorRate_bn (tester, test_node));
+printf ("Logarithmic loss = %f %&#092;n", GetTestLogLoss_bn (tester, test_node));
+
+DeleteNetTester_bn (tester);
+DeleteCaseset_cs (caseset);
+//====================================================
+Confusion matrix for Cancer:
+        Present  Absent  Actual
+        6        1       Present
+        1        192     Absent
+
+Error rate = 1 %
+
+Logarithmic loss = 0.02794
+</pre></div>
+</BODY>
+</HTML>

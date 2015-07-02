@@ -1,0 +1,52 @@
+
+<HTML>
+<HEAD>
+<TITLE>Netica(TM) API Programmer's Reference Manual; API Funtion: AddLink_bn</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/rightFrame.css" TITLE="Style">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="COPYRIGHT" CONTENT="&copy; 2012 Norsys Software Corp.">
+<SCRIPT language="javascript" type="text/javascript" >
+function loader1() {
+
+if (window.top) { //catch inf. loops
+  if (window.top.document.location.href.indexOf( '?loadPg=' ) >= 0 ) return;
+  if (window.top.frames.length >= 2) return;
+}
+  
+var url  = document.location.href;
+var pos  = url.lastIndexOf( '/' );
+var pos1 = pos - 10;
+var main = url.substring( 0, pos1 );
+var fn   = url.substring( pos + 1 );
+
+var newHref = main + "/index.html?loadPg=" + fn;
+document.location.href = newHref;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY topmargin=6 marginheight=6 onload="loader1()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="../images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<!-- <span CLASS=fnNameHeader>AddLink_bn</span> -->
+<p><div CLASS=PT><table CLASS=PT><tr VALIGN="top"> <td NOWRAP class=name><span CLASS=PTFntype>int</span><span CLASS=PTFnName>&nbsp;AddLink_bn</span>&nbsp;(</td> <td class=paramList><span CLASS=nonbreaking><span CLASS=PTParamType>node_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>parent</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>node_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>child</span></span>&nbsp;)</td></tr></table></div>
+<p><div CLASS=desc><p>Adds a link from node <span CLASS="paramNm">parent</span> to node <span CLASS="paramNm">child</span>, and returns the index of the added link.
+<p>This index will  be one greater than that of the previously added link, and the existing links will maintain their same indexes.
+<p>If <span CLASS="paramNm">child</span> has a table (CPT or function table), its entries are initially duplicated so its values are the same for each possible state of the new parent.  In other words, they are independent of the new parent, so that the link from parent to child has no effect on probability computations until the table is changed.
+<p><span CLASS="paramNm">parent</span> must be in the same net as <span CLASS="paramNm">child</span>, or an error will be generated, and no action taken.
+<p>A warning will be generated if there is already a link from <span CLASS="paramNm">parent</span> to <span CLASS="paramNm">child</span>, or if the added link creates a cycle, but the link will be successfully added.  If you don't remove one of the offending links, and later try to compile the net or do node absorption, an error will be generated.
+</div>
+<p><span CLASS=sectionNm>Version:</span><div CLASS=version>This function is available in all versions.<passageIndent2/><p></div>
+<p><span CLASS=sectionNm>See also:</span><div CLASS=see_also><table CLASS="seeAlso"><tr><td VALIGN="top"><a href="DeleteLink_bn.html">DeleteLink_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Removes the link between two nodes</td></tr><tr><td VALIGN="top"><a href="SwitchNodeParent_bn.html">SwitchNodeParent_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Switches parents without changing conditional probabilities</td></tr><tr><td VALIGN="top"><a href="CopyNodes_bn.html">CopyNodes_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Also duplicates all the links between them</td></tr></table></div>
+<p></div>
+</BODY>
+</HTML>
