@@ -716,6 +716,8 @@ static void __pyx_insert_code_object(int code_line, PyCodeObject* code_object);
 static void __Pyx_AddTraceback(const char *funcname, int c_line,
                                int py_line, const char *filename);
 
+static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject *);
+
 static CYTHON_INLINE PyObject* __Pyx_PyInt_From_int(int value);
 
 static int __Pyx_Print(PyObject*, PyObject *, int);
@@ -725,8 +727,6 @@ static PyObject* __pyx_print_kwargs = 0;
 #endif
 
 static int __Pyx_PrintOne(PyObject* stream, PyObject *o);
-
-static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject *);
 
 static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value);
 
@@ -764,7 +764,7 @@ static PyObject *__pyx_builtin_TypeError;
 static PyObject *__pyx_pf_10Pythonwrap_test(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
 static PyObject *__pyx_pf_10Pythonwrap_2get_msg(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
 static PyObject *__pyx_pf_10Pythonwrap_4lis(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_x); /* proto */
-static PyObject *__pyx_pf_10Pythonwrap_6con(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
+static PyObject *__pyx_pf_10Pythonwrap_6con(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_ii); /* proto */
 static PyObject *__pyx_pf_10Pythonwrap_8t(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_x, PyObject *__pyx_v_y, PyObject *__pyx_v_z); /* proto */
 static PyObject *__pyx_pf_10Pythonwrap_7IntList_11__getitem___getWithEclipsis(PyObject *__pyx_self, PyObject *__pyx_v_index); /* proto */
 static PyObject *__pyx_pf_10Pythonwrap_7IntList_11__getitem___2getWithSlice(PyObject *__pyx_self, PyObject *__pyx_v_item); /* proto */
@@ -780,6 +780,7 @@ static char __pyx_k_v[] = "v";
 static char __pyx_k_x[] = "x";
 static char __pyx_k_y[] = "y";
 static char __pyx_k_z[] = "z";
+static char __pyx_k_ii[] = "ii";
 static char __pyx_k_con[] = "con";
 static char __pyx_k_end[] = "end";
 static char __pyx_k_env[] = "env";
@@ -811,7 +812,7 @@ static char __pyx_k_Invalid_slice_start_type[] = "Invalid slice start type";
 static char __pyx_k_getitem___locals_getWithSlice[] = "__getitem__.<locals>.getWithSlice";
 static char __pyx_k_getitem___locals_getWithEclips[] = "__getitem__.<locals>.getWithEclipsis";
 static char __pyx_k_The_list_slice_operator_shouldn[] = "The list slice operator shouldn't end with Ellipsis (...)";
-static char __pyx_k_home_faizal_netica_project_Pyth[] = "/home/faizal/netica_project/Pythonwrap.pyx";
+static char __pyx_k_home_faizal_NeticaPy_Pythonwrap[] = "/home/faizal/NeticaPy/Pythonwrap.pyx";
 static char __pyx_k_Invalid_slice_stop_type_should_b[] = "Invalid slice stop type(should be specified and it should be int)";
 static char __pyx_k_Invalid_type_or_invalid_number_i[] = "Invalid type or invalid number is been passed";
 static PyObject *__pyx_n_s_Ellipsis;
@@ -831,8 +832,9 @@ static PyObject *__pyx_n_s_getWithSlice;
 static PyObject *__pyx_n_s_get_msg;
 static PyObject *__pyx_n_s_getitem___locals_getWithEclips;
 static PyObject *__pyx_n_s_getitem___locals_getWithSlice;
-static PyObject *__pyx_kp_s_home_faizal_netica_project_Pyth;
+static PyObject *__pyx_kp_s_home_faizal_NeticaPy_Pythonwrap;
 static PyObject *__pyx_n_s_i;
+static PyObject *__pyx_n_s_ii;
 static PyObject *__pyx_n_s_index;
 static PyObject *__pyx_n_s_item;
 static PyObject *__pyx_n_s_j;
@@ -1248,7 +1250,7 @@ static PyObject *__pyx_pf_10Pythonwrap_4lis(CYTHON_UNUSED PyObject *__pyx_self, 
  *         v.append(i)
  *     free(version)             # <<<<<<<<<<<<<<
  *     return v
- * 
+ * def con(int ii):
  */
   free(__pyx_v_version);
 
@@ -1256,8 +1258,8 @@ static PyObject *__pyx_pf_10Pythonwrap_4lis(CYTHON_UNUSED PyObject *__pyx_self, 
  *         v.append(i)
  *     free(version)
  *     return v             # <<<<<<<<<<<<<<
- * 
- * def con():
+ * def con(int ii):
+ *     cdef double* x=[1,2,3,4]
  */
   __Pyx_XDECREF(__pyx_r);
   __Pyx_INCREF(__pyx_v_v);
@@ -1284,29 +1286,42 @@ static PyObject *__pyx_pf_10Pythonwrap_4lis(CYTHON_UNUSED PyObject *__pyx_self, 
   return __pyx_r;
 }
 
-/* "Pythonwrap.pyx":87
+/* "Pythonwrap.pyx":86
+ *     free(version)
  *     return v
- * 
- * def con():             # <<<<<<<<<<<<<<
+ * def con(int ii):             # <<<<<<<<<<<<<<
  *     cdef double* x=[1,2,3,4]
  *     sz_x = sizeof(x)
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10Pythonwrap_7con(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_10Pythonwrap_7con = {"con", (PyCFunction)__pyx_pw_10Pythonwrap_7con, METH_NOARGS, 0};
-static PyObject *__pyx_pw_10Pythonwrap_7con(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_10Pythonwrap_7con(PyObject *__pyx_self, PyObject *__pyx_arg_ii); /*proto*/
+static PyMethodDef __pyx_mdef_10Pythonwrap_7con = {"con", (PyCFunction)__pyx_pw_10Pythonwrap_7con, METH_O, 0};
+static PyObject *__pyx_pw_10Pythonwrap_7con(PyObject *__pyx_self, PyObject *__pyx_arg_ii) {
+  int __pyx_v_ii;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("con (wrapper)", 0);
-  __pyx_r = __pyx_pf_10Pythonwrap_6con(__pyx_self);
+  assert(__pyx_arg_ii); {
+    __pyx_v_ii = __Pyx_PyInt_As_int(__pyx_arg_ii); if (unlikely((__pyx_v_ii == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 86; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("Pythonwrap.con", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_10Pythonwrap_6con(__pyx_self, ((int)__pyx_v_ii));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10Pythonwrap_6con(CYTHON_UNUSED PyObject *__pyx_self) {
+static PyObject *__pyx_pf_10Pythonwrap_6con(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_ii) {
   double *__pyx_v_x;
   PyObject *__pyx_v_sz_x = NULL;
   PyObject *__pyx_v_sz_d = NULL;
@@ -1330,12 +1345,12 @@ static PyObject *__pyx_pf_10Pythonwrap_6con(CYTHON_UNUSED PyObject *__pyx_self) 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("con", 0);
 
-  /* "Pythonwrap.pyx":88
- * 
- * def con():
+  /* "Pythonwrap.pyx":87
+ *     return v
+ * def con(int ii):
  *     cdef double* x=[1,2,3,4]             # <<<<<<<<<<<<<<
  *     sz_x = sizeof(x)
- *     sz_d = sizeof(double)
+ *     print ii
  */
   __pyx_t_1[0] = 1.0;
   __pyx_t_1[1] = 2.0;
@@ -1343,21 +1358,33 @@ static PyObject *__pyx_pf_10Pythonwrap_6con(CYTHON_UNUSED PyObject *__pyx_self) 
   __pyx_t_1[3] = 4.0;
   __pyx_v_x = __pyx_t_1;
 
-  /* "Pythonwrap.pyx":89
- * def con():
+  /* "Pythonwrap.pyx":88
+ * def con(int ii):
  *     cdef double* x=[1,2,3,4]
  *     sz_x = sizeof(x)             # <<<<<<<<<<<<<<
+ *     print ii
  *     sz_d = sizeof(double)
- *     print sz_x,sz_d,sizeof(x[0]),x[0],x[1],x[2],x[3],x[4]
  */
-  __pyx_t_2 = __Pyx_PyInt_FromSize_t((sizeof(__pyx_v_x))); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 89; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyInt_FromSize_t((sizeof(__pyx_v_x))); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 88; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_v_sz_x = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "Pythonwrap.pyx":90
+  /* "Pythonwrap.pyx":89
  *     cdef double* x=[1,2,3,4]
  *     sz_x = sizeof(x)
+ *     print ii             # <<<<<<<<<<<<<<
+ *     sz_d = sizeof(double)
+ *     print sz_x,sz_d,sizeof(x[0]),x[0],x[1],x[2],x[3],x[4]
+ */
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_ii); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 89; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_GOTREF(__pyx_t_2);
+  if (__Pyx_PrintOne(0, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 89; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "Pythonwrap.pyx":90
+ *     sz_x = sizeof(x)
+ *     print ii
  *     sz_d = sizeof(double)             # <<<<<<<<<<<<<<
  *     print sz_x,sz_d,sizeof(x[0]),x[0],x[1],x[2],x[3],x[4]
  *     return [i for i in x[:sz_x/sz_d]]
@@ -1368,7 +1395,7 @@ static PyObject *__pyx_pf_10Pythonwrap_6con(CYTHON_UNUSED PyObject *__pyx_self) 
   __pyx_t_2 = 0;
 
   /* "Pythonwrap.pyx":91
- *     sz_x = sizeof(x)
+ *     print ii
  *     sz_d = sizeof(double)
  *     print sz_x,sz_d,sizeof(x[0]),x[0],x[1],x[2],x[3],x[4]             # <<<<<<<<<<<<<<
  *     return [i for i in x[:sz_x/sz_d]]
@@ -1442,10 +1469,10 @@ static PyObject *__pyx_pf_10Pythonwrap_6con(CYTHON_UNUSED PyObject *__pyx_self) 
   __pyx_t_8 = 0;
   goto __pyx_L0;
 
-  /* "Pythonwrap.pyx":87
+  /* "Pythonwrap.pyx":86
+ *     free(version)
  *     return v
- * 
- * def con():             # <<<<<<<<<<<<<<
+ * def con(int ii):             # <<<<<<<<<<<<<<
  *     cdef double* x=[1,2,3,4]
  *     sz_x = sizeof(x)
  */
@@ -3257,8 +3284,9 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_get_msg, __pyx_k_get_msg, sizeof(__pyx_k_get_msg), 0, 0, 1, 1},
   {&__pyx_n_s_getitem___locals_getWithEclips, __pyx_k_getitem___locals_getWithEclips, sizeof(__pyx_k_getitem___locals_getWithEclips), 0, 0, 1, 1},
   {&__pyx_n_s_getitem___locals_getWithSlice, __pyx_k_getitem___locals_getWithSlice, sizeof(__pyx_k_getitem___locals_getWithSlice), 0, 0, 1, 1},
-  {&__pyx_kp_s_home_faizal_netica_project_Pyth, __pyx_k_home_faizal_netica_project_Pyth, sizeof(__pyx_k_home_faizal_netica_project_Pyth), 0, 0, 1, 0},
+  {&__pyx_kp_s_home_faizal_NeticaPy_Pythonwrap, __pyx_k_home_faizal_NeticaPy_Pythonwrap, sizeof(__pyx_k_home_faizal_NeticaPy_Pythonwrap), 0, 0, 1, 0},
   {&__pyx_n_s_i, __pyx_k_i, sizeof(__pyx_k_i), 0, 0, 1, 1},
+  {&__pyx_n_s_ii, __pyx_k_ii, sizeof(__pyx_k_ii), 0, 0, 1, 1},
   {&__pyx_n_s_index, __pyx_k_index, sizeof(__pyx_k_index), 0, 0, 1, 1},
   {&__pyx_n_s_item, __pyx_k_item, sizeof(__pyx_k_item), 0, 0, 1, 1},
   {&__pyx_n_s_j, __pyx_k_j, sizeof(__pyx_k_j), 0, 0, 1, 1},
@@ -3323,7 +3351,7 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__2 = PyTuple_Pack(3, __pyx_n_s_index, __pyx_n_s_j, __pyx_n_s_start); if (unlikely(!__pyx_tuple__2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 114; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
-  __pyx_codeobj__3 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__2, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_faizal_netica_project_Pyth, __pyx_n_s_getWithEclipsis, 114, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 114; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__3 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__2, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_faizal_NeticaPy_Pythonwrap, __pyx_n_s_getWithEclipsis, 114, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 114; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
   /* "Pythonwrap.pyx":129
  *             raise TypeError("Invalid type or invalid number is been passed")
@@ -3335,7 +3363,7 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__4 = PyTuple_Pack(5, __pyx_n_s_item, __pyx_n_s_start, __pyx_n_s_stop, __pyx_n_s_step, __pyx_n_s_j); if (unlikely(!__pyx_tuple__4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 129; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__4);
   __Pyx_GIVEREF(__pyx_tuple__4);
-  __pyx_codeobj__5 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__4, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_faizal_netica_project_Pyth, __pyx_n_s_getWithSlice, 129, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 129; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__5 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__4, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_faizal_NeticaPy_Pythonwrap, __pyx_n_s_getWithSlice, 129, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 129; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
   /* "Pythonwrap.pyx":158
  *                     i=getWithEclipsis(i)
@@ -3369,7 +3397,7 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__8 = PyTuple_Pack(2, __pyx_n_s_res, __pyx_n_s_env); if (unlikely(!__pyx_tuple__8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 55; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__8);
   __Pyx_GIVEREF(__pyx_tuple__8);
-  __pyx_codeobj__9 = (PyObject*)__Pyx_PyCode_New(0, 0, 2, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__8, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_faizal_netica_project_Pyth, __pyx_n_s_test, 55, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 55; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__9 = (PyObject*)__Pyx_PyCode_New(0, 0, 2, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__8, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_faizal_NeticaPy_Pythonwrap, __pyx_n_s_test, 55, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 55; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
   /* "Pythonwrap.pyx":62
  *     return ( res,mesg)
@@ -3378,7 +3406,7 @@ static int __Pyx_InitCachedConstants(void) {
  *     return mesg
  * 
  */
-  __pyx_codeobj__10 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_faizal_netica_project_Pyth, __pyx_n_s_get_msg, 62, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 62; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__10 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_faizal_NeticaPy_Pythonwrap, __pyx_n_s_get_msg, 62, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 62; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
   /* "Pythonwrap.pyx":78
  * #	test_intptr(&x,&y)
@@ -3390,19 +3418,19 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__11 = PyTuple_Pack(4, __pyx_n_s_x, __pyx_n_s_version, __pyx_n_s_v, __pyx_n_s_i); if (unlikely(!__pyx_tuple__11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 78; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__11);
   __Pyx_GIVEREF(__pyx_tuple__11);
-  __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_faizal_netica_project_Pyth, __pyx_n_s_lis, 78, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 78; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_faizal_NeticaPy_Pythonwrap, __pyx_n_s_lis, 78, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 78; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "Pythonwrap.pyx":87
+  /* "Pythonwrap.pyx":86
+ *     free(version)
  *     return v
- * 
- * def con():             # <<<<<<<<<<<<<<
+ * def con(int ii):             # <<<<<<<<<<<<<<
  *     cdef double* x=[1,2,3,4]
  *     sz_x = sizeof(x)
  */
-  __pyx_tuple__13 = PyTuple_Pack(4, __pyx_n_s_x, __pyx_n_s_sz_x, __pyx_n_s_sz_d, __pyx_n_s_i); if (unlikely(!__pyx_tuple__13)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 87; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__13 = PyTuple_Pack(6, __pyx_n_s_ii, __pyx_n_s_ii, __pyx_n_s_x, __pyx_n_s_sz_x, __pyx_n_s_sz_d, __pyx_n_s_i); if (unlikely(!__pyx_tuple__13)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 86; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__13);
   __Pyx_GIVEREF(__pyx_tuple__13);
-  __pyx_codeobj__14 = (PyObject*)__Pyx_PyCode_New(0, 0, 4, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_faizal_netica_project_Pyth, __pyx_n_s_con, 87, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__14)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 87; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__14 = (PyObject*)__Pyx_PyCode_New(1, 0, 6, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_faizal_NeticaPy_Pythonwrap, __pyx_n_s_con, 86, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__14)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 86; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
   /* "Pythonwrap.pyx":94
  *     return [i for i in x[:sz_x/sz_d]]
@@ -3414,7 +3442,7 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__15 = PyTuple_Pack(5, __pyx_n_s_x, __pyx_n_s_y, __pyx_n_s_z, __pyx_n_s_res, __pyx_n_s_i); if (unlikely(!__pyx_tuple__15)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 94; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__15);
   __Pyx_GIVEREF(__pyx_tuple__15);
-  __pyx_codeobj__16 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__15, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_faizal_netica_project_Pyth, __pyx_n_s_t, 94, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__16)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 94; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__16 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__15, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_faizal_NeticaPy_Pythonwrap, __pyx_n_s_t, 94, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__16)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 94; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -3562,16 +3590,16 @@ PyMODINIT_FUNC PyInit_Pythonwrap(void)
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_lis, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 78; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "Pythonwrap.pyx":87
+  /* "Pythonwrap.pyx":86
+ *     free(version)
  *     return v
- * 
- * def con():             # <<<<<<<<<<<<<<
+ * def con(int ii):             # <<<<<<<<<<<<<<
  *     cdef double* x=[1,2,3,4]
  *     sz_x = sizeof(x)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_10Pythonwrap_7con, NULL, __pyx_n_s_Pythonwrap); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 87; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_10Pythonwrap_7con, NULL, __pyx_n_s_Pythonwrap); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 86; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_con, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 87; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_con, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 86; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "Pythonwrap.pyx":94
@@ -4969,6 +4997,122 @@ bad:
     Py_XDECREF(py_frame);
 }
 
+#define __PYX_VERIFY_RETURN_INT(target_type, func_type, func_value)       \
+    {                                                                     \
+        func_type value = func_value;                                     \
+        if (sizeof(target_type) < sizeof(func_type)) {                    \
+            if (unlikely(value != (func_type) (target_type) value)) {     \
+                func_type zero = 0;                                       \
+                if (is_unsigned && unlikely(value < zero))                \
+                    goto raise_neg_overflow;                              \
+                else                                                      \
+                    goto raise_overflow;                                  \
+            }                                                             \
+        }                                                                 \
+        return (target_type) value;                                       \
+    }
+
+#if CYTHON_COMPILING_IN_CPYTHON && PY_MAJOR_VERSION >= 3
+ #if CYTHON_USE_PYLONG_INTERNALS
+  #include "longintrepr.h"
+ #endif
+#endif
+
+static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject *x) {
+    const int neg_one = (int) -1, const_zero = 0;
+    const int is_unsigned = neg_one > const_zero;
+#if PY_MAJOR_VERSION < 3
+    if (likely(PyInt_Check(x))) {
+        if (sizeof(int) < sizeof(long)) {
+            __PYX_VERIFY_RETURN_INT(int, long, PyInt_AS_LONG(x))
+        } else {
+            long val = PyInt_AS_LONG(x);
+            if (is_unsigned && unlikely(val < 0)) {
+                goto raise_neg_overflow;
+            }
+            return (int) val;
+        }
+    } else
+#endif
+    if (likely(PyLong_Check(x))) {
+        if (is_unsigned) {
+#if CYTHON_COMPILING_IN_CPYTHON && PY_MAJOR_VERSION >= 3
+ #if CYTHON_USE_PYLONG_INTERNALS
+            switch (Py_SIZE(x)) {
+                case  0: return 0;
+                case  1: __PYX_VERIFY_RETURN_INT(int, digit, ((PyLongObject*)x)->ob_digit[0]);
+            }
+ #endif
+#endif
+            if (unlikely(Py_SIZE(x) < 0)) {
+                goto raise_neg_overflow;
+            }
+            if (sizeof(int) <= sizeof(unsigned long)) {
+                __PYX_VERIFY_RETURN_INT(int, unsigned long, PyLong_AsUnsignedLong(x))
+            } else if (sizeof(int) <= sizeof(unsigned long long)) {
+                __PYX_VERIFY_RETURN_INT(int, unsigned long long, PyLong_AsUnsignedLongLong(x))
+            }
+        } else {
+#if CYTHON_COMPILING_IN_CPYTHON && PY_MAJOR_VERSION >= 3
+ #if CYTHON_USE_PYLONG_INTERNALS
+            switch (Py_SIZE(x)) {
+                case  0: return 0;
+                case  1: __PYX_VERIFY_RETURN_INT(int,  digit, +(((PyLongObject*)x)->ob_digit[0]));
+                case -1: __PYX_VERIFY_RETURN_INT(int, sdigit, -(sdigit) ((PyLongObject*)x)->ob_digit[0]);
+            }
+ #endif
+#endif
+            if (sizeof(int) <= sizeof(long)) {
+                __PYX_VERIFY_RETURN_INT(int, long, PyLong_AsLong(x))
+            } else if (sizeof(int) <= sizeof(long long)) {
+                __PYX_VERIFY_RETURN_INT(int, long long, PyLong_AsLongLong(x))
+            }
+        }
+        {
+#if CYTHON_COMPILING_IN_PYPY && !defined(_PyLong_AsByteArray)
+            PyErr_SetString(PyExc_RuntimeError,
+                            "_PyLong_AsByteArray() not available in PyPy, cannot convert large numbers");
+#else
+            int val;
+            PyObject *v = __Pyx_PyNumber_Int(x);
+ #if PY_MAJOR_VERSION < 3
+            if (likely(v) && !PyLong_Check(v)) {
+                PyObject *tmp = v;
+                v = PyNumber_Long(tmp);
+                Py_DECREF(tmp);
+            }
+ #endif
+            if (likely(v)) {
+                int one = 1; int is_little = (int)*(unsigned char *)&one;
+                unsigned char *bytes = (unsigned char *)&val;
+                int ret = _PyLong_AsByteArray((PyLongObject *)v,
+                                              bytes, sizeof(val),
+                                              is_little, !is_unsigned);
+                Py_DECREF(v);
+                if (likely(!ret))
+                    return val;
+            }
+#endif
+            return (int) -1;
+        }
+    } else {
+        int val;
+        PyObject *tmp = __Pyx_PyNumber_Int(x);
+        if (!tmp) return (int) -1;
+        val = __Pyx_PyInt_As_int(tmp);
+        Py_DECREF(tmp);
+        return val;
+    }
+raise_overflow:
+    PyErr_SetString(PyExc_OverflowError,
+        "value too large to convert to int");
+    return (int) -1;
+raise_neg_overflow:
+    PyErr_SetString(PyExc_OverflowError,
+        "can't convert negative value to int");
+    return (int) -1;
+}
+
 static CYTHON_INLINE PyObject* __Pyx_PyInt_From_int(int value) {
     const int neg_one = (int) -1, const_zero = 0;
     const int is_unsigned = neg_one > const_zero;
@@ -5135,122 +5279,6 @@ static int __Pyx_PrintOne(PyObject* stream, PyObject *o) {
     return res;
 }
 #endif
-
-#define __PYX_VERIFY_RETURN_INT(target_type, func_type, func_value)       \
-    {                                                                     \
-        func_type value = func_value;                                     \
-        if (sizeof(target_type) < sizeof(func_type)) {                    \
-            if (unlikely(value != (func_type) (target_type) value)) {     \
-                func_type zero = 0;                                       \
-                if (is_unsigned && unlikely(value < zero))                \
-                    goto raise_neg_overflow;                              \
-                else                                                      \
-                    goto raise_overflow;                                  \
-            }                                                             \
-        }                                                                 \
-        return (target_type) value;                                       \
-    }
-
-#if CYTHON_COMPILING_IN_CPYTHON && PY_MAJOR_VERSION >= 3
- #if CYTHON_USE_PYLONG_INTERNALS
-  #include "longintrepr.h"
- #endif
-#endif
-
-static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject *x) {
-    const int neg_one = (int) -1, const_zero = 0;
-    const int is_unsigned = neg_one > const_zero;
-#if PY_MAJOR_VERSION < 3
-    if (likely(PyInt_Check(x))) {
-        if (sizeof(int) < sizeof(long)) {
-            __PYX_VERIFY_RETURN_INT(int, long, PyInt_AS_LONG(x))
-        } else {
-            long val = PyInt_AS_LONG(x);
-            if (is_unsigned && unlikely(val < 0)) {
-                goto raise_neg_overflow;
-            }
-            return (int) val;
-        }
-    } else
-#endif
-    if (likely(PyLong_Check(x))) {
-        if (is_unsigned) {
-#if CYTHON_COMPILING_IN_CPYTHON && PY_MAJOR_VERSION >= 3
- #if CYTHON_USE_PYLONG_INTERNALS
-            switch (Py_SIZE(x)) {
-                case  0: return 0;
-                case  1: __PYX_VERIFY_RETURN_INT(int, digit, ((PyLongObject*)x)->ob_digit[0]);
-            }
- #endif
-#endif
-            if (unlikely(Py_SIZE(x) < 0)) {
-                goto raise_neg_overflow;
-            }
-            if (sizeof(int) <= sizeof(unsigned long)) {
-                __PYX_VERIFY_RETURN_INT(int, unsigned long, PyLong_AsUnsignedLong(x))
-            } else if (sizeof(int) <= sizeof(unsigned long long)) {
-                __PYX_VERIFY_RETURN_INT(int, unsigned long long, PyLong_AsUnsignedLongLong(x))
-            }
-        } else {
-#if CYTHON_COMPILING_IN_CPYTHON && PY_MAJOR_VERSION >= 3
- #if CYTHON_USE_PYLONG_INTERNALS
-            switch (Py_SIZE(x)) {
-                case  0: return 0;
-                case  1: __PYX_VERIFY_RETURN_INT(int,  digit, +(((PyLongObject*)x)->ob_digit[0]));
-                case -1: __PYX_VERIFY_RETURN_INT(int, sdigit, -(sdigit) ((PyLongObject*)x)->ob_digit[0]);
-            }
- #endif
-#endif
-            if (sizeof(int) <= sizeof(long)) {
-                __PYX_VERIFY_RETURN_INT(int, long, PyLong_AsLong(x))
-            } else if (sizeof(int) <= sizeof(long long)) {
-                __PYX_VERIFY_RETURN_INT(int, long long, PyLong_AsLongLong(x))
-            }
-        }
-        {
-#if CYTHON_COMPILING_IN_PYPY && !defined(_PyLong_AsByteArray)
-            PyErr_SetString(PyExc_RuntimeError,
-                            "_PyLong_AsByteArray() not available in PyPy, cannot convert large numbers");
-#else
-            int val;
-            PyObject *v = __Pyx_PyNumber_Int(x);
- #if PY_MAJOR_VERSION < 3
-            if (likely(v) && !PyLong_Check(v)) {
-                PyObject *tmp = v;
-                v = PyNumber_Long(tmp);
-                Py_DECREF(tmp);
-            }
- #endif
-            if (likely(v)) {
-                int one = 1; int is_little = (int)*(unsigned char *)&one;
-                unsigned char *bytes = (unsigned char *)&val;
-                int ret = _PyLong_AsByteArray((PyLongObject *)v,
-                                              bytes, sizeof(val),
-                                              is_little, !is_unsigned);
-                Py_DECREF(v);
-                if (likely(!ret))
-                    return val;
-            }
-#endif
-            return (int) -1;
-        }
-    } else {
-        int val;
-        PyObject *tmp = __Pyx_PyNumber_Int(x);
-        if (!tmp) return (int) -1;
-        val = __Pyx_PyInt_As_int(tmp);
-        Py_DECREF(tmp);
-        return val;
-    }
-raise_overflow:
-    PyErr_SetString(PyExc_OverflowError,
-        "value too large to convert to int");
-    return (int) -1;
-raise_neg_overflow:
-    PyErr_SetString(PyExc_OverflowError,
-        "can't convert negative value to int");
-    return (int) -1;
-}
 
 static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value) {
     const long neg_one = (long) -1, const_zero = 0;

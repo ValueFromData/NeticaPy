@@ -83,10 +83,10 @@ def lis(list x):
         v.append(i)
     free(version)
     return v
-
-def con():
+def con(int ii):
     cdef double* x=[1,2,3,4]
     sz_x = sizeof(x)
+    print ii
     sz_d = sizeof(double)
     print sz_x,sz_d,sizeof(x[0]),x[0],x[1],x[2],x[3],x[4]
     return [i for i in x[:sz_x/sz_d]]

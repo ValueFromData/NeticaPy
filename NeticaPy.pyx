@@ -1129,46 +1129,100 @@ cdef class Netica:
         SetNodeStateComment_bn (node.value,state,state_comment)
 
     def SetNodeInputName_bn (self,NewNode node, int link_index, char* link_name):
-            SetNodeInputName_bn (node.value, link_index, link_name)
+        SetNodeInputName_bn (node.value, link_index, link_name)
 
     def SetNodeEquation_bn (self,NewNode node,char* eqn):
         SetNodeEquation_bn (node.value,eqn)
+        
+    cdef __SetNodeFuncState_bn_IntList (self,node_bn* node,IntList parent_states,state_bn st):
+        SetNodeFuncState_bn (node,parent_states.value,st)
 
-    def SetNodeFuncState_bn (self,NewNode node, list parent_states, state_bn st):
+    def SetNodeFuncState_bn (self,NewNode node,parent_states, state_bn st):
         cdef state_bn* ps
-        ps = <state_bn *>malloc(len(parent_states)*cython.sizeof(state_bn))
-        for i in range(len(parent_states)):
-            ps[i]=<state_bn>parent_states[i]
-        SetNodeFuncState_bn (node.value, ps, st)
+        if type(parent_states)==IntList:
+            self.__SetNodeFuncState_bn_IntList (node.value,parent_states,st)    
+        elif type(parent_states)==list:
+            ps = <state_bn *>malloc(len(parent_states)*cython.sizeof(state_bn))
+            for i in range(len(parent_states)):
+                ps[i]=<state_bn>parent_states[i]
+            SetNodeFuncState_bn (node.value, ps, st)
+        else:
+            free(ps)
+            raise ValueError("parent_states should be list of integer| Intlist type found %s" % type(parent_states))
         free(ps)
 
-    def SetNodeFuncReal_bn (self,NewNode node, list parent_states, double val):
+    cdef __SetNodeFuncReal_bn_IntList (self,node_bn* node,IntList parent_states,double val):
+        SetNodeFuncReal_bn (node,parent_states.value,val)
+        
+    def SetNodeFuncReal_bn (self,NewNode node, parent_states, double val):
         cdef state_bn* ps
-        ps = <state_bn *>malloc(len(parent_states)*cython.sizeof(state_bn))
-        for i in range(len(parent_states)):
-            ps[i]=<state_bn>parent_states[i]
-        SetNodeFuncReal_bn (node.value,ps,val)
+        if type(parent_states)==IntList:
+            self.__SetNodeFuncReal_bn_IntList (node.value, parent_states, val)
+        elif type(parent_states)==list:
+            ps = <state_bn *>malloc(len(parent_states)*cython.sizeof(state_bn))
+            for i in range(len(parent_states)):
+                ps[i]=<state_bn>parent_states[i]
+            SetNodeFuncReal_bn (node.value,ps,val)
+        else:
+            free(ps)
+            raise ValueError("parent_states should be list of integer| Intlist type found %s" % type(parent_states))
         free(ps)
 
-    def SetNodeProbs_bn (self,NewNode node, list parent_states, list probs):
+    cdef __SetNodeProbs_bn_IntList_FloatList (self,node_bn* node,IntList parent_states,FloatList probs):
+        SetNodeProbs_bn (node,parent_states.value,probs.value)
+        
+    cdef __SetNodeProbs_bn_IntList (self,node_bn* node,IntList parent_states,prob_bn* probs):
+        SetNodeProbs_bn (node,parent_states.value,probs)
+        
+    cdef __SetNodeProbs_bn_FloatList (self,node_bn* node,state_bn* parent_states,FloatList probs):
+        SetNodeProbs_bn (node,parent_states,probs.value)
+        
+    def SetNodeProbs_bn (self,NewNode node, parent_states, probs):
         cdef prob_bn* _probs
         cdef state_bn* ps
-        ps = <state_bn *>malloc(len(parent_states)*cython.sizeof(state_bn))
-        for i in range(len(parent_states)):
-            ps[i]=<state_bn>parent_states[i]
-        _probs = <prob_bn *>malloc(len(probs)*cython.sizeof(prob_bn))
-        for i in range(len(probs)):
-            _probs[i]=<state_bn>probs[i]
-        SetNodeProbs_bn (node.value, ps, _probs)
+        if type(parent_states)==IntList and type(probs)==FloatList:
+            self.__SetNodeProbs_bn_IntList_FloatList (node.value,parent_states,probs)
+        elif type(parent_states)==IntList and type(probs)==list:
+            _probs = <prob_bn *>malloc(len(probs)*cython.sizeof(prob_bn))
+            for i in range(len(probs)):
+                _probs[i]=<state_bn>probs[i]
+            self.__SetNodeProbs_bn_IntList (node.value,parent_states,_probs)
+        elif type(parent_states)==list and type(probs)==FloatList:
+            ps = <state_bn *>malloc(len(parent_states)*cython.sizeof(state_bn))
+            for i in range(len(parent_states)):
+                ps[i]=<state_bn>parent_states[i]
+            self.__SetNodeProbs_bn_FloatList (node.value, ps, probs)
+        elif type(parent_states)==list and type(probs)==list:
+            ps = <state_bn *>malloc(len(parent_states)*cython.sizeof(state_bn))
+            for i in range(len(parent_states)):
+                ps[i]=<state_bn>parent_states[i]
+            _probs = <prob_bn *>malloc(len(probs)*cython.sizeof(prob_bn))
+            for i in range(len(probs)):
+                _probs[i]=<state_bn>probs[i]
+            SetNodeProbs_bn (node.value, ps, _probs)
+        else:
+            free(ps)
+            free(_probs)
+            raise ValueError("parent_states and probs should be list of integer and list of float | Intlist and FloatList type found: Type of parent_states %s and Type of probs %s" % (type(parent_states),type(probs)))
+
         free(ps)
         free(_probs)
 
-    def SetNodeExperience_bn (self,NewNode node, list parent_states, double experience):
+    cdef __SetNodeExperience_bn_IntList (self,node_bn* node,IntList parent_states,double experience):
+        SetNodeExperience_bn (node,parent_states.value,experience)
+        
+    def SetNodeExperience_bn (self,NewNode node, parent_states, double experience):
         cdef state_bn* ps
-        ps = <state_bn *>malloc(len(parent_states)*cython.sizeof(state_bn))
-        for i in range(len(parent_states)):
-            ps[i]=<state_bn>parent_states[i]
-        SetNodeExperience_bn (node.value, ps,experience)
+        if type(parent_states)==IntList:
+             self.__SetNodeExperience_bn_IntList (node.value,parent_states,experience)
+        elif type(parent_states)==list:
+            ps = <state_bn *>malloc(len(parent_states)*cython.sizeof(state_bn))
+            for i in range(len(parent_states)):
+                ps[i]=<state_bn>parent_states[i]
+            SetNodeExperience_bn (node.value, ps,experience)
+        else:
+            free(ps)
+            raise ValueError("parent_states should be list of integer | Intlist type found: %s" % (type(parent_states)))
         free(ps)
 
     def DeleteNodeTables_bn (self,NewNode node):
@@ -1184,20 +1238,38 @@ cdef class Netica:
     def EnterNodeValue_bn (self,NewNode node, double value):
         EnterNodeValue_bn (node.value,value)
 
-    def EnterNodeLikelihood_bn (self,NewNode node, list likelihood):
+    cdef __EnterNodeLikelihood_bn_FloatList (self,node_bn* node,FloatList likelihood):
+        EnterNodeLikelihood_bn (node,likelihood.value)
+        
+    def EnterNodeLikelihood_bn (self,NewNode node,likelihood):
         cdef prob_bn* _likelihood
-        _likelihood = <prob_bn *>malloc(len(likelihood)*cython.sizeof(prob_bn))
-        for i in range(len(likelihood)):
-            _likelihood[i]=<prob_bn>likelihood[i]
-        EnterNodeLikelihood_bn (node.value, _likelihood)
+        if type(likelihood)==list:
+            _likelihood = <prob_bn *>malloc(len(likelihood)*cython.sizeof(prob_bn))
+            for i in range(len(likelihood)):
+                _likelihood[i]=<prob_bn>likelihood[i]
+            EnterNodeLikelihood_bn (node.value, _likelihood)
+        elif type(likelihood)==FloatList:
+            self.__EnterNodeLikelihood_bn_FloatList (node.value,likelihood)
+        else:
+            free(_likelihood)
+            raise ValueError("likelihood should be list of float | Floatlist type found: %s" % likelihood)            
         free(_likelihood)
 
-    def EnterNodeCalibration_bn (self,NewNode node, list calibration):
+    cdef __EnterNodeCalibration_bn_FloatList (self,node_bn* node,FloatList calibration):
+        EnterNodeCalibration_bn (node,calibration.value)
+        
+    def EnterNodeCalibration_bn (self,NewNode node, calibration):
         cdef prob_bn* _calibration
-        _calibration = <prob_bn *>malloc(len(calibration)*cython.sizeof(prob_bn))
-        for i in range(len(calibration)):
-            _calibration[i]=<prob_bn>calibration[i]
-        EnterNodeCalibration_bn (node.value, _calibration)
+        if type(calibration)==list:
+            _calibration = <prob_bn *>malloc(len(calibration)*cython.sizeof(prob_bn))
+            for i in range(len(calibration)):
+                _calibration[i]=<prob_bn>calibration[i]
+            EnterNodeCalibration_bn (node.value, _calibration)
+        elif type(calibration)==FloatList:
+            self.__EnterNodeCalibration_bn_FloatList (node.value,calibration)
+        else:
+            free(_calibration)
+            raise ValueError("calibration should be list of float | Floatlist type found: %s" % calibration)          
         free(_calibration)
 
     def EnterIntervalFinding_bn (self,NewNode node, double low, double high):
@@ -1314,6 +1386,7 @@ cdef class Netica:
                 _states[i] = states[i]
             res = JointProbability_bn (nodes.value,_states)
         else:
+            free(_states)
             raise ValueError("States should be list of integer| Intlist type found %s" % type(states))
         free(_states)
         return res
@@ -1332,6 +1405,7 @@ cdef class Netica:
                 _config[i] = config[i]
             res = MostProbableConfig_bn (nodes.value,_config,nth)
         else:
+            free(_config)
             raise ValueError("States should be list of integer| Intlist type found %s" % type(config))
         free(_config)
     
@@ -1340,12 +1414,464 @@ cdef class Netica:
             _object.__temp__function__handler=func
             return AddNetListener_bn (net.value, callback,<void*> _object , _filter)
         return AddNetListener_bn (net.value, callbackNULL,<void*> _object , _filter)
-####################################################################
+    
+    def GenerateRandomCase_bn (self,NodeList nodes, sampling_bn method, double num, RandGen rand):
+        cdef int res 
+        res = GenerateRandomCase_bn ( nodes.value,  method,  num, rand.value if type(rand)==RandGen else NULL)
+        return res
+
+    def AbsorbNodes_bn (self,NodeList nodes):
+        AbsorbNodes_bn (nodes.value)
+
+    def GetMutualInfo_bn (self,SenSV s,NewNode v_node):
+        cdef double res
+        res = GetMutualInfo_bn (s.value, v_node.value)
+        return res
+    def GetVarianceOfReal_bn (self,SenSV s, NewNode v_node):
+        cdef double res
+        res = GetVarianceOfReal_bn (s.value, v_node.value)
+        return res
+
+    def CalcNodeState_bn (self,NewNode node):
+        cdef state_bn res
+        res = CalcNodeState_bn (node.value)
+        return res
+
+    def CalcNodeValue_bn (self,NewNode node):
+        cdef double res
+        res = CalcNodeValue_bn (node.value)
+        return res
+
+    def ReviseCPTsByFindings_bn (self,NodeList nodes, int updating, double degree):
+        ReviseCPTsByFindings_bn (nodes.value,updating,degree)
+
+    def ReviseCPTsByCaseFile_bn (self,Stream _file, NodeList nodes, int updating, double degree):
+        ReviseCPTsByCaseFile_bn (_file.value, nodes.value, updating, degree)
+
+    def NewLearner_bn (self, learn_method_bn method,str _options, Netica environ):
+        cdef char* options
+        res = Learner()
+        options = PyString_AsString(_options) if type(_options)== str else NULL
+        res.value = NewLearner_bn (method, options, environ.env if type(environ)== Netica else NULL)
+        free(options)
+        return res
+    
+    def DeleteLearner_bn (self,Learner algo):
+        DeleteLearner_bn (algo.value)
+
+    def LearnCPTs_bn (self,Learner algo, NodeList nodes, CaseSet cases, double degree):
+        LearnCPTs_bn (algo.value, nodes.value, cases.value, degree)
+
+    def SetLearnerMaxIters_bn (self,Learner algo, int max_iters):
+        cdef int res
+        res = SetLearnerMaxIters_bn (algo.value, max_iters)
+        return res
+    
+    def SetLearnerMaxTol_bn (self,Learner algo, double log_likeli_tol):
+        cdef double res
+        res = SetLearnerMaxTol_bn (algo.value, log_likeli_tol)
+        return res
+    
+    def FadeCPTable_bn (self,NewNode node, double degree):
+        FadeCPTable_bn (node.value, degree)
+
+    cdef  prob_bn* __GetNodeProbs_bn_IntList (self,node_bn* node,IntList parent_states):
+        return GetNodeProbs_bn (node, parent_states.value)
+        
+    def GetNodeProbs_bn (self,NewNode node,parent_states):
+        cdef int* p_states
+        res=FloatList()
+        if type(parent_states)==IntList:
+            res.value = self.__GetNodeProbs_bn_IntList (node.value, parent_states)
+        elif type(parent_states)==list:
+            p_states = <int *>malloc(len(parent_states) * sizeof(int))
+            for i in range(len(parent_states)):
+                p_states[i] = parent_states[i]
+            res.value = GetNodeProbs_bn (node.value, p_states)
+        else:
+            free(p_states)
+            raise ValueError("States should be list of integer| Intlist type found %s" % type(parent_states))
+        free(p_states)
+        return res
+
+    cdef __GetNodeExperience_bn_IntList (self,node_bn* node,IntList parent_states):
+        return GetNodeExperience_bn (node, parent_states.value)
+    
+    def GetNodeExperience_bn (self,NewNode node,  parent_states):
+        cdef double res
+        cdef int* p_states
+        if type(parent_states)==IntList:
+            res = self.__GetNodeExperience_bn_IntList (node.value,parent_states)
+        elif type(parent_states)==list:
+            p_states = <int *>malloc(len(parent_states) * sizeof(int))
+            for i in range(len(parent_states)):
+                p_states[i] = parent_states[i]
+            res = GetNodeExperience_bn (node.value, p_states)
+        else:
+            free(p_states)
+            raise ValueError("States should be list of integer| Intlist type found %s" % type(parent_states))
+        free(p_states)
+        return res
+
+    def NewNodeList2_bn (self,int length, NewNet net):
+        res = NodeList()
+        res.value = NewNodeList2_bn (length,  net.value)
+        return res
+    
+    def AddNodeToList_bn (self,NewNode node, NodeList nodes, int index):
+        AddNodeToList_bn (node.value, nodes.value, index)
+
+    def RemoveNthNode_bn (self,NodeList nodes, int index):
+        res = NewNode()
+        res.value =  RemoveNthNode_bn (nodes.value, index)
+        return res
+
+    def SetNthNode_bn (self,NodeList nodes, int index, NewNode node):
+        SetNthNode_bn (nodes.value, index, node.value)
+
+    def NthNode_bn (self,NodeList nodes, int index):
+        res = NewNode()
+        res.value = NthNode_bn (nodes.value, index)
+        return res
+
+    def IndexOfNodeInList_bn (self,NewNode node, NodeList nodes, int start_index):
+        cdef int res
+        res = IndexOfNodeInList_bn (node.value, nodes.value, start_index)
+        return res
+
+    def LengthNodeList_bn (self,NodeList nodes):
+        cdef int res
+        res = LengthNodeList_bn ( nodes.value)
+        return res
+
+    def DupNodeList_bn (self,NodeList nodes):
+        res = NodeList()
+        res.value = DupNodeList_bn (nodes.value)
+        return res
+    def ClearNodeList_bn (self,NodeList nodes):
+        ClearNodeList_bn (nodes.value)
+
+    def DeleteNodeList_bn (self,NodeList nodes):
+        DeleteNodeList_bn (nodes.value)
+
+    def GetNodeNamed_bn (self,char* name, NewNet net):
+        res = NewNode()
+        res.value = GetNodeNamed_bn (name, net.value)
+        return res
+    
+    def GetNetNodes2_bn (self,NewNet net, char* options):
+        res = NodeList()
+        res.value = GetNetNodes2_bn (net.value,options)
+        return res
+
+    def GetNetNodes_bn(self,NewNet net):
+        res = NodeList()
+        res.value = GetNetNodes2_bn (net.value, "incl_docn")
+        return res
+
+    def GetNodeParents_bn (self,NewNode node):
+        res = NodeList()
+        res.value = GetNodeParents_bn (node.value)
+        return res
+
+    def GetNodeChildren_bn (self,NewNode node):
+        res = NodeList()
+        res.value = GetNodeChildren_bn (node.value)
+        return res
+
+    def GetNodeNet_bn (self, NewNode node):
+        res = NewNet()
+        res.value = GetNodeNet_bn (node.value)
+        return res
+    
+    def GetRelatedNodes_bn (self,NodeList related_nodes,char* relation, NewNode node):
+        GetRelatedNodes_bn (related_nodes.value, relation, node.value)
+
+    def GetRelatedNodesMult_bn (self,NodeList related_nodes, char* relation, NodeList nodes):
+        GetRelatedNodesMult_bn (related_nodes.value, relation, nodes.value)
+
+    cdef __MapStateList_bn_src_IntList (self,IntList src_states, nodelist_bn* src_nodes, state_bn* dest_states, nodelist_bn* dest_nodes):
+        MapStateList_bn (src_states.value,src_nodes,dest_states, dest_nodes)
+    
+    cdef __MapStateList_bn_dest_IntList (self,state_bn* src_states, nodelist_bn* src_nodes, IntList dest_states, nodelist_bn* dest_nodes):
+        MapStateList_bn (src_states,src_nodes,dest_states.value, dest_nodes)
+    
+    cdef __MapStateList_bn_src_dest_IntList (self,IntList src_states, nodelist_bn* src_nodes, IntList dest_states, nodelist_bn* dest_nodes):
+        MapStateList_bn (src_states.value,src_nodes,dest_states.value, dest_nodes)
+
+    def MapStateList_bn (self,src_states,  NodeList src_nodes, dest_states, NodeList dest_nodes):
+        cdef int* _src_states
+        cdef int* _dest_states
+        if type(src_states)==IntList and type(dest_states)==IntList:
+            self.__MapStateList_bn_src_dest_IntList (src_states, src_nodes.value, dest_states, dest_nodes.value)
+        elif type(src_states)==IntList and type(dest_states)== list:
+            _dest_states = <int *>malloc(len(dest_states) * sizeof(int))
+            for i in range(len(dest_states)):
+                _dest_states[i] = dest_states[i]
+            self.__MapStateList_bn_src_IntList (src_states, src_nodes.value, _dest_states, dest_nodes.value)
+        elif type(src_states)== list and type(dest_states)== IntList:
+            _src_states = <int *>malloc(len(src_states) * sizeof(int))
+            for i in range(len(src_states)):
+                _src_states[i] = src_states[i]
+            self.__MapStateList_bn_dest_IntList (_src_states, src_nodes.value, dest_states, dest_nodes.value)
+        elif type(src_states)== list and type(dest_states)== list:
+            _dest_states = <int *>malloc(len(dest_states) * sizeof(int))
+            for i in range(len(dest_states)):
+                _dest_states[i] = dest_states[i]
+            _src_states = <int *>malloc(len(src_states) * sizeof(int))
+            for i in range(len(src_states)):
+                _src_states[i] = src_states[i]
+            MapStateList_bn (_src_states, src_nodes.value, _dest_states, dest_nodes.value)
+        else:
+            free(_src_states)
+            free(_dest_states)
+            raise ValueError("Src States and Dest States should be list of integer | Intlist type found: Type of src_states %s and Type of dest_states %s" % (type(src_states),type(dest_states)))
+        free(_src_states)
+        free(_dest_states)
+
+    def ReadNetFindings_bn(self,caseposn_bn case_posn, Stream fs, NodeList nodes, long ID_num=0, double freq=0):
+        ReadNetFindings2_bn (&case_posn,  fs.value if type(fs)==Stream else NULL,False, nodes.value, &ID_num, &freq)
+        return {
+            "case_posn" : case_posn,
+            "ID_num" :ID_num,
+            "freq" : freq
+            }
+    
+    def NewCaseset_cs (self, char* name,Netica environ):
+        res = CaseSet()
+        res.value = NewCaseset_cs (name, environ.env if type(environ)==Netica else NULL)
+        return res
+
+    def DeleteCaseset_cs (self,CaseSet cases):
+        DeleteCaseset_cs (cases.value)
+
+    def AddDBCasesToCaseset_cs (self,CaseSet cases, DBmgr dbmgr, double degree, NodeList nodes, char* column_names, char* tables, char* condition, str _options):
+        cdef char* options
+        options = PyString_AsString(_options) if type(_options)== str else NULL
+        AddDBCasesToCaseset_cs (cases.value, dbmgr.value, degree, nodes.value, column_names, tables, condition, options)
+        free(options)
+
+    def AddFileToCaseset_cs (self,CaseSet cases,Stream _file,double degree, str _options):
+        cdef char* options
+        options = PyString_AsString(_options) if type(_options)== str else NULL
+        AddFileToCaseset_cs (cases.value, _file.value if type(_file)==Stream else NULL, degree, options)
+        free(options)
+
+    def WriteCaseset_cs (self,CaseSet cases, Stream _file, str _options):
+        cdef char* options
+        options = PyString_AsString(_options) if type(_options)== str else NULL        
+        WriteCaseset_cs (cases.value, _file.value if type(_file)==Stream else NULL, options)
+        free(options)
+
+    def TestWithCaseset_bn (self,Tester test,CaseSet cases):
+        TestWithCaseset_bn (test.value,cases.value)
+
+    def AddNodeToNodeset_bn (self,NewNode node, char* nodeset):
+        AddNodeToNodeset_bn (node.value,nodeset)
+
+    def RemoveNodeFromNodeset_bn (self,NewNode node, char* nodeset):
+        AddNodeToNodeset_bn (node.value,nodeset)
+        
+    def IsNodeInNodeset_bn(self,NewNode node, char* nodeset):
+        cdef bool_ns res
+        res = IsNodeInNodeset_bn (node.value, nodeset)
+        return res
+
+    def ReorderNodesets_bn (self,NewNet net, char* nodeset_order, UserData vis=None):
+        ReorderNodesets_bn (net.value, nodeset_order, vis.value if type(vis)==UserData else NULL)
+
+    def GetAllNodesets_bn (self,NewNet net, bool_ns include_system,  UserData vis=None):
+        cdef char* res
+        res = GetAllNodesets_bn (net.value, include_system, vis.value if type(vis)==UserData else NULL)
+        return res
+
+    def SetNodesetColor_bn (self,char* nodeset, color_ns color, NewNet net, UserData vis=None):
+        cdef color_ns res
+        res = SetNodesetColor_bn (nodeset, color, net.value, vis.value if type(vis)==UserData else NULL)
+        return res
+
+    def ReverseLink_bn (self,NewNode parent, NewNode child):
+        ReverseLink_bn (parent.value, child.value)
+
+    def SwitchNodeParent_bn (self,int link_index, NewNode node, NewNode new_parent):
+        SwitchNodeParent_bn (link_index, node.value, new_parent.value)
+
+    def UndoNetLastOper_bn (self,NewNet net, double to_when):
+        cdef int res
+        res = UndoNetLastOper_bn (net.value, to_when)
+        return res
+
+    def RedoNetOper_bn (self,NewNet net, double to_when):
+        cdef int res
+        res = RedoNetOper_bn (net.value, to_when)
+        return res
+
+    def AddNodesFromDB_bn (self,DBmgr dbmgr, NewNet net,char* column_names, char* tables, char* condition,char* options):
+        AddNodesFromDB_bn (dbmgr.value, net.value, column_names, tables, condition, options)
+
+    def AddNodeStates_bn (self,NewNode node, state_bn first_state, char* state_names, int num_states, double cpt_fill):
+        AddNodeStates_bn (node.value, first_state, state_names, num_states, cpt_fill)
+
+    def RemoveNodeState_bn (self,NewNode node, state_bn state):
+        RemoveNodeState_bn (node.value, state)
+
+    cdef __ReorderNodeStates_bn_IntList (self,node_bn* node, IntList new_order):
+        ReorderNodeStates_bn (node,new_order.value)
+
+    def ReorderNodeStates_bn (self,NewNode node, new_order):
+        cdef state_bn* _new_order
+        if type(new_order)==IntList:
+            self.__ReorderNodeStates_bn_IntList (node.value, new_order)
+        elif type(new_order)==list:
+            _new_order = <int *>malloc(len(new_order) * sizeof(int))
+            for i in range(len(new_order)):
+                _new_order[i] = new_order[i]
+            ReorderNodeStates_bn (node.value, _new_order)
+        else:
+            free(_new_order)
+            raise ValueError("new_order should be list of integer | Intlist type found:  %s" % type(new_order))            
+        free(_new_order)
 
     def AddLink_bn(self,NewNode parent,NewNode child):
         cdef int res
         res=AddLink_bn(parent.value,child.value)
         return res
+
+    def DeleteLink_bn (self,int link_index, NewNode child):
+        DeleteLink_bn (link_index, child.value)
+
+    def GetNetName_bn (self, NewNet net):
+        cdef char* res
+        res = GetNetName_bn (net.value)
+        return res
+
+    def GetNetTitle_bn (self, NewNet net):
+        cdef char* res
+        res.value = GetNetTitle_bn (net.value)
+        return res
+
+    def GetNetComment_bn (self, NewNet net):
+        cdef char* res
+        res.value = GetNetComment_bn (net.value)
+        return res
+
+    def GetNetFileName_bn (self, NewNet net):
+        cdef char* res
+        res.value = GetNetFileName_bn (net.value)
+        return res
+
+    def GetNodeName_bn (self,NewNode node):
+        cdef char* res
+        res.value = GetNodeName_bn ( node.value)
+        return res
+
+    def GetNodeType_bn (self,NewNode node):
+        cdef nodetype_bn res
+        res = GetNodeType_bn (node.value)
+        return res
+
+    def GetNodeKind_bn (self,NewNode node):
+        cdef nodekind_bn res
+        res = GetNodeKind_bn (node.value)
+        return res
+
+    def GetNodeNumberStates_bn (self,NewNode node):
+        cdef int res
+        res = GetNodeNumberStates_bn (node.value)
+        return res
+
+    
+    def GetNodeStateName_bn (self,NewNode node, state_bn state):
+        cdef char* res
+        res = GetNodeStateName_bn (node.value, state)
+        return res
+
+    def GetStateNamed_bn (self, char* name, NewNode node):
+        cdef state_bn res
+        res = GetStateNamed_bn ( name, node.value)
+        return res
+
+    def GetNodeStateTitle_bn (self,NewNode node, state_bn state):
+        cdef char* res
+        res = GetNodeStateTitle_bn ( node.value, state)
+        return res
+
+    def GetNodeStateComment_bn (self,NewNode node, state_bn state):
+        cdef char* res
+        res = GetNodeStateComment_bn (node.value, state)
+        return res
+
+    def GetNodeLevels_bn (self,NewNode node):
+        res = DoubleList()
+        res.value = GetNodeLevels_bn (node.value)
+        return res
+
+    def GetInputNamed_bn (self, char* name, NewNode node):
+        cdef int res
+        res = GetInputNamed_bn (name, node.value)
+        return res
+
+    def GetNodeTitle_bn (self,NewNode node):
+        cdef char* res
+        res = GetNodeTitle_bn (node.value)
+        return res
+    
+    def GetNodeComment_bn (self,NewNode node):
+        cdef char* res
+        res = GetNodeComment_bn (node.value)
+        return res
+
+    cdef double __GetNodeFuncReal_bn_IntList (self,node_bn* node, IntList parent_states):
+        return GetNodeFuncReal_bn (node, parent_states.value)
+        
+    def GetNodeFuncReal_bn (self,NewNode node, parent_states):
+        cdef double res
+        cdef state_bn* _parent_states
+        if type(parent_states)==IntList:
+            res = self.__GetNodeFuncReal_bn_IntList (node.value, parent_states)
+        elif type(parent_states)==list:
+            _parent_states = <int *>malloc(len(parent_states) * sizeof(int))
+            for i in range(len(parent_states)):
+                _parent_states[i] = parent_states[i]
+            res = GetNodeFuncReal_bn (node.value, _parent_states)
+        else:
+            free(_parent_states)
+            raise ValueError("new_order should be list of integer | Intlist type found:  %s" % type(parent_states))
+        free(_parent_states)
+        return res
+    
+    cdef state_bn __GetNodeFuncState_bn_IntList (self, node_bn* node, IntList parent_states):
+        return GetNodeFuncState_bn (node, parent_states.value)
+
+    def GetNodeFuncState_bn (self,NewNode node, parent_states):
+        cdef state_bn* _parent_states
+        cdef state_bn res
+        if type(parent_states)==IntList:
+            res = self.__GetNodeFuncState_bn_IntList(node.value,parent_states)
+        elif type(parent_states)==list:
+            _parent_states = <int *>malloc(len(parent_states) * sizeof(int))
+            for i in range(len(parent_states)):
+                _parent_states[i] = parent_states[i]
+            res = GetNodeFuncState_bn (node.value, _parent_states)
+        else:
+            free(_parent_states)
+            raise ValueError("new_order should be list of integer | Intlist type found:  %s" % type(parent_states))
+        free(_parent_states)
+        return res
+
+    def HasNodeTable_bn (self,NewNode node, bool_ns complete):
+        cdef bool_ns res
+        res = HasNodeTable_bn (node.value, &complete)
+        return (res,complete)
+
+    def IsNodeDeterministic_bn (self,NewNode node):
+        cdef bool_ns res
+        res = IsNodeDeterministic_bn (node.value)
+        return res
+
+    
+
+####################################################################
 
     def SetNodeProbs(self,NewNode node_obj, *arg):
         cdef node_bn* node
@@ -1415,7 +1941,24 @@ cdef class NewNode:
     cpdef run(self,char* name,int num_states,NewNet net):
         self.value=NewNode_bn(name,num_states,net.value)
 
+cdef class RandGen:
+    cdef randgen_ns* value
 
+cdef class SenSV:
+    cdef sensv_bn* value
+
+cdef class Learner:
+    cdef learner_bn* value
+
+cdef class CaseSet:
+    cdef caseset_cs* value
+
+cdef class Tester:
+    cdef tester_bn* value
+
+cdef class DBmgr:
+    cdef dbmgr_cs* value
+    
 cdef class IntList:
     cdef int* value
     def __getitem__(self, item):
@@ -1671,8 +2214,7 @@ cdef int callback (net_bn* net, eventtype_ns what, void* obj, void* info):
     net_py.value = net
     return (<object>obj).__temp__function__handler(net_py,what,<object>obj,<object>info)
 
-
 cdef int callbackNULL (net_bn* net, eventtype_ns what, void* obj, void* info):
     pass
-            
-        
+
+   
