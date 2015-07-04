@@ -1875,44 +1875,52 @@ cdef class Netica:
     def SetNodeFuncState (self,NewNode node, state_bn value, *arg):
         cdef node_bn* curNode
         cdef char* statename
-        cdef state_bn parent_states[20]
+        cdef state_bn* parent_states
         cdef nodelist_bn* parents 
         cdef int pn, numparents
         parents = GetNodeParents_bn (node.value)
         numparents = LengthNodeList_bn (parents)
-        for pn in range(numparents):
-            statename = <char*> arg[pn]
-            if statename[0] == '*':
-                parent_states[pn] = <state_bn> EVERY_STATE
-            else:
-                curNode = NthNode_bn (parents, pn)
-                parent_states[pn] = GetStateNamed_bn (statename, curNode)
-        SetNodeFuncState_bn (node.value, parent_states, value)
+        parent_states = <state_bn *>malloc(numparents * sizeof(state_bn))
+        try:
+            for pn in range(numparents):
+                statename = <char*> arg[pn]
+                if statename[0] == '*':
+                    parent_states[pn] = <state_bn> EVERY_STATE
+                else:
+                    curNode = NthNode_bn (parents, pn)
+                    parent_states[pn] = GetStateNamed_bn (statename, curNode)
+            SetNodeFuncState_bn (node.value, parent_states, value)
+        finally:
+            free(parent_states)
 
 
     def SetNodeFuncReal (self,NewNode node, double value, *arg):
         cdef node_bn* curNode
-        cdef char* statename;
-        cdef state_bn parent_states[20]
+        cdef char* statename
+        cdef state_bn* parent_states
         cdef const nodelist_bn* parents
         cdef int pn, numparents
         parents = GetNodeParents_bn (node.value)
         numparents = LengthNodeList_bn (parents)
-        for pn in range(numparents):
-            statename = <char*> arg[pn]
-            if statename[0] == '*':
-                parent_states[pn] = <state_bn> EVERY_STATE
-            else:
-                curNode = NthNode_bn (parents, pn)
-                parent_states[pn] = GetStateNamed_bn (statename, curNode)
-        SetNodeFuncReal_bn (node.value, parent_states, value);
+        parent_states = <state_bn *>malloc(numparents * sizeof(state_bn))
+        try:
+            for pn in range(numparents):
+                statename = <char*> arg[pn]
+                if statename[0] == '*':
+                    parent_states[pn] = <state_bn> EVERY_STATE
+                else:
+                    curNode = NthNode_bn (parents, pn)
+                    parent_states[pn] = GetStateNamed_bn (statename, curNode)
+            SetNodeFuncReal_bn (node.value, parent_states, value)
+        finally:
+            free(parent_states)
 
 
     def SetNodeProbs(self,NewNode node_obj, *arg):
         cdef node_bn* node
         cdef node_bn* curNode
-        cdef state_bn parent_states[20]
-        cdef prob_bn probs[20]
+        cdef state_bn* parent_states
+        cdef prob_bn* probs
         cdef char* statename
         cdef int state, numstates
         cdef const nodelist_bn* parents 
@@ -1921,19 +1929,24 @@ cdef class Netica:
         numstates = GetNodeNumberStates_bn (node)
         parents = GetNodeParents_bn (node)
         numparents = LengthNodeList_bn (parents)
-        for pn in range(numparents):
-            statename = <char*> arg[pn]
-            if statename[0] == '*':
-                parent_states[pn] = <state_bn> EVERY_STATE
-            else:
-                curNode=NthNode_bn (parents, pn)
-                parent_states[pn] = GetStateNamed_bn (statename, curNode)
-        i=numparents
-        for state in range(numstates):
-            probs[state] = <prob_bn> arg[i]
-            i+=1
-        SetNodeProbs_bn (node, parent_states, probs)
-
+        parent_states = <state_bn *>malloc(numparents * sizeof(state_bn))
+        probs = <prob_bn *>malloc(numparents * sizeof(prob_bn))
+        try:
+            for pn in range(numparents):
+                statename = <char*> arg[pn]
+                if statename[0] == '*':
+                    parent_states[pn] = <state_bn> EVERY_STATE
+                else:
+                    curNode=NthNode_bn (parents, pn)
+                    parent_states[pn] = GetStateNamed_bn (statename, curNode)
+            i=numparents
+            for state in range(numstates):
+                probs[state] = <prob_bn> arg[i]
+                i+=1
+            SetNodeProbs_bn (node, parent_states, probs)
+        finally:
+            free(parent_states)
+            free(probs)
 
     def GetNodeBelief(self,char* node_name,char* state_name,NewNet net):
         cdef double res
@@ -2252,3 +2265,5 @@ cdef int callback (net_bn* net, eventtype_ns what, void* obj, void* info):
 
 cdef int callbackNULL (net_bn* net, eventtype_ns what, void* obj, void* info):
     pass
+
+    
