@@ -1872,6 +1872,41 @@ cdef class Netica:
     
 
 ####################################################################
+    def SetNodeFuncState (self,NewNode node, state_bn value, *arg):
+        cdef node_bn* curNode
+        cdef char* statename
+        cdef state_bn parent_states[20]
+        cdef nodelist_bn* parents 
+        cdef int pn, numparents
+        parents = GetNodeParents_bn (node.value)
+        numparents = LengthNodeList_bn (parents)
+        for pn in range(numparents):
+            statename = <char*> arg[pn]
+            if statename[0] == '*':
+                parent_states[pn] = <state_bn> EVERY_STATE
+            else:
+                curNode = NthNode_bn (parents, pn)
+                parent_states[pn] = GetStateNamed_bn (statename, curNode)
+        SetNodeFuncState_bn (node.value, parent_states, value)
+
+
+    def SetNodeFuncReal (self,NewNode node, double value, *arg):
+        cdef node_bn* curNode
+        cdef char* statename;
+        cdef state_bn parent_states[20]
+        cdef const nodelist_bn* parents
+        cdef int pn, numparents
+        parents = GetNodeParents_bn (node.value)
+        numparents = LengthNodeList_bn (parents)
+        for pn in range(numparents):
+            statename = <char*> arg[pn]
+            if statename[0] == '*':
+                parent_states[pn] = <state_bn> EVERY_STATE
+            else:
+                curNode = NthNode_bn (parents, pn)
+                parent_states[pn] = GetStateNamed_bn (statename, curNode)
+        SetNodeFuncReal_bn (node.value, parent_states, value);
+
 
     def SetNodeProbs(self,NewNode node_obj, *arg):
         cdef node_bn* node
@@ -1898,6 +1933,7 @@ cdef class Netica:
             probs[state] = <prob_bn> arg[i]
             i+=1
         SetNodeProbs_bn (node, parent_states, probs)
+
 
     def GetNodeBelief(self,char* node_name,char* state_name,NewNet net):
         cdef double res
@@ -2216,5 +2252,3 @@ cdef int callback (net_bn* net, eventtype_ns what, void* obj, void* info):
 
 cdef int callbackNULL (net_bn* net, eventtype_ns what, void* obj, void* info):
     pass
-
-   
