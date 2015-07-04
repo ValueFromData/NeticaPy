@@ -899,9 +899,15 @@ cdef class Netica:
         res.value=GetEnvironUserData_ns (environ.env if type(environ)==Netica else NULL,kind)
         return res
 
-    def GetError_ns (self,Netica environ, errseverity_ns severity, Report after):
+    cdef report_ns* __GetError_ns (self,environ_ns* env, errseverity_ns severity, Report after):
+        return GetError_ns (env, severity, after.value)
+
+    def GetError_ns (self,Netica environ, errseverity_ns severity, after):
         res=Report()
-        res.value = GetError_ns (environ.env if type(environ)==Netica else NULL, severity, after.value)
+        if type(after)==Report:
+            res.value = self.__GetError_ns (environ.env if type(environ)==Netica else NULL, severity, after)
+        else:
+            res.value = GetError_ns (environ.env if type(environ)==Netica else NULL, severity, NULL)
         return res
     
     def ErrorNumber_ns (self,Report error):
@@ -2266,3 +2272,5 @@ cdef int callback (net_bn* net, eventtype_ns what, void* obj, void* info):
 
 cdef int callbackNULL (net_bn* net, eventtype_ns what, void* obj, void* info):
     pass
+
+   
