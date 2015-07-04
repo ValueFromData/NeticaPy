@@ -899,9 +899,9 @@ cdef class Netica:
         res.value=GetEnvironUserData_ns (environ.env if type(environ)==Netica else NULL,kind)
         return res
 
-    def GetError_ns (self,Netica environ, ErrSeverity severity, Report after):
+    def GetError_ns (self,Netica environ, errseverity_ns severity, Report after):
         res=Report()
-        res.value = GetError_ns (environ.env if type(environ)==Netica else NULL, severity.value, after.value)
+        res.value = GetError_ns (environ.env if type(environ)==Netica else NULL, severity, after.value)
         return res
     
     def ErrorNumber_ns (self,Report error):
@@ -915,24 +915,24 @@ cdef class Netica:
         return res
 
     def ErrorSeverity_ns (self,Report error):
-        res = ErrSeverity()
-        res.value = ErrorSeverity_ns (error.value)
+        cdef errseverity_ns res
+        res = ErrorSeverity_ns (error.value)
         return res
     
-    def ErrorCategory_ns (self,ErrorCondition cond, Report error):
+    def ErrorCategory_ns (self,errcond_ns cond, Report error):
         cdef bool_ns res
-        res = ErrorCategory_ns (cond.value, error.value)
+        res = ErrorCategory_ns (cond, error.value)
         return res
 
     def ClearError_ns (self,Report error):
         ClearError_ns (error.value)
 
-    def ClearErrors_ns (self,Netica environ, ErrSeverity severity):
-        ClearErrors_ns (environ.env if type(environ)==Netica else NULL, severity.value)
+    def ClearErrors_ns (self,Netica environ, errseverity_ns severity):
+        ClearErrors_ns (environ.env if type(environ)==Netica else NULL, severity)
 
-    def NewError_ns (self,Netica environ, int number, ErrSeverity severity, mesg=None):
+    def NewError_ns (self,Netica environ, int number, errseverity_ns severity, mesg=None):
         res = Report()
-        res.value = NewError_ns (environ.env if type(environ)==Netica else NULL,number, severity.value, self.mesg)
+        res.value = NewError_ns (environ.env if type(environ)==Netica else NULL,number, severity, self.mesg)
         if type(mesg)==bytearray:
             while(len(mesg)):
                 mesg.pop()
@@ -1965,12 +1965,13 @@ cdef class UserData:
 cdef class Report:
     cdef report_ns* value
 
-cdef class ErrSeverity:
-    cdef errseverity_ns value
+#####
+#cdef class ErrSeverity:
+#    cdef errseverity_ns value
 
-cdef class ErrorCondition:
-    cdef errcond_ns value
-
+#cdef class ErrorCondition:
+#    cdef errcond_ns value
+#####
 cdef class Stream:
     cdef stream_ns* value
 
@@ -2265,5 +2266,3 @@ cdef int callback (net_bn* net, eventtype_ns what, void* obj, void* info):
 
 cdef int callbackNULL (net_bn* net, eventtype_ns what, void* obj, void* info):
     pass
-
-    

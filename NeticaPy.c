@@ -438,8 +438,6 @@ static const char *__pyx_f[] = {
 struct __pyx_obj_8NeticaPy_Netica;
 struct __pyx_obj_8NeticaPy_UserData;
 struct __pyx_obj_8NeticaPy_Report;
-struct __pyx_obj_8NeticaPy_ErrSeverity;
-struct __pyx_obj_8NeticaPy_ErrorCondition;
 struct __pyx_obj_8NeticaPy_Stream;
 struct __pyx_obj_8NeticaPy_NodeList;
 struct __pyx_obj_8NeticaPy_NewNet;
@@ -500,35 +498,9 @@ struct __pyx_obj_8NeticaPy_Report {
 };
 
 
-/* "NeticaPy.pyx":1968
- *     cdef report_ns* value
- * 
- * cdef class ErrSeverity:             # <<<<<<<<<<<<<<
- *     cdef errseverity_ns value
- * 
- */
-struct __pyx_obj_8NeticaPy_ErrSeverity {
-  PyObject_HEAD
-  errseverity_ns value;
-};
-
-
-/* "NeticaPy.pyx":1971
- *     cdef errseverity_ns value
- * 
- * cdef class ErrorCondition:             # <<<<<<<<<<<<<<
- *     cdef errcond_ns value
- * 
- */
-struct __pyx_obj_8NeticaPy_ErrorCondition {
-  PyObject_HEAD
-  errcond_ns value;
-};
-
-
-/* "NeticaPy.pyx":1974
- *     cdef errcond_ns value
- * 
+/* "NeticaPy.pyx":1975
+ * #    cdef errcond_ns value
+ * #####
  * cdef class Stream:             # <<<<<<<<<<<<<<
  *     cdef stream_ns* value
  * 
@@ -539,7 +511,7 @@ struct __pyx_obj_8NeticaPy_Stream {
 };
 
 
-/* "NeticaPy.pyx":1977
+/* "NeticaPy.pyx":1978
  *     cdef stream_ns* value
  * 
  * cdef class NodeList:             # <<<<<<<<<<<<<<
@@ -552,7 +524,7 @@ struct __pyx_obj_8NeticaPy_NodeList {
 };
 
 
-/* "NeticaPy.pyx":1980
+/* "NeticaPy.pyx":1981
  *     cdef nodelist_bn* value
  * 
  * cdef class  NewNet:             # <<<<<<<<<<<<<<
@@ -566,7 +538,7 @@ struct __pyx_obj_8NeticaPy_NewNet {
 };
 
 
-/* "NeticaPy.pyx":1988
+/* "NeticaPy.pyx":1989
  *             self.value = NewNet_bn (name, NULL)
  * 
  * cdef class NewNode:             # <<<<<<<<<<<<<<
@@ -580,7 +552,7 @@ struct __pyx_obj_8NeticaPy_NewNode {
 };
 
 
-/* "NeticaPy.pyx":1993
+/* "NeticaPy.pyx":1994
  *         self.value=NewNode_bn(name,num_states,net.value)
  * 
  * cdef class RandGen:             # <<<<<<<<<<<<<<
@@ -593,7 +565,7 @@ struct __pyx_obj_8NeticaPy_RandGen {
 };
 
 
-/* "NeticaPy.pyx":1996
+/* "NeticaPy.pyx":1997
  *     cdef randgen_ns* value
  * 
  * cdef class SenSV:             # <<<<<<<<<<<<<<
@@ -606,7 +578,7 @@ struct __pyx_obj_8NeticaPy_SenSV {
 };
 
 
-/* "NeticaPy.pyx":1999
+/* "NeticaPy.pyx":2000
  *     cdef sensv_bn* value
  * 
  * cdef class Learner:             # <<<<<<<<<<<<<<
@@ -619,7 +591,7 @@ struct __pyx_obj_8NeticaPy_Learner {
 };
 
 
-/* "NeticaPy.pyx":2002
+/* "NeticaPy.pyx":2003
  *     cdef learner_bn* value
  * 
  * cdef class CaseSet:             # <<<<<<<<<<<<<<
@@ -632,7 +604,7 @@ struct __pyx_obj_8NeticaPy_CaseSet {
 };
 
 
-/* "NeticaPy.pyx":2005
+/* "NeticaPy.pyx":2006
  *     cdef caseset_cs* value
  * 
  * cdef class Tester:             # <<<<<<<<<<<<<<
@@ -645,7 +617,7 @@ struct __pyx_obj_8NeticaPy_Tester {
 };
 
 
-/* "NeticaPy.pyx":2008
+/* "NeticaPy.pyx":2009
  *     cdef tester_bn* value
  * 
  * cdef class DBmgr:             # <<<<<<<<<<<<<<
@@ -658,7 +630,7 @@ struct __pyx_obj_8NeticaPy_DBmgr {
 };
 
 
-/* "NeticaPy.pyx":2011
+/* "NeticaPy.pyx":2012
  *     cdef dbmgr_cs* value
  * 
  * cdef class IntList:             # <<<<<<<<<<<<<<
@@ -671,7 +643,7 @@ struct __pyx_obj_8NeticaPy_IntList {
 };
 
 
-/* "NeticaPy.pyx":2075
+/* "NeticaPy.pyx":2076
  * 
  * 
  * cdef class FloatList:             # <<<<<<<<<<<<<<
@@ -684,7 +656,7 @@ struct __pyx_obj_8NeticaPy_FloatList {
 };
 
 
-/* "NeticaPy.pyx":2137
+/* "NeticaPy.pyx":2138
  *             pass
  * 
  * cdef class DoubleList:             # <<<<<<<<<<<<<<
@@ -697,7 +669,7 @@ struct __pyx_obj_8NeticaPy_DoubleList {
 };
 
 
-/* "NeticaPy.pyx":2199
+/* "NeticaPy.pyx":2200
  *             pass
  * 
  * cdef class LongList:             # <<<<<<<<<<<<<<
@@ -710,7 +682,7 @@ struct __pyx_obj_8NeticaPy_LongList {
 };
 
 
-/* "NeticaPy.pyx":2013
+/* "NeticaPy.pyx":2014
  * cdef class IntList:
  *     cdef int* value
  *     def __getitem__(self, item):             # <<<<<<<<<<<<<<
@@ -726,7 +698,7 @@ struct __pyx_obj_8NeticaPy___pyx_scope_struct____getitem__ {
 };
 
 
-/* "NeticaPy.pyx":2077
+/* "NeticaPy.pyx":2078
  * cdef class FloatList:
  *     cdef float* value
  *     def __getitem__(self, item):             # <<<<<<<<<<<<<<
@@ -742,7 +714,7 @@ struct __pyx_obj_8NeticaPy___pyx_scope_struct_1___getitem__ {
 };
 
 
-/* "NeticaPy.pyx":2139
+/* "NeticaPy.pyx":2140
  * cdef class DoubleList:
  *     cdef double* value
  *     def __getitem__(self, item):             # <<<<<<<<<<<<<<
@@ -758,7 +730,7 @@ struct __pyx_obj_8NeticaPy___pyx_scope_struct_2___getitem__ {
 };
 
 
-/* "NeticaPy.pyx":2201
+/* "NeticaPy.pyx":2202
  * cdef class LongList:
  *     cdef long* value
  *     def __getitem__(self, item):             # <<<<<<<<<<<<<<
@@ -809,7 +781,7 @@ struct __pyx_vtabstruct_8NeticaPy_Netica {
 static struct __pyx_vtabstruct_8NeticaPy_Netica *__pyx_vtabptr_8NeticaPy_Netica;
 
 
-/* "NeticaPy.pyx":1980
+/* "NeticaPy.pyx":1981
  *     cdef nodelist_bn* value
  * 
  * cdef class  NewNet:             # <<<<<<<<<<<<<<
@@ -823,7 +795,7 @@ struct __pyx_vtabstruct_8NeticaPy_NewNet {
 static struct __pyx_vtabstruct_8NeticaPy_NewNet *__pyx_vtabptr_8NeticaPy_NewNet;
 
 
-/* "NeticaPy.pyx":1988
+/* "NeticaPy.pyx":1989
  *             self.value = NewNet_bn (name, NULL)
  * 
  * cdef class NewNode:             # <<<<<<<<<<<<<<
@@ -1181,8 +1153,6 @@ static PyObject *__pyx_f_8NeticaPy_7NewNode_run(struct __pyx_obj_8NeticaPy_NewNo
 static PyTypeObject *__pyx_ptype_8NeticaPy_Netica = 0;
 static PyTypeObject *__pyx_ptype_8NeticaPy_UserData = 0;
 static PyTypeObject *__pyx_ptype_8NeticaPy_Report = 0;
-static PyTypeObject *__pyx_ptype_8NeticaPy_ErrSeverity = 0;
-static PyTypeObject *__pyx_ptype_8NeticaPy_ErrorCondition = 0;
 static PyTypeObject *__pyx_ptype_8NeticaPy_Stream = 0;
 static PyTypeObject *__pyx_ptype_8NeticaPy_NodeList = 0;
 static PyTypeObject *__pyx_ptype_8NeticaPy_NewNet = 0;
@@ -1225,14 +1195,14 @@ static PyObject *__pyx_pf_8NeticaPy_6Netica_18SetLanguage_ns(CYTHON_UNUSED struc
 static PyObject *__pyx_pf_8NeticaPy_6Netica_20LimitMemoryUsage_ns(CYTHON_UNUSED struct __pyx_obj_8NeticaPy_Netica *__pyx_v_self, double __pyx_v_max_mem, struct __pyx_obj_8NeticaPy_Netica *__pyx_v_environ); /* proto */
 static PyObject *__pyx_pf_8NeticaPy_6Netica_22SetEnvironUserData_ns(CYTHON_UNUSED struct __pyx_obj_8NeticaPy_Netica *__pyx_v_self, struct __pyx_obj_8NeticaPy_Netica *__pyx_v_environ, int __pyx_v_kind, struct __pyx_obj_8NeticaPy_UserData *__pyx_v_data); /* proto */
 static PyObject *__pyx_pf_8NeticaPy_6Netica_24GetEnvironUserData_ns(CYTHON_UNUSED struct __pyx_obj_8NeticaPy_Netica *__pyx_v_self, struct __pyx_obj_8NeticaPy_Netica *__pyx_v_environ, int __pyx_v_kind); /* proto */
-static PyObject *__pyx_pf_8NeticaPy_6Netica_26GetError_ns(CYTHON_UNUSED struct __pyx_obj_8NeticaPy_Netica *__pyx_v_self, struct __pyx_obj_8NeticaPy_Netica *__pyx_v_environ, struct __pyx_obj_8NeticaPy_ErrSeverity *__pyx_v_severity, struct __pyx_obj_8NeticaPy_Report *__pyx_v_after); /* proto */
+static PyObject *__pyx_pf_8NeticaPy_6Netica_26GetError_ns(CYTHON_UNUSED struct __pyx_obj_8NeticaPy_Netica *__pyx_v_self, struct __pyx_obj_8NeticaPy_Netica *__pyx_v_environ, errseverity_ns __pyx_v_severity, struct __pyx_obj_8NeticaPy_Report *__pyx_v_after); /* proto */
 static PyObject *__pyx_pf_8NeticaPy_6Netica_28ErrorNumber_ns(CYTHON_UNUSED struct __pyx_obj_8NeticaPy_Netica *__pyx_v_self, struct __pyx_obj_8NeticaPy_Report *__pyx_v_error); /* proto */
 static PyObject *__pyx_pf_8NeticaPy_6Netica_30ErrorMessage_ns(CYTHON_UNUSED struct __pyx_obj_8NeticaPy_Netica *__pyx_v_self, struct __pyx_obj_8NeticaPy_Report *__pyx_v_error); /* proto */
 static PyObject *__pyx_pf_8NeticaPy_6Netica_32ErrorSeverity_ns(CYTHON_UNUSED struct __pyx_obj_8NeticaPy_Netica *__pyx_v_self, struct __pyx_obj_8NeticaPy_Report *__pyx_v_error); /* proto */
-static PyObject *__pyx_pf_8NeticaPy_6Netica_34ErrorCategory_ns(CYTHON_UNUSED struct __pyx_obj_8NeticaPy_Netica *__pyx_v_self, struct __pyx_obj_8NeticaPy_ErrorCondition *__pyx_v_cond, struct __pyx_obj_8NeticaPy_Report *__pyx_v_error); /* proto */
+static PyObject *__pyx_pf_8NeticaPy_6Netica_34ErrorCategory_ns(CYTHON_UNUSED struct __pyx_obj_8NeticaPy_Netica *__pyx_v_self, errcond_ns __pyx_v_cond, struct __pyx_obj_8NeticaPy_Report *__pyx_v_error); /* proto */
 static PyObject *__pyx_pf_8NeticaPy_6Netica_36ClearError_ns(CYTHON_UNUSED struct __pyx_obj_8NeticaPy_Netica *__pyx_v_self, struct __pyx_obj_8NeticaPy_Report *__pyx_v_error); /* proto */
-static PyObject *__pyx_pf_8NeticaPy_6Netica_38ClearErrors_ns(CYTHON_UNUSED struct __pyx_obj_8NeticaPy_Netica *__pyx_v_self, struct __pyx_obj_8NeticaPy_Netica *__pyx_v_environ, struct __pyx_obj_8NeticaPy_ErrSeverity *__pyx_v_severity); /* proto */
-static PyObject *__pyx_pf_8NeticaPy_6Netica_40NewError_ns(struct __pyx_obj_8NeticaPy_Netica *__pyx_v_self, struct __pyx_obj_8NeticaPy_Netica *__pyx_v_environ, int __pyx_v_number, struct __pyx_obj_8NeticaPy_ErrSeverity *__pyx_v_severity, PyObject *__pyx_v_mesg); /* proto */
+static PyObject *__pyx_pf_8NeticaPy_6Netica_38ClearErrors_ns(CYTHON_UNUSED struct __pyx_obj_8NeticaPy_Netica *__pyx_v_self, struct __pyx_obj_8NeticaPy_Netica *__pyx_v_environ, errseverity_ns __pyx_v_severity); /* proto */
+static PyObject *__pyx_pf_8NeticaPy_6Netica_40NewError_ns(struct __pyx_obj_8NeticaPy_Netica *__pyx_v_self, struct __pyx_obj_8NeticaPy_Netica *__pyx_v_environ, int __pyx_v_number, errseverity_ns __pyx_v_severity, PyObject *__pyx_v_mesg); /* proto */
 static PyObject *__pyx_pf_8NeticaPy_6Netica_42TestFaultRecovery_ns(CYTHON_UNUSED struct __pyx_obj_8NeticaPy_Netica *__pyx_v_self, struct __pyx_obj_8NeticaPy_Netica *__pyx_v_environ, int __pyx_v_test_num); /* proto */
 static PyObject *__pyx_pf_8NeticaPy_6Netica_44UserAllowed_ns(CYTHON_UNUSED struct __pyx_obj_8NeticaPy_Netica *__pyx_v_self, struct __pyx_obj_8NeticaPy_Netica *__pyx_v_environ, int __pyx_v_setting); /* proto */
 static PyObject *__pyx_pf_8NeticaPy_6Netica_46GetAppWindowPosition_ns(CYTHON_UNUSED struct __pyx_obj_8NeticaPy_Netica *__pyx_v_self, struct __pyx_obj_8NeticaPy_Netica *__pyx_v_environ, int __pyx_v_left, int __pyx_v_top, int __pyx_v_width, int __pyx_v_height, int __pyx_v_status); /* proto */
@@ -1412,8 +1382,6 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList_2__del__(struct __pyx_obj_8NeticaP
 static PyObject *__pyx_tp_new_8NeticaPy_Netica(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_8NeticaPy_UserData(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_8NeticaPy_Report(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_8NeticaPy_ErrSeverity(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_8NeticaPy_ErrorCondition(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_8NeticaPy_Stream(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_8NeticaPy_NodeList(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_8NeticaPy_NewNet(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
@@ -3811,7 +3779,7 @@ static PyObject *__pyx_pf_8NeticaPy_6Netica_24GetEnvironUserData_ns(CYTHON_UNUSE
  *         res.value=GetEnvironUserData_ns (environ.env if type(environ)==Netica else NULL,kind)
  *         return res             # <<<<<<<<<<<<<<
  * 
- *     def GetError_ns (self,Netica environ, ErrSeverity severity, Report after):
+ *     def GetError_ns (self,Netica environ, errseverity_ns severity, Report after):
  */
   __Pyx_XDECREF(__pyx_r);
   __Pyx_INCREF(((PyObject *)__pyx_v_res));
@@ -3841,16 +3809,16 @@ static PyObject *__pyx_pf_8NeticaPy_6Netica_24GetEnvironUserData_ns(CYTHON_UNUSE
 /* "NeticaPy.pyx":902
  *         return res
  * 
- *     def GetError_ns (self,Netica environ, ErrSeverity severity, Report after):             # <<<<<<<<<<<<<<
+ *     def GetError_ns (self,Netica environ, errseverity_ns severity, Report after):             # <<<<<<<<<<<<<<
  *         res=Report()
- *         res.value = GetError_ns (environ.env if type(environ)==Netica else NULL, severity.value, after.value)
+ *         res.value = GetError_ns (environ.env if type(environ)==Netica else NULL, severity, after.value)
  */
 
 /* Python wrapper */
 static PyObject *__pyx_pw_8NeticaPy_6Netica_27GetError_ns(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static PyObject *__pyx_pw_8NeticaPy_6Netica_27GetError_ns(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   struct __pyx_obj_8NeticaPy_Netica *__pyx_v_environ = 0;
-  struct __pyx_obj_8NeticaPy_ErrSeverity *__pyx_v_severity = 0;
+  errseverity_ns __pyx_v_severity;
   struct __pyx_obj_8NeticaPy_Report *__pyx_v_after = 0;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
@@ -3898,7 +3866,7 @@ static PyObject *__pyx_pw_8NeticaPy_6Netica_27GetError_ns(PyObject *__pyx_v_self
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
     }
     __pyx_v_environ = ((struct __pyx_obj_8NeticaPy_Netica *)values[0]);
-    __pyx_v_severity = ((struct __pyx_obj_8NeticaPy_ErrSeverity *)values[1]);
+    __pyx_v_severity = ((errseverity_ns)PyInt_AsLong(values[1])); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 902; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
     __pyx_v_after = ((struct __pyx_obj_8NeticaPy_Report *)values[2]);
   }
   goto __pyx_L4_argument_unpacking_done;
@@ -3910,7 +3878,6 @@ static PyObject *__pyx_pw_8NeticaPy_6Netica_27GetError_ns(PyObject *__pyx_v_self
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_environ), __pyx_ptype_8NeticaPy_Netica, 1, "environ", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 902; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_severity), __pyx_ptype_8NeticaPy_ErrSeverity, 1, "severity", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 902; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_after), __pyx_ptype_8NeticaPy_Report, 1, "after", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 902; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_8NeticaPy_6Netica_26GetError_ns(((struct __pyx_obj_8NeticaPy_Netica *)__pyx_v_self), __pyx_v_environ, __pyx_v_severity, __pyx_v_after);
 
@@ -3923,7 +3890,7 @@ static PyObject *__pyx_pw_8NeticaPy_6Netica_27GetError_ns(PyObject *__pyx_v_self
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8NeticaPy_6Netica_26GetError_ns(CYTHON_UNUSED struct __pyx_obj_8NeticaPy_Netica *__pyx_v_self, struct __pyx_obj_8NeticaPy_Netica *__pyx_v_environ, struct __pyx_obj_8NeticaPy_ErrSeverity *__pyx_v_severity, struct __pyx_obj_8NeticaPy_Report *__pyx_v_after) {
+static PyObject *__pyx_pf_8NeticaPy_6Netica_26GetError_ns(CYTHON_UNUSED struct __pyx_obj_8NeticaPy_Netica *__pyx_v_self, struct __pyx_obj_8NeticaPy_Netica *__pyx_v_environ, errseverity_ns __pyx_v_severity, struct __pyx_obj_8NeticaPy_Report *__pyx_v_after) {
   struct __pyx_obj_8NeticaPy_Report *__pyx_v_res = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -3937,9 +3904,9 @@ static PyObject *__pyx_pf_8NeticaPy_6Netica_26GetError_ns(CYTHON_UNUSED struct _
 
   /* "NeticaPy.pyx":903
  * 
- *     def GetError_ns (self,Netica environ, ErrSeverity severity, Report after):
+ *     def GetError_ns (self,Netica environ, errseverity_ns severity, Report after):
  *         res=Report()             # <<<<<<<<<<<<<<
- *         res.value = GetError_ns (environ.env if type(environ)==Netica else NULL, severity.value, after.value)
+ *         res.value = GetError_ns (environ.env if type(environ)==Netica else NULL, severity, after.value)
  *         return res
  */
   __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_8NeticaPy_Report)), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 903; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
@@ -3948,9 +3915,9 @@ static PyObject *__pyx_pf_8NeticaPy_6Netica_26GetError_ns(CYTHON_UNUSED struct _
   __pyx_t_1 = 0;
 
   /* "NeticaPy.pyx":904
- *     def GetError_ns (self,Netica environ, ErrSeverity severity, Report after):
+ *     def GetError_ns (self,Netica environ, errseverity_ns severity, Report after):
  *         res=Report()
- *         res.value = GetError_ns (environ.env if type(environ)==Netica else NULL, severity.value, after.value)             # <<<<<<<<<<<<<<
+ *         res.value = GetError_ns (environ.env if type(environ)==Netica else NULL, severity, after.value)             # <<<<<<<<<<<<<<
  *         return res
  * 
  */
@@ -3962,11 +3929,11 @@ static PyObject *__pyx_pf_8NeticaPy_6Netica_26GetError_ns(CYTHON_UNUSED struct _
   } else {
     __pyx_t_2 = NULL;
   }
-  __pyx_v_res->value = GetError_ns(__pyx_t_2, __pyx_v_severity->value, __pyx_v_after->value);
+  __pyx_v_res->value = GetError_ns(__pyx_t_2, __pyx_v_severity, __pyx_v_after->value);
 
   /* "NeticaPy.pyx":905
  *         res=Report()
- *         res.value = GetError_ns (environ.env if type(environ)==Netica else NULL, severity.value, after.value)
+ *         res.value = GetError_ns (environ.env if type(environ)==Netica else NULL, severity, after.value)
  *         return res             # <<<<<<<<<<<<<<
  * 
  *     def ErrorNumber_ns (self,Report error):
@@ -3979,9 +3946,9 @@ static PyObject *__pyx_pf_8NeticaPy_6Netica_26GetError_ns(CYTHON_UNUSED struct _
   /* "NeticaPy.pyx":902
  *         return res
  * 
- *     def GetError_ns (self,Netica environ, ErrSeverity severity, Report after):             # <<<<<<<<<<<<<<
+ *     def GetError_ns (self,Netica environ, errseverity_ns severity, Report after):             # <<<<<<<<<<<<<<
  *         res=Report()
- *         res.value = GetError_ns (environ.env if type(environ)==Netica else NULL, severity.value, after.value)
+ *         res.value = GetError_ns (environ.env if type(environ)==Netica else NULL, severity, after.value)
  */
 
   /* function exit code */
@@ -4162,8 +4129,8 @@ static PyObject *__pyx_pf_8NeticaPy_6Netica_30ErrorMessage_ns(CYTHON_UNUSED stru
  *         return res
  * 
  *     def ErrorSeverity_ns (self,Report error):             # <<<<<<<<<<<<<<
- *         res = ErrSeverity()
- *         res.value = ErrorSeverity_ns (error.value)
+ *         cdef errseverity_ns res
+ *         res = ErrorSeverity_ns (error.value)
  */
 
 /* Python wrapper */
@@ -4188,7 +4155,7 @@ static PyObject *__pyx_pw_8NeticaPy_6Netica_33ErrorSeverity_ns(PyObject *__pyx_v
 }
 
 static PyObject *__pyx_pf_8NeticaPy_6Netica_32ErrorSeverity_ns(CYTHON_UNUSED struct __pyx_obj_8NeticaPy_Netica *__pyx_v_self, struct __pyx_obj_8NeticaPy_Report *__pyx_v_error) {
-  struct __pyx_obj_8NeticaPy_ErrSeverity *__pyx_v_res = NULL;
+  errseverity_ns __pyx_v_res;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4197,45 +4164,35 @@ static PyObject *__pyx_pf_8NeticaPy_6Netica_32ErrorSeverity_ns(CYTHON_UNUSED str
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("ErrorSeverity_ns", 0);
 
-  /* "NeticaPy.pyx":918
- * 
- *     def ErrorSeverity_ns (self,Report error):
- *         res = ErrSeverity()             # <<<<<<<<<<<<<<
- *         res.value = ErrorSeverity_ns (error.value)
- *         return res
- */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_8NeticaPy_ErrSeverity)), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 918; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_v_res = ((struct __pyx_obj_8NeticaPy_ErrSeverity *)__pyx_t_1);
-  __pyx_t_1 = 0;
-
   /* "NeticaPy.pyx":919
  *     def ErrorSeverity_ns (self,Report error):
- *         res = ErrSeverity()
- *         res.value = ErrorSeverity_ns (error.value)             # <<<<<<<<<<<<<<
+ *         cdef errseverity_ns res
+ *         res = ErrorSeverity_ns (error.value)             # <<<<<<<<<<<<<<
  *         return res
  * 
  */
-  __pyx_v_res->value = ErrorSeverity_ns(__pyx_v_error->value);
+  __pyx_v_res = ErrorSeverity_ns(__pyx_v_error->value);
 
   /* "NeticaPy.pyx":920
- *         res = ErrSeverity()
- *         res.value = ErrorSeverity_ns (error.value)
+ *         cdef errseverity_ns res
+ *         res = ErrorSeverity_ns (error.value)
  *         return res             # <<<<<<<<<<<<<<
  * 
- *     def ErrorCategory_ns (self,ErrorCondition cond, Report error):
+ *     def ErrorCategory_ns (self,errcond_ns cond, Report error):
  */
   __Pyx_XDECREF(__pyx_r);
-  __Pyx_INCREF(((PyObject *)__pyx_v_res));
-  __pyx_r = ((PyObject *)__pyx_v_res);
+  __pyx_t_1 = PyInt_FromLong(__pyx_v_res); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 920; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
   goto __pyx_L0;
 
   /* "NeticaPy.pyx":917
  *         return res
  * 
  *     def ErrorSeverity_ns (self,Report error):             # <<<<<<<<<<<<<<
- *         res = ErrSeverity()
- *         res.value = ErrorSeverity_ns (error.value)
+ *         cdef errseverity_ns res
+ *         res = ErrorSeverity_ns (error.value)
  */
 
   /* function exit code */
@@ -4244,7 +4201,6 @@ static PyObject *__pyx_pf_8NeticaPy_6Netica_32ErrorSeverity_ns(CYTHON_UNUSED str
   __Pyx_AddTraceback("NeticaPy.Netica.ErrorSeverity_ns", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
-  __Pyx_XDECREF((PyObject *)__pyx_v_res);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
@@ -4253,15 +4209,15 @@ static PyObject *__pyx_pf_8NeticaPy_6Netica_32ErrorSeverity_ns(CYTHON_UNUSED str
 /* "NeticaPy.pyx":922
  *         return res
  * 
- *     def ErrorCategory_ns (self,ErrorCondition cond, Report error):             # <<<<<<<<<<<<<<
+ *     def ErrorCategory_ns (self,errcond_ns cond, Report error):             # <<<<<<<<<<<<<<
  *         cdef bool_ns res
- *         res = ErrorCategory_ns (cond.value, error.value)
+ *         res = ErrorCategory_ns (cond, error.value)
  */
 
 /* Python wrapper */
 static PyObject *__pyx_pw_8NeticaPy_6Netica_35ErrorCategory_ns(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static PyObject *__pyx_pw_8NeticaPy_6Netica_35ErrorCategory_ns(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
-  struct __pyx_obj_8NeticaPy_ErrorCondition *__pyx_v_cond = 0;
+  errcond_ns __pyx_v_cond;
   struct __pyx_obj_8NeticaPy_Report *__pyx_v_error = 0;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
@@ -4301,7 +4257,7 @@ static PyObject *__pyx_pw_8NeticaPy_6Netica_35ErrorCategory_ns(PyObject *__pyx_v
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
-    __pyx_v_cond = ((struct __pyx_obj_8NeticaPy_ErrorCondition *)values[0]);
+    __pyx_v_cond = ((errcond_ns)PyInt_AsLong(values[0])); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 922; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
     __pyx_v_error = ((struct __pyx_obj_8NeticaPy_Report *)values[1]);
   }
   goto __pyx_L4_argument_unpacking_done;
@@ -4312,7 +4268,6 @@ static PyObject *__pyx_pw_8NeticaPy_6Netica_35ErrorCategory_ns(PyObject *__pyx_v
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_cond), __pyx_ptype_8NeticaPy_ErrorCondition, 1, "cond", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 922; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_error), __pyx_ptype_8NeticaPy_Report, 1, "error", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 922; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_8NeticaPy_6Netica_34ErrorCategory_ns(((struct __pyx_obj_8NeticaPy_Netica *)__pyx_v_self), __pyx_v_cond, __pyx_v_error);
 
@@ -4325,7 +4280,7 @@ static PyObject *__pyx_pw_8NeticaPy_6Netica_35ErrorCategory_ns(PyObject *__pyx_v
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8NeticaPy_6Netica_34ErrorCategory_ns(CYTHON_UNUSED struct __pyx_obj_8NeticaPy_Netica *__pyx_v_self, struct __pyx_obj_8NeticaPy_ErrorCondition *__pyx_v_cond, struct __pyx_obj_8NeticaPy_Report *__pyx_v_error) {
+static PyObject *__pyx_pf_8NeticaPy_6Netica_34ErrorCategory_ns(CYTHON_UNUSED struct __pyx_obj_8NeticaPy_Netica *__pyx_v_self, errcond_ns __pyx_v_cond, struct __pyx_obj_8NeticaPy_Report *__pyx_v_error) {
   bool_ns __pyx_v_res;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -4336,17 +4291,17 @@ static PyObject *__pyx_pf_8NeticaPy_6Netica_34ErrorCategory_ns(CYTHON_UNUSED str
   __Pyx_RefNannySetupContext("ErrorCategory_ns", 0);
 
   /* "NeticaPy.pyx":924
- *     def ErrorCategory_ns (self,ErrorCondition cond, Report error):
+ *     def ErrorCategory_ns (self,errcond_ns cond, Report error):
  *         cdef bool_ns res
- *         res = ErrorCategory_ns (cond.value, error.value)             # <<<<<<<<<<<<<<
+ *         res = ErrorCategory_ns (cond, error.value)             # <<<<<<<<<<<<<<
  *         return res
  * 
  */
-  __pyx_v_res = ErrorCategory_ns(__pyx_v_cond->value, __pyx_v_error->value);
+  __pyx_v_res = ErrorCategory_ns(__pyx_v_cond, __pyx_v_error->value);
 
   /* "NeticaPy.pyx":925
  *         cdef bool_ns res
- *         res = ErrorCategory_ns (cond.value, error.value)
+ *         res = ErrorCategory_ns (cond, error.value)
  *         return res             # <<<<<<<<<<<<<<
  * 
  *     def ClearError_ns (self,Report error):
@@ -4361,9 +4316,9 @@ static PyObject *__pyx_pf_8NeticaPy_6Netica_34ErrorCategory_ns(CYTHON_UNUSED str
   /* "NeticaPy.pyx":922
  *         return res
  * 
- *     def ErrorCategory_ns (self,ErrorCondition cond, Report error):             # <<<<<<<<<<<<<<
+ *     def ErrorCategory_ns (self,errcond_ns cond, Report error):             # <<<<<<<<<<<<<<
  *         cdef bool_ns res
- *         res = ErrorCategory_ns (cond.value, error.value)
+ *         res = ErrorCategory_ns (cond, error.value)
  */
 
   /* function exit code */
@@ -4416,7 +4371,7 @@ static PyObject *__pyx_pf_8NeticaPy_6Netica_36ClearError_ns(CYTHON_UNUSED struct
  *     def ClearError_ns (self,Report error):
  *         ClearError_ns (error.value)             # <<<<<<<<<<<<<<
  * 
- *     def ClearErrors_ns (self,Netica environ, ErrSeverity severity):
+ *     def ClearErrors_ns (self,Netica environ, errseverity_ns severity):
  */
   ClearError_ns(__pyx_v_error->value);
 
@@ -4438,8 +4393,8 @@ static PyObject *__pyx_pf_8NeticaPy_6Netica_36ClearError_ns(CYTHON_UNUSED struct
 /* "NeticaPy.pyx":930
  *         ClearError_ns (error.value)
  * 
- *     def ClearErrors_ns (self,Netica environ, ErrSeverity severity):             # <<<<<<<<<<<<<<
- *         ClearErrors_ns (environ.env if type(environ)==Netica else NULL, severity.value)
+ *     def ClearErrors_ns (self,Netica environ, errseverity_ns severity):             # <<<<<<<<<<<<<<
+ *         ClearErrors_ns (environ.env if type(environ)==Netica else NULL, severity)
  * 
  */
 
@@ -4447,7 +4402,7 @@ static PyObject *__pyx_pf_8NeticaPy_6Netica_36ClearError_ns(CYTHON_UNUSED struct
 static PyObject *__pyx_pw_8NeticaPy_6Netica_39ClearErrors_ns(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static PyObject *__pyx_pw_8NeticaPy_6Netica_39ClearErrors_ns(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   struct __pyx_obj_8NeticaPy_Netica *__pyx_v_environ = 0;
-  struct __pyx_obj_8NeticaPy_ErrSeverity *__pyx_v_severity = 0;
+  errseverity_ns __pyx_v_severity;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -4487,7 +4442,7 @@ static PyObject *__pyx_pw_8NeticaPy_6Netica_39ClearErrors_ns(PyObject *__pyx_v_s
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
     __pyx_v_environ = ((struct __pyx_obj_8NeticaPy_Netica *)values[0]);
-    __pyx_v_severity = ((struct __pyx_obj_8NeticaPy_ErrSeverity *)values[1]);
+    __pyx_v_severity = ((errseverity_ns)PyInt_AsLong(values[1])); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 930; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
@@ -4498,7 +4453,6 @@ static PyObject *__pyx_pw_8NeticaPy_6Netica_39ClearErrors_ns(PyObject *__pyx_v_s
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_environ), __pyx_ptype_8NeticaPy_Netica, 1, "environ", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 930; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_severity), __pyx_ptype_8NeticaPy_ErrSeverity, 1, "severity", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 930; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_8NeticaPy_6Netica_38ClearErrors_ns(((struct __pyx_obj_8NeticaPy_Netica *)__pyx_v_self), __pyx_v_environ, __pyx_v_severity);
 
   /* function exit code */
@@ -4510,7 +4464,7 @@ static PyObject *__pyx_pw_8NeticaPy_6Netica_39ClearErrors_ns(PyObject *__pyx_v_s
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8NeticaPy_6Netica_38ClearErrors_ns(CYTHON_UNUSED struct __pyx_obj_8NeticaPy_Netica *__pyx_v_self, struct __pyx_obj_8NeticaPy_Netica *__pyx_v_environ, struct __pyx_obj_8NeticaPy_ErrSeverity *__pyx_v_severity) {
+static PyObject *__pyx_pf_8NeticaPy_6Netica_38ClearErrors_ns(CYTHON_UNUSED struct __pyx_obj_8NeticaPy_Netica *__pyx_v_self, struct __pyx_obj_8NeticaPy_Netica *__pyx_v_environ, errseverity_ns __pyx_v_severity) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   environ_ns *__pyx_t_1;
@@ -4523,10 +4477,10 @@ static PyObject *__pyx_pf_8NeticaPy_6Netica_38ClearErrors_ns(CYTHON_UNUSED struc
 
   /* "NeticaPy.pyx":931
  * 
- *     def ClearErrors_ns (self,Netica environ, ErrSeverity severity):
- *         ClearErrors_ns (environ.env if type(environ)==Netica else NULL, severity.value)             # <<<<<<<<<<<<<<
+ *     def ClearErrors_ns (self,Netica environ, errseverity_ns severity):
+ *         ClearErrors_ns (environ.env if type(environ)==Netica else NULL, severity)             # <<<<<<<<<<<<<<
  * 
- *     def NewError_ns (self,Netica environ, int number, ErrSeverity severity, mesg=None):
+ *     def NewError_ns (self,Netica environ, int number, errseverity_ns severity, mesg=None):
  */
   __pyx_t_2 = PyObject_RichCompare(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_environ))), ((PyObject *)((PyObject*)__pyx_ptype_8NeticaPy_Netica)), Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 931; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 931; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
@@ -4536,13 +4490,13 @@ static PyObject *__pyx_pf_8NeticaPy_6Netica_38ClearErrors_ns(CYTHON_UNUSED struc
   } else {
     __pyx_t_1 = NULL;
   }
-  ClearErrors_ns(__pyx_t_1, __pyx_v_severity->value);
+  ClearErrors_ns(__pyx_t_1, __pyx_v_severity);
 
   /* "NeticaPy.pyx":930
  *         ClearError_ns (error.value)
  * 
- *     def ClearErrors_ns (self,Netica environ, ErrSeverity severity):             # <<<<<<<<<<<<<<
- *         ClearErrors_ns (environ.env if type(environ)==Netica else NULL, severity.value)
+ *     def ClearErrors_ns (self,Netica environ, errseverity_ns severity):             # <<<<<<<<<<<<<<
+ *         ClearErrors_ns (environ.env if type(environ)==Netica else NULL, severity)
  * 
  */
 
@@ -4560,11 +4514,11 @@ static PyObject *__pyx_pf_8NeticaPy_6Netica_38ClearErrors_ns(CYTHON_UNUSED struc
 }
 
 /* "NeticaPy.pyx":933
- *         ClearErrors_ns (environ.env if type(environ)==Netica else NULL, severity.value)
+ *         ClearErrors_ns (environ.env if type(environ)==Netica else NULL, severity)
  * 
- *     def NewError_ns (self,Netica environ, int number, ErrSeverity severity, mesg=None):             # <<<<<<<<<<<<<<
+ *     def NewError_ns (self,Netica environ, int number, errseverity_ns severity, mesg=None):             # <<<<<<<<<<<<<<
  *         res = Report()
- *         res.value = NewError_ns (environ.env if type(environ)==Netica else NULL,number, severity.value, self.mesg)
+ *         res.value = NewError_ns (environ.env if type(environ)==Netica else NULL,number, severity, self.mesg)
  */
 
 /* Python wrapper */
@@ -4572,7 +4526,7 @@ static PyObject *__pyx_pw_8NeticaPy_6Netica_41NewError_ns(PyObject *__pyx_v_self
 static PyObject *__pyx_pw_8NeticaPy_6Netica_41NewError_ns(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   struct __pyx_obj_8NeticaPy_Netica *__pyx_v_environ = 0;
   int __pyx_v_number;
-  struct __pyx_obj_8NeticaPy_ErrSeverity *__pyx_v_severity = 0;
+  errseverity_ns __pyx_v_severity;
   PyObject *__pyx_v_mesg = 0;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
@@ -4631,7 +4585,7 @@ static PyObject *__pyx_pw_8NeticaPy_6Netica_41NewError_ns(PyObject *__pyx_v_self
     }
     __pyx_v_environ = ((struct __pyx_obj_8NeticaPy_Netica *)values[0]);
     __pyx_v_number = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_number == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 933; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
-    __pyx_v_severity = ((struct __pyx_obj_8NeticaPy_ErrSeverity *)values[2]);
+    __pyx_v_severity = ((errseverity_ns)PyInt_AsLong(values[2])); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 933; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
     __pyx_v_mesg = values[3];
   }
   goto __pyx_L4_argument_unpacking_done;
@@ -4643,7 +4597,6 @@ static PyObject *__pyx_pw_8NeticaPy_6Netica_41NewError_ns(PyObject *__pyx_v_self
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_environ), __pyx_ptype_8NeticaPy_Netica, 1, "environ", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 933; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_severity), __pyx_ptype_8NeticaPy_ErrSeverity, 1, "severity", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 933; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_8NeticaPy_6Netica_40NewError_ns(((struct __pyx_obj_8NeticaPy_Netica *)__pyx_v_self), __pyx_v_environ, __pyx_v_number, __pyx_v_severity, __pyx_v_mesg);
 
   /* function exit code */
@@ -4655,7 +4608,7 @@ static PyObject *__pyx_pw_8NeticaPy_6Netica_41NewError_ns(PyObject *__pyx_v_self
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8NeticaPy_6Netica_40NewError_ns(struct __pyx_obj_8NeticaPy_Netica *__pyx_v_self, struct __pyx_obj_8NeticaPy_Netica *__pyx_v_environ, int __pyx_v_number, struct __pyx_obj_8NeticaPy_ErrSeverity *__pyx_v_severity, PyObject *__pyx_v_mesg) {
+static PyObject *__pyx_pf_8NeticaPy_6Netica_40NewError_ns(struct __pyx_obj_8NeticaPy_Netica *__pyx_v_self, struct __pyx_obj_8NeticaPy_Netica *__pyx_v_environ, int __pyx_v_number, errseverity_ns __pyx_v_severity, PyObject *__pyx_v_mesg) {
   struct __pyx_obj_8NeticaPy_Report *__pyx_v_res = NULL;
   char __pyx_v_i;
   PyObject *__pyx_r = NULL;
@@ -4677,9 +4630,9 @@ static PyObject *__pyx_pf_8NeticaPy_6Netica_40NewError_ns(struct __pyx_obj_8Neti
 
   /* "NeticaPy.pyx":934
  * 
- *     def NewError_ns (self,Netica environ, int number, ErrSeverity severity, mesg=None):
+ *     def NewError_ns (self,Netica environ, int number, errseverity_ns severity, mesg=None):
  *         res = Report()             # <<<<<<<<<<<<<<
- *         res.value = NewError_ns (environ.env if type(environ)==Netica else NULL,number, severity.value, self.mesg)
+ *         res.value = NewError_ns (environ.env if type(environ)==Netica else NULL,number, severity, self.mesg)
  *         if type(mesg)==bytearray:
  */
   __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_8NeticaPy_Report)), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 934; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
@@ -4688,9 +4641,9 @@ static PyObject *__pyx_pf_8NeticaPy_6Netica_40NewError_ns(struct __pyx_obj_8Neti
   __pyx_t_1 = 0;
 
   /* "NeticaPy.pyx":935
- *     def NewError_ns (self,Netica environ, int number, ErrSeverity severity, mesg=None):
+ *     def NewError_ns (self,Netica environ, int number, errseverity_ns severity, mesg=None):
  *         res = Report()
- *         res.value = NewError_ns (environ.env if type(environ)==Netica else NULL,number, severity.value, self.mesg)             # <<<<<<<<<<<<<<
+ *         res.value = NewError_ns (environ.env if type(environ)==Netica else NULL,number, severity, self.mesg)             # <<<<<<<<<<<<<<
  *         if type(mesg)==bytearray:
  *             while(len(mesg)):
  */
@@ -4702,11 +4655,11 @@ static PyObject *__pyx_pf_8NeticaPy_6Netica_40NewError_ns(struct __pyx_obj_8Neti
   } else {
     __pyx_t_2 = NULL;
   }
-  __pyx_v_res->value = NewError_ns(__pyx_t_2, __pyx_v_number, __pyx_v_severity->value, __pyx_v_self->mesg);
+  __pyx_v_res->value = NewError_ns(__pyx_t_2, __pyx_v_number, __pyx_v_severity, __pyx_v_self->mesg);
 
   /* "NeticaPy.pyx":936
  *         res = Report()
- *         res.value = NewError_ns (environ.env if type(environ)==Netica else NULL,number, severity.value, self.mesg)
+ *         res.value = NewError_ns (environ.env if type(environ)==Netica else NULL,number, severity, self.mesg)
  *         if type(mesg)==bytearray:             # <<<<<<<<<<<<<<
  *             while(len(mesg)):
  *                 mesg.pop()
@@ -4717,7 +4670,7 @@ static PyObject *__pyx_pf_8NeticaPy_6Netica_40NewError_ns(struct __pyx_obj_8Neti
   if (__pyx_t_3) {
 
     /* "NeticaPy.pyx":937
- *         res.value = NewError_ns (environ.env if type(environ)==Netica else NULL,number, severity.value, self.mesg)
+ *         res.value = NewError_ns (environ.env if type(environ)==Netica else NULL,number, severity, self.mesg)
  *         if type(mesg)==bytearray:
  *             while(len(mesg)):             # <<<<<<<<<<<<<<
  *                 mesg.pop()
@@ -4785,11 +4738,11 @@ static PyObject *__pyx_pf_8NeticaPy_6Netica_40NewError_ns(struct __pyx_obj_8Neti
   goto __pyx_L0;
 
   /* "NeticaPy.pyx":933
- *         ClearErrors_ns (environ.env if type(environ)==Netica else NULL, severity.value)
+ *         ClearErrors_ns (environ.env if type(environ)==Netica else NULL, severity)
  * 
- *     def NewError_ns (self,Netica environ, int number, ErrSeverity severity, mesg=None):             # <<<<<<<<<<<<<<
+ *     def NewError_ns (self,Netica environ, int number, errseverity_ns severity, mesg=None):             # <<<<<<<<<<<<<<
  *         res = Report()
- *         res.value = NewError_ns (environ.env if type(environ)==Netica else NULL,number, severity.value, self.mesg)
+ *         res.value = NewError_ns (environ.env if type(environ)==Netica else NULL,number, severity, self.mesg)
  */
 
   /* function exit code */
@@ -27203,7 +27156,7 @@ static PyObject *__pyx_pf_8NeticaPy_6Netica_356EnterFinding(CYTHON_UNUSED struct
   return __pyx_r;
 }
 
-/* "NeticaPy.pyx":1982
+/* "NeticaPy.pyx":1983
  * cdef class  NewNet:
  *     cdef net_bn *value
  *     cpdef run(self,char* name,Netica environ):             # <<<<<<<<<<<<<<
@@ -27231,11 +27184,11 @@ static PyObject *__pyx_f_8NeticaPy_6NewNet_run(struct __pyx_obj_8NeticaPy_NewNet
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
   else if (unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0)) {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_run); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1982; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_run); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1983; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)__pyx_pw_8NeticaPy_6NewNet_1run)) {
       __Pyx_XDECREF(__pyx_r);
-      __pyx_t_3 = __Pyx_PyBytes_FromString(__pyx_v_name); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1982; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_3 = __Pyx_PyBytes_FromString(__pyx_v_name); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1983; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_INCREF(__pyx_t_1);
       __pyx_t_4 = __pyx_t_1; __pyx_t_5 = NULL;
@@ -27250,7 +27203,7 @@ static PyObject *__pyx_f_8NeticaPy_6NewNet_run(struct __pyx_obj_8NeticaPy_NewNet
           __pyx_t_6 = 1;
         }
       }
-      __pyx_t_7 = PyTuple_New(2+__pyx_t_6); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1982; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_7 = PyTuple_New(2+__pyx_t_6); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1983; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_7);
       if (__pyx_t_5) {
         PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_5); __Pyx_GIVEREF(__pyx_t_5); __pyx_t_5 = NULL;
@@ -27261,7 +27214,7 @@ static PyObject *__pyx_f_8NeticaPy_6NewNet_run(struct __pyx_obj_8NeticaPy_NewNet
       PyTuple_SET_ITEM(__pyx_t_7, 1+__pyx_t_6, ((PyObject *)__pyx_v_environ));
       __Pyx_GIVEREF(((PyObject *)__pyx_v_environ));
       __pyx_t_3 = 0;
-      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_7, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1982; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_7, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1983; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -27273,19 +27226,19 @@ static PyObject *__pyx_f_8NeticaPy_6NewNet_run(struct __pyx_obj_8NeticaPy_NewNet
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "NeticaPy.pyx":1983
+  /* "NeticaPy.pyx":1984
  *     cdef net_bn *value
  *     cpdef run(self,char* name,Netica environ):
  *         if type(environ)==Netica:             # <<<<<<<<<<<<<<
  *             self.value = NewNet_bn (name, environ.env)
  *         else:
  */
-  __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_environ))), ((PyObject *)((PyObject*)__pyx_ptype_8NeticaPy_Netica)), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1983; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_8 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1983; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_environ))), ((PyObject *)((PyObject*)__pyx_ptype_8NeticaPy_Netica)), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1984; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_8 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1984; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_8) {
 
-    /* "NeticaPy.pyx":1984
+    /* "NeticaPy.pyx":1985
  *     cpdef run(self,char* name,Netica environ):
  *         if type(environ)==Netica:
  *             self.value = NewNet_bn (name, environ.env)             # <<<<<<<<<<<<<<
@@ -27297,7 +27250,7 @@ static PyObject *__pyx_f_8NeticaPy_6NewNet_run(struct __pyx_obj_8NeticaPy_NewNet
   }
   /*else*/ {
 
-    /* "NeticaPy.pyx":1986
+    /* "NeticaPy.pyx":1987
  *             self.value = NewNet_bn (name, environ.env)
  *         else:
  *             self.value = NewNet_bn (name, NULL)             # <<<<<<<<<<<<<<
@@ -27308,7 +27261,7 @@ static PyObject *__pyx_f_8NeticaPy_6NewNet_run(struct __pyx_obj_8NeticaPy_NewNet
   }
   __pyx_L3:;
 
-  /* "NeticaPy.pyx":1982
+  /* "NeticaPy.pyx":1983
  * cdef class  NewNet:
  *     cdef net_bn *value
  *     cpdef run(self,char* name,Netica environ):             # <<<<<<<<<<<<<<
@@ -27365,11 +27318,11 @@ static PyObject *__pyx_pw_8NeticaPy_6NewNet_1run(PyObject *__pyx_v_self, PyObjec
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_environ)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("run", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1982; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("run", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1983; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "run") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1982; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "run") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1983; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -27377,18 +27330,18 @@ static PyObject *__pyx_pw_8NeticaPy_6NewNet_1run(PyObject *__pyx_v_self, PyObjec
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
-    __pyx_v_name = __Pyx_PyObject_AsString(values[0]); if (unlikely((!__pyx_v_name) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1982; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+    __pyx_v_name = __Pyx_PyObject_AsString(values[0]); if (unlikely((!__pyx_v_name) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1983; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
     __pyx_v_environ = ((struct __pyx_obj_8NeticaPy_Netica *)values[1]);
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("run", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1982; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("run", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1983; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("NeticaPy.NewNet.run", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_environ), __pyx_ptype_8NeticaPy_Netica, 1, "environ", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1982; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_environ), __pyx_ptype_8NeticaPy_Netica, 1, "environ", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1983; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_8NeticaPy_6NewNet_run(((struct __pyx_obj_8NeticaPy_NewNet *)__pyx_v_self), __pyx_v_name, __pyx_v_environ);
 
   /* function exit code */
@@ -27409,7 +27362,7 @@ static PyObject *__pyx_pf_8NeticaPy_6NewNet_run(struct __pyx_obj_8NeticaPy_NewNe
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("run", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_8NeticaPy_6NewNet_run(__pyx_v_self, __pyx_v_name, __pyx_v_environ, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1982; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_f_8NeticaPy_6NewNet_run(__pyx_v_self, __pyx_v_name, __pyx_v_environ, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1983; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -27426,7 +27379,7 @@ static PyObject *__pyx_pf_8NeticaPy_6NewNet_run(struct __pyx_obj_8NeticaPy_NewNe
   return __pyx_r;
 }
 
-/* "NeticaPy.pyx":1990
+/* "NeticaPy.pyx":1991
  * cdef class NewNode:
  *     cdef node_bn* value
  *     cpdef run(self,char* name,int num_states,NewNet net):             # <<<<<<<<<<<<<<
@@ -27454,13 +27407,13 @@ static PyObject *__pyx_f_8NeticaPy_7NewNode_run(struct __pyx_obj_8NeticaPy_NewNo
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
   else if (unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0)) {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_run); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1990; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_run); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1991; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)__pyx_pw_8NeticaPy_7NewNode_1run)) {
       __Pyx_XDECREF(__pyx_r);
-      __pyx_t_3 = __Pyx_PyBytes_FromString(__pyx_v_name); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1990; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_3 = __Pyx_PyBytes_FromString(__pyx_v_name); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1991; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_num_states); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1990; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_num_states); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1991; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_INCREF(__pyx_t_1);
       __pyx_t_5 = __pyx_t_1; __pyx_t_6 = NULL;
@@ -27475,7 +27428,7 @@ static PyObject *__pyx_f_8NeticaPy_7NewNode_run(struct __pyx_obj_8NeticaPy_NewNo
           __pyx_t_7 = 1;
         }
       }
-      __pyx_t_8 = PyTuple_New(3+__pyx_t_7); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1990; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_8 = PyTuple_New(3+__pyx_t_7); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1991; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_8);
       if (__pyx_t_6) {
         PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_6); __Pyx_GIVEREF(__pyx_t_6); __pyx_t_6 = NULL;
@@ -27489,7 +27442,7 @@ static PyObject *__pyx_f_8NeticaPy_7NewNode_run(struct __pyx_obj_8NeticaPy_NewNo
       __Pyx_GIVEREF(((PyObject *)__pyx_v_net));
       __pyx_t_3 = 0;
       __pyx_t_4 = 0;
-      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1990; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1991; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -27501,7 +27454,7 @@ static PyObject *__pyx_f_8NeticaPy_7NewNode_run(struct __pyx_obj_8NeticaPy_NewNo
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "NeticaPy.pyx":1991
+  /* "NeticaPy.pyx":1992
  *     cdef node_bn* value
  *     cpdef run(self,char* name,int num_states,NewNet net):
  *         self.value=NewNode_bn(name,num_states,net.value)             # <<<<<<<<<<<<<<
@@ -27510,7 +27463,7 @@ static PyObject *__pyx_f_8NeticaPy_7NewNode_run(struct __pyx_obj_8NeticaPy_NewNo
  */
   __pyx_v_self->value = NewNode_bn(__pyx_v_name, __pyx_v_num_states, __pyx_v_net->value);
 
-  /* "NeticaPy.pyx":1990
+  /* "NeticaPy.pyx":1991
  * cdef class NewNode:
  *     cdef node_bn* value
  *     cpdef run(self,char* name,int num_states,NewNet net):             # <<<<<<<<<<<<<<
@@ -27570,16 +27523,16 @@ static PyObject *__pyx_pw_8NeticaPy_7NewNode_1run(PyObject *__pyx_v_self, PyObje
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_num_states)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("run", 1, 3, 3, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1990; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("run", 1, 3, 3, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1991; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_net)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("run", 1, 3, 3, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1990; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("run", 1, 3, 3, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1991; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "run") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1990; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "run") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1991; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -27588,19 +27541,19 @@ static PyObject *__pyx_pw_8NeticaPy_7NewNode_1run(PyObject *__pyx_v_self, PyObje
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
     }
-    __pyx_v_name = __Pyx_PyObject_AsString(values[0]); if (unlikely((!__pyx_v_name) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1990; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
-    __pyx_v_num_states = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_num_states == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1990; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+    __pyx_v_name = __Pyx_PyObject_AsString(values[0]); if (unlikely((!__pyx_v_name) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1991; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+    __pyx_v_num_states = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_num_states == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1991; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
     __pyx_v_net = ((struct __pyx_obj_8NeticaPy_NewNet *)values[2]);
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("run", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1990; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("run", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1991; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("NeticaPy.NewNode.run", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_net), __pyx_ptype_8NeticaPy_NewNet, 1, "net", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1990; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_net), __pyx_ptype_8NeticaPy_NewNet, 1, "net", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1991; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_8NeticaPy_7NewNode_run(((struct __pyx_obj_8NeticaPy_NewNode *)__pyx_v_self), __pyx_v_name, __pyx_v_num_states, __pyx_v_net);
 
   /* function exit code */
@@ -27621,7 +27574,7 @@ static PyObject *__pyx_pf_8NeticaPy_7NewNode_run(struct __pyx_obj_8NeticaPy_NewN
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("run", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_8NeticaPy_7NewNode_run(__pyx_v_self, __pyx_v_name, __pyx_v_num_states, __pyx_v_net, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1990; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_f_8NeticaPy_7NewNode_run(__pyx_v_self, __pyx_v_name, __pyx_v_num_states, __pyx_v_net, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1991; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -27638,7 +27591,7 @@ static PyObject *__pyx_pf_8NeticaPy_7NewNode_run(struct __pyx_obj_8NeticaPy_NewN
   return __pyx_r;
 }
 
-/* "NeticaPy.pyx":2013
+/* "NeticaPy.pyx":2014
  * cdef class IntList:
  *     cdef int* value
  *     def __getitem__(self, item):             # <<<<<<<<<<<<<<
@@ -27659,7 +27612,7 @@ static PyObject *__pyx_pw_8NeticaPy_7IntList_1__getitem__(PyObject *__pyx_v_self
   return __pyx_r;
 }
 
-/* "NeticaPy.pyx":2019
+/* "NeticaPy.pyx":2020
  *         i=0
  * 
  *         def getWithEclipsis(index):             # <<<<<<<<<<<<<<
@@ -27705,19 +27658,19 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList_11__getitem___getWithEclipsis(PyObj
   __pyx_cur_scope = __pyx_outer_scope;
   __Pyx_INCREF(__pyx_v_index);
 
-  /* "NeticaPy.pyx":2020
+  /* "NeticaPy.pyx":2021
  * 
  *         def getWithEclipsis(index):
  *             index+=1             # <<<<<<<<<<<<<<
  *             assert index<len(item),"The list slice operator shouldn't end with Ellipsis (...)"
  *             if type(item[index])==int and item[index]>=0:
  */
-  __pyx_t_1 = PyNumber_InPlaceAdd(__pyx_v_index, __pyx_int_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2020; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyNumber_InPlaceAdd(__pyx_v_index, __pyx_int_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2021; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF_SET(__pyx_v_index, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "NeticaPy.pyx":2021
+  /* "NeticaPy.pyx":2022
  *         def getWithEclipsis(index):
  *             index+=1
  *             assert index<len(item),"The list slice operator shouldn't end with Ellipsis (...)"             # <<<<<<<<<<<<<<
@@ -27726,67 +27679,67 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList_11__getitem___getWithEclipsis(PyObj
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
-    if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2021; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+    if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2022; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
     __pyx_t_1 = __pyx_cur_scope->__pyx_v_item;
     __Pyx_INCREF(__pyx_t_1);
-    __pyx_t_2 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_2 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2021; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_2 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2022; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = PyInt_FromSsize_t(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2021; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = PyInt_FromSsize_t(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2022; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = PyObject_RichCompare(__pyx_v_index, __pyx_t_1, Py_LT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2021; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = PyObject_RichCompare(__pyx_v_index, __pyx_t_1, Py_LT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2022; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2021; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2022; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (unlikely(!__pyx_t_4)) {
       PyErr_SetObject(PyExc_AssertionError, __pyx_kp_s_The_list_slice_operator_shouldn);
-      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2021; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2022; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
   }
   #endif
 
-  /* "NeticaPy.pyx":2022
+  /* "NeticaPy.pyx":2023
  *             index+=1
  *             assert index<len(item),"The list slice operator shouldn't end with Ellipsis (...)"
  *             if type(item[index])==int and item[index]>=0:             # <<<<<<<<<<<<<<
  *                 for j in range(prev,item[index]):
  *                     x.append(self.value[j])
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2022; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-  __pyx_t_3 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_3 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2022; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+  if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2023; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+  __pyx_t_3 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_3 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2023; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_t_3)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2022; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_t_3)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2023; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2022; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2023; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_5) {
   } else {
     __pyx_t_4 = __pyx_t_5;
     goto __pyx_L4_bool_binop_done;
   }
-  if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2022; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-  __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2022; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+  if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2023; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+  __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2023; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_int_0, Py_GE); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2022; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_int_0, Py_GE); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2023; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2022; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2023; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_4 = __pyx_t_5;
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_4) {
 
-    /* "NeticaPy.pyx":2023
+    /* "NeticaPy.pyx":2024
  *             assert index<len(item),"The list slice operator shouldn't end with Ellipsis (...)"
  *             if type(item[index])==int and item[index]>=0:
  *                 for j in range(prev,item[index]):             # <<<<<<<<<<<<<<
  *                     x.append(self.value[j])
  *                 return index+1
  */
-    __pyx_t_3 = __Pyx_PyInt_From_long(__pyx_cur_scope->__pyx_v_prev); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2023; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyInt_From_long(__pyx_cur_scope->__pyx_v_prev); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2024; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
-    if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2023; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-    __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2023; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+    if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2024; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+    __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2024; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2023; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2024; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_6);
     PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_3);
     __Pyx_GIVEREF(__pyx_t_3);
@@ -27794,16 +27747,16 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList_11__getitem___getWithEclipsis(PyObj
     __Pyx_GIVEREF(__pyx_t_1);
     __pyx_t_3 = 0;
     __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2023; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2024; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
       __pyx_t_6 = __pyx_t_1; __Pyx_INCREF(__pyx_t_6); __pyx_t_2 = 0;
       __pyx_t_7 = NULL;
     } else {
-      __pyx_t_2 = -1; __pyx_t_6 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2023; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_2 = -1; __pyx_t_6 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2024; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_7 = Py_TYPE(__pyx_t_6)->tp_iternext; if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2023; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_7 = Py_TYPE(__pyx_t_6)->tp_iternext; if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2024; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     for (;;) {
@@ -27811,16 +27764,16 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList_11__getitem___getWithEclipsis(PyObj
         if (likely(PyList_CheckExact(__pyx_t_6))) {
           if (__pyx_t_2 >= PyList_GET_SIZE(__pyx_t_6)) break;
           #if CYTHON_COMPILING_IN_CPYTHON
-          __pyx_t_1 = PyList_GET_ITEM(__pyx_t_6, __pyx_t_2); __Pyx_INCREF(__pyx_t_1); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2023; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_1 = PyList_GET_ITEM(__pyx_t_6, __pyx_t_2); __Pyx_INCREF(__pyx_t_1); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2024; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           #else
-          __pyx_t_1 = PySequence_ITEM(__pyx_t_6, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2023; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_1 = PySequence_ITEM(__pyx_t_6, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2024; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           #endif
         } else {
           if (__pyx_t_2 >= PyTuple_GET_SIZE(__pyx_t_6)) break;
           #if CYTHON_COMPILING_IN_CPYTHON
-          __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_6, __pyx_t_2); __Pyx_INCREF(__pyx_t_1); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2023; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_6, __pyx_t_2); __Pyx_INCREF(__pyx_t_1); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2024; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           #else
-          __pyx_t_1 = PySequence_ITEM(__pyx_t_6, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2023; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_1 = PySequence_ITEM(__pyx_t_6, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2024; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           #endif
         }
       } else {
@@ -27829,7 +27782,7 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList_11__getitem___getWithEclipsis(PyObj
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
             if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2023; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2024; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           }
           break;
         }
@@ -27838,22 +27791,22 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList_11__getitem___getWithEclipsis(PyObj
       __Pyx_XDECREF_SET(__pyx_v_j, __pyx_t_1);
       __pyx_t_1 = 0;
 
-      /* "NeticaPy.pyx":2024
+      /* "NeticaPy.pyx":2025
  *             if type(item[index])==int and item[index]>=0:
  *                 for j in range(prev,item[index]):
  *                     x.append(self.value[j])             # <<<<<<<<<<<<<<
  *                 return index+1
  *             elif type(item[index])==slice:
  */
-      if (unlikely(!__pyx_cur_scope->__pyx_v_x)) { __Pyx_RaiseClosureNameError("x"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2024; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-      if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2024; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-      __pyx_t_8 = __Pyx_PyIndex_AsSsize_t(__pyx_v_j); if (unlikely((__pyx_t_8 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2024; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-      __pyx_t_1 = __Pyx_PyInt_From_int((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_8])); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2024; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      if (unlikely(!__pyx_cur_scope->__pyx_v_x)) { __Pyx_RaiseClosureNameError("x"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2025; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+      if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2025; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+      __pyx_t_8 = __Pyx_PyIndex_AsSsize_t(__pyx_v_j); if (unlikely((__pyx_t_8 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2025; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = __Pyx_PyInt_From_int((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_8])); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2025; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_9 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_x, __pyx_t_1); if (unlikely(__pyx_t_9 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2024; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_9 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_x, __pyx_t_1); if (unlikely(__pyx_t_9 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2025; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "NeticaPy.pyx":2023
+      /* "NeticaPy.pyx":2024
  *             assert index<len(item),"The list slice operator shouldn't end with Ellipsis (...)"
  *             if type(item[index])==int and item[index]>=0:
  *                 for j in range(prev,item[index]):             # <<<<<<<<<<<<<<
@@ -27863,7 +27816,7 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList_11__getitem___getWithEclipsis(PyObj
     }
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-    /* "NeticaPy.pyx":2025
+    /* "NeticaPy.pyx":2026
  *                 for j in range(prev,item[index]):
  *                     x.append(self.value[j])
  *                 return index+1             # <<<<<<<<<<<<<<
@@ -27871,51 +27824,51 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList_11__getitem___getWithEclipsis(PyObj
  *                 start=(item[index].start if not item[index].start == None else 0)
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_6 = PyNumber_Add(__pyx_v_index, __pyx_int_1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2025; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_6 = PyNumber_Add(__pyx_v_index, __pyx_int_1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2026; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_r = __pyx_t_6;
     __pyx_t_6 = 0;
     goto __pyx_L0;
   }
 
-  /* "NeticaPy.pyx":2026
+  /* "NeticaPy.pyx":2027
  *                     x.append(self.value[j])
  *                 return index+1
  *             elif type(item[index])==slice:             # <<<<<<<<<<<<<<
  *                 start=(item[index].start if not item[index].start == None else 0)
  *                 if type(start)==int and start>=0:
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2026; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-  __pyx_t_6 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_6 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2026; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+  if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2027; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+  __pyx_t_6 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_6 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2027; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_t_6)), ((PyObject *)((PyObject*)(&PySlice_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2026; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_t_6)), ((PyObject *)((PyObject*)(&PySlice_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2027; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2026; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2027; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_4) {
 
-    /* "NeticaPy.pyx":2027
+    /* "NeticaPy.pyx":2028
  *                 return index+1
  *             elif type(item[index])==slice:
  *                 start=(item[index].start if not item[index].start == None else 0)             # <<<<<<<<<<<<<<
  *                 if type(start)==int and start>=0:
  *                     for j in range(prev,start):
  */
-    if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2027; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-    __pyx_t_6 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_6 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2027; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+    if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2028; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+    __pyx_t_6 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_6 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2028; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_start); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2027; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_start); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2028; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_6 = PyObject_RichCompare(__pyx_t_3, Py_None, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2027; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_6 = PyObject_RichCompare(__pyx_t_3, Py_None, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2028; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2027; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2028; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     if (((!__pyx_t_4) != 0)) {
-      if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2027; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-      __pyx_t_6 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_6 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2027; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+      if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2028; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+      __pyx_t_6 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_6 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2028; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_start); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2027; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_start); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2028; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __pyx_t_1 = __pyx_t_3;
@@ -27927,38 +27880,38 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList_11__getitem___getWithEclipsis(PyObj
     __pyx_v_start = __pyx_t_1;
     __pyx_t_1 = 0;
 
-    /* "NeticaPy.pyx":2028
+    /* "NeticaPy.pyx":2029
  *             elif type(item[index])==slice:
  *                 start=(item[index].start if not item[index].start == None else 0)
  *                 if type(start)==int and start>=0:             # <<<<<<<<<<<<<<
  *                     for j in range(prev,start):
  *                        x.append(self.value[j])
  */
-    __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_start)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2028; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2028; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_start)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2029; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2029; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_5) {
     } else {
       __pyx_t_4 = __pyx_t_5;
       goto __pyx_L9_bool_binop_done;
     }
-    __pyx_t_1 = PyObject_RichCompare(__pyx_v_start, __pyx_int_0, Py_GE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2028; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2028; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = PyObject_RichCompare(__pyx_v_start, __pyx_int_0, Py_GE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2029; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2029; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_4 = __pyx_t_5;
     __pyx_L9_bool_binop_done:;
     if (__pyx_t_4) {
 
-      /* "NeticaPy.pyx":2029
+      /* "NeticaPy.pyx":2030
  *                 start=(item[index].start if not item[index].start == None else 0)
  *                 if type(start)==int and start>=0:
  *                     for j in range(prev,start):             # <<<<<<<<<<<<<<
  *                        x.append(self.value[j])
  *                     return index
  */
-      __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_cur_scope->__pyx_v_prev); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2029; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_cur_scope->__pyx_v_prev); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2030; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2029; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2030; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_3);
       PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
       __Pyx_GIVEREF(__pyx_t_1);
@@ -27966,16 +27919,16 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList_11__getitem___getWithEclipsis(PyObj
       PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_v_start);
       __Pyx_GIVEREF(__pyx_v_start);
       __pyx_t_1 = 0;
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2029; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2030; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
         __pyx_t_3 = __pyx_t_1; __Pyx_INCREF(__pyx_t_3); __pyx_t_2 = 0;
         __pyx_t_7 = NULL;
       } else {
-        __pyx_t_2 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2029; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2030; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_7 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2029; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_7 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2030; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       }
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       for (;;) {
@@ -27983,16 +27936,16 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList_11__getitem___getWithEclipsis(PyObj
           if (likely(PyList_CheckExact(__pyx_t_3))) {
             if (__pyx_t_2 >= PyList_GET_SIZE(__pyx_t_3)) break;
             #if CYTHON_COMPILING_IN_CPYTHON
-            __pyx_t_1 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_2); __Pyx_INCREF(__pyx_t_1); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2029; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            __pyx_t_1 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_2); __Pyx_INCREF(__pyx_t_1); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2030; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             #else
-            __pyx_t_1 = PySequence_ITEM(__pyx_t_3, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2029; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            __pyx_t_1 = PySequence_ITEM(__pyx_t_3, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2030; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             #endif
           } else {
             if (__pyx_t_2 >= PyTuple_GET_SIZE(__pyx_t_3)) break;
             #if CYTHON_COMPILING_IN_CPYTHON
-            __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_2); __Pyx_INCREF(__pyx_t_1); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2029; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_2); __Pyx_INCREF(__pyx_t_1); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2030; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             #else
-            __pyx_t_1 = PySequence_ITEM(__pyx_t_3, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2029; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            __pyx_t_1 = PySequence_ITEM(__pyx_t_3, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2030; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             #endif
           }
         } else {
@@ -28001,7 +27954,7 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList_11__getitem___getWithEclipsis(PyObj
             PyObject* exc_type = PyErr_Occurred();
             if (exc_type) {
               if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-              else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2029; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+              else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2030; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             }
             break;
           }
@@ -28010,22 +27963,22 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList_11__getitem___getWithEclipsis(PyObj
         __Pyx_XDECREF_SET(__pyx_v_j, __pyx_t_1);
         __pyx_t_1 = 0;
 
-        /* "NeticaPy.pyx":2030
+        /* "NeticaPy.pyx":2031
  *                 if type(start)==int and start>=0:
  *                     for j in range(prev,start):
  *                        x.append(self.value[j])             # <<<<<<<<<<<<<<
  *                     return index
  *             raise TypeError("Invalid type or invalid number is been passed")
  */
-        if (unlikely(!__pyx_cur_scope->__pyx_v_x)) { __Pyx_RaiseClosureNameError("x"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2030; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-        if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2030; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-        __pyx_t_8 = __Pyx_PyIndex_AsSsize_t(__pyx_v_j); if (unlikely((__pyx_t_8 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2030; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-        __pyx_t_1 = __Pyx_PyInt_From_int((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_8])); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2030; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        if (unlikely(!__pyx_cur_scope->__pyx_v_x)) { __Pyx_RaiseClosureNameError("x"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2031; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+        if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2031; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+        __pyx_t_8 = __Pyx_PyIndex_AsSsize_t(__pyx_v_j); if (unlikely((__pyx_t_8 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2031; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_1 = __Pyx_PyInt_From_int((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_8])); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2031; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_9 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_x, __pyx_t_1); if (unlikely(__pyx_t_9 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2030; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_9 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_x, __pyx_t_1); if (unlikely(__pyx_t_9 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2031; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-        /* "NeticaPy.pyx":2029
+        /* "NeticaPy.pyx":2030
  *                 start=(item[index].start if not item[index].start == None else 0)
  *                 if type(start)==int and start>=0:
  *                     for j in range(prev,start):             # <<<<<<<<<<<<<<
@@ -28035,7 +27988,7 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList_11__getitem___getWithEclipsis(PyObj
       }
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "NeticaPy.pyx":2031
+      /* "NeticaPy.pyx":2032
  *                     for j in range(prev,start):
  *                        x.append(self.value[j])
  *                     return index             # <<<<<<<<<<<<<<
@@ -28051,20 +28004,20 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList_11__getitem___getWithEclipsis(PyObj
   }
   __pyx_L3:;
 
-  /* "NeticaPy.pyx":2032
+  /* "NeticaPy.pyx":2033
  *                        x.append(self.value[j])
  *                     return index
  *             raise TypeError("Invalid type or invalid number is been passed")             # <<<<<<<<<<<<<<
  * 
  *         def getWithSlice(item):
  */
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2032; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2033; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_Raise(__pyx_t_3, 0, 0, 0);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2032; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2033; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "NeticaPy.pyx":2019
+  /* "NeticaPy.pyx":2020
  *         i=0
  * 
  *         def getWithEclipsis(index):             # <<<<<<<<<<<<<<
@@ -28088,7 +28041,7 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList_11__getitem___getWithEclipsis(PyObj
   return __pyx_r;
 }
 
-/* "NeticaPy.pyx":2034
+/* "NeticaPy.pyx":2035
  *             raise TypeError("Invalid type or invalid number is been passed")
  * 
  *         def getWithSlice(item):             # <<<<<<<<<<<<<<
@@ -28136,21 +28089,21 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList_11__getitem___2getWithSlice(PyObjec
   __pyx_outer_scope = (struct __pyx_obj_8NeticaPy___pyx_scope_struct____getitem__ *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
 
-  /* "NeticaPy.pyx":2035
+  /* "NeticaPy.pyx":2036
  * 
  *         def getWithSlice(item):
  *             start,stop,step=(item.start if not item.start == None else 0,item.stop,item.step if not item.step == None else 1)             # <<<<<<<<<<<<<<
  *             assert type(start)==int,"Invalid slice start type"
  *             assert type(stop)==int,"Invalid slice stop type(should be specified and it should be int)"
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_start); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2035; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_start); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2036; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyObject_RichCompare(__pyx_t_2, Py_None, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2035; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = PyObject_RichCompare(__pyx_t_2, Py_None, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2036; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2035; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2036; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (((!__pyx_t_4) != 0)) {
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_start); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2035; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_start); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2036; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_1 = __pyx_t_3;
     __pyx_t_3 = 0;
@@ -28158,16 +28111,16 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList_11__getitem___2getWithSlice(PyObjec
     __Pyx_INCREF(__pyx_int_0);
     __pyx_t_1 = __pyx_int_0;
   }
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_stop); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2035; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_stop); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2036; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_step); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2035; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_step); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2036; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = PyObject_RichCompare(__pyx_t_5, Py_None, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2035; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_6 = PyObject_RichCompare(__pyx_t_5, Py_None, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2036; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2035; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2036; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   if (((!__pyx_t_4) != 0)) {
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_step); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2035; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_step); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2036; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_2 = __pyx_t_6;
     __pyx_t_6 = 0;
@@ -28182,7 +28135,7 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList_11__getitem___2getWithSlice(PyObjec
   __pyx_v_step = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "NeticaPy.pyx":2036
+  /* "NeticaPy.pyx":2037
  *         def getWithSlice(item):
  *             start,stop,step=(item.start if not item.start == None else 0,item.stop,item.step if not item.step == None else 1)
  *             assert type(start)==int,"Invalid slice start type"             # <<<<<<<<<<<<<<
@@ -28191,17 +28144,17 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList_11__getitem___2getWithSlice(PyObjec
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
-    __pyx_t_2 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_start)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2036; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2036; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_start)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2037; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2037; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (unlikely(!__pyx_t_4)) {
       PyErr_SetObject(PyExc_AssertionError, __pyx_kp_s_Invalid_slice_start_type);
-      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2036; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2037; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
   }
   #endif
 
-  /* "NeticaPy.pyx":2037
+  /* "NeticaPy.pyx":2038
  *             start,stop,step=(item.start if not item.start == None else 0,item.stop,item.step if not item.step == None else 1)
  *             assert type(start)==int,"Invalid slice start type"
  *             assert type(stop)==int,"Invalid slice stop type(should be specified and it should be int)"             # <<<<<<<<<<<<<<
@@ -28210,17 +28163,17 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList_11__getitem___2getWithSlice(PyObjec
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
-    __pyx_t_2 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_stop)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2037; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2037; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_stop)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2038; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2038; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (unlikely(!__pyx_t_4)) {
       PyErr_SetObject(PyExc_AssertionError, __pyx_kp_s_Invalid_slice_stop_type_should_b);
-      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2037; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2038; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
   }
   #endif
 
-  /* "NeticaPy.pyx":2038
+  /* "NeticaPy.pyx":2039
  *             assert type(start)==int,"Invalid slice start type"
  *             assert type(stop)==int,"Invalid slice stop type(should be specified and it should be int)"
  *             assert type(start)==int,"Invalid slice start type"             # <<<<<<<<<<<<<<
@@ -28229,24 +28182,24 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList_11__getitem___2getWithSlice(PyObjec
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
-    __pyx_t_2 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_start)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2038; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2038; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_start)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2039; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2039; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (unlikely(!__pyx_t_4)) {
       PyErr_SetObject(PyExc_AssertionError, __pyx_kp_s_Invalid_slice_start_type);
-      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2038; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2039; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
   }
   #endif
 
-  /* "NeticaPy.pyx":2039
+  /* "NeticaPy.pyx":2040
  *             assert type(stop)==int,"Invalid slice stop type(should be specified and it should be int)"
  *             assert type(start)==int,"Invalid slice start type"
  *             for j in range(start,stop,step):             # <<<<<<<<<<<<<<
  *                 x.append(self.value[j])
  *             return
  */
-  __pyx_t_2 = PyTuple_New(3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2039; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyTuple_New(3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2040; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_v_start);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_start);
@@ -28257,16 +28210,16 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList_11__getitem___2getWithSlice(PyObjec
   __Pyx_INCREF(__pyx_v_step);
   PyTuple_SET_ITEM(__pyx_t_2, 2, __pyx_v_step);
   __Pyx_GIVEREF(__pyx_v_step);
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2039; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2040; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (likely(PyList_CheckExact(__pyx_t_3)) || PyTuple_CheckExact(__pyx_t_3)) {
     __pyx_t_2 = __pyx_t_3; __Pyx_INCREF(__pyx_t_2); __pyx_t_7 = 0;
     __pyx_t_8 = NULL;
   } else {
-    __pyx_t_7 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2039; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_7 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2040; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_8 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2039; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_8 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2040; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   for (;;) {
@@ -28274,16 +28227,16 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList_11__getitem___2getWithSlice(PyObjec
       if (likely(PyList_CheckExact(__pyx_t_2))) {
         if (__pyx_t_7 >= PyList_GET_SIZE(__pyx_t_2)) break;
         #if CYTHON_COMPILING_IN_CPYTHON
-        __pyx_t_3 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2039; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_3 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2040; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         #else
-        __pyx_t_3 = PySequence_ITEM(__pyx_t_2, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2039; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_3 = PySequence_ITEM(__pyx_t_2, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2040; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         #endif
       } else {
         if (__pyx_t_7 >= PyTuple_GET_SIZE(__pyx_t_2)) break;
         #if CYTHON_COMPILING_IN_CPYTHON
-        __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2039; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2040; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         #else
-        __pyx_t_3 = PySequence_ITEM(__pyx_t_2, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2039; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_3 = PySequence_ITEM(__pyx_t_2, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2040; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         #endif
       }
     } else {
@@ -28292,7 +28245,7 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList_11__getitem___2getWithSlice(PyObjec
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2039; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2040; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         }
         break;
       }
@@ -28301,22 +28254,22 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList_11__getitem___2getWithSlice(PyObjec
     __Pyx_XDECREF_SET(__pyx_v_j, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "NeticaPy.pyx":2040
+    /* "NeticaPy.pyx":2041
  *             assert type(start)==int,"Invalid slice start type"
  *             for j in range(start,stop,step):
  *                 x.append(self.value[j])             # <<<<<<<<<<<<<<
  *             return
  * 
  */
-    if (unlikely(!__pyx_cur_scope->__pyx_v_x)) { __Pyx_RaiseClosureNameError("x"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2040; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-    if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2040; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-    __pyx_t_9 = __Pyx_PyIndex_AsSsize_t(__pyx_v_j); if (unlikely((__pyx_t_9 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2040; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __pyx_t_3 = __Pyx_PyInt_From_int((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_9])); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2040; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (unlikely(!__pyx_cur_scope->__pyx_v_x)) { __Pyx_RaiseClosureNameError("x"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2041; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+    if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2041; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+    __pyx_t_9 = __Pyx_PyIndex_AsSsize_t(__pyx_v_j); if (unlikely((__pyx_t_9 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2041; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyInt_From_int((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_9])); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2041; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_10 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_x, __pyx_t_3); if (unlikely(__pyx_t_10 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2040; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_10 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_x, __pyx_t_3); if (unlikely(__pyx_t_10 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2041; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "NeticaPy.pyx":2039
+    /* "NeticaPy.pyx":2040
  *             assert type(stop)==int,"Invalid slice stop type(should be specified and it should be int)"
  *             assert type(start)==int,"Invalid slice start type"
  *             for j in range(start,stop,step):             # <<<<<<<<<<<<<<
@@ -28326,7 +28279,7 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList_11__getitem___2getWithSlice(PyObjec
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "NeticaPy.pyx":2041
+  /* "NeticaPy.pyx":2042
  *             for j in range(start,stop,step):
  *                 x.append(self.value[j])
  *             return             # <<<<<<<<<<<<<<
@@ -28337,7 +28290,7 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList_11__getitem___2getWithSlice(PyObjec
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
 
-  /* "NeticaPy.pyx":2034
+  /* "NeticaPy.pyx":2035
  *             raise TypeError("Invalid type or invalid number is been passed")
  * 
  *         def getWithSlice(item):             # <<<<<<<<<<<<<<
@@ -28364,7 +28317,7 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList_11__getitem___2getWithSlice(PyObjec
   return __pyx_r;
 }
 
-/* "NeticaPy.pyx":2013
+/* "NeticaPy.pyx":2014
  * cdef class IntList:
  *     cdef int* value
  *     def __getitem__(self, item):             # <<<<<<<<<<<<<<
@@ -28403,20 +28356,20 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList___getitem__(struct __pyx_obj_8Netic
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_item);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_item);
 
-  /* "NeticaPy.pyx":2015
+  /* "NeticaPy.pyx":2016
  *     def __getitem__(self, item):
  * 
  *         x=[]             # <<<<<<<<<<<<<<
  *         prev=0
  *         i=0
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2015; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2016; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_cur_scope->__pyx_v_x = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "NeticaPy.pyx":2016
+  /* "NeticaPy.pyx":2017
  * 
  *         x=[]
  *         prev=0             # <<<<<<<<<<<<<<
@@ -28425,7 +28378,7 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList___getitem__(struct __pyx_obj_8Netic
  */
   __pyx_cur_scope->__pyx_v_prev = 0;
 
-  /* "NeticaPy.pyx":2017
+  /* "NeticaPy.pyx":2018
  *         x=[]
  *         prev=0
  *         i=0             # <<<<<<<<<<<<<<
@@ -28435,51 +28388,51 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList___getitem__(struct __pyx_obj_8Netic
   __Pyx_INCREF(__pyx_int_0);
   __pyx_v_i = __pyx_int_0;
 
-  /* "NeticaPy.pyx":2019
+  /* "NeticaPy.pyx":2020
  *         i=0
  * 
  *         def getWithEclipsis(index):             # <<<<<<<<<<<<<<
  *             index+=1
  *             assert index<len(item),"The list slice operator shouldn't end with Ellipsis (...)"
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_8NeticaPy_7IntList_11__getitem___1getWithEclipsis, 0, __pyx_n_s_getitem___locals_getWithEclips, ((PyObject*)__pyx_cur_scope), __pyx_n_s_NeticaPy, __pyx_d, ((PyObject *)__pyx_codeobj__3)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2019; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_8NeticaPy_7IntList_11__getitem___1getWithEclipsis, 0, __pyx_n_s_getitem___locals_getWithEclips, ((PyObject*)__pyx_cur_scope), __pyx_n_s_NeticaPy, __pyx_d, ((PyObject *)__pyx_codeobj__3)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2020; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_getWithEclipsis = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "NeticaPy.pyx":2034
+  /* "NeticaPy.pyx":2035
  *             raise TypeError("Invalid type or invalid number is been passed")
  * 
  *         def getWithSlice(item):             # <<<<<<<<<<<<<<
  *             start,stop,step=(item.start if not item.start == None else 0,item.stop,item.step if not item.step == None else 1)
  *             assert type(start)==int,"Invalid slice start type"
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_8NeticaPy_7IntList_11__getitem___3getWithSlice, 0, __pyx_n_s_getitem___locals_getWithSlice, ((PyObject*)__pyx_cur_scope), __pyx_n_s_NeticaPy, __pyx_d, ((PyObject *)__pyx_codeobj__5)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2034; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_8NeticaPy_7IntList_11__getitem___3getWithSlice, 0, __pyx_n_s_getitem___locals_getWithSlice, ((PyObject*)__pyx_cur_scope), __pyx_n_s_NeticaPy, __pyx_d, ((PyObject *)__pyx_codeobj__5)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2035; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_getWithSlice = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "NeticaPy.pyx":2044
+  /* "NeticaPy.pyx":2045
  * 
  * 
  *         if type(item)==int:             # <<<<<<<<<<<<<<
  *             x=self.value[item]
  *         elif type(item)==slice:
  */
-  __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_cur_scope->__pyx_v_item)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2044; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2044; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_cur_scope->__pyx_v_item)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2045; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2045; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "NeticaPy.pyx":2045
+    /* "NeticaPy.pyx":2046
  * 
  *         if type(item)==int:
  *             x=self.value[item]             # <<<<<<<<<<<<<<
  *         elif type(item)==slice:
  *             getWithSlice(item)
  */
-    __pyx_t_3 = __Pyx_PyIndex_AsSsize_t(__pyx_cur_scope->__pyx_v_item); if (unlikely((__pyx_t_3 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2045; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __pyx_t_1 = __Pyx_PyInt_From_int((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_3])); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2045; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyIndex_AsSsize_t(__pyx_cur_scope->__pyx_v_item); if (unlikely((__pyx_t_3 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2046; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyInt_From_int((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_3])); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2046; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_x);
     __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_x, __pyx_t_1);
@@ -28488,19 +28441,19 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList___getitem__(struct __pyx_obj_8Netic
     goto __pyx_L3;
   }
 
-  /* "NeticaPy.pyx":2046
+  /* "NeticaPy.pyx":2047
  *         if type(item)==int:
  *             x=self.value[item]
  *         elif type(item)==slice:             # <<<<<<<<<<<<<<
  *             getWithSlice(item)
  *         elif type(item)==tuple:
  */
-  __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_cur_scope->__pyx_v_item)), ((PyObject *)((PyObject*)(&PySlice_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2046; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2046; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_cur_scope->__pyx_v_item)), ((PyObject *)((PyObject*)(&PySlice_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2047; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2047; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "NeticaPy.pyx":2047
+    /* "NeticaPy.pyx":2048
  *             x=self.value[item]
  *         elif type(item)==slice:
  *             getWithSlice(item)             # <<<<<<<<<<<<<<
@@ -28509,26 +28462,26 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList___getitem__(struct __pyx_obj_8Netic
  */
     __pyx_t_1 = __pyx_cur_scope->__pyx_v_item;
     __Pyx_INCREF(__pyx_t_1);
-    __pyx_t_4 = __pyx_pf_8NeticaPy_7IntList_11__getitem___2getWithSlice(__pyx_v_getWithSlice, __pyx_t_1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2047; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __pyx_pf_8NeticaPy_7IntList_11__getitem___2getWithSlice(__pyx_v_getWithSlice, __pyx_t_1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2048; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     goto __pyx_L3;
   }
 
-  /* "NeticaPy.pyx":2048
+  /* "NeticaPy.pyx":2049
  *         elif type(item)==slice:
  *             getWithSlice(item)
  *         elif type(item)==tuple:             # <<<<<<<<<<<<<<
  *             while i<len(item):
  *                 if type(i)==slice:
  */
-  __pyx_t_4 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_cur_scope->__pyx_v_item)), ((PyObject *)((PyObject*)(&PyTuple_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2048; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2048; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_cur_scope->__pyx_v_item)), ((PyObject *)((PyObject*)(&PyTuple_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2049; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2049; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (__pyx_t_2) {
 
-    /* "NeticaPy.pyx":2049
+    /* "NeticaPy.pyx":2050
  *             getWithSlice(item)
  *         elif type(item)==tuple:
  *             while i<len(item):             # <<<<<<<<<<<<<<
@@ -28538,132 +28491,132 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList___getitem__(struct __pyx_obj_8Netic
     while (1) {
       __pyx_t_4 = __pyx_cur_scope->__pyx_v_item;
       __Pyx_INCREF(__pyx_t_4);
-      __pyx_t_3 = PyObject_Length(__pyx_t_4); if (unlikely(__pyx_t_3 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2049; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_3 = PyObject_Length(__pyx_t_4); if (unlikely(__pyx_t_3 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2050; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_4 = PyInt_FromSsize_t(__pyx_t_3); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2049; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_4 = PyInt_FromSsize_t(__pyx_t_3); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2050; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_1 = PyObject_RichCompare(__pyx_v_i, __pyx_t_4, Py_LT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2049; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = PyObject_RichCompare(__pyx_v_i, __pyx_t_4, Py_LT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2050; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2049; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2050; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       if (!__pyx_t_2) break;
 
-      /* "NeticaPy.pyx":2050
+      /* "NeticaPy.pyx":2051
  *         elif type(item)==tuple:
  *             while i<len(item):
  *                 if type(i)==slice:             # <<<<<<<<<<<<<<
  *                     getWithSlice(item[i])
  *                     i+=1
  */
-      __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_i)), ((PyObject *)((PyObject*)(&PySlice_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2050; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2050; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_i)), ((PyObject *)((PyObject*)(&PySlice_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2051; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2051; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       if (__pyx_t_2) {
 
-        /* "NeticaPy.pyx":2051
+        /* "NeticaPy.pyx":2052
  *             while i<len(item):
  *                 if type(i)==slice:
  *                     getWithSlice(item[i])             # <<<<<<<<<<<<<<
  *                     i+=1
  *                 elif type(item[i])==int and item[i]>=0:
  */
-        __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2051; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+        __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2052; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
         __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_4 = __pyx_pf_8NeticaPy_7IntList_11__getitem___2getWithSlice(__pyx_v_getWithSlice, __pyx_t_1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2051; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_4 = __pyx_pf_8NeticaPy_7IntList_11__getitem___2getWithSlice(__pyx_v_getWithSlice, __pyx_t_1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2052; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-        /* "NeticaPy.pyx":2052
+        /* "NeticaPy.pyx":2053
  *                 if type(i)==slice:
  *                     getWithSlice(item[i])
  *                     i+=1             # <<<<<<<<<<<<<<
  *                 elif type(item[i])==int and item[i]>=0:
  *                     if i+1<len(item) and item[i+1]==Ellipsis:
  */
-        __pyx_t_4 = PyNumber_InPlaceAdd(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2052; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_4 = PyNumber_InPlaceAdd(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2053; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF_SET(__pyx_v_i, __pyx_t_4);
         __pyx_t_4 = 0;
         goto __pyx_L6;
       }
 
-      /* "NeticaPy.pyx":2053
+      /* "NeticaPy.pyx":2054
  *                     getWithSlice(item[i])
  *                     i+=1
  *                 elif type(item[i])==int and item[i]>=0:             # <<<<<<<<<<<<<<
  *                     if i+1<len(item) and item[i+1]==Ellipsis:
  *                          i=getWithEclipsis(i+1)
  */
-      __pyx_t_4 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_4 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2053; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+      __pyx_t_4 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_4 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2054; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_t_4)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2053; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_t_4)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2054; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2053; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2054; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       if (__pyx_t_5) {
       } else {
         __pyx_t_2 = __pyx_t_5;
         goto __pyx_L7_bool_binop_done;
       }
-      __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2053; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+      __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2054; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_4 = PyObject_RichCompare(__pyx_t_1, __pyx_int_0, Py_GE); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2053; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_4 = PyObject_RichCompare(__pyx_t_1, __pyx_int_0, Py_GE); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2054; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2053; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2054; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_t_2 = __pyx_t_5;
       __pyx_L7_bool_binop_done:;
       if (__pyx_t_2) {
 
-        /* "NeticaPy.pyx":2054
+        /* "NeticaPy.pyx":2055
  *                     i+=1
  *                 elif type(item[i])==int and item[i]>=0:
  *                     if i+1<len(item) and item[i+1]==Ellipsis:             # <<<<<<<<<<<<<<
  *                          i=getWithEclipsis(i+1)
  *                     else:
  */
-        __pyx_t_4 = PyNumber_Add(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2054; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_4 = PyNumber_Add(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2055; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_4);
         __pyx_t_1 = __pyx_cur_scope->__pyx_v_item;
         __Pyx_INCREF(__pyx_t_1);
-        __pyx_t_3 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_3 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2054; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_3 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_3 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2055; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        __pyx_t_1 = PyInt_FromSsize_t(__pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2054; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_1 = PyInt_FromSsize_t(__pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2055; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_6 = PyObject_RichCompare(__pyx_t_4, __pyx_t_1, Py_LT); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2054; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_6 = PyObject_RichCompare(__pyx_t_4, __pyx_t_1, Py_LT); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2055; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2054; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2055; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
         if (__pyx_t_5) {
         } else {
           __pyx_t_2 = __pyx_t_5;
           goto __pyx_L10_bool_binop_done;
         }
-        __pyx_t_6 = PyNumber_Add(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2054; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_6 = PyNumber_Add(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2055; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_6);
-        __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_t_6); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2054; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+        __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_t_6); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2055; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        __pyx_t_6 = PyObject_RichCompare(__pyx_t_1, __pyx_builtin_Ellipsis, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2054; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_6 = PyObject_RichCompare(__pyx_t_1, __pyx_builtin_Ellipsis, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2055; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2054; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2055; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
         __pyx_t_2 = __pyx_t_5;
         __pyx_L10_bool_binop_done:;
         if (__pyx_t_2) {
 
-          /* "NeticaPy.pyx":2055
+          /* "NeticaPy.pyx":2056
  *                 elif type(item[i])==int and item[i]>=0:
  *                     if i+1<len(item) and item[i+1]==Ellipsis:
  *                          i=getWithEclipsis(i+1)             # <<<<<<<<<<<<<<
  *                     else:
  *                         x.append(self.value[item[i]])
  */
-          __pyx_t_6 = PyNumber_Add(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2055; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_6 = PyNumber_Add(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2056; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_6);
-          __pyx_t_1 = __pyx_pf_8NeticaPy_7IntList_11__getitem___getWithEclipsis(__pyx_v_getWithEclipsis, __pyx_t_6); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2055; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_1 = __pyx_pf_8NeticaPy_7IntList_11__getitem___getWithEclipsis(__pyx_v_getWithEclipsis, __pyx_t_6); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2056; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_DECREF_SET(__pyx_v_i, __pyx_t_1);
@@ -28672,30 +28625,30 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList___getitem__(struct __pyx_obj_8Netic
         }
         /*else*/ {
 
-          /* "NeticaPy.pyx":2057
+          /* "NeticaPy.pyx":2058
  *                          i=getWithEclipsis(i+1)
  *                     else:
  *                         x.append(self.value[item[i]])             # <<<<<<<<<<<<<<
  *                         i+=1
  *                 elif item[i]==Ellipsis:
  */
-          __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2057; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+          __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2058; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
           __Pyx_GOTREF(__pyx_t_1);
-          __pyx_t_3 = __Pyx_PyIndex_AsSsize_t(__pyx_t_1); if (unlikely((__pyx_t_3 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2057; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_3 = __Pyx_PyIndex_AsSsize_t(__pyx_t_1); if (unlikely((__pyx_t_3 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2058; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-          __pyx_t_1 = __Pyx_PyInt_From_int((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_3])); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2057; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_1 = __Pyx_PyInt_From_int((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_3])); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2058; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_1);
-          __pyx_t_7 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_x, __pyx_t_1); if (unlikely(__pyx_t_7 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2057; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_7 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_x, __pyx_t_1); if (unlikely(__pyx_t_7 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2058; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-          /* "NeticaPy.pyx":2058
+          /* "NeticaPy.pyx":2059
  *                     else:
  *                         x.append(self.value[item[i]])
  *                         i+=1             # <<<<<<<<<<<<<<
  *                 elif item[i]==Ellipsis:
  *                     i=getWithEclipsis(i)
  */
-          __pyx_t_1 = PyNumber_InPlaceAdd(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2058; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_1 = PyNumber_InPlaceAdd(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2059; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_DECREF_SET(__pyx_v_i, __pyx_t_1);
           __pyx_t_1 = 0;
@@ -28704,29 +28657,29 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList___getitem__(struct __pyx_obj_8Netic
         goto __pyx_L6;
       }
 
-      /* "NeticaPy.pyx":2059
+      /* "NeticaPy.pyx":2060
  *                         x.append(self.value[item[i]])
  *                         i+=1
  *                 elif item[i]==Ellipsis:             # <<<<<<<<<<<<<<
  *                     i=getWithEclipsis(i)
  *                 else:
  */
-      __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2059; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+      __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2060; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_6 = PyObject_RichCompare(__pyx_t_1, __pyx_builtin_Ellipsis, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2059; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_6 = PyObject_RichCompare(__pyx_t_1, __pyx_builtin_Ellipsis, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2060; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2059; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2060; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       if (__pyx_t_2) {
 
-        /* "NeticaPy.pyx":2060
+        /* "NeticaPy.pyx":2061
  *                         i+=1
  *                 elif item[i]==Ellipsis:
  *                     i=getWithEclipsis(i)             # <<<<<<<<<<<<<<
  *                 else:
  *                     raise TypeError("Invalid type or invalid number is been passed")
  */
-        __pyx_t_6 = __pyx_pf_8NeticaPy_7IntList_11__getitem___getWithEclipsis(__pyx_v_getWithEclipsis, __pyx_v_i); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2060; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_6 = __pyx_pf_8NeticaPy_7IntList_11__getitem___getWithEclipsis(__pyx_v_getWithEclipsis, __pyx_v_i); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2061; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_6);
         __Pyx_DECREF_SET(__pyx_v_i, __pyx_t_6);
         __pyx_t_6 = 0;
@@ -28734,18 +28687,18 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList___getitem__(struct __pyx_obj_8Netic
       }
       /*else*/ {
 
-        /* "NeticaPy.pyx":2062
+        /* "NeticaPy.pyx":2063
  *                     i=getWithEclipsis(i)
  *                 else:
  *                     raise TypeError("Invalid type or invalid number is been passed")             # <<<<<<<<<<<<<<
  *         else:
  *             raise TypeError("Invalid type or invalid number is been passed")
  */
-        __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__6, NULL); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2062; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__6, NULL); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2063; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_6);
         __Pyx_Raise(__pyx_t_6, 0, 0, 0);
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2062; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2063; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       }
       __pyx_L6:;
     }
@@ -28753,22 +28706,22 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList___getitem__(struct __pyx_obj_8Netic
   }
   /*else*/ {
 
-    /* "NeticaPy.pyx":2064
+    /* "NeticaPy.pyx":2065
  *                     raise TypeError("Invalid type or invalid number is been passed")
  *         else:
  *             raise TypeError("Invalid type or invalid number is been passed")             # <<<<<<<<<<<<<<
  *         return x
  * 
  */
-    __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__7, NULL); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2064; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__7, NULL); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2065; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_Raise(__pyx_t_6, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2064; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2065; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __pyx_L3:;
 
-  /* "NeticaPy.pyx":2065
+  /* "NeticaPy.pyx":2066
  *         else:
  *             raise TypeError("Invalid type or invalid number is been passed")
  *         return x             # <<<<<<<<<<<<<<
@@ -28780,7 +28733,7 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList___getitem__(struct __pyx_obj_8Netic
   __pyx_r = __pyx_cur_scope->__pyx_v_x;
   goto __pyx_L0;
 
-  /* "NeticaPy.pyx":2013
+  /* "NeticaPy.pyx":2014
  * cdef class IntList:
  *     cdef int* value
  *     def __getitem__(self, item):             # <<<<<<<<<<<<<<
@@ -28805,7 +28758,7 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList___getitem__(struct __pyx_obj_8Netic
   return __pyx_r;
 }
 
-/* "NeticaPy.pyx":2067
+/* "NeticaPy.pyx":2068
  *         return x
  * 
  *     def __del__(self):             # <<<<<<<<<<<<<<
@@ -28834,7 +28787,7 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList_2__del__(struct __pyx_obj_8NeticaPy
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("__del__", 0);
 
-  /* "NeticaPy.pyx":2068
+  /* "NeticaPy.pyx":2069
  * 
  *     def __del__(self):
  *         try:             # <<<<<<<<<<<<<<
@@ -28845,7 +28798,7 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList_2__del__(struct __pyx_obj_8NeticaPy
     if (__pyx_t_1||__pyx_t_2||__pyx_t_3); else {/*mark used*/};
     /*try:*/ {
 
-      /* "NeticaPy.pyx":2069
+      /* "NeticaPy.pyx":2070
  *     def __del__(self):
  *         try:
  *             free(self.value)             # <<<<<<<<<<<<<<
@@ -28856,7 +28809,7 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList_2__del__(struct __pyx_obj_8NeticaPy
     }
   }
 
-  /* "NeticaPy.pyx":2067
+  /* "NeticaPy.pyx":2068
  *         return x
  * 
  *     def __del__(self):             # <<<<<<<<<<<<<<
@@ -28871,7 +28824,7 @@ static PyObject *__pyx_pf_8NeticaPy_7IntList_2__del__(struct __pyx_obj_8NeticaPy
   return __pyx_r;
 }
 
-/* "NeticaPy.pyx":2077
+/* "NeticaPy.pyx":2078
  * cdef class FloatList:
  *     cdef float* value
  *     def __getitem__(self, item):             # <<<<<<<<<<<<<<
@@ -28892,7 +28845,7 @@ static PyObject *__pyx_pw_8NeticaPy_9FloatList_1__getitem__(PyObject *__pyx_v_se
   return __pyx_r;
 }
 
-/* "NeticaPy.pyx":2083
+/* "NeticaPy.pyx":2084
  *         i=0
  * 
  *         def getWithEclipsis(index):             # <<<<<<<<<<<<<<
@@ -28938,19 +28891,19 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList_11__getitem___getWithEclipsis(PyO
   __pyx_cur_scope = __pyx_outer_scope;
   __Pyx_INCREF(__pyx_v_index);
 
-  /* "NeticaPy.pyx":2084
+  /* "NeticaPy.pyx":2085
  * 
  *         def getWithEclipsis(index):
  *             index+=1             # <<<<<<<<<<<<<<
  *             assert index<len(item),"The list slice operator shouldn't end with Ellipsis (...)"
  *             if type(item[index])==int and item[index]>=0:
  */
-  __pyx_t_1 = PyNumber_InPlaceAdd(__pyx_v_index, __pyx_int_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2084; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyNumber_InPlaceAdd(__pyx_v_index, __pyx_int_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2085; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF_SET(__pyx_v_index, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "NeticaPy.pyx":2085
+  /* "NeticaPy.pyx":2086
  *         def getWithEclipsis(index):
  *             index+=1
  *             assert index<len(item),"The list slice operator shouldn't end with Ellipsis (...)"             # <<<<<<<<<<<<<<
@@ -28959,67 +28912,67 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList_11__getitem___getWithEclipsis(PyO
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
-    if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2085; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+    if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2086; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
     __pyx_t_1 = __pyx_cur_scope->__pyx_v_item;
     __Pyx_INCREF(__pyx_t_1);
-    __pyx_t_2 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_2 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2085; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_2 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2086; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = PyInt_FromSsize_t(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2085; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = PyInt_FromSsize_t(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2086; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = PyObject_RichCompare(__pyx_v_index, __pyx_t_1, Py_LT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2085; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = PyObject_RichCompare(__pyx_v_index, __pyx_t_1, Py_LT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2086; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2085; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2086; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (unlikely(!__pyx_t_4)) {
       PyErr_SetObject(PyExc_AssertionError, __pyx_kp_s_The_list_slice_operator_shouldn);
-      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2085; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2086; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
   }
   #endif
 
-  /* "NeticaPy.pyx":2086
+  /* "NeticaPy.pyx":2087
  *             index+=1
  *             assert index<len(item),"The list slice operator shouldn't end with Ellipsis (...)"
  *             if type(item[index])==int and item[index]>=0:             # <<<<<<<<<<<<<<
  *                 for j in range(prev,item[index]):
  *                     x.append(self.value[j])
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2086; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-  __pyx_t_3 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_3 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2086; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+  if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2087; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+  __pyx_t_3 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_3 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2087; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_t_3)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2086; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_t_3)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2087; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2086; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2087; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_5) {
   } else {
     __pyx_t_4 = __pyx_t_5;
     goto __pyx_L4_bool_binop_done;
   }
-  if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2086; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-  __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2086; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+  if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2087; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+  __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2087; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_int_0, Py_GE); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2086; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_int_0, Py_GE); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2087; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2086; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2087; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_4 = __pyx_t_5;
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_4) {
 
-    /* "NeticaPy.pyx":2087
+    /* "NeticaPy.pyx":2088
  *             assert index<len(item),"The list slice operator shouldn't end with Ellipsis (...)"
  *             if type(item[index])==int and item[index]>=0:
  *                 for j in range(prev,item[index]):             # <<<<<<<<<<<<<<
  *                     x.append(self.value[j])
  *                 return index+1
  */
-    __pyx_t_3 = __Pyx_PyInt_From_long(__pyx_cur_scope->__pyx_v_prev); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2087; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyInt_From_long(__pyx_cur_scope->__pyx_v_prev); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2088; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
-    if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2087; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-    __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2087; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+    if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2088; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+    __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2088; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2087; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2088; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_6);
     PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_3);
     __Pyx_GIVEREF(__pyx_t_3);
@@ -29027,16 +28980,16 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList_11__getitem___getWithEclipsis(PyO
     __Pyx_GIVEREF(__pyx_t_1);
     __pyx_t_3 = 0;
     __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2087; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2088; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
       __pyx_t_6 = __pyx_t_1; __Pyx_INCREF(__pyx_t_6); __pyx_t_2 = 0;
       __pyx_t_7 = NULL;
     } else {
-      __pyx_t_2 = -1; __pyx_t_6 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2087; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_2 = -1; __pyx_t_6 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2088; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_7 = Py_TYPE(__pyx_t_6)->tp_iternext; if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2087; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_7 = Py_TYPE(__pyx_t_6)->tp_iternext; if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2088; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     for (;;) {
@@ -29044,16 +28997,16 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList_11__getitem___getWithEclipsis(PyO
         if (likely(PyList_CheckExact(__pyx_t_6))) {
           if (__pyx_t_2 >= PyList_GET_SIZE(__pyx_t_6)) break;
           #if CYTHON_COMPILING_IN_CPYTHON
-          __pyx_t_1 = PyList_GET_ITEM(__pyx_t_6, __pyx_t_2); __Pyx_INCREF(__pyx_t_1); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2087; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_1 = PyList_GET_ITEM(__pyx_t_6, __pyx_t_2); __Pyx_INCREF(__pyx_t_1); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2088; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           #else
-          __pyx_t_1 = PySequence_ITEM(__pyx_t_6, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2087; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_1 = PySequence_ITEM(__pyx_t_6, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2088; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           #endif
         } else {
           if (__pyx_t_2 >= PyTuple_GET_SIZE(__pyx_t_6)) break;
           #if CYTHON_COMPILING_IN_CPYTHON
-          __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_6, __pyx_t_2); __Pyx_INCREF(__pyx_t_1); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2087; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_6, __pyx_t_2); __Pyx_INCREF(__pyx_t_1); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2088; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           #else
-          __pyx_t_1 = PySequence_ITEM(__pyx_t_6, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2087; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_1 = PySequence_ITEM(__pyx_t_6, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2088; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           #endif
         }
       } else {
@@ -29062,7 +29015,7 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList_11__getitem___getWithEclipsis(PyO
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
             if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2087; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2088; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           }
           break;
         }
@@ -29071,22 +29024,22 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList_11__getitem___getWithEclipsis(PyO
       __Pyx_XDECREF_SET(__pyx_v_j, __pyx_t_1);
       __pyx_t_1 = 0;
 
-      /* "NeticaPy.pyx":2088
+      /* "NeticaPy.pyx":2089
  *             if type(item[index])==int and item[index]>=0:
  *                 for j in range(prev,item[index]):
  *                     x.append(self.value[j])             # <<<<<<<<<<<<<<
  *                 return index+1
  *             elif type(item[index])==slice:
  */
-      if (unlikely(!__pyx_cur_scope->__pyx_v_x)) { __Pyx_RaiseClosureNameError("x"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2088; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-      if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2088; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-      __pyx_t_8 = __Pyx_PyIndex_AsSsize_t(__pyx_v_j); if (unlikely((__pyx_t_8 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2088; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-      __pyx_t_1 = PyFloat_FromDouble((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_8])); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2088; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      if (unlikely(!__pyx_cur_scope->__pyx_v_x)) { __Pyx_RaiseClosureNameError("x"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2089; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+      if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2089; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+      __pyx_t_8 = __Pyx_PyIndex_AsSsize_t(__pyx_v_j); if (unlikely((__pyx_t_8 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2089; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = PyFloat_FromDouble((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_8])); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2089; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_9 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_x, __pyx_t_1); if (unlikely(__pyx_t_9 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2088; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_9 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_x, __pyx_t_1); if (unlikely(__pyx_t_9 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2089; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "NeticaPy.pyx":2087
+      /* "NeticaPy.pyx":2088
  *             assert index<len(item),"The list slice operator shouldn't end with Ellipsis (...)"
  *             if type(item[index])==int and item[index]>=0:
  *                 for j in range(prev,item[index]):             # <<<<<<<<<<<<<<
@@ -29096,7 +29049,7 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList_11__getitem___getWithEclipsis(PyO
     }
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-    /* "NeticaPy.pyx":2089
+    /* "NeticaPy.pyx":2090
  *                 for j in range(prev,item[index]):
  *                     x.append(self.value[j])
  *                 return index+1             # <<<<<<<<<<<<<<
@@ -29104,51 +29057,51 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList_11__getitem___getWithEclipsis(PyO
  *                 start=(item[index].start if not item[index].start == None else 0)
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_6 = PyNumber_Add(__pyx_v_index, __pyx_int_1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2089; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_6 = PyNumber_Add(__pyx_v_index, __pyx_int_1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2090; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_r = __pyx_t_6;
     __pyx_t_6 = 0;
     goto __pyx_L0;
   }
 
-  /* "NeticaPy.pyx":2090
+  /* "NeticaPy.pyx":2091
  *                     x.append(self.value[j])
  *                 return index+1
  *             elif type(item[index])==slice:             # <<<<<<<<<<<<<<
  *                 start=(item[index].start if not item[index].start == None else 0)
  *                 if type(start)==int and start>=0:
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2090; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-  __pyx_t_6 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_6 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2090; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+  if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2091; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+  __pyx_t_6 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_6 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2091; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_t_6)), ((PyObject *)((PyObject*)(&PySlice_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2090; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_t_6)), ((PyObject *)((PyObject*)(&PySlice_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2091; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2090; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2091; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_4) {
 
-    /* "NeticaPy.pyx":2091
+    /* "NeticaPy.pyx":2092
  *                 return index+1
  *             elif type(item[index])==slice:
  *                 start=(item[index].start if not item[index].start == None else 0)             # <<<<<<<<<<<<<<
  *                 if type(start)==int and start>=0:
  *                     for j in range(prev,start):
  */
-    if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2091; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-    __pyx_t_6 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_6 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2091; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+    if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2092; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+    __pyx_t_6 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_6 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2092; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_start); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2091; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_start); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2092; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_6 = PyObject_RichCompare(__pyx_t_3, Py_None, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2091; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_6 = PyObject_RichCompare(__pyx_t_3, Py_None, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2092; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2091; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2092; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     if (((!__pyx_t_4) != 0)) {
-      if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2091; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-      __pyx_t_6 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_6 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2091; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+      if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2092; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+      __pyx_t_6 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_6 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2092; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_start); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2091; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_start); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2092; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __pyx_t_1 = __pyx_t_3;
@@ -29160,38 +29113,38 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList_11__getitem___getWithEclipsis(PyO
     __pyx_v_start = __pyx_t_1;
     __pyx_t_1 = 0;
 
-    /* "NeticaPy.pyx":2092
+    /* "NeticaPy.pyx":2093
  *             elif type(item[index])==slice:
  *                 start=(item[index].start if not item[index].start == None else 0)
  *                 if type(start)==int and start>=0:             # <<<<<<<<<<<<<<
  *                     for j in range(prev,start):
  *                        x.append(self.value[j])
  */
-    __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_start)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2092; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2092; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_start)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2093; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2093; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_5) {
     } else {
       __pyx_t_4 = __pyx_t_5;
       goto __pyx_L9_bool_binop_done;
     }
-    __pyx_t_1 = PyObject_RichCompare(__pyx_v_start, __pyx_int_0, Py_GE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2092; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2092; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = PyObject_RichCompare(__pyx_v_start, __pyx_int_0, Py_GE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2093; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2093; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_4 = __pyx_t_5;
     __pyx_L9_bool_binop_done:;
     if (__pyx_t_4) {
 
-      /* "NeticaPy.pyx":2093
+      /* "NeticaPy.pyx":2094
  *                 start=(item[index].start if not item[index].start == None else 0)
  *                 if type(start)==int and start>=0:
  *                     for j in range(prev,start):             # <<<<<<<<<<<<<<
  *                        x.append(self.value[j])
  *                     return index
  */
-      __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_cur_scope->__pyx_v_prev); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2093; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_cur_scope->__pyx_v_prev); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2094; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2093; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2094; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_3);
       PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
       __Pyx_GIVEREF(__pyx_t_1);
@@ -29199,16 +29152,16 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList_11__getitem___getWithEclipsis(PyO
       PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_v_start);
       __Pyx_GIVEREF(__pyx_v_start);
       __pyx_t_1 = 0;
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2093; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2094; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
         __pyx_t_3 = __pyx_t_1; __Pyx_INCREF(__pyx_t_3); __pyx_t_2 = 0;
         __pyx_t_7 = NULL;
       } else {
-        __pyx_t_2 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2093; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2094; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_7 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2093; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_7 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2094; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       }
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       for (;;) {
@@ -29216,16 +29169,16 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList_11__getitem___getWithEclipsis(PyO
           if (likely(PyList_CheckExact(__pyx_t_3))) {
             if (__pyx_t_2 >= PyList_GET_SIZE(__pyx_t_3)) break;
             #if CYTHON_COMPILING_IN_CPYTHON
-            __pyx_t_1 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_2); __Pyx_INCREF(__pyx_t_1); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2093; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            __pyx_t_1 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_2); __Pyx_INCREF(__pyx_t_1); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2094; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             #else
-            __pyx_t_1 = PySequence_ITEM(__pyx_t_3, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2093; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            __pyx_t_1 = PySequence_ITEM(__pyx_t_3, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2094; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             #endif
           } else {
             if (__pyx_t_2 >= PyTuple_GET_SIZE(__pyx_t_3)) break;
             #if CYTHON_COMPILING_IN_CPYTHON
-            __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_2); __Pyx_INCREF(__pyx_t_1); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2093; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_2); __Pyx_INCREF(__pyx_t_1); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2094; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             #else
-            __pyx_t_1 = PySequence_ITEM(__pyx_t_3, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2093; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            __pyx_t_1 = PySequence_ITEM(__pyx_t_3, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2094; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             #endif
           }
         } else {
@@ -29234,7 +29187,7 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList_11__getitem___getWithEclipsis(PyO
             PyObject* exc_type = PyErr_Occurred();
             if (exc_type) {
               if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-              else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2093; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+              else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2094; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             }
             break;
           }
@@ -29243,22 +29196,22 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList_11__getitem___getWithEclipsis(PyO
         __Pyx_XDECREF_SET(__pyx_v_j, __pyx_t_1);
         __pyx_t_1 = 0;
 
-        /* "NeticaPy.pyx":2094
+        /* "NeticaPy.pyx":2095
  *                 if type(start)==int and start>=0:
  *                     for j in range(prev,start):
  *                        x.append(self.value[j])             # <<<<<<<<<<<<<<
  *                     return index
  *             raise TypeError("Invalid type or invalid number is been passed")
  */
-        if (unlikely(!__pyx_cur_scope->__pyx_v_x)) { __Pyx_RaiseClosureNameError("x"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2094; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-        if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2094; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-        __pyx_t_8 = __Pyx_PyIndex_AsSsize_t(__pyx_v_j); if (unlikely((__pyx_t_8 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2094; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-        __pyx_t_1 = PyFloat_FromDouble((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_8])); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2094; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        if (unlikely(!__pyx_cur_scope->__pyx_v_x)) { __Pyx_RaiseClosureNameError("x"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2095; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+        if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2095; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+        __pyx_t_8 = __Pyx_PyIndex_AsSsize_t(__pyx_v_j); if (unlikely((__pyx_t_8 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2095; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_1 = PyFloat_FromDouble((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_8])); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2095; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_9 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_x, __pyx_t_1); if (unlikely(__pyx_t_9 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2094; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_9 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_x, __pyx_t_1); if (unlikely(__pyx_t_9 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2095; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-        /* "NeticaPy.pyx":2093
+        /* "NeticaPy.pyx":2094
  *                 start=(item[index].start if not item[index].start == None else 0)
  *                 if type(start)==int and start>=0:
  *                     for j in range(prev,start):             # <<<<<<<<<<<<<<
@@ -29268,7 +29221,7 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList_11__getitem___getWithEclipsis(PyO
       }
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "NeticaPy.pyx":2095
+      /* "NeticaPy.pyx":2096
  *                     for j in range(prev,start):
  *                        x.append(self.value[j])
  *                     return index             # <<<<<<<<<<<<<<
@@ -29284,20 +29237,20 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList_11__getitem___getWithEclipsis(PyO
   }
   __pyx_L3:;
 
-  /* "NeticaPy.pyx":2096
+  /* "NeticaPy.pyx":2097
  *                        x.append(self.value[j])
  *                     return index
  *             raise TypeError("Invalid type or invalid number is been passed")             # <<<<<<<<<<<<<<
  * 
  *         def getWithSlice(item):
  */
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__8, NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2096; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__8, NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2097; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_Raise(__pyx_t_3, 0, 0, 0);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2096; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2097; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "NeticaPy.pyx":2083
+  /* "NeticaPy.pyx":2084
  *         i=0
  * 
  *         def getWithEclipsis(index):             # <<<<<<<<<<<<<<
@@ -29321,7 +29274,7 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList_11__getitem___getWithEclipsis(PyO
   return __pyx_r;
 }
 
-/* "NeticaPy.pyx":2098
+/* "NeticaPy.pyx":2099
  *             raise TypeError("Invalid type or invalid number is been passed")
  * 
  *         def getWithSlice(item):             # <<<<<<<<<<<<<<
@@ -29369,21 +29322,21 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList_11__getitem___2getWithSlice(PyObj
   __pyx_outer_scope = (struct __pyx_obj_8NeticaPy___pyx_scope_struct_1___getitem__ *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
 
-  /* "NeticaPy.pyx":2099
+  /* "NeticaPy.pyx":2100
  * 
  *         def getWithSlice(item):
  *             start,stop,step=(item.start if not item.start == None else 0,item.stop,item.step if not item.step == None else 1)             # <<<<<<<<<<<<<<
  *             assert type(start)==int,"Invalid slice start type"
  *             assert type(stop)==int,"Invalid slice stop type(should be specified and it should be int)"
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_start); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2099; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_start); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyObject_RichCompare(__pyx_t_2, Py_None, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2099; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = PyObject_RichCompare(__pyx_t_2, Py_None, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2099; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (((!__pyx_t_4) != 0)) {
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_start); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2099; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_start); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_1 = __pyx_t_3;
     __pyx_t_3 = 0;
@@ -29391,16 +29344,16 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList_11__getitem___2getWithSlice(PyObj
     __Pyx_INCREF(__pyx_int_0);
     __pyx_t_1 = __pyx_int_0;
   }
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_stop); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2099; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_stop); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_step); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2099; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_step); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = PyObject_RichCompare(__pyx_t_5, Py_None, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2099; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_6 = PyObject_RichCompare(__pyx_t_5, Py_None, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2099; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   if (((!__pyx_t_4) != 0)) {
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_step); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2099; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_step); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_2 = __pyx_t_6;
     __pyx_t_6 = 0;
@@ -29415,7 +29368,7 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList_11__getitem___2getWithSlice(PyObj
   __pyx_v_step = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "NeticaPy.pyx":2100
+  /* "NeticaPy.pyx":2101
  *         def getWithSlice(item):
  *             start,stop,step=(item.start if not item.start == None else 0,item.stop,item.step if not item.step == None else 1)
  *             assert type(start)==int,"Invalid slice start type"             # <<<<<<<<<<<<<<
@@ -29424,17 +29377,17 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList_11__getitem___2getWithSlice(PyObj
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
-    __pyx_t_2 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_start)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_start)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2101; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2101; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (unlikely(!__pyx_t_4)) {
       PyErr_SetObject(PyExc_AssertionError, __pyx_kp_s_Invalid_slice_start_type);
-      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2101; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
   }
   #endif
 
-  /* "NeticaPy.pyx":2101
+  /* "NeticaPy.pyx":2102
  *             start,stop,step=(item.start if not item.start == None else 0,item.stop,item.step if not item.step == None else 1)
  *             assert type(start)==int,"Invalid slice start type"
  *             assert type(stop)==int,"Invalid slice stop type(should be specified and it should be int)"             # <<<<<<<<<<<<<<
@@ -29443,17 +29396,17 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList_11__getitem___2getWithSlice(PyObj
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
-    __pyx_t_2 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_stop)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2101; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2101; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_stop)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2102; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2102; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (unlikely(!__pyx_t_4)) {
       PyErr_SetObject(PyExc_AssertionError, __pyx_kp_s_Invalid_slice_stop_type_should_b);
-      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2101; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2102; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
   }
   #endif
 
-  /* "NeticaPy.pyx":2102
+  /* "NeticaPy.pyx":2103
  *             assert type(start)==int,"Invalid slice start type"
  *             assert type(stop)==int,"Invalid slice stop type(should be specified and it should be int)"
  *             assert type(start)==int,"Invalid slice start type"             # <<<<<<<<<<<<<<
@@ -29462,24 +29415,24 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList_11__getitem___2getWithSlice(PyObj
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
-    __pyx_t_2 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_start)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2102; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2102; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_start)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2103; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2103; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (unlikely(!__pyx_t_4)) {
       PyErr_SetObject(PyExc_AssertionError, __pyx_kp_s_Invalid_slice_start_type);
-      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2102; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2103; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
   }
   #endif
 
-  /* "NeticaPy.pyx":2103
+  /* "NeticaPy.pyx":2104
  *             assert type(stop)==int,"Invalid slice stop type(should be specified and it should be int)"
  *             assert type(start)==int,"Invalid slice start type"
  *             for j in range(start,stop,step):             # <<<<<<<<<<<<<<
  *                 x.append(self.value[j])
  *             return
  */
-  __pyx_t_2 = PyTuple_New(3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2103; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyTuple_New(3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2104; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_v_start);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_start);
@@ -29490,16 +29443,16 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList_11__getitem___2getWithSlice(PyObj
   __Pyx_INCREF(__pyx_v_step);
   PyTuple_SET_ITEM(__pyx_t_2, 2, __pyx_v_step);
   __Pyx_GIVEREF(__pyx_v_step);
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2103; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2104; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (likely(PyList_CheckExact(__pyx_t_3)) || PyTuple_CheckExact(__pyx_t_3)) {
     __pyx_t_2 = __pyx_t_3; __Pyx_INCREF(__pyx_t_2); __pyx_t_7 = 0;
     __pyx_t_8 = NULL;
   } else {
-    __pyx_t_7 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2103; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_7 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2104; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_8 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2103; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_8 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2104; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   for (;;) {
@@ -29507,16 +29460,16 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList_11__getitem___2getWithSlice(PyObj
       if (likely(PyList_CheckExact(__pyx_t_2))) {
         if (__pyx_t_7 >= PyList_GET_SIZE(__pyx_t_2)) break;
         #if CYTHON_COMPILING_IN_CPYTHON
-        __pyx_t_3 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2103; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_3 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2104; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         #else
-        __pyx_t_3 = PySequence_ITEM(__pyx_t_2, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2103; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_3 = PySequence_ITEM(__pyx_t_2, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2104; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         #endif
       } else {
         if (__pyx_t_7 >= PyTuple_GET_SIZE(__pyx_t_2)) break;
         #if CYTHON_COMPILING_IN_CPYTHON
-        __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2103; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2104; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         #else
-        __pyx_t_3 = PySequence_ITEM(__pyx_t_2, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2103; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_3 = PySequence_ITEM(__pyx_t_2, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2104; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         #endif
       }
     } else {
@@ -29525,7 +29478,7 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList_11__getitem___2getWithSlice(PyObj
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2103; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2104; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         }
         break;
       }
@@ -29534,22 +29487,22 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList_11__getitem___2getWithSlice(PyObj
     __Pyx_XDECREF_SET(__pyx_v_j, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "NeticaPy.pyx":2104
+    /* "NeticaPy.pyx":2105
  *             assert type(start)==int,"Invalid slice start type"
  *             for j in range(start,stop,step):
  *                 x.append(self.value[j])             # <<<<<<<<<<<<<<
  *             return
  * 
  */
-    if (unlikely(!__pyx_cur_scope->__pyx_v_x)) { __Pyx_RaiseClosureNameError("x"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2104; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-    if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2104; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-    __pyx_t_9 = __Pyx_PyIndex_AsSsize_t(__pyx_v_j); if (unlikely((__pyx_t_9 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2104; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __pyx_t_3 = PyFloat_FromDouble((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_9])); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2104; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (unlikely(!__pyx_cur_scope->__pyx_v_x)) { __Pyx_RaiseClosureNameError("x"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2105; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+    if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2105; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+    __pyx_t_9 = __Pyx_PyIndex_AsSsize_t(__pyx_v_j); if (unlikely((__pyx_t_9 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2105; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = PyFloat_FromDouble((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_9])); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2105; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_10 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_x, __pyx_t_3); if (unlikely(__pyx_t_10 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2104; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_10 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_x, __pyx_t_3); if (unlikely(__pyx_t_10 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2105; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "NeticaPy.pyx":2103
+    /* "NeticaPy.pyx":2104
  *             assert type(stop)==int,"Invalid slice stop type(should be specified and it should be int)"
  *             assert type(start)==int,"Invalid slice start type"
  *             for j in range(start,stop,step):             # <<<<<<<<<<<<<<
@@ -29559,7 +29512,7 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList_11__getitem___2getWithSlice(PyObj
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "NeticaPy.pyx":2105
+  /* "NeticaPy.pyx":2106
  *             for j in range(start,stop,step):
  *                 x.append(self.value[j])
  *             return             # <<<<<<<<<<<<<<
@@ -29570,7 +29523,7 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList_11__getitem___2getWithSlice(PyObj
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
 
-  /* "NeticaPy.pyx":2098
+  /* "NeticaPy.pyx":2099
  *             raise TypeError("Invalid type or invalid number is been passed")
  * 
  *         def getWithSlice(item):             # <<<<<<<<<<<<<<
@@ -29597,7 +29550,7 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList_11__getitem___2getWithSlice(PyObj
   return __pyx_r;
 }
 
-/* "NeticaPy.pyx":2077
+/* "NeticaPy.pyx":2078
  * cdef class FloatList:
  *     cdef float* value
  *     def __getitem__(self, item):             # <<<<<<<<<<<<<<
@@ -29636,20 +29589,20 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList___getitem__(struct __pyx_obj_8Net
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_item);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_item);
 
-  /* "NeticaPy.pyx":2079
+  /* "NeticaPy.pyx":2080
  *     def __getitem__(self, item):
  * 
  *         x=[]             # <<<<<<<<<<<<<<
  *         prev=0
  *         i=0
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2079; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2080; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_cur_scope->__pyx_v_x = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "NeticaPy.pyx":2080
+  /* "NeticaPy.pyx":2081
  * 
  *         x=[]
  *         prev=0             # <<<<<<<<<<<<<<
@@ -29658,7 +29611,7 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList___getitem__(struct __pyx_obj_8Net
  */
   __pyx_cur_scope->__pyx_v_prev = 0;
 
-  /* "NeticaPy.pyx":2081
+  /* "NeticaPy.pyx":2082
  *         x=[]
  *         prev=0
  *         i=0             # <<<<<<<<<<<<<<
@@ -29668,51 +29621,51 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList___getitem__(struct __pyx_obj_8Net
   __Pyx_INCREF(__pyx_int_0);
   __pyx_v_i = __pyx_int_0;
 
-  /* "NeticaPy.pyx":2083
+  /* "NeticaPy.pyx":2084
  *         i=0
  * 
  *         def getWithEclipsis(index):             # <<<<<<<<<<<<<<
  *             index+=1
  *             assert index<len(item),"The list slice operator shouldn't end with Ellipsis (...)"
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_8NeticaPy_9FloatList_11__getitem___1getWithEclipsis, 0, __pyx_n_s_getitem___locals_getWithEclips, ((PyObject*)__pyx_cur_scope), __pyx_n_s_NeticaPy, __pyx_d, ((PyObject *)__pyx_codeobj__10)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2083; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_8NeticaPy_9FloatList_11__getitem___1getWithEclipsis, 0, __pyx_n_s_getitem___locals_getWithEclips, ((PyObject*)__pyx_cur_scope), __pyx_n_s_NeticaPy, __pyx_d, ((PyObject *)__pyx_codeobj__10)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2084; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_getWithEclipsis = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "NeticaPy.pyx":2098
+  /* "NeticaPy.pyx":2099
  *             raise TypeError("Invalid type or invalid number is been passed")
  * 
  *         def getWithSlice(item):             # <<<<<<<<<<<<<<
  *             start,stop,step=(item.start if not item.start == None else 0,item.stop,item.step if not item.step == None else 1)
  *             assert type(start)==int,"Invalid slice start type"
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_8NeticaPy_9FloatList_11__getitem___3getWithSlice, 0, __pyx_n_s_getitem___locals_getWithSlice, ((PyObject*)__pyx_cur_scope), __pyx_n_s_NeticaPy, __pyx_d, ((PyObject *)__pyx_codeobj__12)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2098; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_8NeticaPy_9FloatList_11__getitem___3getWithSlice, 0, __pyx_n_s_getitem___locals_getWithSlice, ((PyObject*)__pyx_cur_scope), __pyx_n_s_NeticaPy, __pyx_d, ((PyObject *)__pyx_codeobj__12)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2099; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_getWithSlice = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "NeticaPy.pyx":2108
+  /* "NeticaPy.pyx":2109
  * 
  * 
  *         if type(item)==int:             # <<<<<<<<<<<<<<
  *             x=self.value[item]
  *         elif type(item)==slice:
  */
-  __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_cur_scope->__pyx_v_item)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2108; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2108; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_cur_scope->__pyx_v_item)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2109; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2109; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "NeticaPy.pyx":2109
+    /* "NeticaPy.pyx":2110
  * 
  *         if type(item)==int:
  *             x=self.value[item]             # <<<<<<<<<<<<<<
  *         elif type(item)==slice:
  *             getWithSlice(item)
  */
-    __pyx_t_3 = __Pyx_PyIndex_AsSsize_t(__pyx_cur_scope->__pyx_v_item); if (unlikely((__pyx_t_3 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2109; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __pyx_t_1 = PyFloat_FromDouble((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_3])); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2109; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyIndex_AsSsize_t(__pyx_cur_scope->__pyx_v_item); if (unlikely((__pyx_t_3 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2110; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = PyFloat_FromDouble((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_3])); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2110; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_x);
     __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_x, __pyx_t_1);
@@ -29721,19 +29674,19 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList___getitem__(struct __pyx_obj_8Net
     goto __pyx_L3;
   }
 
-  /* "NeticaPy.pyx":2110
+  /* "NeticaPy.pyx":2111
  *         if type(item)==int:
  *             x=self.value[item]
  *         elif type(item)==slice:             # <<<<<<<<<<<<<<
  *             getWithSlice(item)
  *         elif type(item)==tuple:
  */
-  __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_cur_scope->__pyx_v_item)), ((PyObject *)((PyObject*)(&PySlice_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2110; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2110; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_cur_scope->__pyx_v_item)), ((PyObject *)((PyObject*)(&PySlice_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2111; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2111; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "NeticaPy.pyx":2111
+    /* "NeticaPy.pyx":2112
  *             x=self.value[item]
  *         elif type(item)==slice:
  *             getWithSlice(item)             # <<<<<<<<<<<<<<
@@ -29742,26 +29695,26 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList___getitem__(struct __pyx_obj_8Net
  */
     __pyx_t_1 = __pyx_cur_scope->__pyx_v_item;
     __Pyx_INCREF(__pyx_t_1);
-    __pyx_t_4 = __pyx_pf_8NeticaPy_9FloatList_11__getitem___2getWithSlice(__pyx_v_getWithSlice, __pyx_t_1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2111; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __pyx_pf_8NeticaPy_9FloatList_11__getitem___2getWithSlice(__pyx_v_getWithSlice, __pyx_t_1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2112; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     goto __pyx_L3;
   }
 
-  /* "NeticaPy.pyx":2112
+  /* "NeticaPy.pyx":2113
  *         elif type(item)==slice:
  *             getWithSlice(item)
  *         elif type(item)==tuple:             # <<<<<<<<<<<<<<
  *             while i<len(item):
  *                 if type(i)==slice:
  */
-  __pyx_t_4 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_cur_scope->__pyx_v_item)), ((PyObject *)((PyObject*)(&PyTuple_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2112; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2112; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_cur_scope->__pyx_v_item)), ((PyObject *)((PyObject*)(&PyTuple_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2113; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2113; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (__pyx_t_2) {
 
-    /* "NeticaPy.pyx":2113
+    /* "NeticaPy.pyx":2114
  *             getWithSlice(item)
  *         elif type(item)==tuple:
  *             while i<len(item):             # <<<<<<<<<<<<<<
@@ -29771,132 +29724,132 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList___getitem__(struct __pyx_obj_8Net
     while (1) {
       __pyx_t_4 = __pyx_cur_scope->__pyx_v_item;
       __Pyx_INCREF(__pyx_t_4);
-      __pyx_t_3 = PyObject_Length(__pyx_t_4); if (unlikely(__pyx_t_3 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2113; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_3 = PyObject_Length(__pyx_t_4); if (unlikely(__pyx_t_3 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2114; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_4 = PyInt_FromSsize_t(__pyx_t_3); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2113; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_4 = PyInt_FromSsize_t(__pyx_t_3); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2114; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_1 = PyObject_RichCompare(__pyx_v_i, __pyx_t_4, Py_LT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2113; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = PyObject_RichCompare(__pyx_v_i, __pyx_t_4, Py_LT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2114; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2113; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2114; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       if (!__pyx_t_2) break;
 
-      /* "NeticaPy.pyx":2114
+      /* "NeticaPy.pyx":2115
  *         elif type(item)==tuple:
  *             while i<len(item):
  *                 if type(i)==slice:             # <<<<<<<<<<<<<<
  *                     getWithSlice(item[i])
  *                     i+=1
  */
-      __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_i)), ((PyObject *)((PyObject*)(&PySlice_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2114; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2114; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_i)), ((PyObject *)((PyObject*)(&PySlice_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2115; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2115; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       if (__pyx_t_2) {
 
-        /* "NeticaPy.pyx":2115
+        /* "NeticaPy.pyx":2116
  *             while i<len(item):
  *                 if type(i)==slice:
  *                     getWithSlice(item[i])             # <<<<<<<<<<<<<<
  *                     i+=1
  *                 elif type(item[i])==int and item[i]>=0:
  */
-        __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2115; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+        __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2116; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
         __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_4 = __pyx_pf_8NeticaPy_9FloatList_11__getitem___2getWithSlice(__pyx_v_getWithSlice, __pyx_t_1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2115; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_4 = __pyx_pf_8NeticaPy_9FloatList_11__getitem___2getWithSlice(__pyx_v_getWithSlice, __pyx_t_1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2116; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-        /* "NeticaPy.pyx":2116
+        /* "NeticaPy.pyx":2117
  *                 if type(i)==slice:
  *                     getWithSlice(item[i])
  *                     i+=1             # <<<<<<<<<<<<<<
  *                 elif type(item[i])==int and item[i]>=0:
  *                     if i+1<len(item) and item[i+1]==Ellipsis:
  */
-        __pyx_t_4 = PyNumber_InPlaceAdd(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2116; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_4 = PyNumber_InPlaceAdd(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2117; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF_SET(__pyx_v_i, __pyx_t_4);
         __pyx_t_4 = 0;
         goto __pyx_L6;
       }
 
-      /* "NeticaPy.pyx":2117
+      /* "NeticaPy.pyx":2118
  *                     getWithSlice(item[i])
  *                     i+=1
  *                 elif type(item[i])==int and item[i]>=0:             # <<<<<<<<<<<<<<
  *                     if i+1<len(item) and item[i+1]==Ellipsis:
  *                          i=getWithEclipsis(i+1)
  */
-      __pyx_t_4 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_4 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2117; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+      __pyx_t_4 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_4 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2118; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_t_4)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2117; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_t_4)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2118; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2117; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2118; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       if (__pyx_t_5) {
       } else {
         __pyx_t_2 = __pyx_t_5;
         goto __pyx_L7_bool_binop_done;
       }
-      __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2117; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+      __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2118; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_4 = PyObject_RichCompare(__pyx_t_1, __pyx_int_0, Py_GE); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2117; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_4 = PyObject_RichCompare(__pyx_t_1, __pyx_int_0, Py_GE); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2118; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2117; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2118; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_t_2 = __pyx_t_5;
       __pyx_L7_bool_binop_done:;
       if (__pyx_t_2) {
 
-        /* "NeticaPy.pyx":2118
+        /* "NeticaPy.pyx":2119
  *                     i+=1
  *                 elif type(item[i])==int and item[i]>=0:
  *                     if i+1<len(item) and item[i+1]==Ellipsis:             # <<<<<<<<<<<<<<
  *                          i=getWithEclipsis(i+1)
  *                     else:
  */
-        __pyx_t_4 = PyNumber_Add(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2118; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_4 = PyNumber_Add(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2119; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_4);
         __pyx_t_1 = __pyx_cur_scope->__pyx_v_item;
         __Pyx_INCREF(__pyx_t_1);
-        __pyx_t_3 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_3 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2118; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_3 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_3 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2119; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        __pyx_t_1 = PyInt_FromSsize_t(__pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2118; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_1 = PyInt_FromSsize_t(__pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2119; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_6 = PyObject_RichCompare(__pyx_t_4, __pyx_t_1, Py_LT); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2118; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_6 = PyObject_RichCompare(__pyx_t_4, __pyx_t_1, Py_LT); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2119; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2118; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2119; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
         if (__pyx_t_5) {
         } else {
           __pyx_t_2 = __pyx_t_5;
           goto __pyx_L10_bool_binop_done;
         }
-        __pyx_t_6 = PyNumber_Add(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2118; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_6 = PyNumber_Add(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2119; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_6);
-        __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_t_6); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2118; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+        __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_t_6); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2119; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        __pyx_t_6 = PyObject_RichCompare(__pyx_t_1, __pyx_builtin_Ellipsis, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2118; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_6 = PyObject_RichCompare(__pyx_t_1, __pyx_builtin_Ellipsis, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2119; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2118; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2119; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
         __pyx_t_2 = __pyx_t_5;
         __pyx_L10_bool_binop_done:;
         if (__pyx_t_2) {
 
-          /* "NeticaPy.pyx":2119
+          /* "NeticaPy.pyx":2120
  *                 elif type(item[i])==int and item[i]>=0:
  *                     if i+1<len(item) and item[i+1]==Ellipsis:
  *                          i=getWithEclipsis(i+1)             # <<<<<<<<<<<<<<
  *                     else:
  *                         x.append(self.value[item[i]])
  */
-          __pyx_t_6 = PyNumber_Add(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2119; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_6 = PyNumber_Add(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2120; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_6);
-          __pyx_t_1 = __pyx_pf_8NeticaPy_9FloatList_11__getitem___getWithEclipsis(__pyx_v_getWithEclipsis, __pyx_t_6); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2119; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_1 = __pyx_pf_8NeticaPy_9FloatList_11__getitem___getWithEclipsis(__pyx_v_getWithEclipsis, __pyx_t_6); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2120; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_DECREF_SET(__pyx_v_i, __pyx_t_1);
@@ -29905,30 +29858,30 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList___getitem__(struct __pyx_obj_8Net
         }
         /*else*/ {
 
-          /* "NeticaPy.pyx":2121
+          /* "NeticaPy.pyx":2122
  *                          i=getWithEclipsis(i+1)
  *                     else:
  *                         x.append(self.value[item[i]])             # <<<<<<<<<<<<<<
  *                         i+=1
  *                 elif item[i]==Ellipsis:
  */
-          __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2121; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+          __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2122; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
           __Pyx_GOTREF(__pyx_t_1);
-          __pyx_t_3 = __Pyx_PyIndex_AsSsize_t(__pyx_t_1); if (unlikely((__pyx_t_3 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2121; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_3 = __Pyx_PyIndex_AsSsize_t(__pyx_t_1); if (unlikely((__pyx_t_3 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2122; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-          __pyx_t_1 = PyFloat_FromDouble((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_3])); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2121; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_1 = PyFloat_FromDouble((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_3])); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2122; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_1);
-          __pyx_t_7 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_x, __pyx_t_1); if (unlikely(__pyx_t_7 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2121; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_7 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_x, __pyx_t_1); if (unlikely(__pyx_t_7 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2122; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-          /* "NeticaPy.pyx":2122
+          /* "NeticaPy.pyx":2123
  *                     else:
  *                         x.append(self.value[item[i]])
  *                         i+=1             # <<<<<<<<<<<<<<
  *                 elif item[i]==Ellipsis:
  *                     i=getWithEclipsis(i)
  */
-          __pyx_t_1 = PyNumber_InPlaceAdd(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2122; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_1 = PyNumber_InPlaceAdd(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2123; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_DECREF_SET(__pyx_v_i, __pyx_t_1);
           __pyx_t_1 = 0;
@@ -29937,29 +29890,29 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList___getitem__(struct __pyx_obj_8Net
         goto __pyx_L6;
       }
 
-      /* "NeticaPy.pyx":2123
+      /* "NeticaPy.pyx":2124
  *                         x.append(self.value[item[i]])
  *                         i+=1
  *                 elif item[i]==Ellipsis:             # <<<<<<<<<<<<<<
  *                     i=getWithEclipsis(i)
  *                 else:
  */
-      __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2123; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+      __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2124; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_6 = PyObject_RichCompare(__pyx_t_1, __pyx_builtin_Ellipsis, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2123; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_6 = PyObject_RichCompare(__pyx_t_1, __pyx_builtin_Ellipsis, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2124; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2123; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2124; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       if (__pyx_t_2) {
 
-        /* "NeticaPy.pyx":2124
+        /* "NeticaPy.pyx":2125
  *                         i+=1
  *                 elif item[i]==Ellipsis:
  *                     i=getWithEclipsis(i)             # <<<<<<<<<<<<<<
  *                 else:
  *                     raise TypeError("Invalid type or invalid number is been passed")
  */
-        __pyx_t_6 = __pyx_pf_8NeticaPy_9FloatList_11__getitem___getWithEclipsis(__pyx_v_getWithEclipsis, __pyx_v_i); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2124; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_6 = __pyx_pf_8NeticaPy_9FloatList_11__getitem___getWithEclipsis(__pyx_v_getWithEclipsis, __pyx_v_i); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2125; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_6);
         __Pyx_DECREF_SET(__pyx_v_i, __pyx_t_6);
         __pyx_t_6 = 0;
@@ -29967,18 +29920,18 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList___getitem__(struct __pyx_obj_8Net
       }
       /*else*/ {
 
-        /* "NeticaPy.pyx":2126
+        /* "NeticaPy.pyx":2127
  *                     i=getWithEclipsis(i)
  *                 else:
  *                     raise TypeError("Invalid type or invalid number is been passed")             # <<<<<<<<<<<<<<
  *         else:
  *             raise TypeError("Invalid type or invalid number is been passed")
  */
-        __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__13, NULL); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2126; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__13, NULL); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2127; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_6);
         __Pyx_Raise(__pyx_t_6, 0, 0, 0);
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2126; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2127; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       }
       __pyx_L6:;
     }
@@ -29986,22 +29939,22 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList___getitem__(struct __pyx_obj_8Net
   }
   /*else*/ {
 
-    /* "NeticaPy.pyx":2128
+    /* "NeticaPy.pyx":2129
  *                     raise TypeError("Invalid type or invalid number is been passed")
  *         else:
  *             raise TypeError("Invalid type or invalid number is been passed")             # <<<<<<<<<<<<<<
  *         return x
  * 
  */
-    __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__14, NULL); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2128; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__14, NULL); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2129; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_Raise(__pyx_t_6, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2128; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2129; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __pyx_L3:;
 
-  /* "NeticaPy.pyx":2129
+  /* "NeticaPy.pyx":2130
  *         else:
  *             raise TypeError("Invalid type or invalid number is been passed")
  *         return x             # <<<<<<<<<<<<<<
@@ -30013,7 +29966,7 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList___getitem__(struct __pyx_obj_8Net
   __pyx_r = __pyx_cur_scope->__pyx_v_x;
   goto __pyx_L0;
 
-  /* "NeticaPy.pyx":2077
+  /* "NeticaPy.pyx":2078
  * cdef class FloatList:
  *     cdef float* value
  *     def __getitem__(self, item):             # <<<<<<<<<<<<<<
@@ -30038,7 +29991,7 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList___getitem__(struct __pyx_obj_8Net
   return __pyx_r;
 }
 
-/* "NeticaPy.pyx":2131
+/* "NeticaPy.pyx":2132
  *         return x
  * 
  *     def __del__(self):             # <<<<<<<<<<<<<<
@@ -30067,7 +30020,7 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList_2__del__(struct __pyx_obj_8Netica
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("__del__", 0);
 
-  /* "NeticaPy.pyx":2132
+  /* "NeticaPy.pyx":2133
  * 
  *     def __del__(self):
  *         try:             # <<<<<<<<<<<<<<
@@ -30078,7 +30031,7 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList_2__del__(struct __pyx_obj_8Netica
     if (__pyx_t_1||__pyx_t_2||__pyx_t_3); else {/*mark used*/};
     /*try:*/ {
 
-      /* "NeticaPy.pyx":2133
+      /* "NeticaPy.pyx":2134
  *     def __del__(self):
  *         try:
  *             free(self.value)             # <<<<<<<<<<<<<<
@@ -30089,7 +30042,7 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList_2__del__(struct __pyx_obj_8Netica
     }
   }
 
-  /* "NeticaPy.pyx":2131
+  /* "NeticaPy.pyx":2132
  *         return x
  * 
  *     def __del__(self):             # <<<<<<<<<<<<<<
@@ -30104,7 +30057,7 @@ static PyObject *__pyx_pf_8NeticaPy_9FloatList_2__del__(struct __pyx_obj_8Netica
   return __pyx_r;
 }
 
-/* "NeticaPy.pyx":2139
+/* "NeticaPy.pyx":2140
  * cdef class DoubleList:
  *     cdef double* value
  *     def __getitem__(self, item):             # <<<<<<<<<<<<<<
@@ -30125,7 +30078,7 @@ static PyObject *__pyx_pw_8NeticaPy_10DoubleList_1__getitem__(PyObject *__pyx_v_
   return __pyx_r;
 }
 
-/* "NeticaPy.pyx":2145
+/* "NeticaPy.pyx":2146
  *         i=0
  * 
  *         def getWithEclipsis(index):             # <<<<<<<<<<<<<<
@@ -30171,19 +30124,19 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList_11__getitem___getWithEclipsis(P
   __pyx_cur_scope = __pyx_outer_scope;
   __Pyx_INCREF(__pyx_v_index);
 
-  /* "NeticaPy.pyx":2146
+  /* "NeticaPy.pyx":2147
  * 
  *         def getWithEclipsis(index):
  *             index+=1             # <<<<<<<<<<<<<<
  *             assert index<len(item),"The list slice operator shouldn't end with Ellipsis (...)"
  *             if type(item[index])==int and item[index]>=0:
  */
-  __pyx_t_1 = PyNumber_InPlaceAdd(__pyx_v_index, __pyx_int_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2146; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyNumber_InPlaceAdd(__pyx_v_index, __pyx_int_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2147; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF_SET(__pyx_v_index, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "NeticaPy.pyx":2147
+  /* "NeticaPy.pyx":2148
  *         def getWithEclipsis(index):
  *             index+=1
  *             assert index<len(item),"The list slice operator shouldn't end with Ellipsis (...)"             # <<<<<<<<<<<<<<
@@ -30192,67 +30145,67 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList_11__getitem___getWithEclipsis(P
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
-    if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2147; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+    if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2148; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
     __pyx_t_1 = __pyx_cur_scope->__pyx_v_item;
     __Pyx_INCREF(__pyx_t_1);
-    __pyx_t_2 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_2 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2147; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_2 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2148; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = PyInt_FromSsize_t(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2147; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = PyInt_FromSsize_t(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2148; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = PyObject_RichCompare(__pyx_v_index, __pyx_t_1, Py_LT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2147; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = PyObject_RichCompare(__pyx_v_index, __pyx_t_1, Py_LT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2148; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2147; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2148; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (unlikely(!__pyx_t_4)) {
       PyErr_SetObject(PyExc_AssertionError, __pyx_kp_s_The_list_slice_operator_shouldn);
-      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2147; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2148; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
   }
   #endif
 
-  /* "NeticaPy.pyx":2148
+  /* "NeticaPy.pyx":2149
  *             index+=1
  *             assert index<len(item),"The list slice operator shouldn't end with Ellipsis (...)"
  *             if type(item[index])==int and item[index]>=0:             # <<<<<<<<<<<<<<
  *                 for j in range(prev,item[index]):
  *                     x.append(self.value[j])
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2148; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-  __pyx_t_3 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_3 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2148; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+  if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2149; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+  __pyx_t_3 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_3 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2149; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_t_3)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2148; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_t_3)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2149; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2148; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2149; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_5) {
   } else {
     __pyx_t_4 = __pyx_t_5;
     goto __pyx_L4_bool_binop_done;
   }
-  if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2148; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-  __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2148; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+  if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2149; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+  __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2149; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_int_0, Py_GE); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2148; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_int_0, Py_GE); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2149; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2148; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2149; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_4 = __pyx_t_5;
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_4) {
 
-    /* "NeticaPy.pyx":2149
+    /* "NeticaPy.pyx":2150
  *             assert index<len(item),"The list slice operator shouldn't end with Ellipsis (...)"
  *             if type(item[index])==int and item[index]>=0:
  *                 for j in range(prev,item[index]):             # <<<<<<<<<<<<<<
  *                     x.append(self.value[j])
  *                 return index+1
  */
-    __pyx_t_3 = __Pyx_PyInt_From_long(__pyx_cur_scope->__pyx_v_prev); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2149; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyInt_From_long(__pyx_cur_scope->__pyx_v_prev); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2150; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
-    if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2149; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-    __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2149; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+    if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2150; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+    __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2150; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2149; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2150; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_6);
     PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_3);
     __Pyx_GIVEREF(__pyx_t_3);
@@ -30260,16 +30213,16 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList_11__getitem___getWithEclipsis(P
     __Pyx_GIVEREF(__pyx_t_1);
     __pyx_t_3 = 0;
     __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2149; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2150; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
       __pyx_t_6 = __pyx_t_1; __Pyx_INCREF(__pyx_t_6); __pyx_t_2 = 0;
       __pyx_t_7 = NULL;
     } else {
-      __pyx_t_2 = -1; __pyx_t_6 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2149; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_2 = -1; __pyx_t_6 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2150; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_7 = Py_TYPE(__pyx_t_6)->tp_iternext; if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2149; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_7 = Py_TYPE(__pyx_t_6)->tp_iternext; if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2150; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     for (;;) {
@@ -30277,16 +30230,16 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList_11__getitem___getWithEclipsis(P
         if (likely(PyList_CheckExact(__pyx_t_6))) {
           if (__pyx_t_2 >= PyList_GET_SIZE(__pyx_t_6)) break;
           #if CYTHON_COMPILING_IN_CPYTHON
-          __pyx_t_1 = PyList_GET_ITEM(__pyx_t_6, __pyx_t_2); __Pyx_INCREF(__pyx_t_1); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2149; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_1 = PyList_GET_ITEM(__pyx_t_6, __pyx_t_2); __Pyx_INCREF(__pyx_t_1); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2150; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           #else
-          __pyx_t_1 = PySequence_ITEM(__pyx_t_6, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2149; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_1 = PySequence_ITEM(__pyx_t_6, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2150; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           #endif
         } else {
           if (__pyx_t_2 >= PyTuple_GET_SIZE(__pyx_t_6)) break;
           #if CYTHON_COMPILING_IN_CPYTHON
-          __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_6, __pyx_t_2); __Pyx_INCREF(__pyx_t_1); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2149; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_6, __pyx_t_2); __Pyx_INCREF(__pyx_t_1); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2150; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           #else
-          __pyx_t_1 = PySequence_ITEM(__pyx_t_6, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2149; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_1 = PySequence_ITEM(__pyx_t_6, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2150; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           #endif
         }
       } else {
@@ -30295,7 +30248,7 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList_11__getitem___getWithEclipsis(P
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
             if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2149; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2150; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           }
           break;
         }
@@ -30304,22 +30257,22 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList_11__getitem___getWithEclipsis(P
       __Pyx_XDECREF_SET(__pyx_v_j, __pyx_t_1);
       __pyx_t_1 = 0;
 
-      /* "NeticaPy.pyx":2150
+      /* "NeticaPy.pyx":2151
  *             if type(item[index])==int and item[index]>=0:
  *                 for j in range(prev,item[index]):
  *                     x.append(self.value[j])             # <<<<<<<<<<<<<<
  *                 return index+1
  *             elif type(item[index])==slice:
  */
-      if (unlikely(!__pyx_cur_scope->__pyx_v_x)) { __Pyx_RaiseClosureNameError("x"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2150; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-      if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2150; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-      __pyx_t_8 = __Pyx_PyIndex_AsSsize_t(__pyx_v_j); if (unlikely((__pyx_t_8 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2150; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-      __pyx_t_1 = PyFloat_FromDouble((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_8])); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2150; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      if (unlikely(!__pyx_cur_scope->__pyx_v_x)) { __Pyx_RaiseClosureNameError("x"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2151; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+      if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2151; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+      __pyx_t_8 = __Pyx_PyIndex_AsSsize_t(__pyx_v_j); if (unlikely((__pyx_t_8 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2151; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = PyFloat_FromDouble((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_8])); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2151; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_9 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_x, __pyx_t_1); if (unlikely(__pyx_t_9 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2150; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_9 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_x, __pyx_t_1); if (unlikely(__pyx_t_9 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2151; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "NeticaPy.pyx":2149
+      /* "NeticaPy.pyx":2150
  *             assert index<len(item),"The list slice operator shouldn't end with Ellipsis (...)"
  *             if type(item[index])==int and item[index]>=0:
  *                 for j in range(prev,item[index]):             # <<<<<<<<<<<<<<
@@ -30329,7 +30282,7 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList_11__getitem___getWithEclipsis(P
     }
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-    /* "NeticaPy.pyx":2151
+    /* "NeticaPy.pyx":2152
  *                 for j in range(prev,item[index]):
  *                     x.append(self.value[j])
  *                 return index+1             # <<<<<<<<<<<<<<
@@ -30337,51 +30290,51 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList_11__getitem___getWithEclipsis(P
  *                 start=(item[index].start if not item[index].start == None else 0)
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_6 = PyNumber_Add(__pyx_v_index, __pyx_int_1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2151; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_6 = PyNumber_Add(__pyx_v_index, __pyx_int_1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2152; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_r = __pyx_t_6;
     __pyx_t_6 = 0;
     goto __pyx_L0;
   }
 
-  /* "NeticaPy.pyx":2152
+  /* "NeticaPy.pyx":2153
  *                     x.append(self.value[j])
  *                 return index+1
  *             elif type(item[index])==slice:             # <<<<<<<<<<<<<<
  *                 start=(item[index].start if not item[index].start == None else 0)
  *                 if type(start)==int and start>=0:
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2152; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-  __pyx_t_6 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_6 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2152; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+  if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2153; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+  __pyx_t_6 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_6 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2153; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_t_6)), ((PyObject *)((PyObject*)(&PySlice_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2152; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_t_6)), ((PyObject *)((PyObject*)(&PySlice_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2153; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2152; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2153; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_4) {
 
-    /* "NeticaPy.pyx":2153
+    /* "NeticaPy.pyx":2154
  *                 return index+1
  *             elif type(item[index])==slice:
  *                 start=(item[index].start if not item[index].start == None else 0)             # <<<<<<<<<<<<<<
  *                 if type(start)==int and start>=0:
  *                     for j in range(prev,start):
  */
-    if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2153; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-    __pyx_t_6 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_6 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2153; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+    if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2154; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+    __pyx_t_6 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_6 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2154; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_start); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2153; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_start); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2154; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_6 = PyObject_RichCompare(__pyx_t_3, Py_None, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2153; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_6 = PyObject_RichCompare(__pyx_t_3, Py_None, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2154; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2153; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2154; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     if (((!__pyx_t_4) != 0)) {
-      if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2153; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-      __pyx_t_6 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_6 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2153; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+      if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2154; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+      __pyx_t_6 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_6 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2154; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_start); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2153; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_start); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2154; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __pyx_t_1 = __pyx_t_3;
@@ -30393,38 +30346,38 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList_11__getitem___getWithEclipsis(P
     __pyx_v_start = __pyx_t_1;
     __pyx_t_1 = 0;
 
-    /* "NeticaPy.pyx":2154
+    /* "NeticaPy.pyx":2155
  *             elif type(item[index])==slice:
  *                 start=(item[index].start if not item[index].start == None else 0)
  *                 if type(start)==int and start>=0:             # <<<<<<<<<<<<<<
  *                     for j in range(prev,start):
  *                        x.append(self.value[j])
  */
-    __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_start)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2154; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2154; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_start)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2155; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2155; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_5) {
     } else {
       __pyx_t_4 = __pyx_t_5;
       goto __pyx_L9_bool_binop_done;
     }
-    __pyx_t_1 = PyObject_RichCompare(__pyx_v_start, __pyx_int_0, Py_GE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2154; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2154; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = PyObject_RichCompare(__pyx_v_start, __pyx_int_0, Py_GE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2155; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2155; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_4 = __pyx_t_5;
     __pyx_L9_bool_binop_done:;
     if (__pyx_t_4) {
 
-      /* "NeticaPy.pyx":2155
+      /* "NeticaPy.pyx":2156
  *                 start=(item[index].start if not item[index].start == None else 0)
  *                 if type(start)==int and start>=0:
  *                     for j in range(prev,start):             # <<<<<<<<<<<<<<
  *                        x.append(self.value[j])
  *                     return index
  */
-      __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_cur_scope->__pyx_v_prev); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2155; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_cur_scope->__pyx_v_prev); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2156; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2155; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2156; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_3);
       PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
       __Pyx_GIVEREF(__pyx_t_1);
@@ -30432,16 +30385,16 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList_11__getitem___getWithEclipsis(P
       PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_v_start);
       __Pyx_GIVEREF(__pyx_v_start);
       __pyx_t_1 = 0;
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2155; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2156; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
         __pyx_t_3 = __pyx_t_1; __Pyx_INCREF(__pyx_t_3); __pyx_t_2 = 0;
         __pyx_t_7 = NULL;
       } else {
-        __pyx_t_2 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2155; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2156; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_7 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2155; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_7 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2156; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       }
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       for (;;) {
@@ -30449,16 +30402,16 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList_11__getitem___getWithEclipsis(P
           if (likely(PyList_CheckExact(__pyx_t_3))) {
             if (__pyx_t_2 >= PyList_GET_SIZE(__pyx_t_3)) break;
             #if CYTHON_COMPILING_IN_CPYTHON
-            __pyx_t_1 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_2); __Pyx_INCREF(__pyx_t_1); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2155; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            __pyx_t_1 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_2); __Pyx_INCREF(__pyx_t_1); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2156; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             #else
-            __pyx_t_1 = PySequence_ITEM(__pyx_t_3, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2155; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            __pyx_t_1 = PySequence_ITEM(__pyx_t_3, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2156; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             #endif
           } else {
             if (__pyx_t_2 >= PyTuple_GET_SIZE(__pyx_t_3)) break;
             #if CYTHON_COMPILING_IN_CPYTHON
-            __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_2); __Pyx_INCREF(__pyx_t_1); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2155; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_2); __Pyx_INCREF(__pyx_t_1); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2156; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             #else
-            __pyx_t_1 = PySequence_ITEM(__pyx_t_3, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2155; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            __pyx_t_1 = PySequence_ITEM(__pyx_t_3, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2156; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             #endif
           }
         } else {
@@ -30467,7 +30420,7 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList_11__getitem___getWithEclipsis(P
             PyObject* exc_type = PyErr_Occurred();
             if (exc_type) {
               if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-              else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2155; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+              else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2156; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             }
             break;
           }
@@ -30476,22 +30429,22 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList_11__getitem___getWithEclipsis(P
         __Pyx_XDECREF_SET(__pyx_v_j, __pyx_t_1);
         __pyx_t_1 = 0;
 
-        /* "NeticaPy.pyx":2156
+        /* "NeticaPy.pyx":2157
  *                 if type(start)==int and start>=0:
  *                     for j in range(prev,start):
  *                        x.append(self.value[j])             # <<<<<<<<<<<<<<
  *                     return index
  *             raise TypeError("Invalid type or invalid number is been passed")
  */
-        if (unlikely(!__pyx_cur_scope->__pyx_v_x)) { __Pyx_RaiseClosureNameError("x"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2156; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-        if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2156; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-        __pyx_t_8 = __Pyx_PyIndex_AsSsize_t(__pyx_v_j); if (unlikely((__pyx_t_8 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2156; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-        __pyx_t_1 = PyFloat_FromDouble((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_8])); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2156; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        if (unlikely(!__pyx_cur_scope->__pyx_v_x)) { __Pyx_RaiseClosureNameError("x"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2157; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+        if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2157; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+        __pyx_t_8 = __Pyx_PyIndex_AsSsize_t(__pyx_v_j); if (unlikely((__pyx_t_8 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2157; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_1 = PyFloat_FromDouble((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_8])); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2157; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_9 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_x, __pyx_t_1); if (unlikely(__pyx_t_9 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2156; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_9 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_x, __pyx_t_1); if (unlikely(__pyx_t_9 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2157; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-        /* "NeticaPy.pyx":2155
+        /* "NeticaPy.pyx":2156
  *                 start=(item[index].start if not item[index].start == None else 0)
  *                 if type(start)==int and start>=0:
  *                     for j in range(prev,start):             # <<<<<<<<<<<<<<
@@ -30501,7 +30454,7 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList_11__getitem___getWithEclipsis(P
       }
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "NeticaPy.pyx":2157
+      /* "NeticaPy.pyx":2158
  *                     for j in range(prev,start):
  *                        x.append(self.value[j])
  *                     return index             # <<<<<<<<<<<<<<
@@ -30517,20 +30470,20 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList_11__getitem___getWithEclipsis(P
   }
   __pyx_L3:;
 
-  /* "NeticaPy.pyx":2158
+  /* "NeticaPy.pyx":2159
  *                        x.append(self.value[j])
  *                     return index
  *             raise TypeError("Invalid type or invalid number is been passed")             # <<<<<<<<<<<<<<
  * 
  *         def getWithSlice(item):
  */
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__15, NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2158; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__15, NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2159; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_Raise(__pyx_t_3, 0, 0, 0);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2158; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2159; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "NeticaPy.pyx":2145
+  /* "NeticaPy.pyx":2146
  *         i=0
  * 
  *         def getWithEclipsis(index):             # <<<<<<<<<<<<<<
@@ -30554,7 +30507,7 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList_11__getitem___getWithEclipsis(P
   return __pyx_r;
 }
 
-/* "NeticaPy.pyx":2160
+/* "NeticaPy.pyx":2161
  *             raise TypeError("Invalid type or invalid number is been passed")
  * 
  *         def getWithSlice(item):             # <<<<<<<<<<<<<<
@@ -30602,21 +30555,21 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList_11__getitem___2getWithSlice(PyO
   __pyx_outer_scope = (struct __pyx_obj_8NeticaPy___pyx_scope_struct_2___getitem__ *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
 
-  /* "NeticaPy.pyx":2161
+  /* "NeticaPy.pyx":2162
  * 
  *         def getWithSlice(item):
  *             start,stop,step=(item.start if not item.start == None else 0,item.stop,item.step if not item.step == None else 1)             # <<<<<<<<<<<<<<
  *             assert type(start)==int,"Invalid slice start type"
  *             assert type(stop)==int,"Invalid slice stop type(should be specified and it should be int)"
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_start); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2161; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_start); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2162; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyObject_RichCompare(__pyx_t_2, Py_None, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2161; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = PyObject_RichCompare(__pyx_t_2, Py_None, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2162; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2161; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2162; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (((!__pyx_t_4) != 0)) {
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_start); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2161; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_start); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2162; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_1 = __pyx_t_3;
     __pyx_t_3 = 0;
@@ -30624,16 +30577,16 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList_11__getitem___2getWithSlice(PyO
     __Pyx_INCREF(__pyx_int_0);
     __pyx_t_1 = __pyx_int_0;
   }
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_stop); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2161; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_stop); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2162; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_step); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2161; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_step); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2162; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = PyObject_RichCompare(__pyx_t_5, Py_None, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2161; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_6 = PyObject_RichCompare(__pyx_t_5, Py_None, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2162; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2161; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2162; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   if (((!__pyx_t_4) != 0)) {
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_step); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2161; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_step); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2162; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_2 = __pyx_t_6;
     __pyx_t_6 = 0;
@@ -30648,7 +30601,7 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList_11__getitem___2getWithSlice(PyO
   __pyx_v_step = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "NeticaPy.pyx":2162
+  /* "NeticaPy.pyx":2163
  *         def getWithSlice(item):
  *             start,stop,step=(item.start if not item.start == None else 0,item.stop,item.step if not item.step == None else 1)
  *             assert type(start)==int,"Invalid slice start type"             # <<<<<<<<<<<<<<
@@ -30657,17 +30610,17 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList_11__getitem___2getWithSlice(PyO
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
-    __pyx_t_2 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_start)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2162; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2162; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_start)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2163; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2163; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (unlikely(!__pyx_t_4)) {
       PyErr_SetObject(PyExc_AssertionError, __pyx_kp_s_Invalid_slice_start_type);
-      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2162; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2163; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
   }
   #endif
 
-  /* "NeticaPy.pyx":2163
+  /* "NeticaPy.pyx":2164
  *             start,stop,step=(item.start if not item.start == None else 0,item.stop,item.step if not item.step == None else 1)
  *             assert type(start)==int,"Invalid slice start type"
  *             assert type(stop)==int,"Invalid slice stop type(should be specified and it should be int)"             # <<<<<<<<<<<<<<
@@ -30676,17 +30629,17 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList_11__getitem___2getWithSlice(PyO
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
-    __pyx_t_2 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_stop)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2163; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2163; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_stop)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2164; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2164; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (unlikely(!__pyx_t_4)) {
       PyErr_SetObject(PyExc_AssertionError, __pyx_kp_s_Invalid_slice_stop_type_should_b);
-      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2163; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2164; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
   }
   #endif
 
-  /* "NeticaPy.pyx":2164
+  /* "NeticaPy.pyx":2165
  *             assert type(start)==int,"Invalid slice start type"
  *             assert type(stop)==int,"Invalid slice stop type(should be specified and it should be int)"
  *             assert type(start)==int,"Invalid slice start type"             # <<<<<<<<<<<<<<
@@ -30695,24 +30648,24 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList_11__getitem___2getWithSlice(PyO
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
-    __pyx_t_2 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_start)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2164; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2164; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_start)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2165; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2165; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (unlikely(!__pyx_t_4)) {
       PyErr_SetObject(PyExc_AssertionError, __pyx_kp_s_Invalid_slice_start_type);
-      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2164; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2165; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
   }
   #endif
 
-  /* "NeticaPy.pyx":2165
+  /* "NeticaPy.pyx":2166
  *             assert type(stop)==int,"Invalid slice stop type(should be specified and it should be int)"
  *             assert type(start)==int,"Invalid slice start type"
  *             for j in range(start,stop,step):             # <<<<<<<<<<<<<<
  *                 x.append(self.value[j])
  *             return
  */
-  __pyx_t_2 = PyTuple_New(3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2165; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyTuple_New(3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2166; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_v_start);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_start);
@@ -30723,16 +30676,16 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList_11__getitem___2getWithSlice(PyO
   __Pyx_INCREF(__pyx_v_step);
   PyTuple_SET_ITEM(__pyx_t_2, 2, __pyx_v_step);
   __Pyx_GIVEREF(__pyx_v_step);
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2165; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2166; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (likely(PyList_CheckExact(__pyx_t_3)) || PyTuple_CheckExact(__pyx_t_3)) {
     __pyx_t_2 = __pyx_t_3; __Pyx_INCREF(__pyx_t_2); __pyx_t_7 = 0;
     __pyx_t_8 = NULL;
   } else {
-    __pyx_t_7 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2165; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_7 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2166; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_8 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2165; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_8 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2166; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   for (;;) {
@@ -30740,16 +30693,16 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList_11__getitem___2getWithSlice(PyO
       if (likely(PyList_CheckExact(__pyx_t_2))) {
         if (__pyx_t_7 >= PyList_GET_SIZE(__pyx_t_2)) break;
         #if CYTHON_COMPILING_IN_CPYTHON
-        __pyx_t_3 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2165; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_3 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2166; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         #else
-        __pyx_t_3 = PySequence_ITEM(__pyx_t_2, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2165; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_3 = PySequence_ITEM(__pyx_t_2, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2166; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         #endif
       } else {
         if (__pyx_t_7 >= PyTuple_GET_SIZE(__pyx_t_2)) break;
         #if CYTHON_COMPILING_IN_CPYTHON
-        __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2165; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2166; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         #else
-        __pyx_t_3 = PySequence_ITEM(__pyx_t_2, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2165; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_3 = PySequence_ITEM(__pyx_t_2, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2166; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         #endif
       }
     } else {
@@ -30758,7 +30711,7 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList_11__getitem___2getWithSlice(PyO
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2165; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2166; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         }
         break;
       }
@@ -30767,22 +30720,22 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList_11__getitem___2getWithSlice(PyO
     __Pyx_XDECREF_SET(__pyx_v_j, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "NeticaPy.pyx":2166
+    /* "NeticaPy.pyx":2167
  *             assert type(start)==int,"Invalid slice start type"
  *             for j in range(start,stop,step):
  *                 x.append(self.value[j])             # <<<<<<<<<<<<<<
  *             return
  * 
  */
-    if (unlikely(!__pyx_cur_scope->__pyx_v_x)) { __Pyx_RaiseClosureNameError("x"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2166; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-    if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2166; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-    __pyx_t_9 = __Pyx_PyIndex_AsSsize_t(__pyx_v_j); if (unlikely((__pyx_t_9 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2166; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __pyx_t_3 = PyFloat_FromDouble((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_9])); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2166; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (unlikely(!__pyx_cur_scope->__pyx_v_x)) { __Pyx_RaiseClosureNameError("x"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2167; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+    if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2167; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+    __pyx_t_9 = __Pyx_PyIndex_AsSsize_t(__pyx_v_j); if (unlikely((__pyx_t_9 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2167; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = PyFloat_FromDouble((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_9])); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2167; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_10 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_x, __pyx_t_3); if (unlikely(__pyx_t_10 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2166; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_10 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_x, __pyx_t_3); if (unlikely(__pyx_t_10 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2167; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "NeticaPy.pyx":2165
+    /* "NeticaPy.pyx":2166
  *             assert type(stop)==int,"Invalid slice stop type(should be specified and it should be int)"
  *             assert type(start)==int,"Invalid slice start type"
  *             for j in range(start,stop,step):             # <<<<<<<<<<<<<<
@@ -30792,7 +30745,7 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList_11__getitem___2getWithSlice(PyO
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "NeticaPy.pyx":2167
+  /* "NeticaPy.pyx":2168
  *             for j in range(start,stop,step):
  *                 x.append(self.value[j])
  *             return             # <<<<<<<<<<<<<<
@@ -30803,7 +30756,7 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList_11__getitem___2getWithSlice(PyO
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
 
-  /* "NeticaPy.pyx":2160
+  /* "NeticaPy.pyx":2161
  *             raise TypeError("Invalid type or invalid number is been passed")
  * 
  *         def getWithSlice(item):             # <<<<<<<<<<<<<<
@@ -30830,7 +30783,7 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList_11__getitem___2getWithSlice(PyO
   return __pyx_r;
 }
 
-/* "NeticaPy.pyx":2139
+/* "NeticaPy.pyx":2140
  * cdef class DoubleList:
  *     cdef double* value
  *     def __getitem__(self, item):             # <<<<<<<<<<<<<<
@@ -30869,20 +30822,20 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList___getitem__(struct __pyx_obj_8N
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_item);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_item);
 
-  /* "NeticaPy.pyx":2141
+  /* "NeticaPy.pyx":2142
  *     def __getitem__(self, item):
  * 
  *         x=[]             # <<<<<<<<<<<<<<
  *         prev=0
  *         i=0
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2141; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2142; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_cur_scope->__pyx_v_x = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "NeticaPy.pyx":2142
+  /* "NeticaPy.pyx":2143
  * 
  *         x=[]
  *         prev=0             # <<<<<<<<<<<<<<
@@ -30891,7 +30844,7 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList___getitem__(struct __pyx_obj_8N
  */
   __pyx_cur_scope->__pyx_v_prev = 0;
 
-  /* "NeticaPy.pyx":2143
+  /* "NeticaPy.pyx":2144
  *         x=[]
  *         prev=0
  *         i=0             # <<<<<<<<<<<<<<
@@ -30901,51 +30854,51 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList___getitem__(struct __pyx_obj_8N
   __Pyx_INCREF(__pyx_int_0);
   __pyx_v_i = __pyx_int_0;
 
-  /* "NeticaPy.pyx":2145
+  /* "NeticaPy.pyx":2146
  *         i=0
  * 
  *         def getWithEclipsis(index):             # <<<<<<<<<<<<<<
  *             index+=1
  *             assert index<len(item),"The list slice operator shouldn't end with Ellipsis (...)"
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_8NeticaPy_10DoubleList_11__getitem___1getWithEclipsis, 0, __pyx_n_s_getitem___locals_getWithEclips, ((PyObject*)__pyx_cur_scope), __pyx_n_s_NeticaPy, __pyx_d, ((PyObject *)__pyx_codeobj__17)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2145; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_8NeticaPy_10DoubleList_11__getitem___1getWithEclipsis, 0, __pyx_n_s_getitem___locals_getWithEclips, ((PyObject*)__pyx_cur_scope), __pyx_n_s_NeticaPy, __pyx_d, ((PyObject *)__pyx_codeobj__17)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2146; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_getWithEclipsis = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "NeticaPy.pyx":2160
+  /* "NeticaPy.pyx":2161
  *             raise TypeError("Invalid type or invalid number is been passed")
  * 
  *         def getWithSlice(item):             # <<<<<<<<<<<<<<
  *             start,stop,step=(item.start if not item.start == None else 0,item.stop,item.step if not item.step == None else 1)
  *             assert type(start)==int,"Invalid slice start type"
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_8NeticaPy_10DoubleList_11__getitem___3getWithSlice, 0, __pyx_n_s_getitem___locals_getWithSlice, ((PyObject*)__pyx_cur_scope), __pyx_n_s_NeticaPy, __pyx_d, ((PyObject *)__pyx_codeobj__19)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2160; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_8NeticaPy_10DoubleList_11__getitem___3getWithSlice, 0, __pyx_n_s_getitem___locals_getWithSlice, ((PyObject*)__pyx_cur_scope), __pyx_n_s_NeticaPy, __pyx_d, ((PyObject *)__pyx_codeobj__19)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2161; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_getWithSlice = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "NeticaPy.pyx":2170
+  /* "NeticaPy.pyx":2171
  * 
  * 
  *         if type(item)==int:             # <<<<<<<<<<<<<<
  *             x=self.value[item]
  *         elif type(item)==slice:
  */
-  __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_cur_scope->__pyx_v_item)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2170; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2170; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_cur_scope->__pyx_v_item)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2171; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2171; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "NeticaPy.pyx":2171
+    /* "NeticaPy.pyx":2172
  * 
  *         if type(item)==int:
  *             x=self.value[item]             # <<<<<<<<<<<<<<
  *         elif type(item)==slice:
  *             getWithSlice(item)
  */
-    __pyx_t_3 = __Pyx_PyIndex_AsSsize_t(__pyx_cur_scope->__pyx_v_item); if (unlikely((__pyx_t_3 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2171; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __pyx_t_1 = PyFloat_FromDouble((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_3])); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2171; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyIndex_AsSsize_t(__pyx_cur_scope->__pyx_v_item); if (unlikely((__pyx_t_3 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2172; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = PyFloat_FromDouble((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_3])); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2172; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_x);
     __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_x, __pyx_t_1);
@@ -30954,19 +30907,19 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList___getitem__(struct __pyx_obj_8N
     goto __pyx_L3;
   }
 
-  /* "NeticaPy.pyx":2172
+  /* "NeticaPy.pyx":2173
  *         if type(item)==int:
  *             x=self.value[item]
  *         elif type(item)==slice:             # <<<<<<<<<<<<<<
  *             getWithSlice(item)
  *         elif type(item)==tuple:
  */
-  __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_cur_scope->__pyx_v_item)), ((PyObject *)((PyObject*)(&PySlice_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2172; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2172; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_cur_scope->__pyx_v_item)), ((PyObject *)((PyObject*)(&PySlice_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2173; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2173; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "NeticaPy.pyx":2173
+    /* "NeticaPy.pyx":2174
  *             x=self.value[item]
  *         elif type(item)==slice:
  *             getWithSlice(item)             # <<<<<<<<<<<<<<
@@ -30975,26 +30928,26 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList___getitem__(struct __pyx_obj_8N
  */
     __pyx_t_1 = __pyx_cur_scope->__pyx_v_item;
     __Pyx_INCREF(__pyx_t_1);
-    __pyx_t_4 = __pyx_pf_8NeticaPy_10DoubleList_11__getitem___2getWithSlice(__pyx_v_getWithSlice, __pyx_t_1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2173; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __pyx_pf_8NeticaPy_10DoubleList_11__getitem___2getWithSlice(__pyx_v_getWithSlice, __pyx_t_1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2174; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     goto __pyx_L3;
   }
 
-  /* "NeticaPy.pyx":2174
+  /* "NeticaPy.pyx":2175
  *         elif type(item)==slice:
  *             getWithSlice(item)
  *         elif type(item)==tuple:             # <<<<<<<<<<<<<<
  *             while i<len(item):
  *                 if type(i)==slice:
  */
-  __pyx_t_4 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_cur_scope->__pyx_v_item)), ((PyObject *)((PyObject*)(&PyTuple_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2174; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2174; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_cur_scope->__pyx_v_item)), ((PyObject *)((PyObject*)(&PyTuple_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2175; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2175; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (__pyx_t_2) {
 
-    /* "NeticaPy.pyx":2175
+    /* "NeticaPy.pyx":2176
  *             getWithSlice(item)
  *         elif type(item)==tuple:
  *             while i<len(item):             # <<<<<<<<<<<<<<
@@ -31004,132 +30957,132 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList___getitem__(struct __pyx_obj_8N
     while (1) {
       __pyx_t_4 = __pyx_cur_scope->__pyx_v_item;
       __Pyx_INCREF(__pyx_t_4);
-      __pyx_t_3 = PyObject_Length(__pyx_t_4); if (unlikely(__pyx_t_3 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2175; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_3 = PyObject_Length(__pyx_t_4); if (unlikely(__pyx_t_3 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2176; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_4 = PyInt_FromSsize_t(__pyx_t_3); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2175; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_4 = PyInt_FromSsize_t(__pyx_t_3); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2176; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_1 = PyObject_RichCompare(__pyx_v_i, __pyx_t_4, Py_LT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2175; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = PyObject_RichCompare(__pyx_v_i, __pyx_t_4, Py_LT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2176; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2175; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2176; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       if (!__pyx_t_2) break;
 
-      /* "NeticaPy.pyx":2176
+      /* "NeticaPy.pyx":2177
  *         elif type(item)==tuple:
  *             while i<len(item):
  *                 if type(i)==slice:             # <<<<<<<<<<<<<<
  *                     getWithSlice(item[i])
  *                     i+=1
  */
-      __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_i)), ((PyObject *)((PyObject*)(&PySlice_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2176; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2176; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_i)), ((PyObject *)((PyObject*)(&PySlice_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2177; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2177; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       if (__pyx_t_2) {
 
-        /* "NeticaPy.pyx":2177
+        /* "NeticaPy.pyx":2178
  *             while i<len(item):
  *                 if type(i)==slice:
  *                     getWithSlice(item[i])             # <<<<<<<<<<<<<<
  *                     i+=1
  *                 elif type(item[i])==int and item[i]>=0:
  */
-        __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2177; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+        __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2178; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
         __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_4 = __pyx_pf_8NeticaPy_10DoubleList_11__getitem___2getWithSlice(__pyx_v_getWithSlice, __pyx_t_1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2177; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_4 = __pyx_pf_8NeticaPy_10DoubleList_11__getitem___2getWithSlice(__pyx_v_getWithSlice, __pyx_t_1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2178; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-        /* "NeticaPy.pyx":2178
+        /* "NeticaPy.pyx":2179
  *                 if type(i)==slice:
  *                     getWithSlice(item[i])
  *                     i+=1             # <<<<<<<<<<<<<<
  *                 elif type(item[i])==int and item[i]>=0:
  *                     if i+1<len(item) and item[i+1]==Ellipsis:
  */
-        __pyx_t_4 = PyNumber_InPlaceAdd(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2178; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_4 = PyNumber_InPlaceAdd(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2179; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF_SET(__pyx_v_i, __pyx_t_4);
         __pyx_t_4 = 0;
         goto __pyx_L6;
       }
 
-      /* "NeticaPy.pyx":2179
+      /* "NeticaPy.pyx":2180
  *                     getWithSlice(item[i])
  *                     i+=1
  *                 elif type(item[i])==int and item[i]>=0:             # <<<<<<<<<<<<<<
  *                     if i+1<len(item) and item[i+1]==Ellipsis:
  *                          i=getWithEclipsis(i+1)
  */
-      __pyx_t_4 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_4 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2179; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+      __pyx_t_4 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_4 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2180; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_t_4)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2179; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_t_4)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2180; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2179; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2180; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       if (__pyx_t_5) {
       } else {
         __pyx_t_2 = __pyx_t_5;
         goto __pyx_L7_bool_binop_done;
       }
-      __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2179; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+      __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2180; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_4 = PyObject_RichCompare(__pyx_t_1, __pyx_int_0, Py_GE); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2179; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_4 = PyObject_RichCompare(__pyx_t_1, __pyx_int_0, Py_GE); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2180; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2179; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2180; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_t_2 = __pyx_t_5;
       __pyx_L7_bool_binop_done:;
       if (__pyx_t_2) {
 
-        /* "NeticaPy.pyx":2180
+        /* "NeticaPy.pyx":2181
  *                     i+=1
  *                 elif type(item[i])==int and item[i]>=0:
  *                     if i+1<len(item) and item[i+1]==Ellipsis:             # <<<<<<<<<<<<<<
  *                          i=getWithEclipsis(i+1)
  *                     else:
  */
-        __pyx_t_4 = PyNumber_Add(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2180; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_4 = PyNumber_Add(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2181; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_4);
         __pyx_t_1 = __pyx_cur_scope->__pyx_v_item;
         __Pyx_INCREF(__pyx_t_1);
-        __pyx_t_3 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_3 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2180; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_3 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_3 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2181; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        __pyx_t_1 = PyInt_FromSsize_t(__pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2180; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_1 = PyInt_FromSsize_t(__pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2181; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_6 = PyObject_RichCompare(__pyx_t_4, __pyx_t_1, Py_LT); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2180; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_6 = PyObject_RichCompare(__pyx_t_4, __pyx_t_1, Py_LT); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2181; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2180; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2181; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
         if (__pyx_t_5) {
         } else {
           __pyx_t_2 = __pyx_t_5;
           goto __pyx_L10_bool_binop_done;
         }
-        __pyx_t_6 = PyNumber_Add(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2180; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_6 = PyNumber_Add(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2181; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_6);
-        __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_t_6); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2180; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+        __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_t_6); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2181; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        __pyx_t_6 = PyObject_RichCompare(__pyx_t_1, __pyx_builtin_Ellipsis, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2180; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_6 = PyObject_RichCompare(__pyx_t_1, __pyx_builtin_Ellipsis, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2181; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2180; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2181; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
         __pyx_t_2 = __pyx_t_5;
         __pyx_L10_bool_binop_done:;
         if (__pyx_t_2) {
 
-          /* "NeticaPy.pyx":2181
+          /* "NeticaPy.pyx":2182
  *                 elif type(item[i])==int and item[i]>=0:
  *                     if i+1<len(item) and item[i+1]==Ellipsis:
  *                          i=getWithEclipsis(i+1)             # <<<<<<<<<<<<<<
  *                     else:
  *                         x.append(self.value[item[i]])
  */
-          __pyx_t_6 = PyNumber_Add(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2181; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_6 = PyNumber_Add(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2182; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_6);
-          __pyx_t_1 = __pyx_pf_8NeticaPy_10DoubleList_11__getitem___getWithEclipsis(__pyx_v_getWithEclipsis, __pyx_t_6); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2181; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_1 = __pyx_pf_8NeticaPy_10DoubleList_11__getitem___getWithEclipsis(__pyx_v_getWithEclipsis, __pyx_t_6); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2182; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_DECREF_SET(__pyx_v_i, __pyx_t_1);
@@ -31138,30 +31091,30 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList___getitem__(struct __pyx_obj_8N
         }
         /*else*/ {
 
-          /* "NeticaPy.pyx":2183
+          /* "NeticaPy.pyx":2184
  *                          i=getWithEclipsis(i+1)
  *                     else:
  *                         x.append(self.value[item[i]])             # <<<<<<<<<<<<<<
  *                         i+=1
  *                 elif item[i]==Ellipsis:
  */
-          __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2183; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+          __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2184; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
           __Pyx_GOTREF(__pyx_t_1);
-          __pyx_t_3 = __Pyx_PyIndex_AsSsize_t(__pyx_t_1); if (unlikely((__pyx_t_3 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2183; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_3 = __Pyx_PyIndex_AsSsize_t(__pyx_t_1); if (unlikely((__pyx_t_3 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2184; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-          __pyx_t_1 = PyFloat_FromDouble((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_3])); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2183; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_1 = PyFloat_FromDouble((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_3])); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2184; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_1);
-          __pyx_t_7 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_x, __pyx_t_1); if (unlikely(__pyx_t_7 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2183; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_7 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_x, __pyx_t_1); if (unlikely(__pyx_t_7 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2184; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-          /* "NeticaPy.pyx":2184
+          /* "NeticaPy.pyx":2185
  *                     else:
  *                         x.append(self.value[item[i]])
  *                         i+=1             # <<<<<<<<<<<<<<
  *                 elif item[i]==Ellipsis:
  *                     i=getWithEclipsis(i)
  */
-          __pyx_t_1 = PyNumber_InPlaceAdd(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2184; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_1 = PyNumber_InPlaceAdd(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2185; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_DECREF_SET(__pyx_v_i, __pyx_t_1);
           __pyx_t_1 = 0;
@@ -31170,29 +31123,29 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList___getitem__(struct __pyx_obj_8N
         goto __pyx_L6;
       }
 
-      /* "NeticaPy.pyx":2185
+      /* "NeticaPy.pyx":2186
  *                         x.append(self.value[item[i]])
  *                         i+=1
  *                 elif item[i]==Ellipsis:             # <<<<<<<<<<<<<<
  *                     i=getWithEclipsis(i)
  *                 else:
  */
-      __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2185; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+      __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2186; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_6 = PyObject_RichCompare(__pyx_t_1, __pyx_builtin_Ellipsis, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2185; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_6 = PyObject_RichCompare(__pyx_t_1, __pyx_builtin_Ellipsis, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2186; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2185; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2186; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       if (__pyx_t_2) {
 
-        /* "NeticaPy.pyx":2186
+        /* "NeticaPy.pyx":2187
  *                         i+=1
  *                 elif item[i]==Ellipsis:
  *                     i=getWithEclipsis(i)             # <<<<<<<<<<<<<<
  *                 else:
  *                     raise TypeError("Invalid type or invalid number is been passed")
  */
-        __pyx_t_6 = __pyx_pf_8NeticaPy_10DoubleList_11__getitem___getWithEclipsis(__pyx_v_getWithEclipsis, __pyx_v_i); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2186; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_6 = __pyx_pf_8NeticaPy_10DoubleList_11__getitem___getWithEclipsis(__pyx_v_getWithEclipsis, __pyx_v_i); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2187; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_6);
         __Pyx_DECREF_SET(__pyx_v_i, __pyx_t_6);
         __pyx_t_6 = 0;
@@ -31200,18 +31153,18 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList___getitem__(struct __pyx_obj_8N
       }
       /*else*/ {
 
-        /* "NeticaPy.pyx":2188
+        /* "NeticaPy.pyx":2189
  *                     i=getWithEclipsis(i)
  *                 else:
  *                     raise TypeError("Invalid type or invalid number is been passed")             # <<<<<<<<<<<<<<
  *         else:
  *             raise TypeError("Invalid type or invalid number is been passed")
  */
-        __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__20, NULL); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2188; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__20, NULL); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2189; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_6);
         __Pyx_Raise(__pyx_t_6, 0, 0, 0);
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2188; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2189; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       }
       __pyx_L6:;
     }
@@ -31219,22 +31172,22 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList___getitem__(struct __pyx_obj_8N
   }
   /*else*/ {
 
-    /* "NeticaPy.pyx":2190
+    /* "NeticaPy.pyx":2191
  *                     raise TypeError("Invalid type or invalid number is been passed")
  *         else:
  *             raise TypeError("Invalid type or invalid number is been passed")             # <<<<<<<<<<<<<<
  *         return x
  * 
  */
-    __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__21, NULL); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2190; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__21, NULL); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2191; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_Raise(__pyx_t_6, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2190; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2191; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __pyx_L3:;
 
-  /* "NeticaPy.pyx":2191
+  /* "NeticaPy.pyx":2192
  *         else:
  *             raise TypeError("Invalid type or invalid number is been passed")
  *         return x             # <<<<<<<<<<<<<<
@@ -31246,7 +31199,7 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList___getitem__(struct __pyx_obj_8N
   __pyx_r = __pyx_cur_scope->__pyx_v_x;
   goto __pyx_L0;
 
-  /* "NeticaPy.pyx":2139
+  /* "NeticaPy.pyx":2140
  * cdef class DoubleList:
  *     cdef double* value
  *     def __getitem__(self, item):             # <<<<<<<<<<<<<<
@@ -31271,7 +31224,7 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList___getitem__(struct __pyx_obj_8N
   return __pyx_r;
 }
 
-/* "NeticaPy.pyx":2193
+/* "NeticaPy.pyx":2194
  *         return x
  * 
  *     def __del__(self):             # <<<<<<<<<<<<<<
@@ -31300,7 +31253,7 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList_2__del__(struct __pyx_obj_8Neti
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("__del__", 0);
 
-  /* "NeticaPy.pyx":2194
+  /* "NeticaPy.pyx":2195
  * 
  *     def __del__(self):
  *         try:             # <<<<<<<<<<<<<<
@@ -31311,7 +31264,7 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList_2__del__(struct __pyx_obj_8Neti
     if (__pyx_t_1||__pyx_t_2||__pyx_t_3); else {/*mark used*/};
     /*try:*/ {
 
-      /* "NeticaPy.pyx":2195
+      /* "NeticaPy.pyx":2196
  *     def __del__(self):
  *         try:
  *             free(self.value)             # <<<<<<<<<<<<<<
@@ -31322,7 +31275,7 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList_2__del__(struct __pyx_obj_8Neti
     }
   }
 
-  /* "NeticaPy.pyx":2193
+  /* "NeticaPy.pyx":2194
  *         return x
  * 
  *     def __del__(self):             # <<<<<<<<<<<<<<
@@ -31337,7 +31290,7 @@ static PyObject *__pyx_pf_8NeticaPy_10DoubleList_2__del__(struct __pyx_obj_8Neti
   return __pyx_r;
 }
 
-/* "NeticaPy.pyx":2201
+/* "NeticaPy.pyx":2202
  * cdef class LongList:
  *     cdef long* value
  *     def __getitem__(self, item):             # <<<<<<<<<<<<<<
@@ -31358,7 +31311,7 @@ static PyObject *__pyx_pw_8NeticaPy_8LongList_1__getitem__(PyObject *__pyx_v_sel
   return __pyx_r;
 }
 
-/* "NeticaPy.pyx":2207
+/* "NeticaPy.pyx":2208
  *         i=0
  * 
  *         def getWithEclipsis(index):             # <<<<<<<<<<<<<<
@@ -31404,19 +31357,19 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList_11__getitem___getWithEclipsis(PyOb
   __pyx_cur_scope = __pyx_outer_scope;
   __Pyx_INCREF(__pyx_v_index);
 
-  /* "NeticaPy.pyx":2208
+  /* "NeticaPy.pyx":2209
  * 
  *         def getWithEclipsis(index):
  *             index+=1             # <<<<<<<<<<<<<<
  *             assert index<len(item),"The list slice operator shouldn't end with Ellipsis (...)"
  *             if type(item[index])==int and item[index]>=0:
  */
-  __pyx_t_1 = PyNumber_InPlaceAdd(__pyx_v_index, __pyx_int_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2208; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyNumber_InPlaceAdd(__pyx_v_index, __pyx_int_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2209; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF_SET(__pyx_v_index, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "NeticaPy.pyx":2209
+  /* "NeticaPy.pyx":2210
  *         def getWithEclipsis(index):
  *             index+=1
  *             assert index<len(item),"The list slice operator shouldn't end with Ellipsis (...)"             # <<<<<<<<<<<<<<
@@ -31425,67 +31378,67 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList_11__getitem___getWithEclipsis(PyOb
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
-    if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2209; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+    if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2210; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
     __pyx_t_1 = __pyx_cur_scope->__pyx_v_item;
     __Pyx_INCREF(__pyx_t_1);
-    __pyx_t_2 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_2 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2209; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_2 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2210; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = PyInt_FromSsize_t(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2209; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = PyInt_FromSsize_t(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2210; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = PyObject_RichCompare(__pyx_v_index, __pyx_t_1, Py_LT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2209; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = PyObject_RichCompare(__pyx_v_index, __pyx_t_1, Py_LT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2210; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2209; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2210; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (unlikely(!__pyx_t_4)) {
       PyErr_SetObject(PyExc_AssertionError, __pyx_kp_s_The_list_slice_operator_shouldn);
-      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2209; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2210; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
   }
   #endif
 
-  /* "NeticaPy.pyx":2210
+  /* "NeticaPy.pyx":2211
  *             index+=1
  *             assert index<len(item),"The list slice operator shouldn't end with Ellipsis (...)"
  *             if type(item[index])==int and item[index]>=0:             # <<<<<<<<<<<<<<
  *                 for j in range(prev,item[index]):
  *                     x.append(self.value[j])
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2210; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-  __pyx_t_3 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_3 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2210; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+  if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2211; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+  __pyx_t_3 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_3 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2211; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_t_3)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2210; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_t_3)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2211; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2210; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2211; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_5) {
   } else {
     __pyx_t_4 = __pyx_t_5;
     goto __pyx_L4_bool_binop_done;
   }
-  if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2210; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-  __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2210; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+  if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2211; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+  __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2211; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_int_0, Py_GE); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2210; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_int_0, Py_GE); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2211; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2210; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2211; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_4 = __pyx_t_5;
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_4) {
 
-    /* "NeticaPy.pyx":2211
+    /* "NeticaPy.pyx":2212
  *             assert index<len(item),"The list slice operator shouldn't end with Ellipsis (...)"
  *             if type(item[index])==int and item[index]>=0:
  *                 for j in range(prev,item[index]):             # <<<<<<<<<<<<<<
  *                     x.append(self.value[j])
  *                 return index+1
  */
-    __pyx_t_3 = __Pyx_PyInt_From_long(__pyx_cur_scope->__pyx_v_prev); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2211; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyInt_From_long(__pyx_cur_scope->__pyx_v_prev); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2212; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
-    if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2211; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-    __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2211; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+    if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2212; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+    __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2212; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2211; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2212; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_6);
     PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_3);
     __Pyx_GIVEREF(__pyx_t_3);
@@ -31493,16 +31446,16 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList_11__getitem___getWithEclipsis(PyOb
     __Pyx_GIVEREF(__pyx_t_1);
     __pyx_t_3 = 0;
     __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2211; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2212; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
       __pyx_t_6 = __pyx_t_1; __Pyx_INCREF(__pyx_t_6); __pyx_t_2 = 0;
       __pyx_t_7 = NULL;
     } else {
-      __pyx_t_2 = -1; __pyx_t_6 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2211; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_2 = -1; __pyx_t_6 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2212; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_7 = Py_TYPE(__pyx_t_6)->tp_iternext; if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2211; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_7 = Py_TYPE(__pyx_t_6)->tp_iternext; if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2212; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     for (;;) {
@@ -31510,16 +31463,16 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList_11__getitem___getWithEclipsis(PyOb
         if (likely(PyList_CheckExact(__pyx_t_6))) {
           if (__pyx_t_2 >= PyList_GET_SIZE(__pyx_t_6)) break;
           #if CYTHON_COMPILING_IN_CPYTHON
-          __pyx_t_1 = PyList_GET_ITEM(__pyx_t_6, __pyx_t_2); __Pyx_INCREF(__pyx_t_1); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2211; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_1 = PyList_GET_ITEM(__pyx_t_6, __pyx_t_2); __Pyx_INCREF(__pyx_t_1); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2212; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           #else
-          __pyx_t_1 = PySequence_ITEM(__pyx_t_6, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2211; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_1 = PySequence_ITEM(__pyx_t_6, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2212; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           #endif
         } else {
           if (__pyx_t_2 >= PyTuple_GET_SIZE(__pyx_t_6)) break;
           #if CYTHON_COMPILING_IN_CPYTHON
-          __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_6, __pyx_t_2); __Pyx_INCREF(__pyx_t_1); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2211; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_6, __pyx_t_2); __Pyx_INCREF(__pyx_t_1); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2212; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           #else
-          __pyx_t_1 = PySequence_ITEM(__pyx_t_6, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2211; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_1 = PySequence_ITEM(__pyx_t_6, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2212; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           #endif
         }
       } else {
@@ -31528,7 +31481,7 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList_11__getitem___getWithEclipsis(PyOb
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
             if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2211; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2212; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           }
           break;
         }
@@ -31537,22 +31490,22 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList_11__getitem___getWithEclipsis(PyOb
       __Pyx_XDECREF_SET(__pyx_v_j, __pyx_t_1);
       __pyx_t_1 = 0;
 
-      /* "NeticaPy.pyx":2212
+      /* "NeticaPy.pyx":2213
  *             if type(item[index])==int and item[index]>=0:
  *                 for j in range(prev,item[index]):
  *                     x.append(self.value[j])             # <<<<<<<<<<<<<<
  *                 return index+1
  *             elif type(item[index])==slice:
  */
-      if (unlikely(!__pyx_cur_scope->__pyx_v_x)) { __Pyx_RaiseClosureNameError("x"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2212; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-      if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2212; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-      __pyx_t_8 = __Pyx_PyIndex_AsSsize_t(__pyx_v_j); if (unlikely((__pyx_t_8 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2212; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-      __pyx_t_1 = __Pyx_PyInt_From_long((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_8])); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2212; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      if (unlikely(!__pyx_cur_scope->__pyx_v_x)) { __Pyx_RaiseClosureNameError("x"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2213; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+      if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2213; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+      __pyx_t_8 = __Pyx_PyIndex_AsSsize_t(__pyx_v_j); if (unlikely((__pyx_t_8 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2213; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = __Pyx_PyInt_From_long((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_8])); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2213; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_9 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_x, __pyx_t_1); if (unlikely(__pyx_t_9 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2212; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_9 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_x, __pyx_t_1); if (unlikely(__pyx_t_9 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2213; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "NeticaPy.pyx":2211
+      /* "NeticaPy.pyx":2212
  *             assert index<len(item),"The list slice operator shouldn't end with Ellipsis (...)"
  *             if type(item[index])==int and item[index]>=0:
  *                 for j in range(prev,item[index]):             # <<<<<<<<<<<<<<
@@ -31562,7 +31515,7 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList_11__getitem___getWithEclipsis(PyOb
     }
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-    /* "NeticaPy.pyx":2213
+    /* "NeticaPy.pyx":2214
  *                 for j in range(prev,item[index]):
  *                     x.append(self.value[j])
  *                 return index+1             # <<<<<<<<<<<<<<
@@ -31570,51 +31523,51 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList_11__getitem___getWithEclipsis(PyOb
  *                 start=(item[index].start if not item[index].start == None else 0)
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_6 = PyNumber_Add(__pyx_v_index, __pyx_int_1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2213; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_6 = PyNumber_Add(__pyx_v_index, __pyx_int_1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2214; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_r = __pyx_t_6;
     __pyx_t_6 = 0;
     goto __pyx_L0;
   }
 
-  /* "NeticaPy.pyx":2214
+  /* "NeticaPy.pyx":2215
  *                     x.append(self.value[j])
  *                 return index+1
  *             elif type(item[index])==slice:             # <<<<<<<<<<<<<<
  *                 start=(item[index].start if not item[index].start == None else 0)
  *                 if type(start)==int and start>=0:
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2214; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-  __pyx_t_6 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_6 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2214; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+  if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2215; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+  __pyx_t_6 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_6 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2215; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_t_6)), ((PyObject *)((PyObject*)(&PySlice_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2214; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_t_6)), ((PyObject *)((PyObject*)(&PySlice_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2215; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2214; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2215; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_4) {
 
-    /* "NeticaPy.pyx":2215
+    /* "NeticaPy.pyx":2216
  *                 return index+1
  *             elif type(item[index])==slice:
  *                 start=(item[index].start if not item[index].start == None else 0)             # <<<<<<<<<<<<<<
  *                 if type(start)==int and start>=0:
  *                     for j in range(prev,start):
  */
-    if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2215; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-    __pyx_t_6 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_6 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2215; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+    if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2216; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+    __pyx_t_6 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_6 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2216; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_start); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2215; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_start); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2216; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_6 = PyObject_RichCompare(__pyx_t_3, Py_None, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2215; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_6 = PyObject_RichCompare(__pyx_t_3, Py_None, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2216; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2215; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2216; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     if (((!__pyx_t_4) != 0)) {
-      if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2215; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-      __pyx_t_6 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_6 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2215; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+      if (unlikely(!__pyx_cur_scope->__pyx_v_item)) { __Pyx_RaiseClosureNameError("item"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2216; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+      __pyx_t_6 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_index); if (unlikely(__pyx_t_6 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2216; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_start); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2215; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_start); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2216; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __pyx_t_1 = __pyx_t_3;
@@ -31626,38 +31579,38 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList_11__getitem___getWithEclipsis(PyOb
     __pyx_v_start = __pyx_t_1;
     __pyx_t_1 = 0;
 
-    /* "NeticaPy.pyx":2216
+    /* "NeticaPy.pyx":2217
  *             elif type(item[index])==slice:
  *                 start=(item[index].start if not item[index].start == None else 0)
  *                 if type(start)==int and start>=0:             # <<<<<<<<<<<<<<
  *                     for j in range(prev,start):
  *                        x.append(self.value[j])
  */
-    __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_start)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2216; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2216; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_start)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2217; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2217; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_5) {
     } else {
       __pyx_t_4 = __pyx_t_5;
       goto __pyx_L9_bool_binop_done;
     }
-    __pyx_t_1 = PyObject_RichCompare(__pyx_v_start, __pyx_int_0, Py_GE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2216; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2216; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = PyObject_RichCompare(__pyx_v_start, __pyx_int_0, Py_GE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2217; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2217; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_4 = __pyx_t_5;
     __pyx_L9_bool_binop_done:;
     if (__pyx_t_4) {
 
-      /* "NeticaPy.pyx":2217
+      /* "NeticaPy.pyx":2218
  *                 start=(item[index].start if not item[index].start == None else 0)
  *                 if type(start)==int and start>=0:
  *                     for j in range(prev,start):             # <<<<<<<<<<<<<<
  *                        x.append(self.value[j])
  *                     return index
  */
-      __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_cur_scope->__pyx_v_prev); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2217; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_cur_scope->__pyx_v_prev); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2218; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2217; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2218; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_3);
       PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
       __Pyx_GIVEREF(__pyx_t_1);
@@ -31665,16 +31618,16 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList_11__getitem___getWithEclipsis(PyOb
       PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_v_start);
       __Pyx_GIVEREF(__pyx_v_start);
       __pyx_t_1 = 0;
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2217; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2218; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
         __pyx_t_3 = __pyx_t_1; __Pyx_INCREF(__pyx_t_3); __pyx_t_2 = 0;
         __pyx_t_7 = NULL;
       } else {
-        __pyx_t_2 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2217; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2218; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_7 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2217; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_7 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2218; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       }
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       for (;;) {
@@ -31682,16 +31635,16 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList_11__getitem___getWithEclipsis(PyOb
           if (likely(PyList_CheckExact(__pyx_t_3))) {
             if (__pyx_t_2 >= PyList_GET_SIZE(__pyx_t_3)) break;
             #if CYTHON_COMPILING_IN_CPYTHON
-            __pyx_t_1 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_2); __Pyx_INCREF(__pyx_t_1); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2217; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            __pyx_t_1 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_2); __Pyx_INCREF(__pyx_t_1); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2218; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             #else
-            __pyx_t_1 = PySequence_ITEM(__pyx_t_3, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2217; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            __pyx_t_1 = PySequence_ITEM(__pyx_t_3, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2218; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             #endif
           } else {
             if (__pyx_t_2 >= PyTuple_GET_SIZE(__pyx_t_3)) break;
             #if CYTHON_COMPILING_IN_CPYTHON
-            __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_2); __Pyx_INCREF(__pyx_t_1); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2217; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_2); __Pyx_INCREF(__pyx_t_1); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2218; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             #else
-            __pyx_t_1 = PySequence_ITEM(__pyx_t_3, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2217; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            __pyx_t_1 = PySequence_ITEM(__pyx_t_3, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2218; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             #endif
           }
         } else {
@@ -31700,7 +31653,7 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList_11__getitem___getWithEclipsis(PyOb
             PyObject* exc_type = PyErr_Occurred();
             if (exc_type) {
               if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-              else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2217; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+              else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2218; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             }
             break;
           }
@@ -31709,22 +31662,22 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList_11__getitem___getWithEclipsis(PyOb
         __Pyx_XDECREF_SET(__pyx_v_j, __pyx_t_1);
         __pyx_t_1 = 0;
 
-        /* "NeticaPy.pyx":2218
+        /* "NeticaPy.pyx":2219
  *                 if type(start)==int and start>=0:
  *                     for j in range(prev,start):
  *                        x.append(self.value[j])             # <<<<<<<<<<<<<<
  *                     return index
  *             raise TypeError("Invalid type or invalid number is been passed")
  */
-        if (unlikely(!__pyx_cur_scope->__pyx_v_x)) { __Pyx_RaiseClosureNameError("x"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2218; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-        if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2218; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-        __pyx_t_8 = __Pyx_PyIndex_AsSsize_t(__pyx_v_j); if (unlikely((__pyx_t_8 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2218; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-        __pyx_t_1 = __Pyx_PyInt_From_long((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_8])); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2218; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        if (unlikely(!__pyx_cur_scope->__pyx_v_x)) { __Pyx_RaiseClosureNameError("x"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2219; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+        if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2219; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+        __pyx_t_8 = __Pyx_PyIndex_AsSsize_t(__pyx_v_j); if (unlikely((__pyx_t_8 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2219; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_1 = __Pyx_PyInt_From_long((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_8])); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2219; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_9 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_x, __pyx_t_1); if (unlikely(__pyx_t_9 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2218; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_9 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_x, __pyx_t_1); if (unlikely(__pyx_t_9 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2219; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-        /* "NeticaPy.pyx":2217
+        /* "NeticaPy.pyx":2218
  *                 start=(item[index].start if not item[index].start == None else 0)
  *                 if type(start)==int and start>=0:
  *                     for j in range(prev,start):             # <<<<<<<<<<<<<<
@@ -31734,7 +31687,7 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList_11__getitem___getWithEclipsis(PyOb
       }
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "NeticaPy.pyx":2219
+      /* "NeticaPy.pyx":2220
  *                     for j in range(prev,start):
  *                        x.append(self.value[j])
  *                     return index             # <<<<<<<<<<<<<<
@@ -31750,20 +31703,20 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList_11__getitem___getWithEclipsis(PyOb
   }
   __pyx_L3:;
 
-  /* "NeticaPy.pyx":2220
+  /* "NeticaPy.pyx":2221
  *                        x.append(self.value[j])
  *                     return index
  *             raise TypeError("Invalid type or invalid number is been passed")             # <<<<<<<<<<<<<<
  * 
  *         def getWithSlice(item):
  */
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__22, NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2220; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__22, NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2221; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_Raise(__pyx_t_3, 0, 0, 0);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2220; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2221; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "NeticaPy.pyx":2207
+  /* "NeticaPy.pyx":2208
  *         i=0
  * 
  *         def getWithEclipsis(index):             # <<<<<<<<<<<<<<
@@ -31787,7 +31740,7 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList_11__getitem___getWithEclipsis(PyOb
   return __pyx_r;
 }
 
-/* "NeticaPy.pyx":2222
+/* "NeticaPy.pyx":2223
  *             raise TypeError("Invalid type or invalid number is been passed")
  * 
  *         def getWithSlice(item):             # <<<<<<<<<<<<<<
@@ -31835,21 +31788,21 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList_11__getitem___2getWithSlice(PyObje
   __pyx_outer_scope = (struct __pyx_obj_8NeticaPy___pyx_scope_struct_3___getitem__ *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
 
-  /* "NeticaPy.pyx":2223
+  /* "NeticaPy.pyx":2224
  * 
  *         def getWithSlice(item):
  *             start,stop,step=(item.start if not item.start == None else 0,item.stop,item.step if not item.step == None else 1)             # <<<<<<<<<<<<<<
  *             assert type(start)==int,"Invalid slice start type"
  *             assert type(stop)==int,"Invalid slice stop type(should be specified and it should be int)"
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_start); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2223; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_start); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2224; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyObject_RichCompare(__pyx_t_2, Py_None, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2223; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = PyObject_RichCompare(__pyx_t_2, Py_None, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2224; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2223; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2224; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (((!__pyx_t_4) != 0)) {
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_start); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2223; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_start); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2224; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_1 = __pyx_t_3;
     __pyx_t_3 = 0;
@@ -31857,16 +31810,16 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList_11__getitem___2getWithSlice(PyObje
     __Pyx_INCREF(__pyx_int_0);
     __pyx_t_1 = __pyx_int_0;
   }
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_stop); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2223; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_stop); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2224; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_step); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2223; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_step); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2224; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = PyObject_RichCompare(__pyx_t_5, Py_None, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2223; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_6 = PyObject_RichCompare(__pyx_t_5, Py_None, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2224; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2223; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2224; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   if (((!__pyx_t_4) != 0)) {
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_step); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2223; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_n_s_step); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2224; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_2 = __pyx_t_6;
     __pyx_t_6 = 0;
@@ -31881,7 +31834,7 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList_11__getitem___2getWithSlice(PyObje
   __pyx_v_step = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "NeticaPy.pyx":2224
+  /* "NeticaPy.pyx":2225
  *         def getWithSlice(item):
  *             start,stop,step=(item.start if not item.start == None else 0,item.stop,item.step if not item.step == None else 1)
  *             assert type(start)==int,"Invalid slice start type"             # <<<<<<<<<<<<<<
@@ -31890,17 +31843,17 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList_11__getitem___2getWithSlice(PyObje
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
-    __pyx_t_2 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_start)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2224; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2224; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_start)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2225; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2225; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (unlikely(!__pyx_t_4)) {
       PyErr_SetObject(PyExc_AssertionError, __pyx_kp_s_Invalid_slice_start_type);
-      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2224; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2225; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
   }
   #endif
 
-  /* "NeticaPy.pyx":2225
+  /* "NeticaPy.pyx":2226
  *             start,stop,step=(item.start if not item.start == None else 0,item.stop,item.step if not item.step == None else 1)
  *             assert type(start)==int,"Invalid slice start type"
  *             assert type(stop)==int,"Invalid slice stop type(should be specified and it should be int)"             # <<<<<<<<<<<<<<
@@ -31909,17 +31862,17 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList_11__getitem___2getWithSlice(PyObje
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
-    __pyx_t_2 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_stop)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2225; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2225; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_stop)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2226; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2226; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (unlikely(!__pyx_t_4)) {
       PyErr_SetObject(PyExc_AssertionError, __pyx_kp_s_Invalid_slice_stop_type_should_b);
-      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2225; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2226; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
   }
   #endif
 
-  /* "NeticaPy.pyx":2226
+  /* "NeticaPy.pyx":2227
  *             assert type(start)==int,"Invalid slice start type"
  *             assert type(stop)==int,"Invalid slice stop type(should be specified and it should be int)"
  *             assert type(start)==int,"Invalid slice start type"             # <<<<<<<<<<<<<<
@@ -31928,24 +31881,24 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList_11__getitem___2getWithSlice(PyObje
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
-    __pyx_t_2 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_start)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2226; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2226; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_start)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2227; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2227; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (unlikely(!__pyx_t_4)) {
       PyErr_SetObject(PyExc_AssertionError, __pyx_kp_s_Invalid_slice_start_type);
-      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2226; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2227; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
   }
   #endif
 
-  /* "NeticaPy.pyx":2227
+  /* "NeticaPy.pyx":2228
  *             assert type(stop)==int,"Invalid slice stop type(should be specified and it should be int)"
  *             assert type(start)==int,"Invalid slice start type"
  *             for j in range(start,stop,step):             # <<<<<<<<<<<<<<
  *                 x.append(self.value[j])
  *             return
  */
-  __pyx_t_2 = PyTuple_New(3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2227; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyTuple_New(3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2228; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_v_start);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_start);
@@ -31956,16 +31909,16 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList_11__getitem___2getWithSlice(PyObje
   __Pyx_INCREF(__pyx_v_step);
   PyTuple_SET_ITEM(__pyx_t_2, 2, __pyx_v_step);
   __Pyx_GIVEREF(__pyx_v_step);
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2227; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2228; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (likely(PyList_CheckExact(__pyx_t_3)) || PyTuple_CheckExact(__pyx_t_3)) {
     __pyx_t_2 = __pyx_t_3; __Pyx_INCREF(__pyx_t_2); __pyx_t_7 = 0;
     __pyx_t_8 = NULL;
   } else {
-    __pyx_t_7 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2227; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_7 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2228; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_8 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2227; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_8 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2228; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   for (;;) {
@@ -31973,16 +31926,16 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList_11__getitem___2getWithSlice(PyObje
       if (likely(PyList_CheckExact(__pyx_t_2))) {
         if (__pyx_t_7 >= PyList_GET_SIZE(__pyx_t_2)) break;
         #if CYTHON_COMPILING_IN_CPYTHON
-        __pyx_t_3 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2227; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_3 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2228; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         #else
-        __pyx_t_3 = PySequence_ITEM(__pyx_t_2, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2227; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_3 = PySequence_ITEM(__pyx_t_2, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2228; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         #endif
       } else {
         if (__pyx_t_7 >= PyTuple_GET_SIZE(__pyx_t_2)) break;
         #if CYTHON_COMPILING_IN_CPYTHON
-        __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2227; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2228; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         #else
-        __pyx_t_3 = PySequence_ITEM(__pyx_t_2, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2227; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_3 = PySequence_ITEM(__pyx_t_2, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2228; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         #endif
       }
     } else {
@@ -31991,7 +31944,7 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList_11__getitem___2getWithSlice(PyObje
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2227; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2228; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         }
         break;
       }
@@ -32000,22 +31953,22 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList_11__getitem___2getWithSlice(PyObje
     __Pyx_XDECREF_SET(__pyx_v_j, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "NeticaPy.pyx":2228
+    /* "NeticaPy.pyx":2229
  *             assert type(start)==int,"Invalid slice start type"
  *             for j in range(start,stop,step):
  *                 x.append(self.value[j])             # <<<<<<<<<<<<<<
  *             return
  * 
  */
-    if (unlikely(!__pyx_cur_scope->__pyx_v_x)) { __Pyx_RaiseClosureNameError("x"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2228; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-    if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2228; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-    __pyx_t_9 = __Pyx_PyIndex_AsSsize_t(__pyx_v_j); if (unlikely((__pyx_t_9 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2228; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __pyx_t_3 = __Pyx_PyInt_From_long((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_9])); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2228; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (unlikely(!__pyx_cur_scope->__pyx_v_x)) { __Pyx_RaiseClosureNameError("x"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2229; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+    if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2229; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+    __pyx_t_9 = __Pyx_PyIndex_AsSsize_t(__pyx_v_j); if (unlikely((__pyx_t_9 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2229; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyInt_From_long((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_9])); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2229; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_10 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_x, __pyx_t_3); if (unlikely(__pyx_t_10 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2228; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_10 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_x, __pyx_t_3); if (unlikely(__pyx_t_10 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2229; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "NeticaPy.pyx":2227
+    /* "NeticaPy.pyx":2228
  *             assert type(stop)==int,"Invalid slice stop type(should be specified and it should be int)"
  *             assert type(start)==int,"Invalid slice start type"
  *             for j in range(start,stop,step):             # <<<<<<<<<<<<<<
@@ -32025,7 +31978,7 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList_11__getitem___2getWithSlice(PyObje
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "NeticaPy.pyx":2229
+  /* "NeticaPy.pyx":2230
  *             for j in range(start,stop,step):
  *                 x.append(self.value[j])
  *             return             # <<<<<<<<<<<<<<
@@ -32036,7 +31989,7 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList_11__getitem___2getWithSlice(PyObje
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
 
-  /* "NeticaPy.pyx":2222
+  /* "NeticaPy.pyx":2223
  *             raise TypeError("Invalid type or invalid number is been passed")
  * 
  *         def getWithSlice(item):             # <<<<<<<<<<<<<<
@@ -32063,7 +32016,7 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList_11__getitem___2getWithSlice(PyObje
   return __pyx_r;
 }
 
-/* "NeticaPy.pyx":2201
+/* "NeticaPy.pyx":2202
  * cdef class LongList:
  *     cdef long* value
  *     def __getitem__(self, item):             # <<<<<<<<<<<<<<
@@ -32102,20 +32055,20 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList___getitem__(struct __pyx_obj_8Neti
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_item);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_item);
 
-  /* "NeticaPy.pyx":2203
+  /* "NeticaPy.pyx":2204
  *     def __getitem__(self, item):
  * 
  *         x=[]             # <<<<<<<<<<<<<<
  *         prev=0
  *         i=0
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2203; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2204; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_cur_scope->__pyx_v_x = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "NeticaPy.pyx":2204
+  /* "NeticaPy.pyx":2205
  * 
  *         x=[]
  *         prev=0             # <<<<<<<<<<<<<<
@@ -32124,7 +32077,7 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList___getitem__(struct __pyx_obj_8Neti
  */
   __pyx_cur_scope->__pyx_v_prev = 0;
 
-  /* "NeticaPy.pyx":2205
+  /* "NeticaPy.pyx":2206
  *         x=[]
  *         prev=0
  *         i=0             # <<<<<<<<<<<<<<
@@ -32134,51 +32087,51 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList___getitem__(struct __pyx_obj_8Neti
   __Pyx_INCREF(__pyx_int_0);
   __pyx_v_i = __pyx_int_0;
 
-  /* "NeticaPy.pyx":2207
+  /* "NeticaPy.pyx":2208
  *         i=0
  * 
  *         def getWithEclipsis(index):             # <<<<<<<<<<<<<<
  *             index+=1
  *             assert index<len(item),"The list slice operator shouldn't end with Ellipsis (...)"
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_8NeticaPy_8LongList_11__getitem___1getWithEclipsis, 0, __pyx_n_s_getitem___locals_getWithEclips, ((PyObject*)__pyx_cur_scope), __pyx_n_s_NeticaPy, __pyx_d, ((PyObject *)__pyx_codeobj__24)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2207; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_8NeticaPy_8LongList_11__getitem___1getWithEclipsis, 0, __pyx_n_s_getitem___locals_getWithEclips, ((PyObject*)__pyx_cur_scope), __pyx_n_s_NeticaPy, __pyx_d, ((PyObject *)__pyx_codeobj__24)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2208; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_getWithEclipsis = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "NeticaPy.pyx":2222
+  /* "NeticaPy.pyx":2223
  *             raise TypeError("Invalid type or invalid number is been passed")
  * 
  *         def getWithSlice(item):             # <<<<<<<<<<<<<<
  *             start,stop,step=(item.start if not item.start == None else 0,item.stop,item.step if not item.step == None else 1)
  *             assert type(start)==int,"Invalid slice start type"
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_8NeticaPy_8LongList_11__getitem___3getWithSlice, 0, __pyx_n_s_getitem___locals_getWithSlice, ((PyObject*)__pyx_cur_scope), __pyx_n_s_NeticaPy, __pyx_d, ((PyObject *)__pyx_codeobj__26)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2222; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_8NeticaPy_8LongList_11__getitem___3getWithSlice, 0, __pyx_n_s_getitem___locals_getWithSlice, ((PyObject*)__pyx_cur_scope), __pyx_n_s_NeticaPy, __pyx_d, ((PyObject *)__pyx_codeobj__26)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2223; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_getWithSlice = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "NeticaPy.pyx":2232
+  /* "NeticaPy.pyx":2233
  * 
  * 
  *         if type(item)==int:             # <<<<<<<<<<<<<<
  *             x=self.value[item]
  *         elif type(item)==slice:
  */
-  __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_cur_scope->__pyx_v_item)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2232; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2232; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_cur_scope->__pyx_v_item)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2233; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2233; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "NeticaPy.pyx":2233
+    /* "NeticaPy.pyx":2234
  * 
  *         if type(item)==int:
  *             x=self.value[item]             # <<<<<<<<<<<<<<
  *         elif type(item)==slice:
  *             getWithSlice(item)
  */
-    __pyx_t_3 = __Pyx_PyIndex_AsSsize_t(__pyx_cur_scope->__pyx_v_item); if (unlikely((__pyx_t_3 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2233; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __pyx_t_1 = __Pyx_PyInt_From_long((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_3])); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2233; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyIndex_AsSsize_t(__pyx_cur_scope->__pyx_v_item); if (unlikely((__pyx_t_3 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2234; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyInt_From_long((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_3])); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2234; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_x);
     __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_x, __pyx_t_1);
@@ -32187,19 +32140,19 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList___getitem__(struct __pyx_obj_8Neti
     goto __pyx_L3;
   }
 
-  /* "NeticaPy.pyx":2234
+  /* "NeticaPy.pyx":2235
  *         if type(item)==int:
  *             x=self.value[item]
  *         elif type(item)==slice:             # <<<<<<<<<<<<<<
  *             getWithSlice(item)
  *         elif type(item)==tuple:
  */
-  __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_cur_scope->__pyx_v_item)), ((PyObject *)((PyObject*)(&PySlice_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2234; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2234; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_cur_scope->__pyx_v_item)), ((PyObject *)((PyObject*)(&PySlice_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2235; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2235; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "NeticaPy.pyx":2235
+    /* "NeticaPy.pyx":2236
  *             x=self.value[item]
  *         elif type(item)==slice:
  *             getWithSlice(item)             # <<<<<<<<<<<<<<
@@ -32208,26 +32161,26 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList___getitem__(struct __pyx_obj_8Neti
  */
     __pyx_t_1 = __pyx_cur_scope->__pyx_v_item;
     __Pyx_INCREF(__pyx_t_1);
-    __pyx_t_4 = __pyx_pf_8NeticaPy_8LongList_11__getitem___2getWithSlice(__pyx_v_getWithSlice, __pyx_t_1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2235; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __pyx_pf_8NeticaPy_8LongList_11__getitem___2getWithSlice(__pyx_v_getWithSlice, __pyx_t_1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2236; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     goto __pyx_L3;
   }
 
-  /* "NeticaPy.pyx":2236
+  /* "NeticaPy.pyx":2237
  *         elif type(item)==slice:
  *             getWithSlice(item)
  *         elif type(item)==tuple:             # <<<<<<<<<<<<<<
  *             while i<len(item):
  *                 if type(i)==slice:
  */
-  __pyx_t_4 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_cur_scope->__pyx_v_item)), ((PyObject *)((PyObject*)(&PyTuple_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2236; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2236; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_cur_scope->__pyx_v_item)), ((PyObject *)((PyObject*)(&PyTuple_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2237; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2237; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (__pyx_t_2) {
 
-    /* "NeticaPy.pyx":2237
+    /* "NeticaPy.pyx":2238
  *             getWithSlice(item)
  *         elif type(item)==tuple:
  *             while i<len(item):             # <<<<<<<<<<<<<<
@@ -32237,132 +32190,132 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList___getitem__(struct __pyx_obj_8Neti
     while (1) {
       __pyx_t_4 = __pyx_cur_scope->__pyx_v_item;
       __Pyx_INCREF(__pyx_t_4);
-      __pyx_t_3 = PyObject_Length(__pyx_t_4); if (unlikely(__pyx_t_3 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2237; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_3 = PyObject_Length(__pyx_t_4); if (unlikely(__pyx_t_3 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2238; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_4 = PyInt_FromSsize_t(__pyx_t_3); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2237; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_4 = PyInt_FromSsize_t(__pyx_t_3); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2238; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_1 = PyObject_RichCompare(__pyx_v_i, __pyx_t_4, Py_LT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2237; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = PyObject_RichCompare(__pyx_v_i, __pyx_t_4, Py_LT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2238; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2237; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2238; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       if (!__pyx_t_2) break;
 
-      /* "NeticaPy.pyx":2238
+      /* "NeticaPy.pyx":2239
  *         elif type(item)==tuple:
  *             while i<len(item):
  *                 if type(i)==slice:             # <<<<<<<<<<<<<<
  *                     getWithSlice(item[i])
  *                     i+=1
  */
-      __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_i)), ((PyObject *)((PyObject*)(&PySlice_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2238; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2238; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_v_i)), ((PyObject *)((PyObject*)(&PySlice_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2239; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2239; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       if (__pyx_t_2) {
 
-        /* "NeticaPy.pyx":2239
+        /* "NeticaPy.pyx":2240
  *             while i<len(item):
  *                 if type(i)==slice:
  *                     getWithSlice(item[i])             # <<<<<<<<<<<<<<
  *                     i+=1
  *                 elif type(item[i])==int and item[i]>=0:
  */
-        __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2239; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+        __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2240; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
         __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_4 = __pyx_pf_8NeticaPy_8LongList_11__getitem___2getWithSlice(__pyx_v_getWithSlice, __pyx_t_1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2239; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_4 = __pyx_pf_8NeticaPy_8LongList_11__getitem___2getWithSlice(__pyx_v_getWithSlice, __pyx_t_1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2240; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-        /* "NeticaPy.pyx":2240
+        /* "NeticaPy.pyx":2241
  *                 if type(i)==slice:
  *                     getWithSlice(item[i])
  *                     i+=1             # <<<<<<<<<<<<<<
  *                 elif type(item[i])==int and item[i]>=0:
  *                     if i+1<len(item) and item[i+1]==Ellipsis:
  */
-        __pyx_t_4 = PyNumber_InPlaceAdd(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2240; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_4 = PyNumber_InPlaceAdd(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2241; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF_SET(__pyx_v_i, __pyx_t_4);
         __pyx_t_4 = 0;
         goto __pyx_L6;
       }
 
-      /* "NeticaPy.pyx":2241
+      /* "NeticaPy.pyx":2242
  *                     getWithSlice(item[i])
  *                     i+=1
  *                 elif type(item[i])==int and item[i]>=0:             # <<<<<<<<<<<<<<
  *                     if i+1<len(item) and item[i+1]==Ellipsis:
  *                          i=getWithEclipsis(i+1)
  */
-      __pyx_t_4 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_4 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2241; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+      __pyx_t_4 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_4 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2242; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_t_4)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2241; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = PyObject_RichCompare(((PyObject *)Py_TYPE(__pyx_t_4)), ((PyObject *)((PyObject*)(&PyInt_Type))), Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2242; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2241; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2242; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       if (__pyx_t_5) {
       } else {
         __pyx_t_2 = __pyx_t_5;
         goto __pyx_L7_bool_binop_done;
       }
-      __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2241; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+      __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2242; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_4 = PyObject_RichCompare(__pyx_t_1, __pyx_int_0, Py_GE); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2241; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_4 = PyObject_RichCompare(__pyx_t_1, __pyx_int_0, Py_GE); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2242; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2241; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2242; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_t_2 = __pyx_t_5;
       __pyx_L7_bool_binop_done:;
       if (__pyx_t_2) {
 
-        /* "NeticaPy.pyx":2242
+        /* "NeticaPy.pyx":2243
  *                     i+=1
  *                 elif type(item[i])==int and item[i]>=0:
  *                     if i+1<len(item) and item[i+1]==Ellipsis:             # <<<<<<<<<<<<<<
  *                          i=getWithEclipsis(i+1)
  *                     else:
  */
-        __pyx_t_4 = PyNumber_Add(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2242; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_4 = PyNumber_Add(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2243; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_4);
         __pyx_t_1 = __pyx_cur_scope->__pyx_v_item;
         __Pyx_INCREF(__pyx_t_1);
-        __pyx_t_3 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_3 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2242; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_3 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_3 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2243; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        __pyx_t_1 = PyInt_FromSsize_t(__pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2242; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_1 = PyInt_FromSsize_t(__pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2243; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_6 = PyObject_RichCompare(__pyx_t_4, __pyx_t_1, Py_LT); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2242; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_6 = PyObject_RichCompare(__pyx_t_4, __pyx_t_1, Py_LT); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2243; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2242; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2243; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
         if (__pyx_t_5) {
         } else {
           __pyx_t_2 = __pyx_t_5;
           goto __pyx_L10_bool_binop_done;
         }
-        __pyx_t_6 = PyNumber_Add(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2242; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_6 = PyNumber_Add(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2243; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_6);
-        __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_t_6); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2242; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+        __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_t_6); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2243; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        __pyx_t_6 = PyObject_RichCompare(__pyx_t_1, __pyx_builtin_Ellipsis, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2242; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_6 = PyObject_RichCompare(__pyx_t_1, __pyx_builtin_Ellipsis, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2243; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2242; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2243; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
         __pyx_t_2 = __pyx_t_5;
         __pyx_L10_bool_binop_done:;
         if (__pyx_t_2) {
 
-          /* "NeticaPy.pyx":2243
+          /* "NeticaPy.pyx":2244
  *                 elif type(item[i])==int and item[i]>=0:
  *                     if i+1<len(item) and item[i+1]==Ellipsis:
  *                          i=getWithEclipsis(i+1)             # <<<<<<<<<<<<<<
  *                     else:
  *                         x.append(self.value[item[i]])
  */
-          __pyx_t_6 = PyNumber_Add(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2243; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_6 = PyNumber_Add(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2244; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_6);
-          __pyx_t_1 = __pyx_pf_8NeticaPy_8LongList_11__getitem___getWithEclipsis(__pyx_v_getWithEclipsis, __pyx_t_6); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2243; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_1 = __pyx_pf_8NeticaPy_8LongList_11__getitem___getWithEclipsis(__pyx_v_getWithEclipsis, __pyx_t_6); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2244; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_DECREF_SET(__pyx_v_i, __pyx_t_1);
@@ -32371,30 +32324,30 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList___getitem__(struct __pyx_obj_8Neti
         }
         /*else*/ {
 
-          /* "NeticaPy.pyx":2245
+          /* "NeticaPy.pyx":2246
  *                          i=getWithEclipsis(i+1)
  *                     else:
  *                         x.append(self.value[item[i]])             # <<<<<<<<<<<<<<
  *                         i+=1
  *                 elif item[i]==Ellipsis:
  */
-          __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2245; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+          __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2246; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
           __Pyx_GOTREF(__pyx_t_1);
-          __pyx_t_3 = __Pyx_PyIndex_AsSsize_t(__pyx_t_1); if (unlikely((__pyx_t_3 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2245; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_3 = __Pyx_PyIndex_AsSsize_t(__pyx_t_1); if (unlikely((__pyx_t_3 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2246; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-          __pyx_t_1 = __Pyx_PyInt_From_long((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_3])); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2245; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_1 = __Pyx_PyInt_From_long((__pyx_cur_scope->__pyx_v_self->value[__pyx_t_3])); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2246; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_1);
-          __pyx_t_7 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_x, __pyx_t_1); if (unlikely(__pyx_t_7 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2245; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_7 = __Pyx_PyObject_Append(__pyx_cur_scope->__pyx_v_x, __pyx_t_1); if (unlikely(__pyx_t_7 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2246; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-          /* "NeticaPy.pyx":2246
+          /* "NeticaPy.pyx":2247
  *                     else:
  *                         x.append(self.value[item[i]])
  *                         i+=1             # <<<<<<<<<<<<<<
  *                 elif item[i]==Ellipsis:
  *                     i=getWithEclipsis(i)
  */
-          __pyx_t_1 = PyNumber_InPlaceAdd(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2246; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_1 = PyNumber_InPlaceAdd(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2247; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_DECREF_SET(__pyx_v_i, __pyx_t_1);
           __pyx_t_1 = 0;
@@ -32403,29 +32356,29 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList___getitem__(struct __pyx_obj_8Neti
         goto __pyx_L6;
       }
 
-      /* "NeticaPy.pyx":2247
+      /* "NeticaPy.pyx":2248
  *                         x.append(self.value[item[i]])
  *                         i+=1
  *                 elif item[i]==Ellipsis:             # <<<<<<<<<<<<<<
  *                     i=getWithEclipsis(i)
  *                 else:
  */
-      __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2247; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+      __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_item, __pyx_v_i); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2248; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_6 = PyObject_RichCompare(__pyx_t_1, __pyx_builtin_Ellipsis, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2247; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_6 = PyObject_RichCompare(__pyx_t_1, __pyx_builtin_Ellipsis, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2248; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2247; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_2 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2248; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       if (__pyx_t_2) {
 
-        /* "NeticaPy.pyx":2248
+        /* "NeticaPy.pyx":2249
  *                         i+=1
  *                 elif item[i]==Ellipsis:
  *                     i=getWithEclipsis(i)             # <<<<<<<<<<<<<<
  *                 else:
  *                     raise TypeError("Invalid type or invalid number is been passed")
  */
-        __pyx_t_6 = __pyx_pf_8NeticaPy_8LongList_11__getitem___getWithEclipsis(__pyx_v_getWithEclipsis, __pyx_v_i); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2248; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_6 = __pyx_pf_8NeticaPy_8LongList_11__getitem___getWithEclipsis(__pyx_v_getWithEclipsis, __pyx_v_i); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2249; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_6);
         __Pyx_DECREF_SET(__pyx_v_i, __pyx_t_6);
         __pyx_t_6 = 0;
@@ -32433,18 +32386,18 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList___getitem__(struct __pyx_obj_8Neti
       }
       /*else*/ {
 
-        /* "NeticaPy.pyx":2250
+        /* "NeticaPy.pyx":2251
  *                     i=getWithEclipsis(i)
  *                 else:
  *                     raise TypeError("Invalid type or invalid number is been passed")             # <<<<<<<<<<<<<<
  *         else:
  *             raise TypeError("Invalid type or invalid number is been passed")
  */
-        __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__27, NULL); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2250; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__27, NULL); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2251; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_6);
         __Pyx_Raise(__pyx_t_6, 0, 0, 0);
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2250; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2251; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       }
       __pyx_L6:;
     }
@@ -32452,22 +32405,22 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList___getitem__(struct __pyx_obj_8Neti
   }
   /*else*/ {
 
-    /* "NeticaPy.pyx":2252
+    /* "NeticaPy.pyx":2253
  *                     raise TypeError("Invalid type or invalid number is been passed")
  *         else:
  *             raise TypeError("Invalid type or invalid number is been passed")             # <<<<<<<<<<<<<<
  *         return x
  * 
  */
-    __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__28, NULL); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2252; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__28, NULL); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2253; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_Raise(__pyx_t_6, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2252; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2253; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __pyx_L3:;
 
-  /* "NeticaPy.pyx":2253
+  /* "NeticaPy.pyx":2254
  *         else:
  *             raise TypeError("Invalid type or invalid number is been passed")
  *         return x             # <<<<<<<<<<<<<<
@@ -32479,7 +32432,7 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList___getitem__(struct __pyx_obj_8Neti
   __pyx_r = __pyx_cur_scope->__pyx_v_x;
   goto __pyx_L0;
 
-  /* "NeticaPy.pyx":2201
+  /* "NeticaPy.pyx":2202
  * cdef class LongList:
  *     cdef long* value
  *     def __getitem__(self, item):             # <<<<<<<<<<<<<<
@@ -32504,7 +32457,7 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList___getitem__(struct __pyx_obj_8Neti
   return __pyx_r;
 }
 
-/* "NeticaPy.pyx":2255
+/* "NeticaPy.pyx":2256
  *         return x
  * 
  *     def __del__(self):             # <<<<<<<<<<<<<<
@@ -32533,7 +32486,7 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList_2__del__(struct __pyx_obj_8NeticaP
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("__del__", 0);
 
-  /* "NeticaPy.pyx":2256
+  /* "NeticaPy.pyx":2257
  * 
  *     def __del__(self):
  *         try:             # <<<<<<<<<<<<<<
@@ -32544,7 +32497,7 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList_2__del__(struct __pyx_obj_8NeticaP
     if (__pyx_t_1||__pyx_t_2||__pyx_t_3); else {/*mark used*/};
     /*try:*/ {
 
-      /* "NeticaPy.pyx":2257
+      /* "NeticaPy.pyx":2258
  *     def __del__(self):
  *         try:
  *             free(self.value)             # <<<<<<<<<<<<<<
@@ -32555,7 +32508,7 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList_2__del__(struct __pyx_obj_8NeticaP
     }
   }
 
-  /* "NeticaPy.pyx":2255
+  /* "NeticaPy.pyx":2256
  *         return x
  * 
  *     def __del__(self):             # <<<<<<<<<<<<<<
@@ -32570,7 +32523,7 @@ static PyObject *__pyx_pf_8NeticaPy_8LongList_2__del__(struct __pyx_obj_8NeticaP
   return __pyx_r;
 }
 
-/* "NeticaPy.pyx":2261
+/* "NeticaPy.pyx":2262
  *             pass
  * 
  * cdef int callback (net_bn* net, eventtype_ns what, void* obj, void* info):             # <<<<<<<<<<<<<<
@@ -32594,19 +32547,19 @@ static int __pyx_f_8NeticaPy_callback(net_bn *__pyx_v_net, eventtype_ns __pyx_v_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("callback", 0);
 
-  /* "NeticaPy.pyx":2262
+  /* "NeticaPy.pyx":2263
  * 
  * cdef int callback (net_bn* net, eventtype_ns what, void* obj, void* info):
  *     net_py = NewNet()             # <<<<<<<<<<<<<<
  *     net_py.value = net
  *     return (<object>obj).__temp__function__handler(net_py,what,<object>obj,<object>info)
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_8NeticaPy_NewNet)), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2262; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_8NeticaPy_NewNet)), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2263; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_net_py = ((struct __pyx_obj_8NeticaPy_NewNet *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "NeticaPy.pyx":2263
+  /* "NeticaPy.pyx":2264
  * cdef int callback (net_bn* net, eventtype_ns what, void* obj, void* info):
  *     net_py = NewNet()
  *     net_py.value = net             # <<<<<<<<<<<<<<
@@ -32615,16 +32568,16 @@ static int __pyx_f_8NeticaPy_callback(net_bn *__pyx_v_net, eventtype_ns __pyx_v_
  */
   __pyx_v_net_py->value = __pyx_v_net;
 
-  /* "NeticaPy.pyx":2264
+  /* "NeticaPy.pyx":2265
  *     net_py = NewNet()
  *     net_py.value = net
  *     return (<object>obj).__temp__function__handler(net_py,what,<object>obj,<object>info)             # <<<<<<<<<<<<<<
  * 
  * cdef int callbackNULL (net_bn* net, eventtype_ns what, void* obj, void* info):
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_obj), __pyx_n_s_temp__function__handler); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2264; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_obj), __pyx_n_s_temp__function__handler); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2265; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyInt_FromLong(__pyx_v_what); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2264; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = PyInt_FromLong(__pyx_v_what); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2265; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   __pyx_t_5 = 0;
@@ -32638,7 +32591,7 @@ static int __pyx_f_8NeticaPy_callback(net_bn *__pyx_v_net, eventtype_ns __pyx_v_
       __pyx_t_5 = 1;
     }
   }
-  __pyx_t_6 = PyTuple_New(4+__pyx_t_5); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2264; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_6 = PyTuple_New(4+__pyx_t_5); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2265; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_6);
   if (__pyx_t_4) {
     PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_4); __Pyx_GIVEREF(__pyx_t_4); __pyx_t_4 = NULL;
@@ -32655,16 +32608,16 @@ static int __pyx_f_8NeticaPy_callback(net_bn *__pyx_v_net, eventtype_ns __pyx_v_
   PyTuple_SET_ITEM(__pyx_t_6, 3+__pyx_t_5, ((PyObject *)__pyx_v_info));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_info));
   __pyx_t_3 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2264; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2265; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2264; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2265; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_7;
   goto __pyx_L0;
 
-  /* "NeticaPy.pyx":2261
+  /* "NeticaPy.pyx":2262
  *             pass
  * 
  * cdef int callback (net_bn* net, eventtype_ns what, void* obj, void* info):             # <<<<<<<<<<<<<<
@@ -32687,12 +32640,11 @@ static int __pyx_f_8NeticaPy_callback(net_bn *__pyx_v_net, eventtype_ns __pyx_v_
   return __pyx_r;
 }
 
-/* "NeticaPy.pyx":2266
+/* "NeticaPy.pyx":2267
  *     return (<object>obj).__temp__function__handler(net_py,what,<object>obj,<object>info)
  * 
  * cdef int callbackNULL (net_bn* net, eventtype_ns what, void* obj, void* info):             # <<<<<<<<<<<<<<
  *     pass
- * 
  */
 
 static int __pyx_f_8NeticaPy_callbackNULL(CYTHON_UNUSED net_bn *__pyx_v_net, CYTHON_UNUSED eventtype_ns __pyx_v_what, CYTHON_UNUSED void *__pyx_v_obj, CYTHON_UNUSED void *__pyx_v_info) {
@@ -33108,160 +33060,6 @@ static PyTypeObject __pyx_type_8NeticaPy_Report = {
   0, /*tp_init*/
   0, /*tp_alloc*/
   __pyx_tp_new_8NeticaPy_Report, /*tp_new*/
-  0, /*tp_free*/
-  0, /*tp_is_gc*/
-  0, /*tp_bases*/
-  0, /*tp_mro*/
-  0, /*tp_cache*/
-  0, /*tp_subclasses*/
-  0, /*tp_weaklist*/
-  0, /*tp_del*/
-  0, /*tp_version_tag*/
-  #if PY_VERSION_HEX >= 0x030400a1
-  0, /*tp_finalize*/
-  #endif
-};
-
-static PyObject *__pyx_tp_new_8NeticaPy_ErrSeverity(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
-  PyObject *o;
-  if (likely((t->tp_flags & Py_TPFLAGS_IS_ABSTRACT) == 0)) {
-    o = (*t->tp_alloc)(t, 0);
-  } else {
-    o = (PyObject *) PyBaseObject_Type.tp_new(t, __pyx_empty_tuple, 0);
-  }
-  if (unlikely(!o)) return 0;
-  return o;
-}
-
-static void __pyx_tp_dealloc_8NeticaPy_ErrSeverity(PyObject *o) {
-  #if PY_VERSION_HEX >= 0x030400a1
-  if (unlikely(Py_TYPE(o)->tp_finalize) && (!PyType_IS_GC(Py_TYPE(o)) || !_PyGC_FINALIZED(o))) {
-    if (PyObject_CallFinalizerFromDealloc(o)) return;
-  }
-  #endif
-  (*Py_TYPE(o)->tp_free)(o);
-}
-
-static PyTypeObject __pyx_type_8NeticaPy_ErrSeverity = {
-  PyVarObject_HEAD_INIT(0, 0)
-  "NeticaPy.ErrSeverity", /*tp_name*/
-  sizeof(struct __pyx_obj_8NeticaPy_ErrSeverity), /*tp_basicsize*/
-  0, /*tp_itemsize*/
-  __pyx_tp_dealloc_8NeticaPy_ErrSeverity, /*tp_dealloc*/
-  0, /*tp_print*/
-  0, /*tp_getattr*/
-  0, /*tp_setattr*/
-  #if PY_MAJOR_VERSION < 3
-  0, /*tp_compare*/
-  #else
-  0, /*reserved*/
-  #endif
-  0, /*tp_repr*/
-  0, /*tp_as_number*/
-  0, /*tp_as_sequence*/
-  0, /*tp_as_mapping*/
-  0, /*tp_hash*/
-  0, /*tp_call*/
-  0, /*tp_str*/
-  0, /*tp_getattro*/
-  0, /*tp_setattro*/
-  0, /*tp_as_buffer*/
-  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE, /*tp_flags*/
-  0, /*tp_doc*/
-  0, /*tp_traverse*/
-  0, /*tp_clear*/
-  0, /*tp_richcompare*/
-  0, /*tp_weaklistoffset*/
-  0, /*tp_iter*/
-  0, /*tp_iternext*/
-  0, /*tp_methods*/
-  0, /*tp_members*/
-  0, /*tp_getset*/
-  0, /*tp_base*/
-  0, /*tp_dict*/
-  0, /*tp_descr_get*/
-  0, /*tp_descr_set*/
-  0, /*tp_dictoffset*/
-  0, /*tp_init*/
-  0, /*tp_alloc*/
-  __pyx_tp_new_8NeticaPy_ErrSeverity, /*tp_new*/
-  0, /*tp_free*/
-  0, /*tp_is_gc*/
-  0, /*tp_bases*/
-  0, /*tp_mro*/
-  0, /*tp_cache*/
-  0, /*tp_subclasses*/
-  0, /*tp_weaklist*/
-  0, /*tp_del*/
-  0, /*tp_version_tag*/
-  #if PY_VERSION_HEX >= 0x030400a1
-  0, /*tp_finalize*/
-  #endif
-};
-
-static PyObject *__pyx_tp_new_8NeticaPy_ErrorCondition(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
-  PyObject *o;
-  if (likely((t->tp_flags & Py_TPFLAGS_IS_ABSTRACT) == 0)) {
-    o = (*t->tp_alloc)(t, 0);
-  } else {
-    o = (PyObject *) PyBaseObject_Type.tp_new(t, __pyx_empty_tuple, 0);
-  }
-  if (unlikely(!o)) return 0;
-  return o;
-}
-
-static void __pyx_tp_dealloc_8NeticaPy_ErrorCondition(PyObject *o) {
-  #if PY_VERSION_HEX >= 0x030400a1
-  if (unlikely(Py_TYPE(o)->tp_finalize) && (!PyType_IS_GC(Py_TYPE(o)) || !_PyGC_FINALIZED(o))) {
-    if (PyObject_CallFinalizerFromDealloc(o)) return;
-  }
-  #endif
-  (*Py_TYPE(o)->tp_free)(o);
-}
-
-static PyTypeObject __pyx_type_8NeticaPy_ErrorCondition = {
-  PyVarObject_HEAD_INIT(0, 0)
-  "NeticaPy.ErrorCondition", /*tp_name*/
-  sizeof(struct __pyx_obj_8NeticaPy_ErrorCondition), /*tp_basicsize*/
-  0, /*tp_itemsize*/
-  __pyx_tp_dealloc_8NeticaPy_ErrorCondition, /*tp_dealloc*/
-  0, /*tp_print*/
-  0, /*tp_getattr*/
-  0, /*tp_setattr*/
-  #if PY_MAJOR_VERSION < 3
-  0, /*tp_compare*/
-  #else
-  0, /*reserved*/
-  #endif
-  0, /*tp_repr*/
-  0, /*tp_as_number*/
-  0, /*tp_as_sequence*/
-  0, /*tp_as_mapping*/
-  0, /*tp_hash*/
-  0, /*tp_call*/
-  0, /*tp_str*/
-  0, /*tp_getattro*/
-  0, /*tp_setattro*/
-  0, /*tp_as_buffer*/
-  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE, /*tp_flags*/
-  0, /*tp_doc*/
-  0, /*tp_traverse*/
-  0, /*tp_clear*/
-  0, /*tp_richcompare*/
-  0, /*tp_weaklistoffset*/
-  0, /*tp_iter*/
-  0, /*tp_iternext*/
-  0, /*tp_methods*/
-  0, /*tp_members*/
-  0, /*tp_getset*/
-  0, /*tp_base*/
-  0, /*tp_dict*/
-  0, /*tp_descr_get*/
-  0, /*tp_descr_set*/
-  0, /*tp_dictoffset*/
-  0, /*tp_init*/
-  0, /*tp_alloc*/
-  __pyx_tp_new_8NeticaPy_ErrorCondition, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -35160,8 +34958,8 @@ static int __Pyx_InitCachedBuiltins(void) {
   #endif
   __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1146; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1151; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_builtin_Ellipsis = __Pyx_GetBuiltinName(__pyx_n_s_Ellipsis); if (!__pyx_builtin_Ellipsis) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2054; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2062; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_builtin_Ellipsis = __Pyx_GetBuiltinName(__pyx_n_s_Ellipsis); if (!__pyx_builtin_Ellipsis) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2055; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2063; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -35171,231 +34969,231 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "NeticaPy.pyx":2032
+  /* "NeticaPy.pyx":2033
  *                        x.append(self.value[j])
  *                     return index
  *             raise TypeError("Invalid type or invalid number is been passed")             # <<<<<<<<<<<<<<
  * 
  *         def getWithSlice(item):
  */
-  __pyx_tuple_ = PyTuple_Pack(1, __pyx_kp_s_Invalid_type_or_invalid_number_i); if (unlikely(!__pyx_tuple_)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2032; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple_ = PyTuple_Pack(1, __pyx_kp_s_Invalid_type_or_invalid_number_i); if (unlikely(!__pyx_tuple_)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2033; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
 
-  /* "NeticaPy.pyx":2019
+  /* "NeticaPy.pyx":2020
  *         i=0
  * 
  *         def getWithEclipsis(index):             # <<<<<<<<<<<<<<
  *             index+=1
  *             assert index<len(item),"The list slice operator shouldn't end with Ellipsis (...)"
  */
-  __pyx_tuple__2 = PyTuple_Pack(3, __pyx_n_s_index, __pyx_n_s_j, __pyx_n_s_start); if (unlikely(!__pyx_tuple__2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2019; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__2 = PyTuple_Pack(3, __pyx_n_s_index, __pyx_n_s_j, __pyx_n_s_start); if (unlikely(!__pyx_tuple__2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2020; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
-  __pyx_codeobj__3 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__2, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_faizal_NeticaPy_NeticaPy_p, __pyx_n_s_getWithEclipsis, 2019, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2019; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__3 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__2, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_faizal_NeticaPy_NeticaPy_p, __pyx_n_s_getWithEclipsis, 2020, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2020; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "NeticaPy.pyx":2034
+  /* "NeticaPy.pyx":2035
  *             raise TypeError("Invalid type or invalid number is been passed")
  * 
  *         def getWithSlice(item):             # <<<<<<<<<<<<<<
  *             start,stop,step=(item.start if not item.start == None else 0,item.stop,item.step if not item.step == None else 1)
  *             assert type(start)==int,"Invalid slice start type"
  */
-  __pyx_tuple__4 = PyTuple_Pack(5, __pyx_n_s_item, __pyx_n_s_start, __pyx_n_s_stop, __pyx_n_s_step, __pyx_n_s_j); if (unlikely(!__pyx_tuple__4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2034; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__4 = PyTuple_Pack(5, __pyx_n_s_item, __pyx_n_s_start, __pyx_n_s_stop, __pyx_n_s_step, __pyx_n_s_j); if (unlikely(!__pyx_tuple__4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2035; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__4);
   __Pyx_GIVEREF(__pyx_tuple__4);
-  __pyx_codeobj__5 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__4, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_faizal_NeticaPy_NeticaPy_p, __pyx_n_s_getWithSlice, 2034, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2034; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__5 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__4, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_faizal_NeticaPy_NeticaPy_p, __pyx_n_s_getWithSlice, 2035, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2035; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "NeticaPy.pyx":2062
+  /* "NeticaPy.pyx":2063
  *                     i=getWithEclipsis(i)
  *                 else:
  *                     raise TypeError("Invalid type or invalid number is been passed")             # <<<<<<<<<<<<<<
  *         else:
  *             raise TypeError("Invalid type or invalid number is been passed")
  */
-  __pyx_tuple__6 = PyTuple_Pack(1, __pyx_kp_s_Invalid_type_or_invalid_number_i); if (unlikely(!__pyx_tuple__6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2062; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__6 = PyTuple_Pack(1, __pyx_kp_s_Invalid_type_or_invalid_number_i); if (unlikely(!__pyx_tuple__6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2063; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__6);
   __Pyx_GIVEREF(__pyx_tuple__6);
 
-  /* "NeticaPy.pyx":2064
+  /* "NeticaPy.pyx":2065
  *                     raise TypeError("Invalid type or invalid number is been passed")
  *         else:
  *             raise TypeError("Invalid type or invalid number is been passed")             # <<<<<<<<<<<<<<
  *         return x
  * 
  */
-  __pyx_tuple__7 = PyTuple_Pack(1, __pyx_kp_s_Invalid_type_or_invalid_number_i); if (unlikely(!__pyx_tuple__7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2064; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__7 = PyTuple_Pack(1, __pyx_kp_s_Invalid_type_or_invalid_number_i); if (unlikely(!__pyx_tuple__7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2065; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__7);
   __Pyx_GIVEREF(__pyx_tuple__7);
 
-  /* "NeticaPy.pyx":2096
+  /* "NeticaPy.pyx":2097
  *                        x.append(self.value[j])
  *                     return index
  *             raise TypeError("Invalid type or invalid number is been passed")             # <<<<<<<<<<<<<<
  * 
  *         def getWithSlice(item):
  */
-  __pyx_tuple__8 = PyTuple_Pack(1, __pyx_kp_s_Invalid_type_or_invalid_number_i); if (unlikely(!__pyx_tuple__8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2096; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__8 = PyTuple_Pack(1, __pyx_kp_s_Invalid_type_or_invalid_number_i); if (unlikely(!__pyx_tuple__8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2097; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__8);
   __Pyx_GIVEREF(__pyx_tuple__8);
 
-  /* "NeticaPy.pyx":2083
+  /* "NeticaPy.pyx":2084
  *         i=0
  * 
  *         def getWithEclipsis(index):             # <<<<<<<<<<<<<<
  *             index+=1
  *             assert index<len(item),"The list slice operator shouldn't end with Ellipsis (...)"
  */
-  __pyx_tuple__9 = PyTuple_Pack(3, __pyx_n_s_index, __pyx_n_s_j, __pyx_n_s_start); if (unlikely(!__pyx_tuple__9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2083; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__9 = PyTuple_Pack(3, __pyx_n_s_index, __pyx_n_s_j, __pyx_n_s_start); if (unlikely(!__pyx_tuple__9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2084; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__9);
   __Pyx_GIVEREF(__pyx_tuple__9);
-  __pyx_codeobj__10 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__9, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_faizal_NeticaPy_NeticaPy_p, __pyx_n_s_getWithEclipsis, 2083, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2083; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__10 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__9, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_faizal_NeticaPy_NeticaPy_p, __pyx_n_s_getWithEclipsis, 2084, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2084; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "NeticaPy.pyx":2098
+  /* "NeticaPy.pyx":2099
  *             raise TypeError("Invalid type or invalid number is been passed")
  * 
  *         def getWithSlice(item):             # <<<<<<<<<<<<<<
  *             start,stop,step=(item.start if not item.start == None else 0,item.stop,item.step if not item.step == None else 1)
  *             assert type(start)==int,"Invalid slice start type"
  */
-  __pyx_tuple__11 = PyTuple_Pack(5, __pyx_n_s_item, __pyx_n_s_start, __pyx_n_s_stop, __pyx_n_s_step, __pyx_n_s_j); if (unlikely(!__pyx_tuple__11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2098; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__11 = PyTuple_Pack(5, __pyx_n_s_item, __pyx_n_s_start, __pyx_n_s_stop, __pyx_n_s_step, __pyx_n_s_j); if (unlikely(!__pyx_tuple__11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2099; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__11);
   __Pyx_GIVEREF(__pyx_tuple__11);
-  __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_faizal_NeticaPy_NeticaPy_p, __pyx_n_s_getWithSlice, 2098, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2098; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_faizal_NeticaPy_NeticaPy_p, __pyx_n_s_getWithSlice, 2099, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2099; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "NeticaPy.pyx":2126
+  /* "NeticaPy.pyx":2127
  *                     i=getWithEclipsis(i)
  *                 else:
  *                     raise TypeError("Invalid type or invalid number is been passed")             # <<<<<<<<<<<<<<
  *         else:
  *             raise TypeError("Invalid type or invalid number is been passed")
  */
-  __pyx_tuple__13 = PyTuple_Pack(1, __pyx_kp_s_Invalid_type_or_invalid_number_i); if (unlikely(!__pyx_tuple__13)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2126; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__13 = PyTuple_Pack(1, __pyx_kp_s_Invalid_type_or_invalid_number_i); if (unlikely(!__pyx_tuple__13)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2127; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__13);
   __Pyx_GIVEREF(__pyx_tuple__13);
 
-  /* "NeticaPy.pyx":2128
+  /* "NeticaPy.pyx":2129
  *                     raise TypeError("Invalid type or invalid number is been passed")
  *         else:
  *             raise TypeError("Invalid type or invalid number is been passed")             # <<<<<<<<<<<<<<
  *         return x
  * 
  */
-  __pyx_tuple__14 = PyTuple_Pack(1, __pyx_kp_s_Invalid_type_or_invalid_number_i); if (unlikely(!__pyx_tuple__14)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2128; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__14 = PyTuple_Pack(1, __pyx_kp_s_Invalid_type_or_invalid_number_i); if (unlikely(!__pyx_tuple__14)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2129; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__14);
   __Pyx_GIVEREF(__pyx_tuple__14);
 
-  /* "NeticaPy.pyx":2158
+  /* "NeticaPy.pyx":2159
  *                        x.append(self.value[j])
  *                     return index
  *             raise TypeError("Invalid type or invalid number is been passed")             # <<<<<<<<<<<<<<
  * 
  *         def getWithSlice(item):
  */
-  __pyx_tuple__15 = PyTuple_Pack(1, __pyx_kp_s_Invalid_type_or_invalid_number_i); if (unlikely(!__pyx_tuple__15)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2158; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__15 = PyTuple_Pack(1, __pyx_kp_s_Invalid_type_or_invalid_number_i); if (unlikely(!__pyx_tuple__15)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2159; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__15);
   __Pyx_GIVEREF(__pyx_tuple__15);
 
-  /* "NeticaPy.pyx":2145
+  /* "NeticaPy.pyx":2146
  *         i=0
  * 
  *         def getWithEclipsis(index):             # <<<<<<<<<<<<<<
  *             index+=1
  *             assert index<len(item),"The list slice operator shouldn't end with Ellipsis (...)"
  */
-  __pyx_tuple__16 = PyTuple_Pack(3, __pyx_n_s_index, __pyx_n_s_j, __pyx_n_s_start); if (unlikely(!__pyx_tuple__16)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2145; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__16 = PyTuple_Pack(3, __pyx_n_s_index, __pyx_n_s_j, __pyx_n_s_start); if (unlikely(!__pyx_tuple__16)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2146; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__16);
   __Pyx_GIVEREF(__pyx_tuple__16);
-  __pyx_codeobj__17 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__16, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_faizal_NeticaPy_NeticaPy_p, __pyx_n_s_getWithEclipsis, 2145, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__17)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2145; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__17 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__16, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_faizal_NeticaPy_NeticaPy_p, __pyx_n_s_getWithEclipsis, 2146, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__17)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2146; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "NeticaPy.pyx":2160
+  /* "NeticaPy.pyx":2161
  *             raise TypeError("Invalid type or invalid number is been passed")
  * 
  *         def getWithSlice(item):             # <<<<<<<<<<<<<<
  *             start,stop,step=(item.start if not item.start == None else 0,item.stop,item.step if not item.step == None else 1)
  *             assert type(start)==int,"Invalid slice start type"
  */
-  __pyx_tuple__18 = PyTuple_Pack(5, __pyx_n_s_item, __pyx_n_s_start, __pyx_n_s_stop, __pyx_n_s_step, __pyx_n_s_j); if (unlikely(!__pyx_tuple__18)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2160; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__18 = PyTuple_Pack(5, __pyx_n_s_item, __pyx_n_s_start, __pyx_n_s_stop, __pyx_n_s_step, __pyx_n_s_j); if (unlikely(!__pyx_tuple__18)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2161; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__18);
   __Pyx_GIVEREF(__pyx_tuple__18);
-  __pyx_codeobj__19 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_faizal_NeticaPy_NeticaPy_p, __pyx_n_s_getWithSlice, 2160, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__19)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2160; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__19 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_faizal_NeticaPy_NeticaPy_p, __pyx_n_s_getWithSlice, 2161, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__19)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2161; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "NeticaPy.pyx":2188
+  /* "NeticaPy.pyx":2189
  *                     i=getWithEclipsis(i)
  *                 else:
  *                     raise TypeError("Invalid type or invalid number is been passed")             # <<<<<<<<<<<<<<
  *         else:
  *             raise TypeError("Invalid type or invalid number is been passed")
  */
-  __pyx_tuple__20 = PyTuple_Pack(1, __pyx_kp_s_Invalid_type_or_invalid_number_i); if (unlikely(!__pyx_tuple__20)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2188; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__20 = PyTuple_Pack(1, __pyx_kp_s_Invalid_type_or_invalid_number_i); if (unlikely(!__pyx_tuple__20)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2189; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__20);
   __Pyx_GIVEREF(__pyx_tuple__20);
 
-  /* "NeticaPy.pyx":2190
+  /* "NeticaPy.pyx":2191
  *                     raise TypeError("Invalid type or invalid number is been passed")
  *         else:
  *             raise TypeError("Invalid type or invalid number is been passed")             # <<<<<<<<<<<<<<
  *         return x
  * 
  */
-  __pyx_tuple__21 = PyTuple_Pack(1, __pyx_kp_s_Invalid_type_or_invalid_number_i); if (unlikely(!__pyx_tuple__21)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2190; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__21 = PyTuple_Pack(1, __pyx_kp_s_Invalid_type_or_invalid_number_i); if (unlikely(!__pyx_tuple__21)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2191; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__21);
   __Pyx_GIVEREF(__pyx_tuple__21);
 
-  /* "NeticaPy.pyx":2220
+  /* "NeticaPy.pyx":2221
  *                        x.append(self.value[j])
  *                     return index
  *             raise TypeError("Invalid type or invalid number is been passed")             # <<<<<<<<<<<<<<
  * 
  *         def getWithSlice(item):
  */
-  __pyx_tuple__22 = PyTuple_Pack(1, __pyx_kp_s_Invalid_type_or_invalid_number_i); if (unlikely(!__pyx_tuple__22)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2220; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__22 = PyTuple_Pack(1, __pyx_kp_s_Invalid_type_or_invalid_number_i); if (unlikely(!__pyx_tuple__22)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2221; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__22);
   __Pyx_GIVEREF(__pyx_tuple__22);
 
-  /* "NeticaPy.pyx":2207
+  /* "NeticaPy.pyx":2208
  *         i=0
  * 
  *         def getWithEclipsis(index):             # <<<<<<<<<<<<<<
  *             index+=1
  *             assert index<len(item),"The list slice operator shouldn't end with Ellipsis (...)"
  */
-  __pyx_tuple__23 = PyTuple_Pack(3, __pyx_n_s_index, __pyx_n_s_j, __pyx_n_s_start); if (unlikely(!__pyx_tuple__23)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2207; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__23 = PyTuple_Pack(3, __pyx_n_s_index, __pyx_n_s_j, __pyx_n_s_start); if (unlikely(!__pyx_tuple__23)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2208; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__23);
   __Pyx_GIVEREF(__pyx_tuple__23);
-  __pyx_codeobj__24 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__23, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_faizal_NeticaPy_NeticaPy_p, __pyx_n_s_getWithEclipsis, 2207, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__24)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2207; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__24 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__23, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_faizal_NeticaPy_NeticaPy_p, __pyx_n_s_getWithEclipsis, 2208, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__24)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2208; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "NeticaPy.pyx":2222
+  /* "NeticaPy.pyx":2223
  *             raise TypeError("Invalid type or invalid number is been passed")
  * 
  *         def getWithSlice(item):             # <<<<<<<<<<<<<<
  *             start,stop,step=(item.start if not item.start == None else 0,item.stop,item.step if not item.step == None else 1)
  *             assert type(start)==int,"Invalid slice start type"
  */
-  __pyx_tuple__25 = PyTuple_Pack(5, __pyx_n_s_item, __pyx_n_s_start, __pyx_n_s_stop, __pyx_n_s_step, __pyx_n_s_j); if (unlikely(!__pyx_tuple__25)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2222; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__25 = PyTuple_Pack(5, __pyx_n_s_item, __pyx_n_s_start, __pyx_n_s_stop, __pyx_n_s_step, __pyx_n_s_j); if (unlikely(!__pyx_tuple__25)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2223; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__25);
   __Pyx_GIVEREF(__pyx_tuple__25);
-  __pyx_codeobj__26 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__25, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_faizal_NeticaPy_NeticaPy_p, __pyx_n_s_getWithSlice, 2222, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__26)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2222; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__26 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__25, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_faizal_NeticaPy_NeticaPy_p, __pyx_n_s_getWithSlice, 2223, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__26)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2223; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "NeticaPy.pyx":2250
+  /* "NeticaPy.pyx":2251
  *                     i=getWithEclipsis(i)
  *                 else:
  *                     raise TypeError("Invalid type or invalid number is been passed")             # <<<<<<<<<<<<<<
  *         else:
  *             raise TypeError("Invalid type or invalid number is been passed")
  */
-  __pyx_tuple__27 = PyTuple_Pack(1, __pyx_kp_s_Invalid_type_or_invalid_number_i); if (unlikely(!__pyx_tuple__27)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2250; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__27 = PyTuple_Pack(1, __pyx_kp_s_Invalid_type_or_invalid_number_i); if (unlikely(!__pyx_tuple__27)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2251; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__27);
   __Pyx_GIVEREF(__pyx_tuple__27);
 
-  /* "NeticaPy.pyx":2252
+  /* "NeticaPy.pyx":2253
  *                     raise TypeError("Invalid type or invalid number is been passed")
  *         else:
  *             raise TypeError("Invalid type or invalid number is been passed")             # <<<<<<<<<<<<<<
  *         return x
  * 
  */
-  __pyx_tuple__28 = PyTuple_Pack(1, __pyx_kp_s_Invalid_type_or_invalid_number_i); if (unlikely(!__pyx_tuple__28)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2252; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__28 = PyTuple_Pack(1, __pyx_kp_s_Invalid_type_or_invalid_number_i); if (unlikely(!__pyx_tuple__28)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2253; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__28);
   __Pyx_GIVEREF(__pyx_tuple__28);
   __Pyx_RefNannyFinishContext();
@@ -35529,86 +35327,78 @@ PyMODINIT_FUNC PyInit_NeticaPy(void)
   __pyx_type_8NeticaPy_Report.tp_print = 0;
   if (PyObject_SetAttrString(__pyx_m, "Report", (PyObject *)&__pyx_type_8NeticaPy_Report) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1965; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_8NeticaPy_Report = &__pyx_type_8NeticaPy_Report;
-  if (PyType_Ready(&__pyx_type_8NeticaPy_ErrSeverity) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1968; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_type_8NeticaPy_ErrSeverity.tp_print = 0;
-  if (PyObject_SetAttrString(__pyx_m, "ErrSeverity", (PyObject *)&__pyx_type_8NeticaPy_ErrSeverity) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1968; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_ptype_8NeticaPy_ErrSeverity = &__pyx_type_8NeticaPy_ErrSeverity;
-  if (PyType_Ready(&__pyx_type_8NeticaPy_ErrorCondition) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1971; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_type_8NeticaPy_ErrorCondition.tp_print = 0;
-  if (PyObject_SetAttrString(__pyx_m, "ErrorCondition", (PyObject *)&__pyx_type_8NeticaPy_ErrorCondition) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1971; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_ptype_8NeticaPy_ErrorCondition = &__pyx_type_8NeticaPy_ErrorCondition;
-  if (PyType_Ready(&__pyx_type_8NeticaPy_Stream) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1974; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_8NeticaPy_Stream) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1975; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_8NeticaPy_Stream.tp_print = 0;
-  if (PyObject_SetAttrString(__pyx_m, "Stream", (PyObject *)&__pyx_type_8NeticaPy_Stream) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1974; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyObject_SetAttrString(__pyx_m, "Stream", (PyObject *)&__pyx_type_8NeticaPy_Stream) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1975; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_8NeticaPy_Stream = &__pyx_type_8NeticaPy_Stream;
-  if (PyType_Ready(&__pyx_type_8NeticaPy_NodeList) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1977; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_8NeticaPy_NodeList) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1978; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_8NeticaPy_NodeList.tp_print = 0;
-  if (PyObject_SetAttrString(__pyx_m, "NodeList", (PyObject *)&__pyx_type_8NeticaPy_NodeList) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1977; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyObject_SetAttrString(__pyx_m, "NodeList", (PyObject *)&__pyx_type_8NeticaPy_NodeList) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1978; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_8NeticaPy_NodeList = &__pyx_type_8NeticaPy_NodeList;
   __pyx_vtabptr_8NeticaPy_NewNet = &__pyx_vtable_8NeticaPy_NewNet;
   __pyx_vtable_8NeticaPy_NewNet.run = (PyObject *(*)(struct __pyx_obj_8NeticaPy_NewNet *, char *, struct __pyx_obj_8NeticaPy_Netica *, int __pyx_skip_dispatch))__pyx_f_8NeticaPy_6NewNet_run;
-  if (PyType_Ready(&__pyx_type_8NeticaPy_NewNet) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1980; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_8NeticaPy_NewNet) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1981; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_8NeticaPy_NewNet.tp_print = 0;
-  if (__Pyx_SetVtable(__pyx_type_8NeticaPy_NewNet.tp_dict, __pyx_vtabptr_8NeticaPy_NewNet) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1980; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (PyObject_SetAttrString(__pyx_m, "NewNet", (PyObject *)&__pyx_type_8NeticaPy_NewNet) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1980; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (__Pyx_SetVtable(__pyx_type_8NeticaPy_NewNet.tp_dict, __pyx_vtabptr_8NeticaPy_NewNet) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1981; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyObject_SetAttrString(__pyx_m, "NewNet", (PyObject *)&__pyx_type_8NeticaPy_NewNet) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1981; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_8NeticaPy_NewNet = &__pyx_type_8NeticaPy_NewNet;
   __pyx_vtabptr_8NeticaPy_NewNode = &__pyx_vtable_8NeticaPy_NewNode;
   __pyx_vtable_8NeticaPy_NewNode.run = (PyObject *(*)(struct __pyx_obj_8NeticaPy_NewNode *, char *, int, struct __pyx_obj_8NeticaPy_NewNet *, int __pyx_skip_dispatch))__pyx_f_8NeticaPy_7NewNode_run;
-  if (PyType_Ready(&__pyx_type_8NeticaPy_NewNode) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1988; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_8NeticaPy_NewNode) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1989; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_8NeticaPy_NewNode.tp_print = 0;
-  if (__Pyx_SetVtable(__pyx_type_8NeticaPy_NewNode.tp_dict, __pyx_vtabptr_8NeticaPy_NewNode) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1988; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (PyObject_SetAttrString(__pyx_m, "NewNode", (PyObject *)&__pyx_type_8NeticaPy_NewNode) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1988; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (__Pyx_SetVtable(__pyx_type_8NeticaPy_NewNode.tp_dict, __pyx_vtabptr_8NeticaPy_NewNode) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1989; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyObject_SetAttrString(__pyx_m, "NewNode", (PyObject *)&__pyx_type_8NeticaPy_NewNode) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1989; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_8NeticaPy_NewNode = &__pyx_type_8NeticaPy_NewNode;
-  if (PyType_Ready(&__pyx_type_8NeticaPy_RandGen) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1993; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_8NeticaPy_RandGen) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1994; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_8NeticaPy_RandGen.tp_print = 0;
-  if (PyObject_SetAttrString(__pyx_m, "RandGen", (PyObject *)&__pyx_type_8NeticaPy_RandGen) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1993; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyObject_SetAttrString(__pyx_m, "RandGen", (PyObject *)&__pyx_type_8NeticaPy_RandGen) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1994; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_8NeticaPy_RandGen = &__pyx_type_8NeticaPy_RandGen;
-  if (PyType_Ready(&__pyx_type_8NeticaPy_SenSV) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1996; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_8NeticaPy_SenSV) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1997; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_8NeticaPy_SenSV.tp_print = 0;
-  if (PyObject_SetAttrString(__pyx_m, "SenSV", (PyObject *)&__pyx_type_8NeticaPy_SenSV) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1996; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyObject_SetAttrString(__pyx_m, "SenSV", (PyObject *)&__pyx_type_8NeticaPy_SenSV) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1997; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_8NeticaPy_SenSV = &__pyx_type_8NeticaPy_SenSV;
-  if (PyType_Ready(&__pyx_type_8NeticaPy_Learner) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1999; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_8NeticaPy_Learner) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2000; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_8NeticaPy_Learner.tp_print = 0;
-  if (PyObject_SetAttrString(__pyx_m, "Learner", (PyObject *)&__pyx_type_8NeticaPy_Learner) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1999; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyObject_SetAttrString(__pyx_m, "Learner", (PyObject *)&__pyx_type_8NeticaPy_Learner) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2000; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_8NeticaPy_Learner = &__pyx_type_8NeticaPy_Learner;
-  if (PyType_Ready(&__pyx_type_8NeticaPy_CaseSet) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2002; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_8NeticaPy_CaseSet) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2003; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_8NeticaPy_CaseSet.tp_print = 0;
-  if (PyObject_SetAttrString(__pyx_m, "CaseSet", (PyObject *)&__pyx_type_8NeticaPy_CaseSet) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2002; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyObject_SetAttrString(__pyx_m, "CaseSet", (PyObject *)&__pyx_type_8NeticaPy_CaseSet) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2003; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_8NeticaPy_CaseSet = &__pyx_type_8NeticaPy_CaseSet;
-  if (PyType_Ready(&__pyx_type_8NeticaPy_Tester) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2005; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_8NeticaPy_Tester) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2006; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_8NeticaPy_Tester.tp_print = 0;
-  if (PyObject_SetAttrString(__pyx_m, "Tester", (PyObject *)&__pyx_type_8NeticaPy_Tester) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2005; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyObject_SetAttrString(__pyx_m, "Tester", (PyObject *)&__pyx_type_8NeticaPy_Tester) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2006; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_8NeticaPy_Tester = &__pyx_type_8NeticaPy_Tester;
-  if (PyType_Ready(&__pyx_type_8NeticaPy_DBmgr) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2008; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_8NeticaPy_DBmgr) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2009; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_8NeticaPy_DBmgr.tp_print = 0;
-  if (PyObject_SetAttrString(__pyx_m, "DBmgr", (PyObject *)&__pyx_type_8NeticaPy_DBmgr) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2008; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyObject_SetAttrString(__pyx_m, "DBmgr", (PyObject *)&__pyx_type_8NeticaPy_DBmgr) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2009; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_8NeticaPy_DBmgr = &__pyx_type_8NeticaPy_DBmgr;
-  if (PyType_Ready(&__pyx_type_8NeticaPy_IntList) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2011; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_8NeticaPy_IntList) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2012; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_8NeticaPy_IntList.tp_print = 0;
-  if (PyObject_SetAttrString(__pyx_m, "IntList", (PyObject *)&__pyx_type_8NeticaPy_IntList) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2011; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyObject_SetAttrString(__pyx_m, "IntList", (PyObject *)&__pyx_type_8NeticaPy_IntList) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2012; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_8NeticaPy_IntList = &__pyx_type_8NeticaPy_IntList;
-  if (PyType_Ready(&__pyx_type_8NeticaPy_FloatList) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2075; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_8NeticaPy_FloatList) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2076; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_8NeticaPy_FloatList.tp_print = 0;
-  if (PyObject_SetAttrString(__pyx_m, "FloatList", (PyObject *)&__pyx_type_8NeticaPy_FloatList) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2075; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyObject_SetAttrString(__pyx_m, "FloatList", (PyObject *)&__pyx_type_8NeticaPy_FloatList) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2076; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_8NeticaPy_FloatList = &__pyx_type_8NeticaPy_FloatList;
-  if (PyType_Ready(&__pyx_type_8NeticaPy_DoubleList) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2137; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_8NeticaPy_DoubleList) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2138; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_8NeticaPy_DoubleList.tp_print = 0;
-  if (PyObject_SetAttrString(__pyx_m, "DoubleList", (PyObject *)&__pyx_type_8NeticaPy_DoubleList) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2137; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyObject_SetAttrString(__pyx_m, "DoubleList", (PyObject *)&__pyx_type_8NeticaPy_DoubleList) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2138; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_8NeticaPy_DoubleList = &__pyx_type_8NeticaPy_DoubleList;
-  if (PyType_Ready(&__pyx_type_8NeticaPy_LongList) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2199; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_8NeticaPy_LongList) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2200; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_8NeticaPy_LongList.tp_print = 0;
-  if (PyObject_SetAttrString(__pyx_m, "LongList", (PyObject *)&__pyx_type_8NeticaPy_LongList) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2199; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyObject_SetAttrString(__pyx_m, "LongList", (PyObject *)&__pyx_type_8NeticaPy_LongList) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2200; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_8NeticaPy_LongList = &__pyx_type_8NeticaPy_LongList;
-  if (PyType_Ready(&__pyx_type_8NeticaPy___pyx_scope_struct____getitem__) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2013; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_8NeticaPy___pyx_scope_struct____getitem__) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2014; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_8NeticaPy___pyx_scope_struct____getitem__.tp_print = 0;
   __pyx_ptype_8NeticaPy___pyx_scope_struct____getitem__ = &__pyx_type_8NeticaPy___pyx_scope_struct____getitem__;
-  if (PyType_Ready(&__pyx_type_8NeticaPy___pyx_scope_struct_1___getitem__) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2077; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_8NeticaPy___pyx_scope_struct_1___getitem__) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2078; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_8NeticaPy___pyx_scope_struct_1___getitem__.tp_print = 0;
   __pyx_ptype_8NeticaPy___pyx_scope_struct_1___getitem__ = &__pyx_type_8NeticaPy___pyx_scope_struct_1___getitem__;
-  if (PyType_Ready(&__pyx_type_8NeticaPy___pyx_scope_struct_2___getitem__) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2139; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_8NeticaPy___pyx_scope_struct_2___getitem__) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2140; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_8NeticaPy___pyx_scope_struct_2___getitem__.tp_print = 0;
   __pyx_ptype_8NeticaPy___pyx_scope_struct_2___getitem__ = &__pyx_type_8NeticaPy___pyx_scope_struct_2___getitem__;
-  if (PyType_Ready(&__pyx_type_8NeticaPy___pyx_scope_struct_3___getitem__) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2201; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_8NeticaPy___pyx_scope_struct_3___getitem__) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 2202; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_8NeticaPy___pyx_scope_struct_3___getitem__.tp_print = 0;
   __pyx_ptype_8NeticaPy___pyx_scope_struct_3___getitem__ = &__pyx_type_8NeticaPy___pyx_scope_struct_3___getitem__;
   /*--- Type import code ---*/
