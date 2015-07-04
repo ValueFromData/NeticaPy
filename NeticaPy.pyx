@@ -1115,9 +1115,14 @@ cdef class Netica:
     def SetNodeComment_bn (self,NewNode node,char* comment):
         SetNodeComment_bn (node.value, comment)
 
-    def SetNodeLevels_bn (self,NewNode node, int num_states, level_bn levels):
-        SetNodeLevels_bn (node.value,num_states, &levels)
-        return levels
+    def SetNodeLevels_bn (self,NewNode node, int num_states,list _levels):
+        cdef level_bn* levels
+        cdef int i
+        levels = <level_bn *>malloc(len(_levels)*cython.sizeof(level_bn))
+        for i in range(len(_levels)):
+            levels[i]=_levels[i]
+        SetNodeLevels_bn (node.value,num_states, levels)
+
 
     def SetNodeKind_bn (self,NewNode node, nodekind_bn kind):
         SetNodeKind_bn (node.value, kind)
@@ -1878,6 +1883,15 @@ cdef class Netica:
     
 
 ####################################################################
+    def GetUndefDbl_ns(self):
+        cdef double res
+        res = GetUndefDbl_ns()
+        return res
+    def GetInfinityDbl_ns(self):
+        cdef double res
+        res = GetInfinityDbl_ns()
+        return res
+    
     def SetNodeFuncState (self,NewNode node, state_bn value, *arg):
         cdef node_bn* curNode
         cdef char* statename
@@ -1971,13 +1985,6 @@ cdef class UserData:
 cdef class Report:
     cdef report_ns* value
 
-#####
-#cdef class ErrSeverity:
-#    cdef errseverity_ns value
-
-#cdef class ErrorCondition:
-#    cdef errcond_ns value
-#####
 cdef class Stream:
     cdef stream_ns* value
 
@@ -2272,5 +2279,3 @@ cdef int callback (net_bn* net, eventtype_ns what, void* obj, void* info):
 
 cdef int callbackNULL (net_bn* net, eventtype_ns what, void* obj, void* info):
     pass
-
-   
