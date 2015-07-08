@@ -1,0 +1,100 @@
+
+<HTML>
+<HEAD>
+<TITLE>Netica(TM) API Programmer's Reference Manual; API Funtion: ReadNetFindings2_bn</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/rightFrame.css" TITLE="Style">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="COPYRIGHT" CONTENT="&copy; 2012 Norsys Software Corp.">
+<SCRIPT language="javascript" type="text/javascript" >
+function loader1() {
+
+if (window.top) { //catch inf. loops
+  if (window.top.document.location.href.indexOf( '?loadPg=' ) >= 0 ) return;
+  if (window.top.frames.length >= 2) return;
+}
+  
+var url  = document.location.href;
+var pos  = url.lastIndexOf( '/' );
+var pos1 = pos - 10;
+var main = url.substring( 0, pos1 );
+var fn   = url.substring( pos + 1 );
+
+var newHref = main + "/index.html?loadPg=" + fn;
+document.location.href = newHref;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY topmargin=6 marginheight=6 onload="loader1()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="../images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<!-- <span CLASS=fnNameHeader>ReadNetFindings2_bn</span> -->
+<p><div CLASS=PT><table CLASS=PT><tr VALIGN="top"> <td NOWRAP class=name><span CLASS=PTFntype>void</span><span CLASS=PTFnName>&nbsp;ReadNetFindings2_bn</span>&nbsp;(</td> <td class=paramList><span CLASS=nonbreaking><span CLASS=PTParamType>caseposn_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>case_posn</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>stream_ns*</span>&nbsp;&nbsp;<span CLASS=PTParamName>file</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>bool_ns*</span>&nbsp;&nbsp;<span CLASS=PTParamName>add</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;nodelist_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>nodes</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>long*</span>&nbsp;&nbsp;<span CLASS=PTParamName>ID_num</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>double*</span>&nbsp;&nbsp;<span CLASS=PTParamName>freq</span></span>&nbsp;)</td></tr></table></div>
+<p><div CLASS=desc><p>Reads a set of findings (i.e., a case) from a file containing one or more cases.
+<p>The case file is an ascii text file with each case on one row, and the first row being the list of nodes as column headings.  Each entry is separated by a comma, space or tab.  Such a format is quite common; it can be produced by a spreadsheet program like Excel, or by the Netica function <a href="WriteNetFindings_bn.html">WriteNetFindings_bn</a>.
+<p>It only reads findings into the nodes listed in <span CLASS="paramNm">nodes</span>.  Other nodes in the net will not have any new findings entered or retracted, even if findings for them appear in the file.  All the nodes of <span CLASS="paramNm">nodes</span> must be from the same net.  If nodes is <span CLASS="reservedWord">NULL</span>, it means to operate on all the nodes mentioned in the file.  It is okay if <span CLASS="paramNm">nodes</span> contains some nodes not mentioned in the file.  If <span CLASS="paramNm">nodes</span> is empty, no new findings will be entered.
+<p>If <span CLASS="paramNm">add</span> is <span CLASS="reservedWord">FALSE</span>, then it will first retract findings for all the nodes in <span CLASS="paramNm">nodes</span>.  If <span CLASS="paramNm">add</span> is <span CLASS="reservedWord">TRUE</span>, then it will add these findings to the existing findings for the nodes in <span CLASS="paramNm">nodes</span>.  In either case, it will generate errors if the new findings are inconsistent with any remaining findings in the net.
+<p>In general it reads from <span CLASS="paramNm">file</span> the case at *<span CLASS="paramNm">case_posn</span>, or if *<span CLASS="paramNm">case_posn</span> is <span CLASS="constantNm">NEXT_CASE</span> it reads the next case after the last one read from <span CLASS="paramNm">file</span>, and sets *<span CLASS="paramNm">case_posn</span> to the position of the case it just read.  In detail:
+<p>
+
+<table CLASS="body">
+<tr><td>&nbsp;&nbsp;</td><td><u>Called with:</u></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top"><u>File condition:</u></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top"><u>Action taken:</u></td></tr>
+<tr><td>&nbsp;&nbsp;</td><td></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top"></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top"></td></tr>
+<tr><td>&nbsp;&nbsp;</td><td>case_posn = <span CLASS="reservedWord">NULL</span></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">- file has no cases</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">generates error</td></tr>
+<tr><td>&nbsp;&nbsp;</td><td></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">- file has 1 or more cases</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">reads first case</td></tr>
+<tr><td>&nbsp;&nbsp;</td><td></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top"></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top"></td></tr>
+<tr><td>&nbsp;&nbsp;</td><td>*case_posn = <span CLASS="constantNm">FIRST_CASE</span></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">- file has no cases</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">returns with *case_posn = <span CLASS="constantNm">NO_MORE_CASES</span></td></tr>
+<tr><td>&nbsp;&nbsp;</td><td></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">- otherwise</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">reads first case <amp/> sets *case_posn to it</td></tr>
+<tr><td>&nbsp;&nbsp;</td><td></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top"></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top"></td></tr>
+<tr><td>&nbsp;&nbsp;</td><td>*case_posn = <span CLASS="constantNm">NEXT_CASE</span></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">- all cases read</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">returns with *case_posn = <span CLASS="constantNm">NO_MORE_CASES</span></td></tr>
+<tr><td>&nbsp;&nbsp;</td><td></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">- otherwise</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">reads next case <amp/> sets *case_posn to it</td></tr>
+<tr><td>&nbsp;&nbsp;</td><td></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top"></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top"></td></tr>
+<tr><td>&nbsp;&nbsp;</td><td>*case_posn = <span CLASS="constantNm">NO_MORE_CASES</span></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top"></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">generates error</td></tr>
+<tr><td>&nbsp;&nbsp;</td><td></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top"></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top"></td></tr>
+<tr><td>&nbsp;&nbsp;</td><td></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top"></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top"></td></tr>
+<tr><td>&nbsp;&nbsp;</td><td>*case_posn = case</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">- indicated case is in file</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">reads indicated case</td></tr>
+<tr><td>&nbsp;&nbsp;</td><td></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">- indicated case isn't in file</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">generates error</td></tr>
+</table>
+
+<p>Make sure *<span CLASS="paramNm">case_posn</span> is initialized on entry.  If you want to read cases by random access, *<span CLASS="paramNm">case_posn</span> should be set to a value previously returned by <a href="WriteNetFindings_bn.html">WriteNetFindings_bn</a> or ReadNetFindings2_bn (not the case <span CLASS="paramNm">ID_num</span>).
+<p>When reading multiple sequential cases from the same file using <span CLASS="constantNm">NEXT_CASE</span>, the <span CLASS="classType">stream_ns</span> structure keeps track of the current file position.  So different parts of your program, or different threads, can read from the same file in an interleaved way without interference, provided they each have their own <span CLASS="classType">stream_ns</span>.  But each sequential series of reads must use a single <span CLASS="classType">stream_ns</span> (so the example below wouldn't work if the ReadNetFindings2_bn call was replaced with:   ReadNetFindings2_bn (..., <a href="NewFileStream_ns.html">NewFileStream_ns</a> (filename, env), ...);  because that would make a new <span CLASS="classType">stream_ns</span> each time it was called).
+<p>If <span CLASS="paramNm">ID_num</span> is non-<span CLASS="reservedWord">NULL</span>, then on return *<span CLASS="paramNm">ID_num</span> will be set to the ID number of the case, or -1 if it doesn't have one.  If <span CLASS="paramNm">freq</span> is non-<span CLASS="reservedWord">NULL</span>, then on return *<span CLASS="paramNm">freq</span> will be set to the frequency (i.e., multiplicity) of the case stored with that case, or 1.0 if it doesn't have one.
+<p>This function doesn't modify or free the <span CLASS="paramNm">nodes</span> list passed to it.</div>
+<p><span CLASS=sectionNm>Version:</span><div CLASS=version>This function is available in all versions.<br>In versions previous to 2.26, this function was named <b>ReadCase_bn</b>.<br>In versions previous to 4.15, this function was named <b>ReadNetFindings_bn</b> and did not have the <span CLASS="paramNm">add</span> parameter.<passageIndent2/><p></div>
+<p><span CLASS=sectionNm>See also:</span><div CLASS=see_also><table CLASS="seeAlso"><tr><td VALIGN="top"><a href="WriteNetFindings_bn.html">WriteNetFindings_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Save it so that <a href="ReadNetFindings2_bn.html">ReadNetFindings2_bn</a> can read it back</td></tr><tr><td VALIGN="top"><a href="RetractNetFindings_bn.html">RetractNetFindings_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">You may want to call this before reading a case</td></tr><tr><td VALIGN="top"><a href="GetNetNodes_bn.html">GetNetNodes_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Usually use this for the nodes argument</td></tr><tr><td VALIGN="top"><a href="NewFileStream_ns.html">NewFileStream_ns</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">To create the <span CLASS="classType">stream_ns</span> for the file argument</td></tr></table></div>
+<p><span CLASS=sectionNm>Example:</span><pre CLASS=example>
+// Usage of ReadNetFindings2_bn usually follows a pattern like that below.
+// 
+// This example is meant as a template for functions that scan through 
+// a case file.
+//
+stream_ns* casefile = NewFileStream_ns (filename, env, NULL); // create fresh local stream_ns
+const nodelist_bn* all_nodes = GetNetNodes_bn (net);
+caseposn_bn caseposn = FIRST_CASE;
+while(1){
+    ReadNetFindings2_bn (<amp/>caseposn, casefile, false, all_nodes, NULL, NULL);
+    if (caseposn == NO_MORE_CASES)  break;
+    if (GetError_ns (env, ERROR_ERR, NULL))  break;
+    //  ... do stuff with the case now entered ...
+    caseposn = NEXT_CASE;                           // set it back to NEXT_CASE each time
+}
+DeleteStream_ns (casefile);</pre><span CLASS=sectionNm>Example 2:</span><pre CLASS=example>
+// Save findings:
+const nodelist_bn* nodes = GetNetNodes2_bn (net,0);
+WriteNetFindings_bn (NewFileStream_ns ("C:&#092;&#092;MyWork&#092;&#092;t.cas"), nodes, -1, -1);
+//...
+// Later, read them back in:  (or read from any case file)
+RetractNetFindings_bn (net);
+ReadNetFindings2_bn (NULL, NewFileStream_ns ("C:&#092;&#092;MyWork&#092;&#092;t.cas"), false, nodes, NULL, NULL);
+</pre></div>
+</BODY>
+</HTML>

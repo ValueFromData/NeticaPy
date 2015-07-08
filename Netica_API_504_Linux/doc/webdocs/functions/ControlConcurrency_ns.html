@@ -1,0 +1,58 @@
+
+<HTML>
+<HEAD>
+<TITLE>Netica(TM) API Programmer's Reference Manual; API Funtion: ControlConcurrency_ns</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/rightFrame.css" TITLE="Style">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="COPYRIGHT" CONTENT="&copy; 2012 Norsys Software Corp.">
+<SCRIPT language="javascript" type="text/javascript" >
+function loader1() {
+
+if (window.top) { //catch inf. loops
+  if (window.top.document.location.href.indexOf( '?loadPg=' ) >= 0 ) return;
+  if (window.top.frames.length >= 2) return;
+}
+  
+var url  = document.location.href;
+var pos  = url.lastIndexOf( '/' );
+var pos1 = pos - 10;
+var main = url.substring( 0, pos1 );
+var fn   = url.substring( pos + 1 );
+
+var newHref = main + "/index.html?loadPg=" + fn;
+document.location.href = newHref;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY topmargin=6 marginheight=6 onload="loader1()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="../images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<!-- <span CLASS=fnNameHeader>ControlConcurrency_ns</span> -->
+<p><div CLASS=PT><table CLASS=PT><tr VALIGN="top"> <td NOWRAP class=name><span CLASS=PTFntype>const&nbsp;char*</span><span CLASS=PTFnName>&nbsp;ControlConcurrency_ns</span>&nbsp;(</td> <td class=paramList><span CLASS=nonbreaking><span CLASS=PTParamType>environ_ns*</span>&nbsp;&nbsp;<span CLASS=PTParamName>env</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;char*</span>&nbsp;&nbsp;<span CLASS=PTParamName>command</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;char*</span>&nbsp;&nbsp;<span CLASS=PTParamName>value</span></span>&nbsp;)</td></tr></table></div>
+<p><div CLASS=desc><p>This function is used to control how Netica operates in multi-threaded environments.
+<p>You can call it repeatedly with different values of <span CLASS="paramNm">command</span> and <span CLASS="paramNm">value</span> to make several settings.
+<p>If <span CLASS="paramNm">command</span> is the string "ExternalThreads", then <span CLASS="paramNm">value</span> may be one of: 
+<table CLASS="body">
+<tr><td VALIGN="top">Serialize</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">All calls to Netica functions are serialized by blocking at the entrance to API functions, and waiting until all other Netica API functions are completed before proceeding.  This will result in correct behaviour under all multi-threading environments, but may result in delays for some of your threads if other of your threads are requesting time-consuming operations.</td></tr>
+<tr><td VALIGN="top">OptimizeSafely</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Netica will do thread synchronization/waiting so that only one thread can operate on a Bayes net at a time, but different threads can operate on different Bayes nets independently, without any waiting.</td></tr>
+<tr><td VALIGN="top">CallerGuaranteesSafety</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Netica does not do any thread synchronization or waiting, which means that you must manage that (which can result in failure if not done right).  Only use this in a single-threaded environment (or only one thread with access to Netica), or with consultation from Norsys.</td></tr>
+<tr><td VALIGN="top"></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top"></td></tr>
+</table>The default value for ExternalThreads is OptimizeSafely.  In versions previous to 5.02 the default was Serialize.
+<p>Other commands/values will soon be available.
+
+</div>
+<p><span CLASS=sectionNm>Version:</span><div CLASS=version>Versions 5.02 and greater have this function.<passageIndent2/><p></div>
+<p><span CLASS=sectionNm>See also:</span><div CLASS=see_also><table CLASS="seeAlso"><tr><td VALIGN="top"><a href="NewRandomGenerator_ns.html">NewRandomGenerator_ns</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">In multi-thread environments, can be used to make software deterministic, by having a separate random generator for each thread</td></tr><tr><td VALIGN="top"><a href="LimitMemoryUsage_ns.html">LimitMemoryUsage_ns</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">May want to allocate more memory in a multi-threaded environment</td></tr></table></div>
+<p></div>
+</BODY>
+</HTML>

@@ -1,0 +1,87 @@
+
+<HTML>
+<HEAD>
+<TITLE>Netica(TM) API Programmer's Reference Manual; API Funtion: NewDBManager_cs</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/rightFrame.css" TITLE="Style">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="COPYRIGHT" CONTENT="&copy; 2012 Norsys Software Corp.">
+<SCRIPT language="javascript" type="text/javascript" >
+function loader1() {
+
+if (window.top) { //catch inf. loops
+  if (window.top.document.location.href.indexOf( '?loadPg=' ) >= 0 ) return;
+  if (window.top.frames.length >= 2) return;
+}
+  
+var url  = document.location.href;
+var pos  = url.lastIndexOf( '/' );
+var pos1 = pos - 10;
+var main = url.substring( 0, pos1 );
+var fn   = url.substring( pos + 1 );
+
+var newHref = main + "/index.html?loadPg=" + fn;
+document.location.href = newHref;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY topmargin=6 marginheight=6 onload="loader1()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="../images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<!-- <span CLASS=fnNameHeader>NewDBManager_cs</span> -->
+<p><div CLASS=PT><table CLASS=PT><tr VALIGN="top"> <td NOWRAP class=name><span CLASS=PTFntype>dbmgr_cs*</span><span CLASS=PTFnName>&nbsp;NewDBManager_cs</span>&nbsp;(</td> <td class=paramList><span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;char*</span>&nbsp;&nbsp;<span CLASS=PTParamName>connect_str</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;char*</span>&nbsp;&nbsp;<span CLASS=PTParamName>options</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>environ_ns*</span>&nbsp;&nbsp;<span CLASS=PTParamName>env</span></span>&nbsp;)</td></tr></table></div>
+<p><div CLASS=desc><p>Creates and returns a new <span CLASS="classType">dbmgr_cs</span> object, which manages all interaction with a database.  The database must be ODBC compliant.
+<p><b>Note.</b> This function is currently only available for Netica running on Microsoft Windows.  For support on other platforms, please contact Norsys.
+<p><b><u>Connection String</u></b>
+<p>The <span CLASS="paramNm">connect_str</span> defines an ODBC data source that this database manager will communicate with.  The <span CLASS="paramNm">connect_str</span> is the standard ODBC resource definition string passed directly to the standard <b>SQLDriverConnect</b> ODBC command.  The general syntactic form of a connection string is "param=value;param=value;...", where 'param' is not case sensitive.  Here are some sample connection strings for some common types of database configuration:
+
+<table CLASS="body" BORDER=1 BORDERCOLORLIGHT="black" CELLSPACING=0 CELLPADDING=4>
+<tr><td VALIGN="top"><b>Data Source</b></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top"><b>Connection String</b></td></tr>
+<tr><td VALIGN="top">A Microsoft Access database located on your hard disk at C:&#092;MyProjectDir&#092;myAccessDB.mdb</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">"driver={Microsoft Access Driver (*.mdb)};<br>dbq=C:&#092;&#092;MyProjectDir&#092;&#092;myAccessDB.mdb;<br>UID=myUserAccount;PWD=myPassword"</td></tr>
+<tr><td VALIGN="top">A Microsoft Excel spreadsheet located on your hard disk at C:&#092;MyProjectDir&#092;myData.xls</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">"driver={Microsoft Excel Driver (*.xls)};<br>dbq=C:&#092;&#092;MyProjectDir&#092;&#092;myData.xls"</td></tr>
+<tr><td VALIGN="top">An arbitrary data source named "myDataSource" that is registered with the Windows ODBC Data Source Administrator<sup>1</sup></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">"DSN=myDataSource;UID=myUserAccount;PWD=myPassword"</td></tr>
+<tr><td VALIGN="top">An ORACLE 8i data server running locally with database name "OraInstanceName" </td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">"DRIVER={Microsoft ODBC for Oracle};<br>SERVER=OraInstanceName;<br>UID=OraUser;PWD=OraPswd;"</td></tr>
+<tr><td VALIGN="top">A MySQL database called "myDB" running on a machine whose domain name address is "db1.abc.com" communicating via port 5432</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">"Driver={MySQL};Server=db1.abc.com;<br>Port=5432;Option=131072;Stmt=;Database=myDB;<br>Uid=myUsername;Pwd=myPassword"</td></tr>
+<tr><td VALIGN="top">A Microsoft SQL Server database called "myDB" running on a machine called "DB_server" on your Microsoft Network LAN</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">"Driver={SQL Server};Server=DB_server;DataBase=myDB"</td></tr>
+<tr><td VALIGN="top">A text file<sup>2</sup> located on your hard disk at C:&#092;MyProjectDir&#092;myFile.csv</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">"Driver={Microsoft Text Driver (*.txt; *.csv)};<br>Dbq=C:&#092;MyProjectDir&#092;;Extensions=asc,csv,tab,txt"</td></tr>
+</table>
+<table CLASS="body" BORDER=1 BORDERCOLORLIGHT="black" CELLSPACING=0 CELLPADDING=4>
+<tr><td VALIGN="top"><sup>1</sup> To access the Windows ODBC Data Source Administrator, from the Start menu, select "Settings" then "Control Panel".  Then for Windows 2000/XP, double-click on "Administrative Tools" and then "Data Sources (ODBC)", and for Windows 95/98/NT, double-click on "ODBC Sources".</td></tr>
+</table>
+<table CLASS="body" BORDER=1 BORDERCOLORLIGHT="black" CELLSPACING=0 CELLPADDING=4>
+<tr><td VALIGN="top"><sup>2</sup> For text files, your SQL statements must use the file name as the TABLE name. For example: "SELECT * FROM myFile.csv".  Furthermore, the first line of the text file is assumed to give the COLUMN names.  If you prefer other options than these, then use the Windows ODBC Data Source Administrator<sup>1</sup> which has an excellent wizard for text-file databases.</td></tr>
+</table>
+
+<p>If the database does not have user accounts, then you do not need to specify a UID and PWD.
+<p>There are a great many parameters that can be specified within <span CLASS="paramNm">connect_str</span>.  Some are generic and apply to all database vendors, like "DSN" and "UID", while others are vendor specific.  See your database vendor's documentation and the documentation for <b>SQLDriverConnect</b> to see what other parameters may be available. A good on-line source of documentation for ODBC is available at http://www.microsoft.com/data/odbc/.  
+<p><b>Hint:</b> If you are having difficulty getting your connection string to work, then use the Windows ODBC Data Source Administrator to connect to the database, give it a data source name (DSN), "myName", and then use "DSN=myName" as the simplified connection string.  The Administrator has powerful wizards to facilitate both finding the database and defining precisely how you wish to access it.
+<p><b>WARNING:</b> Because the connection string may contain a UserID and Password to your database, it represents a security risk.  You may want to take extra precautions by securing your source code, dynamically fetching the password from the user, or asking your database administrator to place extra restrictions on the database user account.
+<p><b><u>Connection Pooling</u></b>
+<p>The ODBC 3.0 standard allows for the caching of database connections, also known as "connection pooling".  Every ODBC call involves requesting a connection and releasing it when done.  
+Making a connection is expensive and can often take longer than an actual query to the database.  For this reason, you will typically want to enable connection pooling so that your connections are opened only once, and thereafter are taken from and released back to the pool, rather than being really fully initialized and released with each ODBC call.  You may wish to disable connection pooling if there are only a limited number of connections available and your process must be a good citizen and share its database connectivity with other processes.
+<p>Pass "pooling" for <span CLASS="paramNm">options</span> to enable connection pooling.  Pass "no_pooling" to disable it.  Other control parameters may be added in future.
+<p>Connections in the pool may expire after a time.  Adjustments to this time limit and to other properties of the connection pool can be made sometimes via the connection string (see above), and sometimes via the ODBC Data Source Administrator control panel, depending on the ODBC driver that is available.
+<p>When the <span CLASS="classType">dbmgr_cs</span> object is deleted (see <a href="DeleteDBManager_cs.html">DeleteDBManager_cs</a>), any connections it may have are released.</div>
+<p><span CLASS=sectionNm>Version:</span><div CLASS=version>Versions 2.26 and later have this function.<passageIndent2/><p></div>
+<p><span CLASS=sectionNm>See also:</span><div CLASS=see_also><table CLASS="seeAlso"><tr><td VALIGN="top"><a href="DeleteDBManager_cs.html">DeleteDBManager_cs</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Discard the database manager</td></tr><tr><td VALIGN="top"><a href="ExecuteDBSql_cs.html">ExecuteDBSql_cs</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Execute an arbitrary SQL command</td></tr><tr><td VALIGN="top"><a href="InsertFindingsIntoDB_bn.html">InsertFindingsIntoDB_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Insert net findings using SQL INSERT</td></tr><tr><td VALIGN="top"><a href="AddDBCasesToCaseset_cs.html">AddDBCasesToCaseset_cs</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Retrieve a set of cases using SQL SELECT</td></tr><tr><td VALIGN="top"><a href="AddNodesFromDB_bn.html">AddNodesFromDB_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Add nodes to a net using cases from SQL SELECT</td></tr></table></div>
+<p><span CLASS=sectionNm>Example:</span><pre CLASS=example>
+// Create a new table called "Table2" in our MS-Access database, myDb.mdb,
+// and define four columns in the table.
+dbmgr_cs *dbmgr = NewDBManager_cs (
+   "driver={Microsoft Access Driver (*.mdb)};dbq=.&#092;&#092;myDB.mdb;UID=dba1;", "pooling", env);
+ExecuteDBSql_cs (dbmgr, "CREATE TABLE Table2 (TxtFld1 CHAR(10),
+                                              IntFld1 INTEGER,
+                                              FloatFld1 FLOAT,
+                                              DateFld1 date)",
+                                              NULL);</pre></div>
+</BODY>
+</HTML>

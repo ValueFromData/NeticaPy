@@ -1,0 +1,54 @@
+
+<HTML>
+<HEAD>
+<TITLE>Netica(TM) API Programmer's Reference Manual; API Funtion: GetVarianceOfReal_bn</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/rightFrame.css" TITLE="Style">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="COPYRIGHT" CONTENT="&copy; 2012 Norsys Software Corp.">
+<SCRIPT language="javascript" type="text/javascript" >
+function loader1() {
+
+if (window.top) { //catch inf. loops
+  if (window.top.document.location.href.indexOf( '?loadPg=' ) >= 0 ) return;
+  if (window.top.frames.length >= 2) return;
+}
+  
+var url  = document.location.href;
+var pos  = url.lastIndexOf( '/' );
+var pos1 = pos - 10;
+var main = url.substring( 0, pos1 );
+var fn   = url.substring( pos + 1 );
+
+var newHref = main + "/index.html?loadPg=" + fn;
+document.location.href = newHref;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY topmargin=6 marginheight=6 onload="loader1()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="../images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<!-- <span CLASS=fnNameHeader>GetVarianceOfReal_bn</span> -->
+<p><div CLASS=PT><table CLASS=PT><tr VALIGN="top"> <td NOWRAP class=name><span CLASS=PTFntype>double</span><span CLASS=PTFnName>&nbsp;GetVarianceOfReal_bn</span>&nbsp;(</td> <td class=paramList><span CLASS=nonbreaking><span CLASS=PTParamType>sensv_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>sens</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;node_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>Vnode</span></span>&nbsp;)</td></tr></table></div>
+<p><div CLASS=desc><p>Measures how much a finding at one node (called the "varying node") is expected to reduce the variance of  another node (called the "query node").
+<p>The query node is set by the particular <span CLASS="classType">sensv_bn</span> created (see&nbsp;<a href="NewSensvToFinding_bn.html">NewSensvToFinding_bn</a>).  The varying node is passed as <span CLASS="paramNm">Vnode</span>.
+<p><a href="GetVarianceOfReal_bn.html">GetVarianceOfReal_bn</a> can only be used with query nodes that are discretized continuous nodes, or that have a real numeric value associated with each state.  It measures the expected change squared in the expected real value of the query node, due to a finding at the varying node.  This turns out to be the same as the expected decrease in variance of the expected real value of the query node, due to a finding at the varying node.  The varying nodes do not have to be continuous or have real numeric values attached to their states.
+<p>The maximum possible decrease in variance of the query node, is when variance goes to zero, i.e., all uncertainty is removed.  That happens when a finding is obtained for the query node itself.  So to find the variance of a node, measure the variance reduction between a node and itself.
+<p>To create a <span CLASS="classType">sensv_bn</span> that can measure variance reduction, pass <span CLASS="constantNm">REAL_SENSV</span> + <span CLASS="constantNm">VARIANCE_SENSV</span> for <span CLASS="paramNm">what_find</span> when calling <a href="NewSensvToFinding_bn.html">NewSensvToFinding_bn</a>.  For its <span CLASS="paramNm">Vnodes</span> argument, pass a list of all the nodes that might later be passed as <span CLASS="paramNm">Vnode</span> to this function.
+<p>The variance reduction between two nodes can depend greatly on what findings are entered elsewhere in the net, and this function will properly take that into account.
+<p>The first time this function is called by some <span CLASS="classType">sensv_bn</span> after the findings of a net have changed, it takes longer to return, but after that, for each <span CLASS="paramNm">Vnode</span> passed, it returns quickly.
+<p>This function is available as "Network -&gt; Sensitivity to Finding" in Netica Application.  For more information on it, contact Norsys for the "Sensitivity" document.</div>
+<p><span CLASS=sectionNm>Version:</span><div CLASS=version>Versions 2.03 and later have this function. In versions previous to 3.05, this function was named <b>VarianceOfReal_bn</b>.<passageIndent2/><p></div>
+<p><span CLASS=sectionNm>See also:</span><div CLASS=see_also><table CLASS="seeAlso"><tr><td VALIGN="top"><a href="NewSensvToFinding_bn.html">NewSensvToFinding_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Create the <span CLASS="classType">sensv_bn</span> required to measure variance reduction due to finding</td></tr><tr><td VALIGN="top"><a href="GetMutualInfo_bn.html">GetMutualInfo_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Use a different measure of sensitivity: mutual info (entropy reduction)</td></tr></table></div>
+<p></div>
+</BODY>
+</HTML>

@@ -1,0 +1,57 @@
+
+<HTML>
+<HEAD>
+<TITLE>Netica(TM) API Programmer's Reference Manual; API Funtion: WriteNetFindings_bn</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/rightFrame.css" TITLE="Style">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="COPYRIGHT" CONTENT="&copy; 2012 Norsys Software Corp.">
+<SCRIPT language="javascript" type="text/javascript" >
+function loader1() {
+
+if (window.top) { //catch inf. loops
+  if (window.top.document.location.href.indexOf( '?loadPg=' ) >= 0 ) return;
+  if (window.top.frames.length >= 2) return;
+}
+  
+var url  = document.location.href;
+var pos  = url.lastIndexOf( '/' );
+var pos1 = pos - 10;
+var main = url.substring( 0, pos1 );
+var fn   = url.substring( pos + 1 );
+
+var newHref = main + "/index.html?loadPg=" + fn;
+document.location.href = newHref;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY topmargin=6 marginheight=6 onload="loader1()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="../images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<!-- <span CLASS=fnNameHeader>WriteNetFindings_bn</span> -->
+<p><div CLASS=PT><table CLASS=PT><tr VALIGN="top"> <td NOWRAP class=name><span CLASS=PTFntype>caseposn_bn</span><span CLASS=PTFnName>&nbsp;WriteNetFindings_bn</span>&nbsp;(</td> <td class=paramList><span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;nodelist_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>nodes</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>stream_ns*</span>&nbsp;&nbsp;<span CLASS=PTParamName>file</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>long</span>&nbsp;&nbsp;<span CLASS=PTParamName>ID_num</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>double</span>&nbsp;&nbsp;<span CLASS=PTParamName>freq</span></span>&nbsp;)</td></tr></table></div>
+<p><div CLASS=desc><p>Saves in <span CLASS="paramNm">file</span> the set of findings currently entered in <span CLASS="paramNm">nodes</span>, so that later they can be read back with <a href="ReadNetFindings2_bn.html">ReadNetFindings2_bn</a>.
+<p>It saves findings of discrete nodes and values of continuous nodes, but not likelihood findings, or negative findings (i.e., findings which say that a node is not in some state).
+<p>If <span CLASS="paramNm">file</span> already exists, this will add the case to it (unless it is not a case file, in which case an error will be generated).  If you wish to write over the existing file, delete it before calling this.
+<p>The first case determines what columns will be included in the file.  Each node in <span CLASS="paramNm">nodes</span> will become one column.
+
+<p>Pass -1 for <span CLASS="paramNm">ID_num</span> and/or <span CLASS="paramNm">freq</span> if you do not want columns for them to appear in the case file.  If any cases will need them, they must be included in the first case written to the file.  
+<p>It returns the file position of the new case (which can later be passed to <a href="ReadNetFindings2_bn.html">ReadNetFindings2_bn</a>).
+<p>It only saves findings from the nodes of <span CLASS="paramNm">nodes</span>, and if the file already exists, it won't save findings from any of <span CLASS="paramNm">nodes</span> that were not included in the node list used to first construct the file.
+<p>It is advised to give case files the extension ".cas" (i.e., the file name passed to <a href="NewFileStream_ns.html">NewFileStream_ns</a> ends with ".cas").  That way they can be more easily identified by the Netica Application program.
+<p>You can control the characters Netica uses to separate findings, and to indicate a finding is absent, with the functions <a href="SetCaseFileDelimChar_ns.html">SetCaseFileDelimChar_ns</a> and <a href="SetMissingDataChar_ns.html">SetMissingDataChar_ns</a>, respectively.
+<p>Netica won't modify or free the passed <span CLASS="paramNm">nodes</span> list.</div>
+<p><span CLASS=sectionNm>Version:</span><div CLASS=version>This function is available in all versions.<br>In versions previous to 2.26, this function was named <b>WriteCase_bn</b>.<passageIndent2/><p></div>
+<p><span CLASS=sectionNm>See also:</span><div CLASS=see_also><table CLASS="seeAlso"><tr><td VALIGN="top"><a href="ReadNetFindings2_bn.html">ReadNetFindings2_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Reads back the case that WriteNetFindings_bn saves</td></tr><tr><td VALIGN="top"><a href="WriteNet_bn.html">WriteNet_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Saves the whole net, including findings</td></tr><tr><td VALIGN="top"><a href="SetCaseFileDelimChar_ns.html">SetCaseFileDelimChar_ns</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Controls which character Netica uses to separate findings</td></tr><tr><td VALIGN="top"><a href="SetMissingDataChar_ns.html">SetMissingDataChar_ns</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Controls which character Netica uses to indicate a node has no finding</td></tr><tr><td VALIGN="top"><a href="NewNodeList2_bn.html">NewNodeList2_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Creates the node list</td></tr></table></div>
+<p><span CLASS=sectionNm>Example:</span><pre CLASS=example><div CLASS=desc>See <a href="ReadNetFindings2_bn.html">ReadNetFindings2_bn</a></div></pre></div>
+</BODY>
+</HTML>

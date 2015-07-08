@@ -1,0 +1,60 @@
+
+<HTML>
+<HEAD>
+<TITLE>Netica(TM) API Programmer's Reference Manual; API Funtion: NewSensvToFinding_bn</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/rightFrame.css" TITLE="Style">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="COPYRIGHT" CONTENT="&copy; 2012 Norsys Software Corp.">
+<SCRIPT language="javascript" type="text/javascript" >
+function loader1() {
+
+if (window.top) { //catch inf. loops
+  if (window.top.document.location.href.indexOf( '?loadPg=' ) >= 0 ) return;
+  if (window.top.frames.length >= 2) return;
+}
+  
+var url  = document.location.href;
+var pos  = url.lastIndexOf( '/' );
+var pos1 = pos - 10;
+var main = url.substring( 0, pos1 );
+var fn   = url.substring( pos + 1 );
+
+var newHref = main + "/index.html?loadPg=" + fn;
+document.location.href = newHref;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY topmargin=6 marginheight=6 onload="loader1()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="../images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<!-- <span CLASS=fnNameHeader>NewSensvToFinding_bn</span> -->
+<p><div CLASS=PT><table CLASS=PT><tr VALIGN="top"> <td NOWRAP class=name><span CLASS=PTFntype>sensv_bn*</span><span CLASS=PTFnName>&nbsp;NewSensvToFinding_bn</span>&nbsp;(</td> <td class=paramList><span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;node_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>Qnode</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;nodelist_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>Vnodes</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>int</span>&nbsp;&nbsp;<span CLASS=PTParamName>what_find</span></span>&nbsp;)</td></tr></table></div>
+<p><div CLASS=desc><p>Creates a sensitivity measuring object, which measures how much the beliefs at one node (called the "query node" or "target node") will change if a finding is entered at another node (called the "varying node").  This is sometimes called "utility-free value of information".
+<p>For <span CLASS="paramNm">Qnode</span>, pass the query node, and for <span CLASS="paramNm">Vnodes</span>, pass a list of all nodes that might later be used as varying nodes.
+<p>There are two different measures available: variance reduction and entropy reduction (i.e., mutual information).
+<p>For <span CLASS="paramNm">what_find</span>, pass the bitwise-OR of which measures you want the created object capable of measuring.  To measure variance reduction, pass <span CLASS="constantNm">VARIANCE_OF_REAL_SENSV</span> (= <span CLASS="constantNm">REAL_SENSV</span> + <span CLASS="constantNm">VARIANCE_SENSV</span>), and to measure mutual information, pass <span CLASS="constantNm">ENTROPY_SENSV</span>.
+<p>After the object is created, to measure variance reduction, pass the new object to <a href="GetVarianceOfReal_bn.html">GetVarianceOfReal_bn</a> along with a particular findings node.  To measure mutual information between two nodes, pass it to <a href="GetMutualInfo_bn.html">GetMutualInfo_bn</a>.
+<p>When you are finished with the sensitivity object, free the resources it uses by calling <a href="DeleteSensvToFinding_bn.html">DeleteSensvToFinding_bn</a>.
+<p>Netica uses an efficient algorithm that takes the current findings into account, and requires only a few belief updatings no matter how many nodes are contained in <span CLASS="paramNm">Vnodes</span>.  When you request the first sensitivity measure of the query node relative to one of the varying nodes (by calling <a href="GetMutualInfo_bn.html">GetMutualInfo_bn</a> or <a href="GetVarianceOfReal_bn.html">GetVarianceOfReal_bn</a>), the belief updatings are done and the results cached for subsequent calls involving other varying nodes.
+<p>These functions are available as "Network -&gt; Sensitivity to Finding" in Netica Application.  For more information on them, contact Norsys for the "Sensitivity" document.</div>
+<p><span CLASS=sectionNm>Version:</span><div CLASS=version>Versions 2.03 and later have this function.<passageIndent2/><p></div>
+<p><span CLASS=sectionNm>See also:</span><div CLASS=see_also><table CLASS="seeAlso"><tr><td VALIGN="top"><a href="DeleteSensvToFinding_bn.html">DeleteSensvToFinding_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">(reverse operation)  Delete the <span CLASS="classType">sensv_bn</span> when finished with it</td></tr><tr><td VALIGN="top"><a href="GetVarianceOfReal_bn.html">GetVarianceOfReal_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Use the <span CLASS="classType">sensv_bn</span> to find the variance reduction due to finding</td></tr><tr><td VALIGN="top"><a href="GetMutualInfo_bn.html">GetMutualInfo_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Use the <span CLASS="classType">sensv_bn</span> to find the mutual info (entropy reduction)</td></tr></table></div>
+<p><span CLASS=sectionNm>Example:</span><pre CLASS=example>
+net_bn* net = ReadNet_bn (NewFileStream_ns ("ChestClinic.dne", env, NULL), NO_WINDOW);
+sensv_bn* svCancer = NewSensvToFinding_bn (GetNodeNamed_bn ("Cancer", net), 
+                                           GetNetNodes_bn (net), ENTROPY_SENSV);
+double mutinfo = GetMutualInfo_bn (svCancer, GetNodeNamed_bn ("Dyspnea", net));
+double entropy = GetMutualInfo_bn (svCancer, GetNodeNamed_bn ("Cancer", net));
+DeleteSensvToFinding_bn (svCancer);</pre></div>
+</BODY>
+</HTML>

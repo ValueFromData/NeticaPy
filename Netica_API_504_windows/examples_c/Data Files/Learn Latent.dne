@@ -1,0 +1,137 @@
+// ~->[DNET-1]->~
+
+// File created by Norsys using Netica 3.24 on Jul 15, 2007 at 18:25:09.
+
+bnet Learn_Latent {
+AutoCompile = TRUE;
+autoupdate = TRUE;
+whenchanged = 1184549002;
+
+visual V1 {
+	defdispform = BELIEFBARS;
+	nodelabeling = TITLE;
+	NodeMaxNumEntries = 50;
+	nodefont = font {shape= "Arial"; size= 9;};
+	linkfont = font {shape= "Arial"; size= 9;};
+	windowposn = (14, 374, 549, 606);
+	CommentWindowPosn = (0, 454, 712, 823);
+	resolution = 72;
+	drawingbounds = (1080, 720);
+	showpagebreaks = FALSE;
+	usegrid = TRUE;
+	gridspace = (6, 6);
+	NodeSet Node {BuiltIn = 1; Color = 0xc0c0c0;};
+	NodeSet Nature {BuiltIn = 1; Color = 0xf8eed2;};
+	NodeSet Deterministic {BuiltIn = 1; Color = 0xd3caa6;};
+	NodeSet Finding {BuiltIn = 1; Color = 0xc8c8c8;};
+	NodeSet Constant {BuiltIn = 1; Color = 0xffffff;};
+	NodeSet ConstantValue {BuiltIn = 1; Color = 0xffffb4;};
+	NodeSet Utility {BuiltIn = 1; Color = 0xffbdbd;};
+	NodeSet Decision {BuiltIn = 1; Color = 0xdee8ff;};
+	NodeSet Documentation {BuiltIn = 1; Color = 0xf0fafa;};
+	NodeSet Title {BuiltIn = 1; Color = 0xffffff;};
+	PrinterSetting A {
+		margins = (1270, 1270, 1270, 1270);
+		landscape = FALSE;
+		magnify = 1;
+		};
+	};
+
+node A {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	parents = ();
+	probs = 
+		// true         false        
+		  (0.2,         0.8);
+	whenchanged = 1016917063;
+	belief = (0.2, 0.8);
+	visual V1 {
+		center = (264, 54);
+		height = 4;
+		};
+	};
+
+node R {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	parents = (A);
+	probs = 
+		// true         false          // A     
+		 ((0.96,        0.04),         // true  
+		  (0.6,         0.4));         // false ;
+	whenchanged = 1018783837;
+	belief = (0.672, 0.328);
+	visual V1 {
+		center = (108, 138);
+		height = 1;
+		};
+	};
+
+node S {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	parents = (A);
+	probs = 
+		// true         false          // A     
+		 ((0.84,        0.16),         // true  
+		  (0.16,        0.84));        // false ;
+	whenchanged = 1018783837;
+	belief = (0.296, 0.704);
+	visual V1 {
+		center = (264, 138);
+		height = 2;
+		};
+	};
+
+node T {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	parents = (A);
+	probs = 
+		// true         false          // A     
+		 ((0.5,         0.5),          // true  
+		  (0.15,        0.85));        // false ;
+	whenchanged = 1018783837;
+	belief = (0.22, 0.78);
+	visual V1 {
+		center = (420, 138);
+		height = 3;
+		};
+	};
+
+node TITLE1 {
+	kind = CONSTANT;
+	discrete = FALSE;
+	parents = ();
+	title = "Learning Latent \nVariable Example";
+	whenchanged = 1018314959;
+	visual V1 {
+		center = (89, 42);
+		font = font {shape= "Times New Roman"; size= 16;};
+		height = 5;
+		};
+	};
+
+node TITLE2 {
+	kind = CONSTANT;
+	discrete = FALSE;
+	parents = ();
+	title = "Copyright 2002 Norsys Software Corp.";
+	whenchanged = 1018315024;
+	visual V1 {
+		center = (84, 78);
+		font = font {shape= "Arial"; size= 6;};
+		height = 6;
+		};
+	};
+ElimOrder = (R, S, A, T);
+};

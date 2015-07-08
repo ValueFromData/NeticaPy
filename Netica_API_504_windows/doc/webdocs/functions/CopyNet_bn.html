@@ -1,0 +1,57 @@
+
+<HTML>
+<HEAD>
+<TITLE>Netica(TM) API Programmer's Reference Manual; API Funtion: CopyNet_bn</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/rightFrame.css" TITLE="Style">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="COPYRIGHT" CONTENT="&copy; 2012 Norsys Software Corp.">
+<SCRIPT language="javascript" type="text/javascript" >
+function loader1() {
+
+if (window.top) { //catch inf. loops
+  if (window.top.document.location.href.indexOf( '?loadPg=' ) >= 0 ) return;
+  if (window.top.frames.length >= 2) return;
+}
+  
+var url  = document.location.href;
+var pos  = url.lastIndexOf( '/' );
+var pos1 = pos - 10;
+var main = url.substring( 0, pos1 );
+var fn   = url.substring( pos + 1 );
+
+var newHref = main + "/index.html?loadPg=" + fn;
+document.location.href = newHref;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY topmargin=6 marginheight=6 onload="loader1()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="../images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<!-- <span CLASS=fnNameHeader>CopyNet_bn</span> -->
+<p><div CLASS=PT><table CLASS=PT><tr VALIGN="top"> <td NOWRAP class=name><span CLASS=PTFntype>net_bn*</span><span CLASS=PTFnName>&nbsp;CopyNet_bn</span>&nbsp;(</td> <td class=paramList><span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;net_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>net</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;char*</span>&nbsp;&nbsp;<span CLASS=PTParamName>new_name</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>environ_ns*</span>&nbsp;&nbsp;<span CLASS=PTParamName>new_env</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;char*</span>&nbsp;&nbsp;<span CLASS=PTParamName>options</span></span>&nbsp;)</td></tr></table></div>
+<p><div CLASS=desc><p>Duplicates <span CLASS="paramNm">net</span>, giving the new net the name <span CLASS="paramNm">new_name</span> and placing it in the environment <span CLASS="paramNm">new_env</span>.  Returns the new net.
+<p>The name of the new net will be <span CLASS="paramNm">new_name</span>.  It must be a legal IDname, which means it must have <span CLASS="constantNm">NAME_MAX_ns</span> (30) or fewer characters, all of which are letters, digits or underscores, and it must start with a letter.  Netica will make a copy of <span CLASS="paramNm">new_name</span>; it won't modify or free the passed string.  
+<p><span CLASS="paramNm">options</span> allows you to control what gets copied.  It can be any combination of the following strings, separated by commas: "no_nodes", "no_links", "no_tables", and "no_visual".  
+Including "no_nodes" means that only background informatin (such as nodeset names/coloring, visual formatting, etc.) will be copied.  Including "no_links" means that each node's links (and therefore tables) won't get duplicated.  Including "no_tables" means that each node's tables (CPTs, functional, experience) won't get duplicated.  Including "no_visual" means that visual information (such as node position, style) for the nodes or nets won't get duplicated.
+<p>The user fields of <span CLASS="paramNm">net</span> and its nodes will be copied to the new net (see <a href="SetNetUserField_bn.html">SetNetUserField_bn</a> and <a href="SetNodeUserField_bn.html">SetNodeUserField_bn</a>), but the user data of the new net and new nodes in that net will be set to <span CLASS="reservedWord">NULL</span> (see <a href="SetNetUserData_bn.html">SetNetUserData_bn</a> and <a href="SetNodeUserData_bn.html">SetNodeUserData_bn</a>).
+<p>When you are done with the new net, you should pass it to <a href="DeleteNet_bn.html">DeleteNet_bn</a>.
+<p>If you just wish to duplicate one or more nodes, see <a href="CopyNodes_bn.html">CopyNodes_bn</a>.  For other, more fine-grained control over the copying process, you may want to write your own duplicating function, in which case the NeticaEx function <A TARGET='_NeticaEx' HREF='../NeticaEx.html#DuplicateNet'>DuplicateNet</A> may be a useful model.</div>
+<p><span CLASS=sectionNm>Version:</span><div CLASS=version>In version 3.05 and later.<br>Versions 2.28 through 3.04  had a function called <b>DuplicateNet_bn</b>.<br><FONT face="Courier">NeticaEx</FONT> has a similar function called <A TARGET='_NeticaEx' HREF='../NeticaEx.html#DuplicateNet'>DuplicateNet</A>.<passageIndent2/><p></div>
+<p><span CLASS=sectionNm>See also:</span><div CLASS=see_also><table CLASS="seeAlso"><tr><td VALIGN="top"><a href="CopyNodes_bn.html">CopyNodes_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Just duplicate some of the nodes in the net.</td></tr></table></div>
+<p><span CLASS=sectionNm>Example:</span><pre CLASS=example>
+// This will duplicate <i>net1</i>'s structure, but will not copy its CPT, functional,
+// or experience tables.
+
+net_bn* net2 = CopyNet_bn ( net1, "net2", env, "no_tables" );</pre></div>
+</BODY>
+</HTML>

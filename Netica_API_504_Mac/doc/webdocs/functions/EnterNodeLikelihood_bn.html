@@ -1,0 +1,61 @@
+
+<HTML>
+<HEAD>
+<TITLE>Netica(TM) API Programmer's Reference Manual; API Funtion: EnterNodeLikelihood_bn</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/rightFrame.css" TITLE="Style">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="COPYRIGHT" CONTENT="&copy; 2012 Norsys Software Corp.">
+<SCRIPT language="javascript" type="text/javascript" >
+function loader1() {
+
+if (window.top) { //catch inf. loops
+  if (window.top.document.location.href.indexOf( '?loadPg=' ) >= 0 ) return;
+  if (window.top.frames.length >= 2) return;
+}
+  
+var url  = document.location.href;
+var pos  = url.lastIndexOf( '/' );
+var pos1 = pos - 10;
+var main = url.substring( 0, pos1 );
+var fn   = url.substring( pos + 1 );
+
+var newHref = main + "/index.html?loadPg=" + fn;
+document.location.href = newHref;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY topmargin=6 marginheight=6 onload="loader1()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="../images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<!-- <span CLASS=fnNameHeader>EnterNodeLikelihood_bn</span> -->
+<p><div CLASS=PT><table CLASS=PT><tr VALIGN="top"> <td NOWRAP class=name><span CLASS=PTFntype>void</span><span CLASS=PTFnName>&nbsp;EnterNodeLikelihood_bn</span>&nbsp;(</td> <td class=paramList><span CLASS=nonbreaking><span CLASS=PTParamType>node_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>node</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>const prob_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>likelihood</span></span>&nbsp;)</td></tr></table></div>
+<p><div CLASS=desc><p>Enters a likelihood finding for <span CLASS="paramNm">node</span>, which is a finding that is not completely certain (it is sometimes called "virtual evidence").  
+<p><span CLASS="paramNm">likelihood</span> is a vector containing one probability for each state of <span CLASS="paramNm">node</span>.
+<p><span CLASS="paramNm">node</span> must be a discrete or discretized nature node (i.e., not a utility or decision node).
+<p>By calling this function several times, you can combine the effects of several independent partial observations.  If you don't want the likelihood findings to accumulate, call <a href="RetractNodeFindings_bn.html">RetractNodeFindings_bn</a> between calls.
+<p>The likelihood finding is equivalent to the following scenario:
+<p>
+<div class=passageIndent>
+There are a number of possible observations you can make:  A, B, ... N.
+<p>P(B|S<sub>i</sub>) denotes the probability of making observation B if the true state of <span CLASS="paramNm">node</span> is S<sub>i</sub>.
+<p>L<sub>B</sub> is a vector composed of &lt;P(B|S<sub>1</sub>), P(B|S<sub>2</sub>), ..., P(B|S<sub>m</sub>)&gt; where m is the number of states of <span CLASS="paramNm">node</span>.
+<p>You actually make observation B, so you enter the vector L<sub>B</sub> as a likelihood finding for <span CLASS="paramNm">node</span> (or L<sub>A</sub> if observation A was made, etc.).  You pass it to <a href="EnterNodeLikelihood_bn.html">EnterNodeLikelihood_bn</a> as the <span CLASS="paramNm">likelihood</span> parameter.
+<p></div>
+Notice that each component of a likelihood vector is between 0 and 1 inclusive, they must not all be zero, and they aren't required to sum to 1.
+<p>If you enter several accumulating likelihood findings for a node, they should correspond to observations that are independent given the value of the node (if not, look up "likelihood finding, not independent" in the index).
+<p>If the net has auto-updating (see&nbsp;<a href="SetNetAutoUpdate_bn.html">SetNetAutoUpdate_bn</a>), then a belief updating will be done to reflect the new finding before this function returns (otherwise it will just be done when needed).</div>
+<p><span CLASS=sectionNm>Version:</span><div CLASS=version>This function is available in all versions.<passageIndent2/><p></div>
+<p><span CLASS=sectionNm>See also:</span><div CLASS=see_also><table CLASS="seeAlso"><tr><td VALIGN="top"><a href="EnterFinding_bn.html">EnterFinding_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">To enter a certain finding that a node is in some state</td></tr><tr><td VALIGN="top"><a href="EnterFindingNot_bn.html">EnterFindingNot_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">To indicate that node isn't in some state</td></tr><tr><td VALIGN="top"><a href="GetNodeLikelihood_bn.html">GetNodeLikelihood_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">To retrieve the likelihood finding entered</td></tr><tr><td VALIGN="top"><a href="RetractNodeFindings_bn.html">RetractNodeFindings_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">To remove the findings entered</td></tr></table></div>
+<p><span CLASS=sectionNm>Example:</span><pre CLASS=example><div CLASS=desc>See <a href="GetNodeFinding_bn.html">GetNodeFinding_bn</a></div></pre></div>
+</BODY>
+</HTML>

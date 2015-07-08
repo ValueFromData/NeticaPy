@@ -1,0 +1,68 @@
+// ~->[DNET-1]->~
+
+// File created by an unlicensed user using Netica 3.25 on Jul 15, 2007 at 18:49:23.
+
+bnet Learned_Latent {
+autoupdate = FALSE;
+
+node A {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	numstates = 2;
+	parents = ();
+	probs = 
+		// state0       state1       
+		  (0.2752217,   0.7247783);
+	numcases = 100000;
+	};
+
+node R {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (false, true);
+	parents = (A);
+	probs = 
+		// false        true           // A      
+		 ((0.08213098,  0.917869),     // state0 
+		  (0.4213644,   0.5786356));   // state1 ;
+	numcases = 
+		                 // A      
+		  (27522.17,     // state0 
+		   72477.83);    // state1 ;
+	};
+
+node S {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (false, true);
+	parents = (A);
+	probs = 
+		// false        true           // A      
+		 ((0.2760854,   0.7239146),    // state0 
+		  (0.866493,    0.133507));    // state1 ;
+	numcases = 
+		                 // A      
+		  (27522.17,     // state0 
+		   72477.83);    // state1 ;
+	};
+
+node T {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (false, true);
+	parents = (A);
+	probs = 
+		// false        true           // A      
+		 ((0.5470521,   0.4529479),    // state0 
+		  (0.8684578,   0.1315422));   // state1 ;
+	numcases = 
+		                 // A      
+		  (27522.17,     // state0 
+		   72477.83);    // state1 ;
+	};
+ElimOrder = (R, S, A, T);
+};

@@ -1,0 +1,69 @@
+
+<HTML>
+<HEAD>
+<TITLE>Netica(TM) API Programmer's Reference Manual; API Funtion: MostProbableConfig_bn</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/rightFrame.css" TITLE="Style">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="COPYRIGHT" CONTENT="&copy; 2012 Norsys Software Corp.">
+<SCRIPT language="javascript" type="text/javascript" >
+function loader1() {
+
+if (window.top) { //catch inf. loops
+  if (window.top.document.location.href.indexOf( '?loadPg=' ) >= 0 ) return;
+  if (window.top.frames.length >= 2) return;
+}
+  
+var url  = document.location.href;
+var pos  = url.lastIndexOf( '/' );
+var pos1 = pos - 10;
+var main = url.substring( 0, pos1 );
+var fn   = url.substring( pos + 1 );
+
+var newHref = main + "/index.html?loadPg=" + fn;
+document.location.href = newHref;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY topmargin=6 marginheight=6 onload="loader1()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="../images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<!-- <span CLASS=fnNameHeader>MostProbableConfig_bn</span> -->
+<p><div CLASS=PT><table CLASS=PT><tr VALIGN="top"> <td NOWRAP class=name><span CLASS=PTFntype>void</span><span CLASS=PTFnName>&nbsp;MostProbableConfig_bn</span>&nbsp;(</td> <td class=paramList><span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;nodelist_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>nodes</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>state_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>config</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>int</span>&nbsp;&nbsp;<span CLASS=PTParamName>nth</span></span>&nbsp;)</td></tr></table></div>
+<p><div CLASS=desc><p>Finds the most probable configuration, also known as the most probable explanation (MPE), for all the nodes in the net.  This is the setting for each of the nodes with the highest overall joint probability, given the currently entered findings.  Of course it is consistent with the findings. 
+<p>For <span CLASS="paramNm">nodes</span>, you must pass a list returned by <a href="GetNetNodes_bn.html">GetNetNodes_bn</a>.  
+<p>Pass 0 for <span CLASS="paramNm">nth</span>.  It is only for future expansion.
+<p>For <span CLASS="paramNm">config</span>, pass an array of state_bn at least as long as <span CLASS="paramNm">nodes</span>.  The initial contents of this array will be ignored.
+<p>Netica will fill the <span CLASS="paramNm">config</span> array with the configuration of highest joint probability given the currently entered findings.  Each element of <span CLASS="paramNm">config</span> is the state for the corresponding node of <span CLASS="paramNm">nodes</span> (i.e., they are in the same order, and have the same length).
+<p>The net must be compiled before calling this function.
+<p>After finding the most probable configuration, you can use <a href="JointProbability_bn.html">JointProbability_bn</a> to find its probability (see example below).
+<p>You can mix calls to this function with calls to <a href="GetNodeBeliefs_bn.html">GetNodeBeliefs_bn</a> (which finds posterior probabilities).
+<p>This function does not work when likelihood findings are entered.  In that case you must make child nodes corresponding to the observations, whose CPTs are the likelihoods, and enter a positive finding for them.
+<p>If you must have the MPE of a smaller set of nodes than all the nodes in the net, you can use <a href="AbsorbNodes_bn.html">AbsorbNodes_bn</a> to remove the other nodes first.
+<p>Keep in mind that in the MPE, some nodes may be assigned states that are quite unlikely (i.e., the state won't be the one with the highest probability as returned by <a href="GetNodeBeliefs_bn.html">GetNodeBeliefs_bn</a>).  That may be necessary in order to achieve the highest overall joint probability, considering the assignment of states to the other nodes.  Before using this function, consider carefully whether you really want the MPE, or rather just a list of the most probable state for each of the nodes.
+<p>The algorithm Netica uses to find the MPE is known as a "max propagation" in the junction tree.</div>
+<p><span CLASS=sectionNm>Version:</span><div CLASS=version>Versions 1.07 and later have this function.<passageIndent2/><p></div>
+<p><span CLASS=sectionNm>See also:</span><div CLASS=see_also><table CLASS="seeAlso"><tr><td VALIGN="top"><a href="JointProbability_bn.html">JointProbability_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Find the actual joint probability of a configuration</td></tr><tr><td VALIGN="top"><a href="GetNodeBeliefs_bn.html">GetNodeBeliefs_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Can find the most probable state for a single node only</td></tr><tr><td VALIGN="top"><a href="GetNetNodes_bn.html">GetNetNodes_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Get the list of nodes</td></tr></table></div>
+<p><span CLASS=sectionNm>Example:</span><pre CLASS=example>
+// The following puts the most probable configuration in config,
+// and its probability in maxprob.
+//
+CompileNet_bn (net);
+const nodelist_bn* allnodes = GetNetNodes_bn (net);
+int num_nodes = LengthNodeList_bn (allnodes);
+state_bn* config = new state_bn [num_nodes];
+MostProbableConfig_bn (allnodes, config, 0);
+double maxprob = JointProbability_bn (allnodes, config);
+// ... use config and maxprob ...
+delete config;</pre></div>
+</BODY>
+</HTML>

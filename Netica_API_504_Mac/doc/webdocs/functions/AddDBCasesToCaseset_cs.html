@@ -1,0 +1,82 @@
+
+<HTML>
+<HEAD>
+<TITLE>Netica(TM) API Programmer's Reference Manual; API Funtion: AddDBCasesToCaseset_cs</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/rightFrame.css" TITLE="Style">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="COPYRIGHT" CONTENT="&copy; 2012 Norsys Software Corp.">
+<SCRIPT language="javascript" type="text/javascript" >
+function loader1() {
+
+if (window.top) { //catch inf. loops
+  if (window.top.document.location.href.indexOf( '?loadPg=' ) >= 0 ) return;
+  if (window.top.frames.length >= 2) return;
+}
+  
+var url  = document.location.href;
+var pos  = url.lastIndexOf( '/' );
+var pos1 = pos - 10;
+var main = url.substring( 0, pos1 );
+var fn   = url.substring( pos + 1 );
+
+var newHref = main + "/index.html?loadPg=" + fn;
+document.location.href = newHref;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY topmargin=6 marginheight=6 onload="loader1()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="../images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<!-- <span CLASS=fnNameHeader>AddDBCasesToCaseset_cs</span> -->
+<p><div CLASS=PT><table CLASS=PT><tr VALIGN="top"> <td NOWRAP class=name><span CLASS=PTFntype>void</span><span CLASS=PTFnName>&nbsp;AddDBCasesToCaseset_cs</span>&nbsp;(</td> <td class=paramList><span CLASS=nonbreaking><span CLASS=PTParamType>caseset_cs*</span>&nbsp;&nbsp;<span CLASS=PTParamName>cases</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>dbmgr_cs*</span>&nbsp;&nbsp;<span CLASS=PTParamName>dbmgr</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>double</span>&nbsp;&nbsp;<span CLASS=PTParamName>degree</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;nodelist_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>nodes</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;char*</span>&nbsp;&nbsp;<span CLASS=PTParamName>column_names</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;char*</span>&nbsp;&nbsp;<span CLASS=PTParamName>tables</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;char*</span>&nbsp;&nbsp;<span CLASS=PTParamName>condition</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;char*</span>&nbsp;&nbsp;<span CLASS=PTParamName>options</span></span>&nbsp;)</td></tr></table></div>
+<p><div CLASS=desc><p>Searches the database attached to <span CLASS="paramNm">dbmgr</span> for cases to add to <span CLASS="paramNm">cases</span>.
+<p>The cases are retrieved from the database by invoking the SQL<sup>1</sup> SELECT statement:
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<span CLASS="code">SELECT <span CLASS="paramNm">column_names</span> FROM <span CLASS="paramNm">tables</span> WHERE <span CLASS="paramNm">condition</span></span>.
+<p><span CLASS="paramNm">degree</span> indicates how each case that is retrieved should be weighted.  See <a href="ReviseCPTsByFindings_bn.html">ReviseCPTsByFindings_bn</a> for more information about the relative weighting of cases.
+<p><span CLASS="paramNm">nodes</span> represents the nodes whose values will be selected.  It must not be <span CLASS="reservedWord">NULL</span>, and must contain at least one node.
+<p><span CLASS="paramNm">column_names</span> is a comma-delimited list of database column names.  The names in this list must be in the exact same order as their corresponding nodes in <span CLASS="paramNm">nodes</span>.  If <span CLASS="paramNm">column_names</span> is <span CLASS="reservedWord">NULL</span>, then for each Node, Netica will use that Node's title (or, if title not defined, then the name) as the corresponding column name.  If you are selecting columns from different tables, then you cannot use the <span CLASS="reservedWord">NULL</span> option just mentioned, and you must also prefix the column names with the table name followed by a period, as per the standard SQL syntax.
+<p><span CLASS="paramNm">tables</span> is a comma-delimited list of database table names.  If the database has only one conventional (non-system) table, then you can submit <span CLASS="reservedWord">NULL</span> for this parameter and Netica will find the implied table for you.
+<p><span CLASS="paramNm">condition</span> is the text following the "WHERE" clause.  It may be <span CLASS="reservedWord">NULL</span>.
+<p>Pass <span CLASS="reservedWord">NULL</span> for <span CLASS="paramNm">options</span>; it is only for future expansion.
+<p>Thus, for the SQL command &nbsp;&nbsp;<span CLASS="code">SELECT col1,col2,...,colN FROM table1 WHERE surname="smith"</span>,
+<span CLASS="paramNm">tables</span> should be "table1"; <span CLASS="paramNm">column_names</span> should be "col1,col2,...,colN"; <span CLASS="paramNm">nodes</span> should be a list of nodes in the order node1, node2, ..., nodeN; and <span CLASS="paramNm">condition</span> should be "surname=&#092;"smith&#092;"".
+<p>If there is a problem with the SQL SELECT command, a Netica error will be generated explaining the nature of the problem.
+<p><b>NOTICE:</b>After calling this, you should not modify the database until you are done with the caseset_cs.
+<p><b>TEMPORARY LIMITATION:</b> Currently you can only add one file or database retrieval to a caseset.
+<p><sup>1</sup> SQL is a standard query language for accessing databases.  To properly use this function, you should have basic familiarity with the SQL SELECT statement.</div>
+<p><span CLASS=sectionNm>Version:</span><div CLASS=version>Versions 3.15 and later have this function.<passageIndent2/><p></div>
+<p><span CLASS=sectionNm>See also:</span><div CLASS=see_also><table CLASS="seeAlso"><tr><td VALIGN="top"><a href="NewDBManager_cs.html">NewDBManager_cs</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Creates the <span CLASS="classType">dbmgr_cs</span></td></tr><tr><td VALIGN="top"><a href="NewCaseset_cs.html">NewCaseset_cs</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Create an empty <span CLASS="classType">caseset_cs</span></td></tr><tr><td VALIGN="top"><a href="AddFileToCaseset_cs.html">AddFileToCaseset_cs</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Add cases from text file instead of database</td></tr></table></div>
+<p><span CLASS=sectionNm>Example:</span><pre CLASS=example>Here is an example program to use EM learning to learn Bayes net parameters
+from a database:
+dbmgr_cs *dbmgr = NewDBManager_cs (
+     "driver=Microsoft Access Driver (*.mdb); dbq=.&#092;&#092;myDB.mdb; UID=dba1;", 
+     "pooling", env);
+caseset_cs* cases = NewCaseset_cs ("TestDBCases", env);
+AddDBCasesToCaseset_cs (cases, 
+                        dbmgr, 
+                        1.0,
+                        NULL,
+                        "Gender, Height, OwnsHouse, NumDogs"
+                        "gender, height, &#092;"Owns a house&#092;", &#092;"Number of dogs&#092;"",    
+                        "'Owns a house' = 'yes'",
+                        NULL);
+net_bn*  net = NewNet_bn ("TestDB", env);
+// ... Put code here to add nodes and links to net ...
+const nodelist_bn* nodes = GetNetNodes_bn (net);
+learner_bn* learner = NewLearner_bn (EM_LEARNING, NULL, env); 
+LearnCPTs_bn (learner, nodes, cases, 1.0); 
+DeleteLearner_bn (learner);
+DeleteCaseset_cs (cases);
+DeleteDBManager_cs (dbmgr);</pre></div>
+</BODY>
+</HTML>

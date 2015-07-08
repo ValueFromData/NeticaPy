@@ -1,0 +1,58 @@
+
+<HTML>
+<HEAD>
+<TITLE>Netica(TM) API Programmer's Reference Manual; API Funtion: ArgumentChecking_ns</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/rightFrame.css" TITLE="Style">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="COPYRIGHT" CONTENT="&copy; 2012 Norsys Software Corp.">
+<SCRIPT language="javascript" type="text/javascript" >
+function loader1() {
+
+if (window.top) { //catch inf. loops
+  if (window.top.document.location.href.indexOf( '?loadPg=' ) >= 0 ) return;
+  if (window.top.frames.length >= 2) return;
+}
+  
+var url  = document.location.href;
+var pos  = url.lastIndexOf( '/' );
+var pos1 = pos - 10;
+var main = url.substring( 0, pos1 );
+var fn   = url.substring( pos + 1 );
+
+var newHref = main + "/index.html?loadPg=" + fn;
+document.location.href = newHref;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY topmargin=6 marginheight=6 onload="loader1()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="../images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<!-- <span CLASS=fnNameHeader>ArgumentChecking_ns</span> -->
+<p><div CLASS=PT><table CLASS=PT><tr VALIGN="top"> <td NOWRAP class=name><span CLASS=PTFntype>checking_ns</span><span CLASS=PTFnName>&nbsp;ArgumentChecking_ns</span>&nbsp;(</td> <td class=paramList><span CLASS=nonbreaking><span CLASS=PTParamType>checking_ns</span>&nbsp;&nbsp;<span CLASS=PTParamName>setting</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>environ_ns*</span>&nbsp;&nbsp;<span CLASS=PTParamName>env</span></span>&nbsp;)</td></tr></table></div>
+<p><div CLASS=desc><p>Whenever a Netica API function is called, its arguments may be automatically checked for validity.  Call this function anytime to adjust the degree of checking Netica does until it is called next.
+<p><span CLASS="paramNm">setting</span> should be one of:
+<table CLASS="body">
+<tr><td VALIGN="top"><span CLASS="constantNm">NO_CHECK</span></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">No checking</td></tr>
+<tr><td VALIGN="top"><span CLASS="constantNm">QUICK_CHECK</span></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Only checks things that can be checked very quickly</td></tr>
+<tr><td VALIGN="top"><span CLASS="constantNm">REGULAR_CHECK</span></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Regular checking</td></tr>
+<tr><td VALIGN="top"><span CLASS="constantNm">COMPLETE_CHECK</span></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Exhaustively checks everything.</td></tr>
+<tr><td VALIGN="top"><span CLASS="constantNm">QUERY_CHECK</span></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">(See below)</td></tr>
+</table>
+Normally during development, the <span CLASS="constantNm">REGULAR_CHECK</span> setting is used.  For debugging, the setting can temporarily be changed to <span CLASS="constantNm">COMPLETE_CHECK</span>, but that will run too slowly for most regular development.  Once development is complete, production versions would normally have a setting of <span CLASS="constantNm">QUICK_CHECK</span> (<span CLASS="constantNm">NO_CHECK</span> is discouraged, since it isn't much faster, but its also a possibility), but they may occasionally temporarily change it to <span CLASS="constantNm">REGULAR_CHECK</span> in order to do user input checking.
+<p>The previous degree of checking is returned. If <span CLASS="constantNm">QUERY_CHECK</span> is passed for <span CLASS="paramNm">setting</span>, then the degree of checking is returned without changing it.
+</div>
+<p><span CLASS=sectionNm>Version:</span><div CLASS=version>This function is available in all versions.<passageIndent2/><p></div>
+<p><span CLASS=sectionNm>See also:</span><div CLASS=see_also><table CLASS="seeAlso"><tr><td VALIGN="top"><a href="ClearErrors_ns.html">ClearErrors_ns</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">To start off with a clean slate of no recorded errors</td></tr><tr><td VALIGN="top"><a href="GetError_ns.html">GetError_ns</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">To get the report for an error that has been detected</td></tr></table></div>
+<p></div>
+</BODY>
+</HTML>

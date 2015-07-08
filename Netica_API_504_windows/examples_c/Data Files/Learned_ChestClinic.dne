@@ -1,0 +1,137 @@
+// ~->[DNET-1]->~
+
+// File created by an unlicensed user using Netica 3.25 on Jun 15, 2007 at 06:22:49.
+
+bnet Learned_ChestClinic {
+autoupdate = FALSE;
+
+node VisitAsia {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (visit, no_visit);
+	parents = ();
+	probs = 
+		// visit        no visit     
+		  (0.00990099,  0.990099);
+	numcases = 202;
+	};
+
+node Tuberculosis {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (present, absent);
+	parents = (VisitAsia);
+	probs = 
+		// present      absent         // VisitAsia 
+		 ((0.3333333,   0.6666667),    // visit     
+		  (0.02487562,  0.9751244));   // no visit  ;
+	numcases = 
+		                 // VisitAsia 
+		  (3,            // visit     
+		   201);         // no visit  ;
+	};
+
+node Smoking {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (smoker, nonsmoker);
+	parents = ();
+	probs = 
+		// smoker       nonsmoker    
+		  (0.4950495,   0.5049505);
+	numcases = 202;
+	};
+
+node Cancer {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (present, absent);
+	parents = (Smoking);
+	probs = 
+		// present      absent         // Smoking   
+		 ((0.1188119,   0.8811881),    // smoker    
+		  (0.009708738, 0.9902912));   // nonsmoker ;
+	numcases = 
+		                 // Smoking   
+		  (101,          // smoker    
+		   103);         // nonsmoker ;
+	title = "Lung Cancer";
+	};
+
+node TbOrCa {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (true, false);
+	parents = (Tuberculosis, Cancer);
+	probs = 
+		// true         false           // Tuberculosis Cancer  
+		(((0.5,         0.5),           // present      present 
+		  (0.8333333,   0.1666667)),    // present      absent  
+		 ((0.9230769,   0.07692308),    // absent       present 
+		  (0.005347594, 0.9946524)));   // absent       absent  ;
+	numcases = 
+		                  // Tuberculosis Cancer  
+		 ((2,             // present      present 
+		   6),            // present      absent  
+		  (13,            // absent       present 
+		   187));         // absent       absent  ;
+	title = "Tuberculosis or Cancer";
+	};
+
+node XRay {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (abnormal, normal);
+	parents = (TbOrCa);
+	probs = 
+		// abnormal     normal         // TbOrCa 
+		 ((0.9411765,   0.05882353),   // true   
+		  (0.05347594,  0.9465241));   // false  ;
+	numcases = 
+		                 // TbOrCa 
+		  (17,           // true   
+		   187);         // false  ;
+	};
+
+node Bronchitis {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (present, absent);
+	parents = (Smoking);
+	probs = 
+		// present      absent         // Smoking   
+		 ((0.6435643,   0.3564357),    // smoker    
+		  (0.3009709,   0.6990291));   // nonsmoker ;
+	numcases = 
+		                 // Smoking   
+		  (101,          // smoker    
+		   103);         // nonsmoker ;
+	};
+
+node Dyspnea {
+	kind = NATURE;
+	discrete = TRUE;
+	chance = CHANCE;
+	states = (present, absent);
+	parents = (TbOrCa, Bronchitis);
+	probs = 
+		// present      absent          // TbOrCa Bronchitis 
+		(((0.8181818,   0.1818182),     // true   present    
+		  (0.75,        0.25)),         // true   absent     
+		 ((0.7356322,   0.2643678),     // false  present    
+		  (0.127451,    0.872549)));    // false  absent     ;
+	numcases = 
+		                  // TbOrCa Bronchitis 
+		 ((11,            // true   present    
+		   8),            // true   absent     
+		  (87,            // false  present    
+		   102));         // false  absent     ;
+	};
+};

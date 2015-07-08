@@ -1,0 +1,54 @@
+
+<HTML>
+<HEAD>
+<TITLE>Netica(TM) API Programmer's Reference Manual; API Funtion: SetNodeInputName_bn</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/rightFrame.css" TITLE="Style">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="COPYRIGHT" CONTENT="&copy; 2012 Norsys Software Corp.">
+<SCRIPT language="javascript" type="text/javascript" >
+function loader1() {
+
+if (window.top) { //catch inf. loops
+  if (window.top.document.location.href.indexOf( '?loadPg=' ) >= 0 ) return;
+  if (window.top.frames.length >= 2) return;
+}
+  
+var url  = document.location.href;
+var pos  = url.lastIndexOf( '/' );
+var pos1 = pos - 10;
+var main = url.substring( 0, pos1 );
+var fn   = url.substring( pos + 1 );
+
+var newHref = main + "/index.html?loadPg=" + fn;
+document.location.href = newHref;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY topmargin=6 marginheight=6 onload="loader1()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="../images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<!-- <span CLASS=fnNameHeader>SetNodeInputName_bn</span> -->
+<p><div CLASS=PT><table CLASS=PT><tr VALIGN="top"> <td NOWRAP class=name><span CLASS=PTFntype>void</span><span CLASS=PTFnName>&nbsp;SetNodeInputName_bn</span>&nbsp;(</td> <td class=paramList><span CLASS=nonbreaking><span CLASS=PTParamType>node_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>node</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>int</span>&nbsp;&nbsp;<span CLASS=PTParamName>input_index</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;char*</span>&nbsp;&nbsp;<span CLASS=PTParamName>input_name</span></span>&nbsp;)</td></tr></table></div>
+<p><div CLASS=desc><p>Names the link entering <span CLASS="paramNm">node</span> from its <span CLASS="paramNm">input_index</span>th parent to be <span CLASS="paramNm">input_name</span>.
+<p><span CLASS="paramNm">input_index</span> corresponds to the ordering of the parents obtained by  <a href="GetNodeParents_bn.html">GetNodeParents_bn</a> (with the first parent having <span CLASS="paramNm">input_index</span> = 0).  The reason that an index number is passed instead of the actual parent, is because the link may not have a parent node (i.e., it is "disconnected"), or there may be more than 1 link from the same parent to <span CLASS="paramNm">node</span>.
+<p><span CLASS="paramNm">input_name</span> must be a legal IDname, which means it  must have <span CLASS="constantNm">NAME_MAX_ns</span> (30) or fewer characters, all of which are letters, digits or underscores, and it must start with a letter.
+<p>To remove the name of a link, pass <span CLASS="reservedWord">NULL</span> (not the empty string) for <span CLASS="paramNm">input_name</span>.
+<p><span CLASS="paramNm">input_name</span> must be different from the name of any other links entering <span CLASS="paramNm">node</span> (by case-sensitive comparison, and must be different from the names of any parents of <span CLASS="paramNm">node</span> which are connected to <span CLASS="paramNm">node</span> by an unnamed link.
+<p>Input names are used to document what each link means, local to the node, which is especially important if the link is disconnected, or if its parents are continuously being switched.  They are also useful as local parameters in equations, instead of using the names of parent nodes, so the equation stays valid even if the parents change.
+<p>When links are first created, they are unnamed, and remain so until this function is called, or until they are disconnected from the parent node (in which case they take on the name of the parent).  It is possible to name some of the links entering a node, and leave the rest unnamed.  All disconnected links are named.
+<p>Netica will make a copy of <span CLASS="paramNm">input_name</span>; it won't modify or free the passed string.</div>
+<p><span CLASS=sectionNm>Version:</span><div CLASS=version>In versions 1.17 and earlier, this function was named <b>SetLinkName_bn</b>.<passageIndent2/><p></div>
+<p><span CLASS=sectionNm>See also:</span><div CLASS=see_also><table CLASS="seeAlso"><tr><td VALIGN="top"><a href="GetNodeInputName_bn.html">GetNodeInputName_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Retrieves value</td></tr><tr><td VALIGN="top"><a href="GetInputNamed_bn.html">GetInputNamed_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Retrieves the index given the name</td></tr><tr><td VALIGN="top"><a href="GetNodeParents_bn.html">GetNodeParents_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Gets the actual parents of the links (e.g., to find their names or determine their numbering)</td></tr><tr><td VALIGN="top"><a href="SwitchNodeParent_bn.html">SwitchNodeParent_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Connects the "input" to a parent node</td></tr></table></div>
+<p></div>
+</BODY>
+</HTML>

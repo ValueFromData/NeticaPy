@@ -1,0 +1,52 @@
+
+<HTML>
+<HEAD>
+<TITLE>Netica(TM) API Programmer's Reference Manual; API Funtion: GetNodeFuncReal_bn</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/rightFrame.css" TITLE="Style">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="COPYRIGHT" CONTENT="&copy; 2012 Norsys Software Corp.">
+<SCRIPT language="javascript" type="text/javascript" >
+function loader1() {
+
+if (window.top) { //catch inf. loops
+  if (window.top.document.location.href.indexOf( '?loadPg=' ) >= 0 ) return;
+  if (window.top.frames.length >= 2) return;
+}
+  
+var url  = document.location.href;
+var pos  = url.lastIndexOf( '/' );
+var pos1 = pos - 10;
+var main = url.substring( 0, pos1 );
+var fn   = url.substring( pos + 1 );
+
+var newHref = main + "/index.html?loadPg=" + fn;
+document.location.href = newHref;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY topmargin=6 marginheight=6 onload="loader1()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="../images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<!-- <span CLASS=fnNameHeader>GetNodeFuncReal_bn</span> -->
+<p><div CLASS=PT><table CLASS=PT><tr VALIGN="top"> <td NOWRAP class=name><span CLASS=PTFntype>double</span><span CLASS=PTFnName>&nbsp;GetNodeFuncReal_bn</span>&nbsp;(</td> <td class=paramList><span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;node_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>node</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;state_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>parent_states</span></span>&nbsp;)</td></tr></table></div>
+<p><div CLASS=desc><p>This is for deterministic nodes that are continuous or have been given real levels (e.g., by <a href="SetNodeLevels_bn.html">SetNodeLevels_bn</a>).  Given a vector of states for the parents of <span CLASS="paramNm">node</span>, this returns the real value of <span CLASS="paramNm">node</span> (which is functionally determined by the parent values) by looking it up in the nodes function table. If the function table between <span CLASS="paramNm">node</span> and its parents has not yet been created, or if it is probabilistic (i.e., a CPT) rather than deterministic, this returns <span CLASS="constantNm">UNDEF_DBL</span>, without generating an error.
+<p>If <span CLASS="paramNm">node</span> is discrete, with no real levels defined, an error will be generated (use <a href="GetNodeFuncState_bn.html">GetNodeFuncState_bn</a> instead).
+<p>The order of the states in <span CLASS="paramNm">parent_states</span> should match the order of the nodes in the list returned by <a href="GetNodeParents_bn.html">GetNodeParents_bn</a> (this will be the same order that parents were added using <a href="AddLink_bn.html">AddLink_bn</a>).  <a href="MapStateList_bn.html">MapStateList_bn</a> may be useful for that.  <span CLASS="paramNm">parent_states</span> can be <span CLASS="reservedWord">NULL</span> if <span CLASS="paramNm">node</span> has no parents.
+<p>If the node has been given a deterministic equation with <a href="SetNodeEquation_bn.html">SetNodeEquation_bn</a>, you must call <a href="EquationToTable_bn.html">EquationToTable_bn</a> before this can be used to retrieve values (if you needed to find values without generating the whole table you would enter findings for the parents, and use <a href="CalcNodeValue_bn.html">CalcNodeValue_bn</a>).
+<p>This function ignores any findings entered in the net.
+<p>To cycle through all the possibilities of <span CLASS="paramNm">parent_states</span>, see the <FONT face="Courier">NeticaEx</FONT> function <A TARGET='_NeticaEx' HREF='../NeticaEx.html#NextStates'>NextStates</A>.</div>
+<p><span CLASS=sectionNm>Version:</span><div CLASS=version>Versions 2.06 and earlier didn't have this function, but had one called <b>GetNodeFuncValue_bn</b>, which worked almost the same, but took both discrete and continuous nodes (i.e., combined this and <a href="GetNodeFuncState_bn.html">GetNodeFuncState_bn</a>).<passageIndent2/><p></div>
+<p><span CLASS=sectionNm>See also:</span><div CLASS=see_also><table CLASS="seeAlso"><tr><td VALIGN="top"><a href="SetNodeFuncReal_bn.html">SetNodeFuncReal_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Sets them</td></tr><tr><td VALIGN="top"><a href="GetNodeFuncState_bn.html">GetNodeFuncState_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Same, but returns state integer instead of real value</td></tr><tr><td VALIGN="top"><a href="IsNodeDeterministic_bn.html">IsNodeDeterministic_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">To check if this function is applicable</td></tr><tr><td VALIGN="top"><a href="MapStateList_bn.html">MapStateList_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">To create the state list passed in</td></tr></table></div>
+<p></div>
+</BODY>
+</HTML>

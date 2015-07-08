@@ -1,0 +1,56 @@
+
+<HTML>
+<HEAD>
+<TITLE>Netica(TM) API Programmer's Reference Manual; API Funtion: CloseNetica_bn</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/rightFrame.css" TITLE="Style">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="COPYRIGHT" CONTENT="&copy; 2012 Norsys Software Corp.">
+<SCRIPT language="javascript" type="text/javascript" >
+function loader1() {
+
+if (window.top) { //catch inf. loops
+  if (window.top.document.location.href.indexOf( '?loadPg=' ) >= 0 ) return;
+  if (window.top.frames.length >= 2) return;
+}
+  
+var url  = document.location.href;
+var pos  = url.lastIndexOf( '/' );
+var pos1 = pos - 10;
+var main = url.substring( 0, pos1 );
+var fn   = url.substring( pos + 1 );
+
+var newHref = main + "/index.html?loadPg=" + fn;
+document.location.href = newHref;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY topmargin=6 marginheight=6 onload="loader1()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="../images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<!-- <span CLASS=fnNameHeader>CloseNetica_bn</span> -->
+<p><div CLASS=PT><table CLASS=PT><tr VALIGN="top"> <td NOWRAP class=name><span CLASS=PTFntype>int</span><span CLASS=PTFnName>&nbsp;CloseNetica_bn</span>&nbsp;(</td> <td class=paramList><span CLASS=nonbreaking><span CLASS=PTParamType>environ_ns*</span>&nbsp;&nbsp;<span CLASS=PTParamName>env</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>char*</span>&nbsp;&nbsp;<span CLASS=PTParamName>mesg</span></span>&nbsp;)</td></tr></table></div>
+<p><div CLASS=desc><p>
+Call this when completely finished using the Netica system to free all resources (e.g., memory) that it is using.
+<p><span CLASS="paramNm">env</span> must be a pointer to a global environment initialized by a call to <a href="InitNetica2_bn.html">InitNetica2_bn</a>.  After calling this, the contents of <span CLASS="paramNm">env</span> are invalid and should not be used.
+<p><span CLASS="paramNm">mesg</span> must be a pointer to a character array which is allocated at least <span CLASS="constantNm">MESG_LEN_ns</span> characters long.  A good-bye message will be left in it.
+<p>No data structure that was returned by any Netica API function will have valid contents after calling CloseNetica_bn.
+<p>Netica may be stopped (with CloseNetica_bn) and then later restarted (with <a href="NewNeticaEnviron_ns.html">NewNeticaEnviron_ns</a> and <a href="InitNetica2_bn.html">InitNetica2_bn</a>), but no data structures created by one session may be used by another.
+
+<p>If Netica closed successfully, a non-negative integer is returned, whereas if there was some problem a negative integer is returned and an error message left in mesg.  Use the return value to check for an error, rather than the regular Netica error system (e.g., <a href="GetError_ns.html">GetError_ns</a>), which will not work after calling this function.
+<p>In a multi-threaded environment, ensure that only one thread calls CloseNetica_bn, and after that, no threads may use any Netica function.
+</div>
+<p><span CLASS=sectionNm>Version:</span><div CLASS=version>This function is available in all versions.<passageIndent2/><p></div>
+<p><span CLASS=sectionNm>See also:</span><div CLASS=see_also><table CLASS="seeAlso"><tr><td VALIGN="top"><a href="NewNeticaEnviron_ns.html">NewNeticaEnviron_ns</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Creates the <span CLASS="classType">environ_ns</span></td></tr><tr><td VALIGN="top"><a href="InitNetica2_bn.html">InitNetica2_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Initializes the <span CLASS="classType">environ_ns</span></td></tr></table></div>
+<p><span CLASS=sectionNm>Example:</span><pre CLASS=example><div CLASS=desc>See <a href="InitNetica2_bn.html">InitNetica2_bn</a></div></pre></div>
+</BODY>
+</HTML>

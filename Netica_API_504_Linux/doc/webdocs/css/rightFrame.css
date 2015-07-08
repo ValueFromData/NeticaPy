@@ -1,0 +1,125 @@
+body { font-family: verdana,arial,helvetica,sans-serif; 
+       font-size: 9pt; 
+       line-height: 13pt;
+       background-color: #F8F8F8; }
+
+a:link    { color: #0000A0; text-decoration: none; }
+a:active  { color: #FF0000; text-decoration: none; }
+a:visited { color: #800080; text-decoration: none; }
+a:hover   { color: #0000A0; background: #DCECFF; text-decoration: none; }
+
+p { margin-left: 0pt;
+    margin-top: 6pt;
+    text-align: left;
+    line-height: 13pt;
+    text-indent: 0pt;
+    font-family: verdana,arial,helvetica,sans-serif; 
+    font-size: 10pt; }
+
+
+pre { font-size: 9pt; }
+
+table.pageHeader { width: 100%; 
+		   background-color: #DCECFF;
+	           vertical-align: middle; }
+table.pageHeader td { vertical-align: middle; }
+
+table.body    { empty-cells:   hide;
+	        table-layout:  auto; 
+	        padding-left:  0;
+	        border-width:  0;
+                margin-top:    6pt;
+                margin-bottom: 6pt; 
+	        margin-left:   18px; }
+table.body tr { margin-top: 0;
+                margin-bottom:0;  }
+table.body td { font-family: verdana,arial,helvetica,sans-serif; 
+                font-size: 10pt;
+                margin-top: 0;
+                margin-bottom:0; }
+
+table.seeAlso     { empty-cells:   hide;
+	            table-layout:  auto; 
+	            padding-left:  0;
+	            border-width:  0;
+                    margin-top:    6pt;
+                    margin-bottom: 6pt;
+		  }
+table.seeAlso tr  { line-height: 10pt;
+                    margin-top: 0;
+                    margin-bottom:0; }
+table.seeAlso td  { font-family: verdana,arial,helvetica,sans-serif; 
+                    font-size: 10pt;
+                    margin-top: 0;
+                    margin-bottom:0; }
+
+div.PT                { margin-top: 0;
+	                margin-bottom: 15;
+		        font-style: bold;
+	                margin-left: 0;
+	                font-family: verdana,arial,helvetica,sans-serif;
+	                vertical-align: baseline; }
+table.PT td.name      { font-family: verdana,arial,helvetica,sans-serif;
+		        font-style: bold;
+    		        font-size: 15pt; 
+	                padding-top: 1pt;
+    		        /*vertical-align: baseline;*/ }
+table.PT td.paramList { font-family: verdana,arial,helvetica,sans-serif;
+		        font-style: bold;
+    		        font-size: 15pt; 
+		        /*vertical-align:  baseline;*/
+			/*line-height: 18pt;*/
+	                  padding-top: 2pt;  }
+
+span.PTFnName         { color: blue;
+    		        font-size: 18pt; 
+	                font-family: verdana,arial,helvetica,sans-serif;
+		        font-style: bold;
+			white-space:nowrap;
+	                vertical-align:baseline; }
+span.PTFntype         { color: #A02020; 
+    		        font-size: 15pt; 
+	                font-family: verdana,arial,helvetica,sans-serif;
+		        font-style: bold;
+	                vertical-align:baseline; }
+span.PTParamType      { color: #A02020; 
+    		        font-size: 15pt; 
+	                font-family: verdana,arial,helvetica,sans-serif;
+		        font-style: bold;
+			     white-space:nowrap;}
+span.PTParamName      { color: #208020;
+    		        font-size: 15pt; 
+	                font-family: verdana,arial,helvetica,sans-serif;
+		        font-style: bold; 
+			white-space:nowrap;}
+
+div.desc                  { font-family: verdana,arial,helvetica,sans-serif; 
+    		            font-size: 10pt; 
+	                    color: black; }
+div.version               { color: black; 
+	                    margin-top: 6pt; 
+	                    margin-left:16px;  }
+div.see_also              { font-family: verdana,arial,helvetica,sans-serif;
+	                     margin-top: 3pt; 
+	                    margin-left:11px;  }
+div.passageIndent         { margin-left: 15; }
+pre.example               { color: black;
+	                    font-family: monospace;
+    		            font-size: 10pt; 
+	                    margin-top: 6pt;  
+	                    margin-left:14px;  }
+
+/*span.methodNm           { color: #A02020; }*/
+span.paramNm              { color: #208020;
+		            font-weight: bold; }
+span.classType            { color: #002060; }
+span.constantNm           { color: #604000; }
+span.reservedWord         { color: #503000; 
+			    white-space:nowrap; }
+span.sectionNm            { color: black; 
+		            font-weight: bold; }
+span.nonbreaking          { white-space:nowrap; }
+span.code                 { color: #802000; }
+span.underscore           {  font-family: Courier;
+			     height: 3pt;
+	                    /*padding-bottom: 3pt;*/ } /* adjusts underscore height*/

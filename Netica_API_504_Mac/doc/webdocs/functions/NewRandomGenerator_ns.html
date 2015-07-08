@@ -1,0 +1,70 @@
+
+<HTML>
+<HEAD>
+<TITLE>Netica(TM) API Programmer's Reference Manual; API Funtion: NewRandomGenerator_ns</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/rightFrame.css" TITLE="Style">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="COPYRIGHT" CONTENT="&copy; 2012 Norsys Software Corp.">
+<SCRIPT language="javascript" type="text/javascript" >
+function loader1() {
+
+if (window.top) { //catch inf. loops
+  if (window.top.document.location.href.indexOf( '?loadPg=' ) >= 0 ) return;
+  if (window.top.frames.length >= 2) return;
+}
+  
+var url  = document.location.href;
+var pos  = url.lastIndexOf( '/' );
+var pos1 = pos - 10;
+var main = url.substring( 0, pos1 );
+var fn   = url.substring( pos + 1 );
+
+var newHref = main + "/index.html?loadPg=" + fn;
+document.location.href = newHref;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY topmargin=6 marginheight=6 onload="loader1()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="../images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<!-- <span CLASS=fnNameHeader>NewRandomGenerator_ns</span> -->
+<p><div CLASS=PT><table CLASS=PT><tr VALIGN="top"> <td NOWRAP class=name><span CLASS=PTFntype>randgen_ns*</span><span CLASS=PTFnName>&nbsp;NewRandomGenerator_ns</span>&nbsp;(</td> <td class=paramList><span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;char*</span>&nbsp;&nbsp;<span CLASS=PTParamName>seed</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>environ_ns*</span>&nbsp;&nbsp;<span CLASS=PTParamName>env</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;char*</span>&nbsp;&nbsp;<span CLASS=PTParamName>options</span></span>&nbsp;)</td></tr></table></div>
+<p><div CLASS=desc><p>Creates a new object to control the randomized aspects of Netica, or generate pseudo-random numbers.
+<p>For <span CLASS="paramNm">seed</span>, pass a positive (or zero) integer in the form of a string, for example:
+<p>&nbsp;&nbsp;<span CLASS="code">NewRandomGenerator_ns ("32", env, NULL)</span>
+<p>The sequence of random results generated will be based on the starting seed (same sequence for same seed).
+Alternately, the return value of <a href="GetRandomGenState_ns.html">GetRandomGenState_ns</a> can be passed for <span CLASS="paramNm">seed</span>, which will result in in the same
+behaviour as the random generator from which the state was extracted with <a href="GetRandomGenState_ns.html">GetRandomGenState_ns</a>.
+A final possibility is to pass the string "Nondeterministic" for  <span CLASS="paramNm">options</span>, in which case, <span CLASS="paramNm">seed</span> is ignored and
+the random sequence will be nondeterministic.
+<p><span CLASS="paramNm">options</span> should either be <span CLASS="reservedWord">NULL</span> or the string "Nondeterministic".
+<p>When you are finished with the random generator object, free the resources it uses by calling <a href="DeleteRandomGen_ns.html">DeleteRandomGen_ns</a>.
+<p>Netica API behaviour can be made completely deterministic, which is very useful for regression tests and repeatability under debugging.  Under single-threading the only requirement is to not pass "Nondeterministic" to <a href="NewRandomGenerator_ns.html">NewRandomGenerator_ns</a>.  Under multi-threading, you also have to take into account the varying scheduling of threads, to be sure that if two different threads are operating on the same object that the order in which they do so does not negatively influence the repeatability of the object.  Usually the best way is to limit the number of threads that can access the object (such as a rule of only one thread per Bayes net), or to synchronize their access to the object.  In particular, multiple threads using the same random generator can produce varying pseudo-random sequences.  The solution is to have multiple random generators, usually one for each thread that needs it.  Netica makes that possible by allowing you to associate a random generator with a Bayes net (using <a href="SetNetRandomGen_bn.html">SetNetRandomGen_bn</a>), so that operations on the Bayes net will use that random generator, and to pass random generators to some functions (such as <a href="GenerateRandomCase_bn.html">GenerateRandomCase_bn</a>).</div>
+<p><span CLASS=sectionNm>Version:</span><div CLASS=version>Versions 3.04 and later have this function.<passageIndent2/><p></div>
+<p><span CLASS=sectionNm>See also:</span><div CLASS=see_also><table CLASS="seeAlso"><tr><td VALIGN="top"><a href="DeleteRandomGen_ns.html">DeleteRandomGen_ns</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">To free the <span CLASS="classType">randgen_ns</span> when done with it.</td></tr><tr><td VALIGN="top"><a href="GetRandomGenState_ns.html">GetRandomGenState_ns</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">To obtain a seed value.</td></tr><tr><td VALIGN="top"><a href="GenerateRandomNumbers_ns.html">GenerateRandomNumbers_ns</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Use the <span CLASS="classType">randgen_ns</span> to make random numbers.</td></tr><tr><td VALIGN="top"><a href="GenerateRandomCase_bn.html">GenerateRandomCase_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Use it to control simulation.</td></tr><tr><td VALIGN="top"><a href="SetNetRandomGen_bn.html">SetNetRandomGen_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Associate a <span CLASS="classType">randgen_ns</span> with a net.</td></tr></table></div>
+<p><span CLASS=sectionNm>Example:</span><pre CLASS=example>
+randgen_ns* rand = NewRandomGenerator_ns ("1", env, NULL);
+double xr = GenerateRandomNumbers_ns (rand, NULL, 1, NULL); // creates pseudo-random number xr
+double xrs[100];
+GenerateRandomNumbers_ns (rand, xrs, 100, NULL);            // then generates 100 more random numbers in xrs
+char* rstr = strdup (GetRandomGenState_ns (rand, NULL));    // save the state of rand
+SetNetRandomGen_bn (net, rand);    // will affect the operation on net of the functions:  
+                                   //   GenerateRandomCase_bn   EquationToTable_bn   LearnCPTs_bn
+                                   // don't use or free rand after this, because it is given to the net
+GenerateRandomCase_bn (GetNetNodes2_bn (net, NULL), DEFAULT_SAMPLING, 100, NULL);    // for example
+randgen_ns* rand2 = NewRandomGenerator_ns (rstr, env, NULL);// create a new generator in the same state that rand was in earlier
+GenerateRandomCase_bn (GetNetNodes2_bn (net, NULL), DEFAULT_SAMPLING, 100, rand2);    // will generate the same case as above, 
+                                                            // because its random generator was in the same state.
+DeleteRandomGen_ns (rand2);                                 // don't need to do this for rand, because it was given to the net</pre></div>
+</BODY>
+</HTML>

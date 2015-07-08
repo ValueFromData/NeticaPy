@@ -1,0 +1,62 @@
+
+<HTML>
+<HEAD>
+<TITLE>Netica(TM) API Programmer's Reference Manual; API Funtion: GetNodeLikelihood_bn</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/rightFrame.css" TITLE="Style">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="COPYRIGHT" CONTENT="&copy; 2012 Norsys Software Corp.">
+<SCRIPT language="javascript" type="text/javascript" >
+function loader1() {
+
+if (window.top) { //catch inf. loops
+  if (window.top.document.location.href.indexOf( '?loadPg=' ) >= 0 ) return;
+  if (window.top.frames.length >= 2) return;
+}
+  
+var url  = document.location.href;
+var pos  = url.lastIndexOf( '/' );
+var pos1 = pos - 10;
+var main = url.substring( 0, pos1 );
+var fn   = url.substring( pos + 1 );
+
+var newHref = main + "/index.html?loadPg=" + fn;
+document.location.href = newHref;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY topmargin=6 marginheight=6 onload="loader1()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="../images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<!-- <span CLASS=fnNameHeader>GetNodeLikelihood_bn</span> -->
+<p><div CLASS=PT><table CLASS=PT><tr VALIGN="top"> <td NOWRAP class=name><span CLASS=PTFntype>const&nbsp;prob_bn*</span><span CLASS=PTFnName>&nbsp;GetNodeLikelihood_bn</span>&nbsp;(</td> <td class=paramList><span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;node_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>node</span></span>&nbsp;)</td></tr></table></div>
+<p><div CLASS=desc><p>Returns a likelihood vector with one entry for each state of <span CLASS="paramNm">node</span>, indicating the findings that have been entered for <span CLASS="paramNm">node</span> since the last retraction, including positive findings, negative findings, and likelihood findings.
+<p>If a positive finding has been entered, then the likelihood vector will consist of all zero entries, except a nonzero entry for the state corresponding to the finding (for more details on likelihood vectors, see <a href="EnterNodeLikelihood_bn.html">EnterNodeLikelihood_bn</a>).
+<p>If a number of likelihood findings and/or negative findings have been entered for this node, they will be accumulated in the vector returned.
+<p>If no findings have been entered for this node since the last retraction, a uniform vector consisting of all 1's is returned.  This is consistent with the concept of likelihood, since a likelihood finding which is a uniform vector is equivalent to no finding at all, and will not modify any beliefs.
+<p>This function cannot be used on a continuous node, unless the node has first been discretized (see&nbsp;<a href="SetNodeLevels_bn.html">SetNodeLevels_bn</a>).
+<p>If you need the results to persist, make a copy of the vector returned, since its contents may become invalid after further calls to Netica API.  Do not try to directly modify or free the vector returned.</div>
+<p><span CLASS=sectionNm>Version:</span><div CLASS=version>This function is available in all versions.<passageIndent2/><p></div>
+<p><span CLASS=sectionNm>See also:</span><div CLASS=see_also><table CLASS="seeAlso"><tr><td VALIGN="top"><a href="GetNodeFinding_bn.html">GetNodeFinding_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Returns a scalar saying whether findings have been entered, and what kind</td></tr><tr><td VALIGN="top"><a href="GetNodeBeliefs_bn.html">GetNodeBeliefs_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Current belief for a node (considers findings entered at other nodes)</td></tr><tr><td VALIGN="top"><a href="EnterNodeLikelihood_bn.html">EnterNodeLikelihood_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">To enter a vector of uncertain findings (see example below)</td></tr><tr><td VALIGN="top"><a href="RetractNodeFindings_bn.html">RetractNodeFindings_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">To clear away all findings entered so far for this node</td></tr><tr><td VALIGN="top"><a href="GetNodeNumberStates_bn.html">GetNodeNumberStates_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Determine the length of the vector returned</td></tr></table></div>
+<p><span CLASS=sectionNm>Example:</span><pre CLASS=example>
+// To temporarily remove all findings from a node and later restore them
+//
+int size = GetNodeNumberStates_bn (node) * sizeof (prob_bn);
+char* save = malloc (size);
+memcpy (save, GetNodeLikelihood_bn (node), size);
+RetractNodeFindings_bn (node);
+... [stuff without the evidence] ...
+RetractNodeFindings_bn (node);			// in case any findings were introduced above
+EnterNodeLikelihood_bn (node, save);		// restores to original
+free (save);</pre></div>
+</BODY>
+</HTML>

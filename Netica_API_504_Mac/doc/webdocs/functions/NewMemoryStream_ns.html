@@ -1,0 +1,64 @@
+
+<HTML>
+<HEAD>
+<TITLE>Netica(TM) API Programmer's Reference Manual; API Funtion: NewMemoryStream_ns</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/rightFrame.css" TITLE="Style">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="COPYRIGHT" CONTENT="&copy; 2012 Norsys Software Corp.">
+<SCRIPT language="javascript" type="text/javascript" >
+function loader1() {
+
+if (window.top) { //catch inf. loops
+  if (window.top.document.location.href.indexOf( '?loadPg=' ) >= 0 ) return;
+  if (window.top.frames.length >= 2) return;
+}
+  
+var url  = document.location.href;
+var pos  = url.lastIndexOf( '/' );
+var pos1 = pos - 10;
+var main = url.substring( 0, pos1 );
+var fn   = url.substring( pos + 1 );
+
+var newHref = main + "/index.html?loadPg=" + fn;
+document.location.href = newHref;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY topmargin=6 marginheight=6 onload="loader1()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="../images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<!-- <span CLASS=fnNameHeader>NewMemoryStream_ns</span> -->
+<p><div CLASS=PT><table CLASS=PT><tr VALIGN="top"> <td NOWRAP class=name><span CLASS=PTFntype>stream_ns*</span><span CLASS=PTFnName>&nbsp;NewMemoryStream_ns</span>&nbsp;(</td> <td class=paramList><span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;char*</span>&nbsp;&nbsp;<span CLASS=PTParamName>name</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>environ_ns*</span>&nbsp;&nbsp;<span CLASS=PTParamName>env</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;char*</span>&nbsp;&nbsp;<span CLASS=PTParamName>access</span></span>&nbsp;)</td></tr></table></div>
+<p><div CLASS=desc><p>Returns a Norsys stream for reading and writing to buffers in memory, in the same format reading/writing is done to disk files.
+<p><span CLASS="paramNm">name</span> is a symbolic name for identifying the stream (e.g., in error messages), and providing information on the expected format of the buffer, in the same way that a file extension can be used to indicate the format of disk files.
+<p>The stream can be used for input or output.  Use <a href="SetStreamContents_ns.html">SetStreamContents_ns</a> to have Netica read from a text buffer that you supply.  Use <a href="GetStreamContents_ns.html">GetStreamContents_ns</a> to retrieve a buffer that Netica has written to.
+<p><span CLASS="paramNm">name</span> is not necessarily the name of a file on the OS filesystem.  If the end of name consists of a dot and then a few characters, it will be interpreted like a filetype extension, which can be useful to Netica in deciding the data format of the stream.  For example, writing a net to a memory stream with a ".dnet" or ".dne" extension will result in a text file Netica format ("DNET format"), whereas using a ".neta" extension would result in a binary Netica file.
+<p>Netica will make a copy of <span CLASS="paramNm">filename</span>; it won't modify or free the passed string.
+<p>Pass <span CLASS="reservedWord">NULL</span> for <span CLASS="paramNm">access</span>; it is only for future expansion.
+<p>When done with the <span CLASS="classType">stream_ns</span> produced, call <a href="DeleteStream_ns.html">DeleteStream_ns</a>.</div>
+<p><span CLASS=sectionNm>Version:</span><div CLASS=version>Versions 2.26 and later have this function.<passageIndent2/><p></div>
+<p><span CLASS=sectionNm>See also:</span><div CLASS=see_also><table CLASS="seeAlso"><tr><td VALIGN="top"><a href="SetStreamContents_ns.html">SetStreamContents_ns</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Sets memory buffer</td></tr><tr><td VALIGN="top"><a href="GetStreamContents_ns.html">GetStreamContents_ns</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Retrieves memory buffer</td></tr><tr><td VALIGN="top"><a href="SetStreamPassword_ns.html">SetStreamPassword_ns</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Prepare the stream to do encryption or decryption</td></tr><tr><td VALIGN="top"><a href="DeleteStream_ns.html">DeleteStream_ns</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Releases all resources (e.g., memory) used by this stream</td></tr></table></div>
+<p><span CLASS=sectionNm>Example:</span><pre CLASS=example>
+long length;
+stream_ns* strm = NewMemoryStream_ns ("myBuf.dne", env, NULL);
+WriteNet_bn (net, strm);     // write a net into the memory buffer
+const char* buf = GetStreamContents_ns (strm, <amp/>length);
+// ... [examine and use the buffer contents] ...
+DeleteStream_ns (strm);</pre><span CLASS=sectionNm>Example 2:</span><pre CLASS=example>
+stream_ns* strm = NewMemoryStream_ns ("myBuf.cas", env, NULL);
+const char* casedata = "A B C &#092;n yes no 1 &#092;n yes yes 3 &#092;n no no 1";
+SetStreamContents_ns (strm, casedata, strlen (casedata), true);
+ReviseCPTsByCaseFile_bn (strm, nodes, 0, 1.0);
+DeleteStream_ns (strm);</pre></div>
+</BODY>
+</HTML>

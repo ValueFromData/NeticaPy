@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DoInference", "DoInference.vcproj", "{19162EAD-8C7A-4319-B4E3-C8906CA769B0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{19162EAD-8C7A-4319-B4E3-C8906CA769B0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{19162EAD-8C7A-4319-B4E3-C8906CA769B0}.Debug|Win32.Build.0 = Debug|Win32
+		{19162EAD-8C7A-4319-B4E3-C8906CA769B0}.Release|Win32.ActiveCfg = Release|Win32
+		{19162EAD-8C7A-4319-B4E3-C8906CA769B0}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

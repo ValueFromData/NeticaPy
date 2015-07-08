@@ -1,0 +1,50 @@
+
+<HTML>
+<HEAD>
+<TITLE>Netica(TM) API Programmer's Reference Manual; API Funtion: GetTestErrorRate_bn</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/rightFrame.css" TITLE="Style">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="COPYRIGHT" CONTENT="&copy; 2012 Norsys Software Corp.">
+<SCRIPT language="javascript" type="text/javascript" >
+function loader1() {
+
+if (window.top) { //catch inf. loops
+  if (window.top.document.location.href.indexOf( '?loadPg=' ) >= 0 ) return;
+  if (window.top.frames.length >= 2) return;
+}
+  
+var url  = document.location.href;
+var pos  = url.lastIndexOf( '/' );
+var pos1 = pos - 10;
+var main = url.substring( 0, pos1 );
+var fn   = url.substring( pos + 1 );
+
+var newHref = main + "/index.html?loadPg=" + fn;
+document.location.href = newHref;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY topmargin=6 marginheight=6 onload="loader1()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="../images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<!-- <span CLASS=fnNameHeader>GetTestErrorRate_bn</span> -->
+<p><div CLASS=PT><table CLASS=PT><tr VALIGN="top"> <td NOWRAP class=name><span CLASS=PTFntype>double</span><span CLASS=PTFnName>&nbsp;GetTestErrorRate_bn</span>&nbsp;(</td> <td class=paramList><span CLASS=nonbreaking><span CLASS=PTParamType>tester_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>test</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>node_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>node</span></span>&nbsp;)</td></tr></table></div>
+<p><div CLASS=desc><p>Returns the accumulated "error rate" of <span CLASS="paramNm">node</span> under the tests previously performed with <span CLASS="paramNm">test</span>.  This is the fraction of times the Net predicted or diagnosed states incorrectly for <span CLASS="paramNm">node</span>, out of all the cases which provided a value for <span CLASS="paramNm">node</span>.
+<p>For each case, the "prediction" is formed by reading the values of the "observed nodes" of that case in the file, using them to update beliefs in the net, and then picking the state of <span CLASS="paramNm">node</span> which has the highest resultant belief (posterior probability) to be the prediction.  The set of  "observed nodes" is specified when creating the <span CLASS="classType">tester_bn</span>.
+<p>A result of 0.0 means no prediction errors, whereas a result of 1.0 means all predictions were in error.
+<p><span CLASS="paramNm">node</span> is required to have been in the <span CLASS="paramNm">test_nodes</span> list originally passed to <a href="NewNetTester_bn.html">NewNetTester_bn</a>.</div>
+<p><span CLASS=sectionNm>Version:</span><div CLASS=version>Versions 2.08 and later have this function.<passageIndent2/><p></div>
+<p><span CLASS=sectionNm>See also:</span><div CLASS=see_also><table CLASS="seeAlso"><tr><td VALIGN="top"><a href="GetTestConfusion_bn.html">GetTestConfusion_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Get elements of the confusion matrix</td></tr><tr><td VALIGN="top"><a href="GetTestLogLoss_bn.html">GetTestLogLoss_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Get the "logarithmic loss" score of the test</td></tr><tr><td VALIGN="top"><a href="GetTestQuadraticLoss_bn.html">GetTestQuadraticLoss_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Get the "quadratic loss" score of the test</td></tr><tr><td VALIGN="top"><a href="NewNetTester_bn.html">NewNetTester_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Construct the <span CLASS="classType">tester_bn</span> object</td></tr></table></div>
+<p><span CLASS=sectionNm>Example:</span><pre CLASS=example><div CLASS=desc>See <a href="NewNetTester_bn.html">NewNetTester_bn</a>.</div></pre></div>
+</BODY>
+</HTML>

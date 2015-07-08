@@ -1,0 +1,71 @@
+
+<HTML>
+<HEAD>
+<TITLE>Netica(TM) API Programmer's Reference Manual; API Funtion: EnterFinding_bn</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/rightFrame.css" TITLE="Style">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="COPYRIGHT" CONTENT="&copy; 2012 Norsys Software Corp.">
+<SCRIPT language="javascript" type="text/javascript" >
+function loader1() {
+
+if (window.top) { //catch inf. loops
+  if (window.top.document.location.href.indexOf( '?loadPg=' ) >= 0 ) return;
+  if (window.top.frames.length >= 2) return;
+}
+  
+var url  = document.location.href;
+var pos  = url.lastIndexOf( '/' );
+var pos1 = pos - 10;
+var main = url.substring( 0, pos1 );
+var fn   = url.substring( pos + 1 );
+
+var newHref = main + "/index.html?loadPg=" + fn;
+document.location.href = newHref;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY topmargin=6 marginheight=6 onload="loader1()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="../images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<!-- <span CLASS=fnNameHeader>EnterFinding_bn</span> -->
+<p><div CLASS=PT><table CLASS=PT><tr VALIGN="top"> <td NOWRAP class=name><span CLASS=PTFntype>void</span><span CLASS=PTFnName>&nbsp;EnterFinding_bn</span>&nbsp;(</td> <td class=paramList><span CLASS=nonbreaking><span CLASS=PTParamType>node_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>node</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>state_bn</span>&nbsp;&nbsp;<span CLASS=PTParamName>state</span></span>&nbsp;)</td></tr></table></div>
+<p><div CLASS=desc><p>Enters the discrete finding <span CLASS="paramNm">state</span> for <span CLASS="paramNm">node</span>.  This means that in the case currently being analyzed, <span CLASS="paramNm">node</span> is known with certainty to have value <span CLASS="paramNm">state</span>.
+<p><span CLASS="paramNm">state</span> must be between 0 and n - 1 inclusive, where n is the node's number of states.
+<p>If <span CLASS="paramNm">node</span> could already have a finding that you wish to override with this new finding, <a href="RetractNodeFindings_bn.html">RetractNodeFindings_bn</a> should be called first, otherwise an "inconsistent findings" error could result (see SetNodeFinding in the examples below).
+<p>If you wish to pass the state by name, see the "EnterFinding" example below.
+<p>If <span CLASS="paramNm">node</span> is a continuous node that has been discretized, this function will work fine, but it is better to use <a href="EnterNodeValue_bn.html">EnterNodeValue_bn</a> if the real value is known, for possibly improved accuracy when equations are involved, the case is saved to file, or the discretization changes.
+<p>If the net has auto-updating (see&nbsp;<a href="SetNetAutoUpdate_bn.html">SetNetAutoUpdate_bn</a>), then a belief updating will be done to reflect the new finding before this function returns (otherwise it will just be done when needed).</div>
+<p><span CLASS=sectionNm>Version:</span><div CLASS=version>This function is available in all versions.  In versions previous to 3.00 there was a <FONT face="Courier">NeticaEx</FONT> function called ChangeFinding that is now called <A TARGET='_NeticaEx' HREF='../NeticaEx.html#SetNodeFinding'>SetNodeFinding</A>.<passageIndent2/><p></div>
+<p><span CLASS=sectionNm>See also:</span><div CLASS=see_also><table CLASS="seeAlso"><tr><td VALIGN="top"><a href="EnterFindingNot_bn.html">EnterFindingNot_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">To indicate that node isn't in some state</td></tr><tr><td VALIGN="top"><a href="EnterNodeValue_bn.html">EnterNodeValue_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">To enter the real value of a continuous node</td></tr><tr><td VALIGN="top"><a href="EnterNodeLikelihood_bn.html">EnterNodeLikelihood_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">To enter uncertain findings</td></tr><tr><td VALIGN="top"><a href="GetNodeFinding_bn.html">GetNodeFinding_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">To retrieve findings entered so far</td></tr><tr><td VALIGN="top"><a href="RetractNodeFindings_bn.html">RetractNodeFindings_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">To remove the finding entered</td></tr><tr><td VALIGN="top"><a href="GetNodeNumberStates_bn.html">GetNodeNumberStates_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top"><span CLASS="paramNm">state</span> must be between 0 and one less than this, inclusive</td></tr></table></div>
+<p><span CLASS=sectionNm>Example:</span><pre CLASS=example><div CLASS=desc>The following function is available in <FONT face="Courier">NeticaEx.c</FONT>:</div>
+// This function may be useful if we are not sure whether node
+// already has a finding, but if it does we just want to override it.
+//
+void SetNodeFinding (node_bn* node, state_bn state){
+    net_bn* net = GetNodeNet_bn (node);
+    int saved = SetNetAutoUpdate_bn (net, 0);    // turning it off can greatly aid efficiency
+    RetractNodeFindings_bn (node);
+    EnterFinding_bn (node, state);
+    SetNetAutoUpdate_bn (net, saved);            // if changing further findings, defer this step 
+                                                       if possible, for efficiency
+}</pre><span CLASS=sectionNm>Example 2:</span><pre CLASS=example><div CLASS=desc>The following function is available in <FONT face="Courier">NeticaEx.c</FONT>:</div>
+// This function is useful to enter a finding based on the names
+// of the node and state.
+//
+void EnterFinding (char* node_name, char* state_name, net_bn* net){
+    node_bn* node = GetNodeNamed_bn (node_name, net);
+    state_bn state = GetStateNamed_bn (state_name, node);
+    EnterFinding_bn (node, state);
+}</pre></div>
+</BODY>
+</HTML>

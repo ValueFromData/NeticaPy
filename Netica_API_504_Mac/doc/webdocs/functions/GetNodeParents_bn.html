@@ -1,0 +1,51 @@
+
+<HTML>
+<HEAD>
+<TITLE>Netica(TM) API Programmer's Reference Manual; API Funtion: GetNodeParents_bn</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/rightFrame.css" TITLE="Style">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="COPYRIGHT" CONTENT="&copy; 2012 Norsys Software Corp.">
+<SCRIPT language="javascript" type="text/javascript" >
+function loader1() {
+
+if (window.top) { //catch inf. loops
+  if (window.top.document.location.href.indexOf( '?loadPg=' ) >= 0 ) return;
+  if (window.top.frames.length >= 2) return;
+}
+  
+var url  = document.location.href;
+var pos  = url.lastIndexOf( '/' );
+var pos1 = pos - 10;
+var main = url.substring( 0, pos1 );
+var fn   = url.substring( pos + 1 );
+
+var newHref = main + "/index.html?loadPg=" + fn;
+document.location.href = newHref;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY topmargin=6 marginheight=6 onload="loader1()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="../images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<!-- <span CLASS=fnNameHeader>GetNodeParents_bn</span> -->
+<p><div CLASS=PT><table CLASS=PT><tr VALIGN="top"> <td NOWRAP class=name><span CLASS=PTFntype>const&nbsp;nodelist_bn*</span><span CLASS=PTFnName>&nbsp;GetNodeParents_bn</span>&nbsp;(</td> <td class=paramList><span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;node_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>node</span></span>&nbsp;)</td></tr></table></div>
+<p><div CLASS=desc><p>Returns a list of the parents of <span CLASS="paramNm">node</span>.  Those are the nodes with a link going to <span CLASS="paramNm">node</span>.  If it has no parents then an empty list (rather than <span CLASS="reservedWord">NULL</span>) will be returned.
+<p>The order of the list is significant.  Numbering each node in the list (starting from 0) provides a numbering for the links entering <span CLASS="paramNm">node</span>, which is used by some other functions.
+<p>If there are several links from the same parent to <span CLASS="paramNm">node</span>, then in the list returned that parent will be repeated once for each link.
+<p>To obtain the number of links entering <span CLASS="paramNm">node</span>, use the length of the returned list.
+<p>If you need the list to persist, make a copy of the list returned (with <a href="DupNodeList_bn.html">DupNodeList_bn</a>), since its contents may become invalid after further calls to Netica API (e.g., one that changes the links of a net, such as AddLink_bn).  This is a list managed by Netica (declared <i>const</i>), so do not call any function to modify or free it (e.g., <a href="DeleteNodeList_bn.html">DeleteNodeList_bn</a>).</div>
+<p><span CLASS=sectionNm>Version:</span><div CLASS=version>This function is available in all versions.<passageIndent2/><p></div>
+<p><span CLASS=sectionNm>See also:</span><div CLASS=see_also><table CLASS="seeAlso"><tr><td VALIGN="top"><a href="GetNodeChildren_bn.html">GetNodeChildren_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Gets a list of the children</td></tr><tr><td VALIGN="top"><a href="LengthNodeList_bn.html">LengthNodeList_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Use on returned list to find the number of parents</td></tr><tr><td VALIGN="top"><a href="GetNodeInputName_bn.html">GetNodeInputName_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top"></td></tr><tr><td VALIGN="top"><a href="AddLink_bn.html">AddLink_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Add a parent</td></tr><tr><td VALIGN="top"><a href="DeleteLink_bn.html">DeleteLink_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Remove a parent</td></tr><tr><td VALIGN="top"><a href="SwitchNodeParent_bn.html">SwitchNodeParent_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Switch one of the parents for a different one</td></tr><tr><td VALIGN="top"><a href="GetNodeKind_bn.html">GetNodeKind_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">To determine if a link is disconnected (returns <span CLASS="constantNm">DISCONNECTED_NODE</span>)</td></tr></table></div>
+<p></div>
+</BODY>
+</HTML>

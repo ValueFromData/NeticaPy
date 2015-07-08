@@ -1,0 +1,51 @@
+
+<HTML>
+<HEAD>
+<TITLE>Netica(TM) API Programmer's Reference Manual; API Funtion: SetNetUserData_bn</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/rightFrame.css" TITLE="Style">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="COPYRIGHT" CONTENT="&copy; 2012 Norsys Software Corp.">
+<SCRIPT language="javascript" type="text/javascript" >
+function loader1() {
+
+if (window.top) { //catch inf. loops
+  if (window.top.document.location.href.indexOf( '?loadPg=' ) >= 0 ) return;
+  if (window.top.frames.length >= 2) return;
+}
+  
+var url  = document.location.href;
+var pos  = url.lastIndexOf( '/' );
+var pos1 = pos - 10;
+var main = url.substring( 0, pos1 );
+var fn   = url.substring( pos + 1 );
+
+var newHref = main + "/index.html?loadPg=" + fn;
+document.location.href = newHref;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY topmargin=6 marginheight=6 onload="loader1()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="../images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<!-- <span CLASS=fnNameHeader>SetNetUserData_bn</span> -->
+<p><div CLASS=PT><table CLASS=PT><tr VALIGN="top"> <td NOWRAP class=name><span CLASS=PTFntype>void</span><span CLASS=PTFnName>&nbsp;SetNetUserData_bn</span>&nbsp;(</td> <td class=paramList><span CLASS=nonbreaking><span CLASS=PTParamType>net_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>net</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>int</span>&nbsp;&nbsp;<span CLASS=PTParamName>kind</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>void* data</span></span>&nbsp;)</td></tr></table></div>
+<p><div CLASS=desc><p>Attaches to <span CLASS="paramNm">net</span> the data pointed to by <span CLASS="paramNm">data</span>.  Only your program needs to be able to understand this data.  It may point to whatever is desired, possibly a large structure with many fields.  This information may later be recovered using <a href="GetNetUserData_bn.html">GetNetUserData_bn</a>.
+<p>Pass 0 for <span CLASS="paramNm">kind</span>.  It is only for future expansion.
+<p>Only one user pointer may be attached to <span CLASS="paramNm">net</span> at a time.  When <span CLASS="paramNm">net</span> is written to file, this user data is not included.  For user-defined field-by-field data that gets saved to file, see <a href="SetNetUserField_bn.html">SetNetUserField_bn</a>.
+<p>Likewise, when the net is duplicated (<a href="CopyNet_bn.html">CopyNet_bn</a>), this user data is <b>not</b> included.
+<p>Netica will not modify, free or duplicate the data, even if the net is freed.</div>
+<p><span CLASS=sectionNm>Version:</span><div CLASS=version>This function is available in all versions.<passageIndent2/><p></div>
+<p><span CLASS=sectionNm>See also:</span><div CLASS=see_also><table CLASS="seeAlso"><tr><td VALIGN="top"><a href="GetNetUserData_bn.html">GetNetUserData_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Retrieves value</td></tr><tr><td VALIGN="top"><a href="SetNetUserField_bn.html">SetNetUserField_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Attach information field-by-field, and have it saved to file</td></tr><tr><td VALIGN="top"><a href="SetNodeUserData_bn.html">SetNodeUserData_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Attach a user pointer to a particular node</td></tr></table></div>
+<p></div>
+</BODY>
+</HTML>

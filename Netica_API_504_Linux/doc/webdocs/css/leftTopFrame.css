@@ -1,0 +1,24 @@
+body { font-family: Arial,sans-serif; background-color: #DDDDDD; }
+
+a:link    { color: #0000A0; text-decoration: none; }
+a:active  { color: #FF0000; text-decoration: none; }
+a:visited { color: #800080; text-decoration: none; }
+a:hover   { color: #000000; background: #FFFFFF; text-decoration: none; }
+
+.buttonManual { COLOR:black; 
+	        background:#FFE0E0;
+                font-family: Arial,sans-serif; font-size: 11px; 
+	        height: 20;  }
+
+.buttonIndex { COLOR:black; 
+	       background:#C0FFFF;
+               font-family: Arial,sans-serif; font-size: 11px; 
+	       height: 20;}
+
+.buttonCateg { COLOR:black; 
+	       background: #FFF0D0;
+               font-family: Arial,sans-serif; font-size: 11px; 
+	       margin:0;
+	       height: 20; }
+
+form {margin-top:0;margin-bottom:10;}

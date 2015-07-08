@@ -1,0 +1,75 @@
+
+<HTML>
+<HEAD>
+<TITLE>Netica(TM) API Programmer's Reference Manual; API Funtion: JointProbability_bn</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/rightFrame.css" TITLE="Style">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="COPYRIGHT" CONTENT="&copy; 2012 Norsys Software Corp.">
+<SCRIPT language="javascript" type="text/javascript" >
+function loader1() {
+
+if (window.top) { //catch inf. loops
+  if (window.top.document.location.href.indexOf( '?loadPg=' ) >= 0 ) return;
+  if (window.top.frames.length >= 2) return;
+}
+  
+var url  = document.location.href;
+var pos  = url.lastIndexOf( '/' );
+var pos1 = pos - 10;
+var main = url.substring( 0, pos1 );
+var fn   = url.substring( pos + 1 );
+
+var newHref = main + "/index.html?loadPg=" + fn;
+document.location.href = newHref;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY topmargin=6 marginheight=6 onload="loader1()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="../images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<!-- <span CLASS=fnNameHeader>JointProbability_bn</span> -->
+<p><div CLASS=PT><table CLASS=PT><tr VALIGN="top"> <td NOWRAP class=name><span CLASS=PTFntype>double</span><span CLASS=PTFnName>&nbsp;JointProbability_bn</span>&nbsp;(</td> <td class=paramList><span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;nodelist_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>nodes</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>const state_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>states</span></span>&nbsp;)</td></tr></table></div>
+<p><div CLASS=desc><p>Returns the joint probability that each node in <span CLASS="paramNm">nodes</span> is in the corresponding state of <span CLASS="paramNm">states</span>, given the findings currently entered in the Bayes net.  The <span CLASS="paramNm">states</span> array must provide a state for each node of <span CLASS="paramNm">nodes</span>.  
+<p>This function is designed to work fast when retrieving many joint probabilities from nodes that were put in the same clique (see below) during net compilation.  The first time it is called it will take longer to return, but on subsequent calls it will return very fast if these conditions are met:
+<p>&nbsp;&nbsp;1. <span CLASS="paramNm">nodes</span> is the same list for each call.
+<br>&nbsp;&nbsp;2. No calls to it with a different <span CLASS="paramNm">nodes</span> list were made in between.
+<br>&nbsp;&nbsp;3. No new findings have been entered or retracted.
+<br>&nbsp;&nbsp;4. No change was made to the net requiring re-compilation.
+<br>&nbsp;&nbsp;5. Each of <span CLASS="paramNm">nodes</span> was placed in the same clique during compiling.
+<p>If conditions 1 or 2 are violated, it will still be much faster than doing a new belief updating, but not as fast as if they aren't violated.  If the other conditions are violated, then it will take the same time as 1 or 2 belief updatings.
+<p>All of <span CLASS="paramNm">nodes</span> must come from the same Bayes net.
+<p>None of <span CLASS="paramNm">nodes</span> should have a likelihood finding (but they may have other types of findings, and other nodes in the net may have likelihood findings).
+<p>You can be sure a set of nodes will be placed in the same clique if there is some "family" in the Bayes net which contains all of them.
+<p>A <i>family</i> consists of a node and its parents.  The function <A TARGET='_NeticaEx' HREF='../NeticaEx.html#FormCliqueWith'>FormCliqueWith</A> (in the example below and in <FONT face="Courier">NeticaEx.c</FONT>) can be used to ensure that all of <span CLASS="paramNm">nodes</span> will be put in the same clique during the next compile.</div>
+<p><span CLASS=sectionNm>Version:</span><div CLASS=version>Versions 1.18 and later have this function.<br>In versions previous to 2.10 this function was named <b>GetJointProb_bn</b>.<passageIndent2/><p></div>
+<p><span CLASS=sectionNm>See also:</span><div CLASS=see_also><table CLASS="seeAlso"><tr><td VALIGN="top"><a href="FindingsProbability_bn.html">FindingsProbability_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Joint probability for current findings</td></tr><tr><td VALIGN="top"><a href="GetNodeBeliefs_bn.html">GetNodeBeliefs_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Posterior probability for a single node</td></tr><tr><td VALIGN="top"><a href="GetNodeProbs_bn.html">GetNodeProbs_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Gets CPT entries of a node</td></tr></table></div>
+<p><span CLASS=sectionNm>Example:</span><pre CLASS=example><div CLASS=desc>The following function is available in <FONT face="Courier">NeticaEx.c</FONT>:</div>
+// Ensures that at the next compile all of nodes will be put in the same clique.
+// It is useful for the JointProbability_bn function.
+// It works by adding a dummy node with 1 state, and returning that node (or <span CLASS="reservedWord">NULL</span> if it
+//    wasn't necessary to add one).
+// Its effects can be completely undone by calling DeleteNode_bn on the node it returns.
+//
+node_bn* FormCliqueWith (const nodelist_bn* nodes){
+    net_bn* net;
+    node_bn* new_node;
+    int i, num_nodes = LengthNodeList_bn (nodes);
+    if (num_nodes &lt;= 1)  return NULL;
+    net = GetNodeNet_bn (NthNode_bn (nodes, 0));
+    new_node = NewNode_bn (NULL, 1, net);
+    for (i = 0;  i &lt; num_nodes;  ++i)
+        AddLink_bn (NthNode_bn (nodes, i), new_node);
+    return new_node;
+}</pre></div>
+</BODY>
+</HTML>

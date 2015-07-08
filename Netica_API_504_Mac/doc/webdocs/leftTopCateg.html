@@ -1,0 +1,50 @@
+<HTML>
+<HEAD>
+<LINK REL="stylesheet" TYPE="text/css" HREF="css/leftTopFrame.css" TITLE="Style">
+<SCRIPT LANGUAGE="JavaScript" type="text/javascript">
+//var ns4=window.top.document.layers?window.top.document.layers:document.layers;
+
+var ns4 = (document.layers);
+var ie4 = (document.all && !document.getElementById);
+var ie5 = (document.all && document.getElementById);
+var ns6 = (!document.all && document.getElementById);
+
+function openManualInPlainWindow() {
+  var url = '../NeticaAPIMan_C.pdf';
+  var newWindow = window.open(url,"Netica_C_Manual","alwaysRaised,resizable,titlebar=no,scrollbars=yes,screenX=20" );
+  newWindow.focus();
+}
+
+function loadIndex() {
+
+if ( window.top.document == null ) { alert( "NETICA NOTICE: If you see this dialog; you are likely running Google's Chrome browser, which does not permit 'file:///' URL iFrame cross-scripting.  This 'feature' causes several bugs in the Netica webdocs system, including this one, where the INDEX will not load. There are three solutions:\n 1) use the webdocs we provide at http://www.norsys.com/onLineAPIManual/index.html\n 2) use a different browser,\n 3) invoke Chrome at the commad line with the following option appended:  --allow-file-access-from-files ");  }
+ 
+
+    if (document.getElementById) {
+       var fm = top.document.getElementById('leftFrm');
+       if ( fm == null ) {
+         fm = parent.parent.document.getElementById('leftFrm');
+       }
+       if (fm != null ) fm.src = "leftIndex.html";
+    }     
+    else { //ns4 & ie4
+       var fm = top.frames["leftFrame"];
+       if (fm != null ) {
+//test w. IE4
+         fm.location = "leftIndex.html";
+       }
+   }
+}
+
+</SCRIPT> 
+</HEAD>
+
+<BODY bgcolor=white topmargin=4 bottommargin=0 rightmargin=0 leftmargin=5 marginwidth=0 marginheight=0>
+<form>
+<table cellpadding=0 cellspacing=0 width=100%><tr>
+  <td align=left>&nbsp;<input type=button class=buttonIndex name="INDEX"   value="INDEX"  onClick="JAVASCRIPT:loadIndex();"></td>
+  <td align=right><input type=button class=buttonManual name="MANUAL" value="MANUAL" onClick="JAVASCRIPT:openManualInPlainWindow();">&nbsp;&nbsp;</td>
+</tr></table>
+</form>
+</BODY>
+</HTML>

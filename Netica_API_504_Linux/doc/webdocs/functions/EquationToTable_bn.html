@@ -1,0 +1,50 @@
+
+<HTML>
+<HEAD>
+<TITLE>Netica(TM) API Programmer's Reference Manual; API Funtion: EquationToTable_bn</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/rightFrame.css" TITLE="Style">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="COPYRIGHT" CONTENT="&copy; 2012 Norsys Software Corp.">
+<SCRIPT language="javascript" type="text/javascript" >
+function loader1() {
+
+if (window.top) { //catch inf. loops
+  if (window.top.document.location.href.indexOf( '?loadPg=' ) >= 0 ) return;
+  if (window.top.frames.length >= 2) return;
+}
+  
+var url  = document.location.href;
+var pos  = url.lastIndexOf( '/' );
+var pos1 = pos - 10;
+var main = url.substring( 0, pos1 );
+var fn   = url.substring( pos + 1 );
+
+var newHref = main + "/index.html?loadPg=" + fn;
+document.location.href = newHref;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY topmargin=6 marginheight=6 onload="loader1()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="../images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<!-- <span CLASS=fnNameHeader>EquationToTable_bn</span> -->
+<p><div CLASS=PT><table CLASS=PT><tr VALIGN="top"> <td NOWRAP class=name><span CLASS=PTFntype>void</span><span CLASS=PTFnName>&nbsp;EquationToTable_bn</span>&nbsp;(</td> <td class=paramList><span CLASS=nonbreaking><span CLASS=PTParamType>node_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>node</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>int</span>&nbsp;&nbsp;<span CLASS=PTParamName>num_samples</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>bool_ns</span>&nbsp;&nbsp;<span CLASS=PTParamName>samp_unc</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>bool_ns</span>&nbsp;&nbsp;<span CLASS=PTParamName>add_exist</span></span>&nbsp;)</td></tr></table></div>
+<p><div CLASS=desc><p>Builds the CPT for <span CLASS="paramNm">node</span> based on the equation that has been associated with it (see&nbsp;<a href="SetNodeEquation_bn.html">SetNodeEquation_bn</a>).
+<p><span CLASS="paramNm">num_samples</span> is the number of samples to make per parent condition.  The higher the number, the more accurate the conversion will be, but the longer it will take.  If <span CLASS="paramNm">node</span> and its parents are discrete, then it only takes one sample to generate an exact probability, and so in that case this argument is ignored.
+<p><span CLASS="paramNm">samp_unc</span> indicates whether to include in the generated probability table the uncertainty due to the sampling process or not.  If the equations are simple (don't have narrow spikes), and the value passed for <span CLASS="paramNm">num_samples</span> is high enough, it is better to make this argument <span CLASS="reservedWord">FALSE</span>, so that the CPT entries for 'impossible' are zero, rather than close to zero.  Otherwise make it <span CLASS="reservedWord">TRUE</span>.
+<p>Normally you pass <span CLASS="reservedWord">FALSE</span> for <span CLASS="paramNm">add_exist</span>, but you can pass <span CLASS="reservedWord">TRUE</span> if you wish the new sampling to be added to the table which already exists.  If the equation conversion to table is nondeterministic (i.e., requires sampling), then calling this function twice with <span CLASS="paramNm">add_exist</span> = <span CLASS="reservedWord">TRUE</span> is equivalent to calling it once with a value of <span CLASS="paramNm">num_samples</span> twice as large.  So you can increase the accuracy of the conversion in small steps by repeatedly calling with <span CLASS="paramNm">add_exist</span> = <span CLASS="reservedWord">TRUE</span>.  Or if you want to blend equations (say you want to indicate a 30% chance of equation 1 and a 70% chance of equation 2), you can call it twice, first setting equation 1 and using <span CLASS="paramNm">num_samples</span> = 3, then setting equation 2 and using <span CLASS="paramNm">num_samples</span> = 7.  Similarly, you can blend equations with learned probabilities (see&nbsp;<a href="ReviseCPTsByCaseFile_bn.html">ReviseCPTsByCaseFile_bn</a>), and those entered manually with <a href="SetNodeProbs_bn.html">SetNodeProbs_bn</a> and <a href="SetNodeExperience_bn.html">SetNodeExperience_bn</a>.</div>
+<p><span CLASS=sectionNm>Version:</span><div CLASS=version>Versions 1.18 and later have this function.<passageIndent2/><p></div>
+<p><span CLASS=sectionNm>See also:</span><div CLASS=see_also><table CLASS="seeAlso"><tr><td VALIGN="top"><a href="SetNodeEquation_bn.html">SetNodeEquation_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Specifies the equation to be used</td></tr><tr><td VALIGN="top"><a href="GetNodeProbs_bn.html">GetNodeProbs_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Retrieve the table, if its probabilistic</td></tr><tr><td VALIGN="top"><a href="GetNodeFuncState_bn.html">GetNodeFuncState_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Retrieve the table, if its deterministic discrete</td></tr><tr><td VALIGN="top"><a href="GetNodeFuncReal_bn.html">GetNodeFuncReal_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Retrieve the table, if its deterministic continuous</td></tr></table></div>
+<p></div>
+</BODY>
+</HTML>

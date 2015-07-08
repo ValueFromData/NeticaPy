@@ -1,0 +1,60 @@
+
+<HTML>
+<HEAD>
+<TITLE>Netica(TM) API Programmer's Reference Manual; API Funtion: LearnCPTs_bn</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/rightFrame.css" TITLE="Style">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="COPYRIGHT" CONTENT="&copy; 2012 Norsys Software Corp.">
+<SCRIPT language="javascript" type="text/javascript" >
+function loader1() {
+
+if (window.top) { //catch inf. loops
+  if (window.top.document.location.href.indexOf( '?loadPg=' ) >= 0 ) return;
+  if (window.top.frames.length >= 2) return;
+}
+  
+var url  = document.location.href;
+var pos  = url.lastIndexOf( '/' );
+var pos1 = pos - 10;
+var main = url.substring( 0, pos1 );
+var fn   = url.substring( pos + 1 );
+
+var newHref = main + "/index.html?loadPg=" + fn;
+document.location.href = newHref;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY topmargin=6 marginheight=6 onload="loader1()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="../images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<!-- <span CLASS=fnNameHeader>LearnCPTs_bn</span> -->
+<p><div CLASS=PT><table CLASS=PT><tr VALIGN="top"> <td NOWRAP class=name><span CLASS=PTFntype>void</span><span CLASS=PTFnName>&nbsp;LearnCPTs_bn</span>&nbsp;(</td> <td class=paramList><span CLASS=nonbreaking><span CLASS=PTParamType>learner_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>learner</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;nodelist_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>nodes</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;caseset_cs*</span>&nbsp;&nbsp;<span CLASS=PTParamName>cases</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>double</span>&nbsp;&nbsp;<span CLASS=PTParamName>degree</span></span>&nbsp;)</td></tr></table></div>
+<p><div CLASS=desc><p>Performs learning of CPT tables from data.  For EM or gradient descent algorithms this is done until a termination condition is met.
+<p><span CLASS="paramNm">learner</span> is the learner object that performs the learning steps.  Construct it with NewLearner_bn.
+<p><span CLASS="paramNm">nodes</span> is the list of nodes whose experience and conditional probability tables are to be updated by learning.  They must all be from the same net.  Other nodes in that net will not be modified.
+<p><span CLASS="paramNm">cases</span> is the set of cases to be used for learning.
+<p><span CLASS="paramNm">degree</span> is the frequency factor to apply to each case in the case set.  It must be greater than zero.  It gets multiplied by the "NumCases" (multiplicity number) which appears for each case in the file (if the number doesn't appear in the file, it is taken as 1).
+<p>When you create the <span CLASS="classType">learner_bn</span> (see <a href="NewLearner_bn.html">NewLearner_bn</a>), you choose the algorithm you wish, which may be one of:
+<p><b><u>1. Counting Learning</u></b>
+<passageIndent1/>This is traditional one-pass learning (see <a href="ReviseCPTsByFindings_bn.html">ReviseCPTsByFindings_bn</a>) ... .  It is the preferred learning method to use, if there are no hidden (also known as 'latent') nodes in the net and no missing values in the case data.  If there are hidden variables, that is, variables for which you have no observations, but you suspect exist and can be useful for modeling your world, or if there are a substantial number of missing values in the case data, then the iterative learning algorithms may yield better results.
+<br>Because this learning method is not iterative, <a href="SetLearnerMaxIters_bn.html">SetLearnerMaxIters_bn</a> and <a href="SetLearnerMaxTol_bn.html">SetLearnerMaxTol_bn</a> have no affect on it.<passageIndent2/>
+<p><b><u>2. EM Learning</u></b>
+<passageIndent1/>EM learning optimizes the net's CPTs using the well known expectation maximization algorithm, in an attempt to maximize the probability of the data set given the net (i.e., minimize negative log likelihood of the data).  If the nodes have CPT and experience tables before the learning starts, they will be considered as part of the data (properly weighted using the experience table), so the knowledge from the data set is combined with the knowledge already in the net.  If you do not want this effect, be sure to delete the tables first (see <a href="DeleteNodeTables_bn.html">DeleteNodeTables_bn</a>).  During EM learning, for each case in the case file, only the CPTs of nodes with findings and their ancestor nodes become modified, so only those nodes will have their experience tables incremented.<passageIndent2/>
+<p><b><u>3. Gradient Descent Learning</u></b>
+<passageIndent1/>Gradient descent learning works similar to EM learning, but it uses a very different algorithm internally.  It uses a conjugate gradient descent to maximize the probability of the data, given the net, by adjusting the CPT table entries.  Generally speaking, this algorithm converges faster than EM learning, but may be more susceptible to local maxima. It has similarities to the neural net back propagation algorithm.<passageIndent2/>
+<p>After the Learner is created, you can set the termination conditions for it.  For both EM learning and gradient descent learning, the two possible termination conditions are the maximum number of iterations of the whole batch of cases (see <a href="SetLearnerMaxIters_bn.html">SetLearnerMaxIters_bn</a>), and the minimum change in log likelihood from one pass through the batch to the next (see <a href="SetLearnerMaxTol_bn.html">SetLearnerMaxTol_bn</a>).  Termination will occur when either of the two conditions are met.  For Counting learning, there currently are no termination conditions to set.</div>
+<p><span CLASS=sectionNm>Version:</span><div CLASS=version>Versions 2.26 and later have this function.<passageIndent2/><p></div>
+<p><span CLASS=sectionNm>See also:</span><div CLASS=see_also><table CLASS="seeAlso"><tr><td VALIGN="top"><a href="NewLearner_bn.html">NewLearner_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Creates the learner</td></tr><tr><td VALIGN="top"><a href="SetLearnerMaxIters_bn.html">SetLearnerMaxIters_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Sets a learning termination parameter: the maximum number of batch iterations</td></tr><tr><td VALIGN="top"><a href="SetLearnerMaxTol_bn.html">SetLearnerMaxTol_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Sets a learning termination parameter: the minimum log likelihood increase</td></tr><tr><td VALIGN="top"><a href="NewCaseset_cs.html">NewCaseset_cs</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Creates the <span CLASS="classType">caseset_cs</span></td></tr><tr><td VALIGN="top"><a href="ReviseCPTsByCaseFile_bn.html">ReviseCPTsByCaseFile_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Uses a different learning algorithm (better suited if there is little missing data)</td></tr><tr><td VALIGN="top"><a href="DeleteNodeTables_bn.html">DeleteNodeTables_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">May want to do this before learning</td></tr></table></div>
+<p><span CLASS=sectionNm>Example:</span><pre CLASS=example><div CLASS=desc>See <a href="AddDBCasesToCaseset_cs.html">AddDBCasesToCaseset_cs</a></div></pre></div>
+</BODY>
+</HTML>

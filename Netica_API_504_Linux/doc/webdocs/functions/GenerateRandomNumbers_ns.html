@@ -1,0 +1,51 @@
+
+<HTML>
+<HEAD>
+<TITLE>Netica(TM) API Programmer's Reference Manual; API Funtion: GenerateRandomNumbers_ns</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/rightFrame.css" TITLE="Style">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="COPYRIGHT" CONTENT="&copy; 2012 Norsys Software Corp.">
+<SCRIPT language="javascript" type="text/javascript" >
+function loader1() {
+
+if (window.top) { //catch inf. loops
+  if (window.top.document.location.href.indexOf( '?loadPg=' ) >= 0 ) return;
+  if (window.top.frames.length >= 2) return;
+}
+  
+var url  = document.location.href;
+var pos  = url.lastIndexOf( '/' );
+var pos1 = pos - 10;
+var main = url.substring( 0, pos1 );
+var fn   = url.substring( pos + 1 );
+
+var newHref = main + "/index.html?loadPg=" + fn;
+document.location.href = newHref;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY topmargin=6 marginheight=6 onload="loader1()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="../images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<!-- <span CLASS=fnNameHeader>GenerateRandomNumbers_ns</span> -->
+<p><div CLASS=PT><table CLASS=PT><tr VALIGN="top"> <td NOWRAP class=name><span CLASS=PTFntype>double</span><span CLASS=PTFnName>&nbsp;GenerateRandomNumbers_ns</span>&nbsp;(</td> <td class=paramList><span CLASS=nonbreaking><span CLASS=PTParamType>randgen_ns*</span>&nbsp;&nbsp;<span CLASS=PTParamName>rand</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>double*</span>&nbsp;&nbsp;<span CLASS=PTParamName>results</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>int</span>&nbsp;&nbsp;<span CLASS=PTParamName>num</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;char*</span>&nbsp;&nbsp;<span CLASS=PTParamName>options</span></span>&nbsp;)</td></tr></table></div>
+<p><div CLASS=desc><p>Generates <span CLASS="paramNm">num</span> pseudo-random numbers using <span CLASS="paramNm">rand</span> and puts them in the array <span CLASS="paramNm">results</span>, returning the first one.
+<p>The numbers will be between 0 (inclusive) and 1 (exclusive), that is, from the interval [0,1).
+<p><span CLASS="paramNm">results</span> should be an array with enough room to store the required numbers, or <span CLASS="paramNm">results</span> may be <span CLASS="reservedWord">NULL</span> (in which case it will still return the random number, and it will change the state of <span CLASS="paramNm">rand</span> as if all the numbers were generated).
+<p><span CLASS="paramNm">rand</span> will be left in a state to generate further random numbers, or it can be passed to any Netica API function that takes a <span CLASS="classType">randgen_ns</span>.
+<p>Pass <span CLASS="reservedWord">NULL</span> for <span CLASS="paramNm">options</span>; it is only for future expansion.</div>
+<p><span CLASS=sectionNm>Version:</span><div CLASS=version>Versions 5.02 and later have this function.<passageIndent2/><p></div>
+<p><span CLASS=sectionNm>See also:</span><div CLASS=see_also><table CLASS="seeAlso"><tr><td VALIGN="top"><a href="NewRandomGenerator_ns.html">NewRandomGenerator_ns</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">To create a new <span CLASS="classType">randgen_ns</span>.</td></tr></table></div>
+<p><span CLASS=sectionNm>Example:</span><pre CLASS=example>See <a href="NewRandomGenerator_ns.html">NewRandomGenerator_ns</a>.</pre></div>
+</BODY>
+</HTML>

@@ -1,0 +1,71 @@
+
+<HTML>
+<HEAD>
+<TITLE>Netica(TM) API Programmer's Reference Manual; API Funtion: NewFileStream_ns</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/rightFrame.css" TITLE="Style">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="COPYRIGHT" CONTENT="&copy; 2012 Norsys Software Corp.">
+<SCRIPT language="javascript" type="text/javascript" >
+function loader1() {
+
+if (window.top) { //catch inf. loops
+  if (window.top.document.location.href.indexOf( '?loadPg=' ) >= 0 ) return;
+  if (window.top.frames.length >= 2) return;
+}
+  
+var url  = document.location.href;
+var pos  = url.lastIndexOf( '/' );
+var pos1 = pos - 10;
+var main = url.substring( 0, pos1 );
+var fn   = url.substring( pos + 1 );
+
+var newHref = main + "/index.html?loadPg=" + fn;
+document.location.href = newHref;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY topmargin=6 marginheight=6 onload="loader1()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="../images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<!-- <span CLASS=fnNameHeader>NewFileStream_ns</span> -->
+<p><div CLASS=PT><table CLASS=PT><tr VALIGN="top"> <td NOWRAP class=name><span CLASS=PTFntype>stream_ns*</span><span CLASS=PTFnName>&nbsp;NewFileStream_ns</span>&nbsp;(</td> <td class=paramList><span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;char*</span>&nbsp;&nbsp;<span CLASS=PTParamName>filename</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>environ_ns*</span>&nbsp;&nbsp;<span CLASS=PTParamName>env</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;char*</span>&nbsp;&nbsp;<span CLASS=PTParamName>access</span></span>&nbsp;)</td></tr></table></div>
+<p><div CLASS=desc><p>Returns a Norsys stream for the file with name <span CLASS="paramNm">filename</span>.
+<p>This stream can then be passed as an argument to functions which read or write a file, to identify which file to read or write.
+<p>Pass <span CLASS="reservedWord">NULL</span> for <span CLASS="paramNm">access</span>; it is only for future expansion.
+<p>When finished with the <span CLASS="classType">stream_ns</span> created, delete it with <a href="DeleteStream_ns.html">DeleteStream_ns</a>.
+<p><span CLASS="paramNm">filename</span> may contain a path to indicate in which directory the file is located.  It should be a string in the format normally understood by the operating system currently being used (see the examples below).
+<p><span CLASS="paramNm">filename</span> does not have to indicate a file which already exists.
+<p>Netica won't modify or free the passed <span CLASS="paramNm">filename</span> string.</div>
+<p><span CLASS=sectionNm>Version:</span><div CLASS=version>In versions previous to 2.10, this function was named <b>FileNamed_ns</b>, and between versions 2.10 and 2.26 it was called <b>NewStreamFile_ns</b>.<passageIndent2/><p></div>
+<p><span CLASS=sectionNm>See also:</span><div CLASS=see_also><table CLASS="seeAlso"><tr><td VALIGN="top"><a href="DeleteStream_ns.html">DeleteStream_ns</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Delete it when done</td></tr><tr><td VALIGN="top"><a href="WriteNet_bn.html">WriteNet_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Saves a net to a file with name specified by the passed stream</td></tr><tr><td VALIGN="top"><a href="WriteNetFindings_bn.html">WriteNetFindings_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top"></td></tr><tr><td VALIGN="top"><a href="ReadNetFindings2_bn.html">ReadNetFindings2_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top"></td></tr><tr><td VALIGN="top"><a href="ReadNet_bn.html">ReadNet_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Reads a net from the file identified by the passed stream</td></tr></table></div>
+<p><span CLASS=sectionNm>Example:</span><pre CLASS=example><div CLASS=desc>See <a href="WriteNet_bn.html">WriteNet_bn</a></div>
+//
+// Examples for UNIX / Linux
+//
+file = NewFileStream_ns ("temp3", env, NULL);
+file = NewFileStream_ns ("/local/project1/configure.bn.txt", env, NULL);
+file = NewFileStream_ns ("../nets/Umbrella.dne", env, NULL);
+//
+// Examples for MS Windows
+//
+file = NewFileStream_ns ("temp3", env, NULL);
+file = NewFileStream_ns ("C:local&#092;project1&#092;configur.txt", env, NULL);
+file = NewFileStream_ns ("..&#092;nets&#092;Umbrella.dne", env, NULL);
+//
+// Examples for MacOS
+//
+file = NewFileStream_ns ("temp3", env, NULL);
+file = NewFileStream_ns ("local:project1:configure.bn.txt", env, NULL);
+file = NewFileStream_ns ("::nets:Umbrella.dne", env, NULL);</pre></div>
+</BODY>
+</HTML>

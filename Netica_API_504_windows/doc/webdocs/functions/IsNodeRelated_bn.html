@@ -1,0 +1,53 @@
+
+<HTML>
+<HEAD>
+<TITLE>Netica(TM) API Programmer's Reference Manual; API Funtion: IsNodeRelated_bn</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/rightFrame.css" TITLE="Style">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="COPYRIGHT" CONTENT="&copy; 2012 Norsys Software Corp.">
+<SCRIPT language="javascript" type="text/javascript" >
+function loader1() {
+
+if (window.top) { //catch inf. loops
+  if (window.top.document.location.href.indexOf( '?loadPg=' ) >= 0 ) return;
+  if (window.top.frames.length >= 2) return;
+}
+  
+var url  = document.location.href;
+var pos  = url.lastIndexOf( '/' );
+var pos1 = pos - 10;
+var main = url.substring( 0, pos1 );
+var fn   = url.substring( pos + 1 );
+
+var newHref = main + "/index.html?loadPg=" + fn;
+document.location.href = newHref;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY topmargin=6 marginheight=6 onload="loader1()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="../images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<!-- <span CLASS=fnNameHeader>IsNodeRelated_bn</span> -->
+<p><div CLASS=PT><table CLASS=PT><tr VALIGN="top"> <td NOWRAP class=name><span CLASS=PTFntype>bool_ns</span><span CLASS=PTFnName>&nbsp;IsNodeRelated_bn</span>&nbsp;(</td> <td class=paramList><span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;node_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>node1</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;char*</span>&nbsp;&nbsp;<span CLASS=PTParamName>relation</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;node_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>node2</span></span>&nbsp;)</td></tr></table></div>
+<p><div CLASS=desc><p>Tests whether <span CLASS="paramNm">node1</span> is in the relationship <span CLASS="paramNm">relation</span> with <span CLASS="paramNm">node2</span>.
+<p>Returns <span CLASS="reservedWord">TRUE</span> if-and-only-if the expression "<span CLASS="paramNm">node1</span> is/is-a/is-in-the <span CLASS="paramNm">relation</span> of/to/with <span CLASS="paramNm">node2</span>" is true.
+<p><span CLASS="paramNm">relation</span> should be one of "parent", "child", "ancestor", "descendent", "connected", "markov_blanket", "d_connected".</div>
+<p><span CLASS=sectionNm>Version:</span><div CLASS=version>Versions 3.05 and later have this function.<passageIndent2/><p></div>
+<p><span CLASS=sectionNm>See also:</span><div CLASS=see_also><table CLASS="seeAlso"><tr><td VALIGN="top"><a href="GetRelatedNodes_bn.html">GetRelatedNodes_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Finds all nodes bearing relationship</td></tr><tr><td VALIGN="top"><a href="GetRelatedNodesMult_bn.html">GetRelatedNodesMult_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Same, but for all members in a  nodelist</td></tr><tr><td VALIGN="top"><a href="GetNodeParents_bn.html">GetNodeParents_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Finds all parents of a node</td></tr><tr><td VALIGN="top"><a href="GetNodeChildren_bn.html">GetNodeChildren_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Finds all children of a node</td></tr><tr><td VALIGN="top"><a href="GetNetNodes_bn.html">GetNetNodes_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Get all nodes in the net</td></tr></table></div>
+<p><span CLASS=sectionNm>Example:</span><pre CLASS=example>
+//Test if node1 is a parent of node2
+if (IsNodeRelated_bn (node1, "parent", node2)) ...</pre><span CLASS=sectionNm>Example 2:</span><pre CLASS=example>
+//Test if node1 is in the markov blanket of node2
+if (IsNodeRelated_bn (node1, "markov_blanket", node2)) ...</pre></div>
+</BODY>
+</HTML>

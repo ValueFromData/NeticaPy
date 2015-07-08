@@ -1,0 +1,16 @@
+body { font-family: Arial,sans-serif; background-color: #E0FFF0; }
+
+a:link    { color: #0000A0; text-decoration: none; }
+a:active  { color: #FF0000; text-decoration: none; }
+a:visited { color: #800080; text-decoration: none; }
+a:hover   { color: #000000; background: #FFFFFF; text-decoration: none; }
+
+p { margin-left: 0pt;
+    margin-top: 6pt;
+    text-align: left;
+    line-height: 6pt;
+    text-indent: 0pt }
+
+td { font-family: Arial, sans-serif; font-size: 10pt; }
+
+tr { line-height: 12pt; }

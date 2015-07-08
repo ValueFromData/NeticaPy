@@ -1,0 +1,86 @@
+
+<HTML>
+<HEAD>
+<TITLE>Netica(TM) API Programmer's Reference Manual; API Funtion: GetNodeProbs_bn</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../css/rightFrame.css" TITLE="Style">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="COPYRIGHT" CONTENT="&copy; 2012 Norsys Software Corp.">
+<SCRIPT language="javascript" type="text/javascript" >
+function loader1() {
+
+if (window.top) { //catch inf. loops
+  if (window.top.document.location.href.indexOf( '?loadPg=' ) >= 0 ) return;
+  if (window.top.frames.length >= 2) return;
+}
+  
+var url  = document.location.href;
+var pos  = url.lastIndexOf( '/' );
+var pos1 = pos - 10;
+var main = url.substring( 0, pos1 );
+var fn   = url.substring( pos + 1 );
+
+var newHref = main + "/index.html?loadPg=" + fn;
+document.location.href = newHref;
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY topmargin=6 marginheight=6 onload="loader1()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="../images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<!-- <span CLASS=fnNameHeader>GetNodeProbs_bn</span> -->
+<p><div CLASS=PT><table CLASS=PT><tr VALIGN="top"> <td NOWRAP class=name><span CLASS=PTFntype>const&nbsp;prob_bn*</span><span CLASS=PTFnName>&nbsp;GetNodeProbs_bn</span>&nbsp;(</td> <td class=paramList><span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;node_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>node</span>,&nbsp;&nbsp;</span> <span CLASS=nonbreaking><span CLASS=PTParamType>const&nbsp;state_bn*</span>&nbsp;&nbsp;<span CLASS=PTParamName>parent_states</span></span>&nbsp;)</td></tr></table></div>
+<p><div CLASS=desc><p>Returns the conditional probabilities of <span CLASS="paramNm">node</span>, given that its parents are in the states indicated by the <span CLASS="paramNm">parent_states</span> vector, by looking them up in the node's CPT table.  The length of <span CLASS="paramNm">parent_states</span> must be the number of parents of <span CLASS="paramNm">node</span>, and each of its entries provides a state for the corresponding parent.  The length of the array returned is the number of states of <span CLASS="paramNm">node</span>, and consists of 'prob_bn's (i.e.
+'float's), which are the conditional probabilities:
+<p>&nbsp;&nbsp;P (<span CLASS="paramNm">node</span> = state0  | parents take on <span CLASS="paramNm">parent_states</span>)
+<p>&nbsp;&nbsp;P (<span CLASS="paramNm">node</span> = state1  | parents take on <span CLASS="paramNm">parent_states</span>)
+<p>&nbsp;&nbsp;      <b>...</b>
+<p>&nbsp;&nbsp;P (<span CLASS="paramNm">node</span> = stateN  | parents take on <span CLASS="paramNm">parent_states</span>)
+<p>Notice that it is not conditioned on any findings (evidence) entered into the net, so its value will not change as findings are added or belief updating is done.
+<p><span CLASS="reservedWord">NULL</span> will be returned if no CPT table has been associated with <span CLASS="paramNm">node</span> (for example by <a href="SetNodeProbs_bn.html">SetNodeProbs_bn</a>, <a href="SetNodeFuncState_bn.html">SetNodeFuncState_bn</a>, <a href="EquationToTable_bn.html">EquationToTable_bn</a>, <a href="ReviseCPTsByCaseFile_bn.html">ReviseCPTsByCaseFile_bn</a> or <a href="ReviseCPTsByFindings_bn.html">ReviseCPTsByFindings_bn</a>), or if the table has been removed (for example by <a href="DeleteNodeTables_bn.html">DeleteNodeTables_bn</a>), but no error will be generated.  If you use only <a href="SetNodeEquation_bn.html">SetNodeEquation_bn</a> to indicate a node's relation with its parents, you must also call <a href="EquationToTable_bn.html">EquationToTable_bn</a> before this will return non-<span CLASS="reservedWord">NULL</span>.
+<p>The order of the states in <span CLASS="paramNm">parent_states</span> should match the order of the nodes in the list returned by <a href="GetNodeParents_bn.html">GetNodeParents_bn</a> (this will be the same order that parents were added using <a href="AddLink_bn.html">AddLink_bn</a>).  <a href="MapStateList_bn.html">MapStateList_bn</a> may be useful for that.  <span CLASS="paramNm">parent_states</span> can be <span CLASS="reservedWord">NULL</span> if <span CLASS="paramNm">node</span> has no parents.
+<p><span CLASS="paramNm">parent_states</span> should not include <span CLASS="constantNm">EVERY_STATE</span> or <span CLASS="constantNm">UNDEF_STATE</span>.
+<p>If <a href="SetNodeFuncState_bn.html">SetNodeFuncState_bn</a> was used to provide <span CLASS="paramNm">node</span> with a function table, then GetNodeProbs_bn can be used to retrieve that table in the form of conditional probabilities, which will all be 0 or 1.
+<p>If you need the results to persist, make a copy of the vector returned, since its contents may become invalid after further calls to Netica API.  Do not try to directly modify or free the vector returned.
+<p>To get all the conditional probabilities of <span CLASS="paramNm">node</span> at once, see the GetNodeAllProbs example below.
+<p>To cycle through all the possibilities of <span CLASS="paramNm">parent_states</span>, see the <FONT face="Courier">NeticaEx</FONT> function <A TARGET='_NeticaEx' HREF='../NeticaEx.html#NextStates'>NextStates</A>.
+
+<p>If <span CLASS="paramNm">parent_states</span> is <span CLASS="reservedWord">NULL</span> then the entire table is returned.</div>
+<p><span CLASS=sectionNm>Version:</span><div CLASS=version>This function is available in all versions.<passageIndent2/><p></div>
+<p><span CLASS=sectionNm>See also:</span><div CLASS=see_also><table CLASS="seeAlso"><tr><td VALIGN="top"><a href="SetNodeProbs_bn.html">SetNodeProbs_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Sets them</td></tr><tr><td VALIGN="top"><a href="HasNodeTable_bn.html">HasNodeTable_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Determine if <a href="GetNodeProbs_bn.html">GetNodeProbs_bn</a> is going to return <span CLASS="reservedWord">NULL</span></td></tr><tr><td VALIGN="top"><a href="GetNodeBeliefs_bn.html">GetNodeBeliefs_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Conditioned on findings, but not parents</td></tr><tr><td VALIGN="top"><a href="AbsorbNodes_bn.html">AbsorbNodes_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Can be used to find probabilities conditioned on parents and findings</td></tr><tr><td VALIGN="top"><a href="GetNodeFuncState_bn.html">GetNodeFuncState_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">For deterministic nodes</td></tr><tr><td VALIGN="top"><a href="GetNodeExperience_bn.html">GetNodeExperience_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">The confidence of the probabilities obtained</td></tr><tr><td VALIGN="top"><a href="GetNodeParents_bn.html">GetNodeParents_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Indicates the order of entries in parent_states</td></tr><tr><td VALIGN="top"><a href="GetNodeNumberStates_bn.html">GetNodeNumberStates_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">Length of the array returned (plus one if node continuous)</td></tr><tr><td VALIGN="top"><a href="MapStateList_bn.html">MapStateList_bn</a></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td VALIGN="top">To create the state list passed in</td></tr></table></div>
+<p><span CLASS=sectionNm>Example:</span><pre CLASS=example>
+// To just get the probability that node is in <span CLASS="paramNm">state</span>, given <span CLASS="paramNm">parent_states</span>
+//
+double prob = GetNodeProbs_bn (node, parent_states) [state];</pre><span CLASS=sectionNm>Example 2:</span><pre CLASS=example><div CLASS=desc>The following function is available in <FONT face="Courier">NeticaEx.c</FONT>:</div>
+// Puts all the conditional probabilities of <span CLASS="paramNm">node</span> into the array <span CLASS="paramNm">probs</span>.
+// You could allocate <span CLASS="paramNm">probs</span> as follows (<A TARGET='_NeticaEx' HREF='../NeticaEx.html#SizeCartesianProduct'>SizeCartesianProduct</A> is defined
+// in <FONT face="Courier">NeticaEx.c</FONT>):
+//   probs = malloc (SizeCartesianProduct (GetNodeParents_bn (node)) *
+//                   GetNodeNumberStates_bn (node) * sizeof (prob_bn));
+//
+void GetNodeAllProbs (node_bn* node, prob_bn* probs){
+    nodelist_bn* parents = GetNodeParents_bn (node);
+    int num_states  = GetNodeNumberStates_bn (node);
+    int num_parents = LengthNodeList_bn (parents);
+    state_bn st, *parent_states = calloc (num_parents, sizeof (state_bn));
+    while (1){
+        const prob_bn* vecp = GetNodeProbs_bn (node, parent_states);
+        if (!vecp)  break;
+        for (st = 0;  st &lt; num_states;  ++st)  *probs++ = *vecp++;
+        if (NextStates (parent_states, parents))          // defined in <FONT face="Courier">NeticaEx.c</FONT>
+            break;
+        if (GetError_ns (env, ERROR_ERR, NULL))  break;
+    }
+    free (parent_states);
+}</pre></div>
+</BODY>
+</HTML>

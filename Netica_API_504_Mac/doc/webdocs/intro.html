@@ -1,0 +1,85 @@
+<HTML>
+<HEAD>
+<LINK REL="stylesheet" TYPE="text/css" HREF="css/rightFrame.css" TITLE="Style">
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<SCRIPT LANGUAGE="JavaScript" type="text/javascript">
+
+function init() {
+var url  = window.top.document.location.href;
+if ( url.indexOf( '?loadPg=' ) < 0 ) return;
+var pos  = url.indexOf( '=' );
+var fn   = "functions/" + url.substring( pos + 1 );
+
+    if (document.getElementById) {
+       var fm = top.document.getElementById('rightFrm');
+       if ( fm == null ) {
+         fm = parent.parent.document.getElementById('rightFrm');
+       }
+       if (fm != null ) fm.src = fn;
+    }     
+    else { //ns4 & ie4
+       var fm = top.frames["rightFrame"];
+       if (fm != null ) {requierplesanning 
+         fm.location = fn;
+       }
+   }
+}
+</SCRIPT>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" onload="init()">
+<table CLASS=pageHeader RULES="none" BORDER=0 WIDTH="100%" CELLSPACING=0 CELLPADDING=5>
+ <tr>
+  <td NOWRAP width=26><IMG ALIGN=LEFT BORDER=0 width=20 SRC="images/Norsys_blueSquares.gif"></td>
+  <td NOWRAP><FONT FACE="Arial" COLOR="BLUE"><b>NORSYS SOFTWARE &copy; 2012</b></FONT></td>
+  <td NOWRAP>&nbsp;&nbsp;&nbsp;&nbsp;<FONT FACE="Arial" COLOR="BLUE"><b>NETICA API</b></FONT>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td NOWRAP ALIGN="right"><FONT FACE="Arial" COLOR="BLUE"><b>C &nbsp VERSION &nbsp 5.04</b></FONT>&nbsp</td>
+ </tr>
+</table>
+<hr>
+<br>
+<table width="100%" BORDER=0  CELLSPACING=0 CELLPADDING=3>
+<tr>
+  <td WIDTH="65%">
+<center>
+<FONT SIZE="+2" FACE="TimesRoman" COLOR="#000040"><b>
+Netica<sup style='font-size:12px;vertical-align:top;'>TM</sup>  API
+<br>Programmer's  Library
+<br> C  Language  Version 
+</FONT>
+<FONT SIZE="+1" FACE="" COLOR="#000040"><b>
+<br><br>
+<br>Reference Manual
+<br>Version  5.04
+<br><br>
+</FONT>
+<FONT SIZE="+0" FACE="TimesRoman" COLOR="#000040"><b>
+<br>October 1, 2012
+<br>
+<br>
+<br>&copy;1995-2012 by Norsys Software Corp.
+</FONT>
+</center>
+<br>
+  </td>
+  <td WIDTH="5%"></td>
+  <td WIDTH="30%" BGCOLOR="#000040" >
+<table BGCOLOR="#DCECFF" CELLPADDING=5 CELLSPACING=0><tr><td>
+  <FONT SIZE="+1" FACE="Arial" ><b>
+Visit <a target="_top" href="http://www.norsys.com">www.norsys.com</a> for the latest news on Netica:<br><br></b></FONT>
+       </td></tr>
+       <tr><td>
+       <a target="_top" href="http://www.norsys.com">
+         <IMG ALIGN=center HEIGHT=200 BORDER=0 SRC="images/Norsys_NetDiagrams.jpg">
+       </a>
+       </td></tr>
+</table>
+  </td>
+</tr>
+</table>
+<br>
+<hr>
+<FONT SIZE="-2" FACE="TimesRoman" COLOR="#000040"><b>
+<br>This document may be copied and stored freely, provided it is duplicated in its entirety, without modification, and including the copyright notice. Netica and Norsys are registered trademarks of Norsys Software Corp. Other brands and product names are trademarks of their respective holders.
+</b></FONT>
+</BODY>
+</HTML>
