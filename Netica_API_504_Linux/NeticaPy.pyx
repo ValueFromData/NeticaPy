@@ -656,7 +656,7 @@ cdef extern from "Netica.h":
 
 
 
-cdef extern from "NeticaExV.h":
+cdef extern from "NeticaEx.h":
 
     void CompileNet_bn (net_bn* net)
 
