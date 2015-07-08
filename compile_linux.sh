@@ -1,8 +1,11 @@
 #!/bin/sh
+
 if $(uname -m | grep '64'); then
-cp Netica_API_504_Linux/lib/64bit/libnetica.a Netica_API_504_Linux/lib/libnetica.a
+cp -f Netica_API_504_Linux/lib/64bit/libnetica.a Netica_API_504_Linux/lib/libnetica.a
 else
-cp Netica_API_504_Linux/lib/32bit/libnetica.a Netica_API_504_Linux/lib/libnetica.a
+cp -f Netica_API_504_Linux/lib/32bit/libnetica.a Netica_API_504_Linux/lib/libnetica.a
+fi
+
 echo "compiling"
 cp Netica_API_504_Linux/NeticaPy.pyx
 gcc Netica_API_504_Linux/src/NeticaEx.c -c -fPIC -I. -LNetica_API_504_Linux/bin 
