@@ -877,9 +877,6 @@ cdef class Netica:
         cdef checking_ns res
         res=ArgumentChecking_ns (setting, environ.env if type(environ)==Netica else NULL)
         return res
-    
-    def SetPassword_ns (self,Netica environ,char* password,char* options):
-        SetPassword_ns (environ.env if type(environ)==Netica else NULL,password,options)
 
     def SetLanguage_ns (self,Netica environ, char* language):
         cdef char* res
@@ -891,13 +888,13 @@ cdef class Netica:
         res = LimitMemoryUsage_ns (max_mem,environ.env if type(environ)==Netica else NULL)
         return res
 
-    def SetEnvironUserData_ns (self,Netica environ, int kind, UserData data):
-        SetEnvironUserData_ns (environ.env if type(environ)==Netica else NULL,kind,data.value)
+    def SetEnvironUserData_ns (self,Netica environ, int kind, data):
+        SetEnvironUserData_ns (environ.env if type(environ)==Netica else NULL,kind,NULL if type(data)==None else <void*> data)
 
     def GetEnvironUserData_ns (self,Netica environ, int kind):
-        res = UserData()
-        res.value=GetEnvironUserData_ns (environ.env if type(environ)==Netica else NULL,kind)
-        return res
+        cdef void* res
+        res = GetEnvironUserData_ns (environ.env if type(environ)==Netica else NULL,kind)
+        return <object>res
 
     cdef report_ns* __GetError_ns (self,environ_ns* env, errseverity_ns severity, Report after):
         return GetError_ns (env, severity, after.value)
@@ -955,22 +952,6 @@ cdef class Netica:
         cdef int res
         res = UserAllowed_ns (environ.env if type(environ)==Netica else NULL, setting)
         return res
-
-    def GetAppWindowPosition_ns (self,Netica environ,int left=0,int top=0,int width=0,int height=0,int status=0):        
-        GetAppWindowPosition_ns (environ.env if type(environ)==Netica else NULL, &left, &top, &width, &height, &status)
-        return (left, top, width, height, status)
-    
-    def SetAppWindowPosition_ns (self,Netica environ, int left, int top, int width, int height, int status):
-        SetAppWindowPosition_ns (environ.env if type(environ)==Netica else NULL,left,top,width,height,status)
-
-    def PrintToMessagesWindow_ns (self,Netica environ, mesg=None):
-        PrintToMessagesWindow_ns (environ.env if type(environ)==Netica else NULL, self.mesg)
-        if type(mesg)==bytearray:
-            while(len(mesg)):
-                mesg.pop()
-            for i in self.mesg:
-                mesg.append(i)
-        return self.mesg
 
     def NewFileStream_ns (self,char* filename, Netica environ,access=None):
         cdef char* _access
@@ -1100,11 +1081,11 @@ cdef class Netica:
         res = SetNetAutoUpdate_bn (net.value, auto_update)
         return res
 
-    def SetNetUserField_bn (self,NewNet net,char* name,UserData data, int length, int kind):
-        SetNetUserField_bn (net.value,name,data.value,length,kind)
+    def SetNetUserField_bn (self,NewNet net,char* name,data, int length, int kind):
+        SetNetUserField_bn (net.value,name,NULL if type(data)==None else <void*> data,length,kind)
 
-    def SetNetUserData_bn (self,NewNet net, int kind, UserData data):
-        SetNetUserData_bn (net.value,kind,data.value)
+    def SetNetUserData_bn (self,NewNet net, int kind, data):
+        SetNetUserData_bn (net.value,kind,NULL if type(data)==None else <void*> data)
 
     def SetNodeName_bn (self,NewNode node, char* name):
         SetNodeName_bn (node.value, name)
@@ -1214,7 +1195,8 @@ cdef class Netica:
         else:
             free(ps)
             free(_probs)
-            raise ValueError("parent_states and probs should be list of integer and list of float | Intlist and FloatList type found: Type of parent_states %s and Type of probs %s" % (type(parent_states),type(probs)))
+            raise ValueError("""parent_states and probs should be list of integer and list of float | Intlist and FloatList type found:
+                Type of parent_states %s and Type of probs %s""" % (type(parent_states),type(probs)))
 
         free(ps)
         free(_probs)
@@ -1423,9 +1405,15 @@ cdef class Netica:
     def AddNetListener_bn (self,NewNet net,func, _object, int _filter=-1):
         if type(func)==types.FunctionType:
             _object.__temp__function__handler=func
-            return AddNetListener_bn (net.value, callback,<void*> _object , _filter)
-        return AddNetListener_bn (net.value, callbackNULL,<void*> _object , _filter)
-    
+            return AddNetListener_bn (net.value, callbackNet,<void*> _object , _filter)
+        return AddNetListener_bn (net.value, callbackNetNULL,<void*> _object , _filter)
+
+    def AddNodeListener_bn (self, NewNode node,func,_object,int _filter=-1):
+        if type(func)==types.FunctionType:
+            _object.__temp__function__handler=func
+            return AddNodeListener_bn (node.value, callbackNode,<void*> _object , _filter)
+        return AddNodeListener_bn (node.value, callbackNodeNULL,<void*> _object , _filter)
+
     def GenerateRandomCase_bn (self,NodeList nodes, sampling_bn method, double num, RandGen rand):
         cdef int res 
         res = GenerateRandomCase_bn ( nodes.value,  method,  num, rand.value if type(rand)==RandGen else NULL)
@@ -1636,7 +1624,8 @@ cdef class Netica:
         else:
             free(_src_states)
             free(_dest_states)
-            raise ValueError("Src States and Dest States should be list of integer | Intlist type found: Type of src_states %s and Type of dest_states %s" % (type(src_states),type(dest_states)))
+            raise ValueError("""Src States and Dest States should be list of integer | Intlist type found:
+                        Type of src_states %s and Type of dest_states %s""" % (type(src_states),type(dest_states)))
         free(_src_states)
         free(_dest_states)
 
@@ -1688,17 +1677,17 @@ cdef class Netica:
         res = IsNodeInNodeset_bn (node.value, nodeset)
         return res
 
-    def ReorderNodesets_bn (self,NewNet net, char* nodeset_order, UserData vis=None):
-        ReorderNodesets_bn (net.value, nodeset_order, vis.value if type(vis)==UserData else NULL)
+    def ReorderNodesets_bn (self,NewNet net, char* nodeset_order, vis=None):
+        ReorderNodesets_bn (net.value, nodeset_order, NULL if type(vis)==None else <void*> vis)
 
-    def GetAllNodesets_bn (self,NewNet net, bool_ns include_system,  UserData vis=None):
+    def GetAllNodesets_bn (self,NewNet net, bool_ns include_system, vis=None):
         cdef char* res
-        res = GetAllNodesets_bn (net.value, include_system, vis.value if type(vis)==UserData else NULL)
+        res = GetAllNodesets_bn (net.value, include_system, NULL if type(vis)==None else <void*> vis)
         return res
 
-    def SetNodesetColor_bn (self,char* nodeset, color_ns color, NewNet net, UserData vis=None):
+    def SetNodesetColor_bn (self,char* nodeset, color_ns color, NewNet net, vis=None):
         cdef color_ns res
-        res = SetNodesetColor_bn (nodeset, color, net.value, vis.value if type(vis)==UserData else NULL)
+        res = SetNodesetColor_bn (nodeset, color, net.value,NULL if type(vis)==None else <void*> vis)
         return res
 
     def ReverseLink_bn (self,NewNode parent, NewNode child):
@@ -1880,7 +1869,452 @@ cdef class Netica:
         res = IsNodeDeterministic_bn (node.value)
         return res
 
+    def SetNodeUserField_bn (self,NewNode node, char* name,char* data, int length, int kind):
+        SetNodeUserField_bn (node.value, name,  <void*> data, length, kind)
+
+    def GetNodeUserField_bn (self,NewNode node, char* name, int length, int kind):
+        cdef char* res
+        res = GetNodeUserField_bn (node.value, name, &length,  kind)
+        return res
+
+    def SetNodeUserData_bn (self,NewNode node, int kind, data):
+        SetNodeUserData_bn (node.value,  kind, NULL if type(data)==None else <void*> data)
+
+
+    def SetNodeVisPosition_bn (self,NewNode node, vis=None, double x=0, double y=0):
+        SetNodeVisPosition_bn (node.value, NULL if type(vis)==None else <void*> vis, x, y)
+
+    def SetNodeVisStyle_bn (self,NewNode node, vis=None, char* style=""):
+        SetNodeVisStyle_bn (node.value, NULL if type(vis)==None else <void*> vis, style)
+
     
+    def GetNetUserField_bn (self,NewNet net, char* name, int length=0, int kind=0):
+        cdef char* res
+        res = GetNetUserField_bn (net.value, name, &length, kind)
+        return res,length
+
+    def GetNetNthUserField_bn (self,NewNet net, int index, char* name="", char* value="", int length=0, int kind=0):
+        GetNetNthUserField_bn (net.value, index, &name, &value, &length, kind)
+        return name, value, length
+
+    def GetNetUserData_bn (self,NewNet net, int kind=0):
+        cdef void* res
+        res = GetNetUserData_bn ( net.value, kind)
+        return  None if res==NULL else <object> res
+
+    
+    def GetNodeInputName_bn (self,NewNode node, int link_index):
+        cdef char* res
+        res = GetNodeInputName_bn (node.value, link_index)
+        return res
+
+    def GetNodeEquation_bn (self,NewNode node):
+        cdef char* res
+        res = GetNodeEquation_bn (node.value)
+        return res
+
+    def GetNodeNthUserField_bn (self,NewNode node, int index, char* name="", char* value="", int length=0, int kind=0):
+        GetNodeNthUserField_bn (node.value, index, &name, &value, &length, kind)
+        return name, value, length
+
+    def GetNodeUserData_bn (self,NewNode node, int kind):
+        cdef void* res
+        res = GetNodeUserData_bn (node.value, kind)
+        return  None if res==NULL else <object> res
+
+    def GetNodeVisPosition_bn (self,NewNode node, vis=None, double x=0.0, double y=0.0):
+        GetNodeVisPosition_bn (node.value, NULL if type(vis)==None else <void*> vis, &x, &y)
+
+    def GetNodeVisStyle_bn (self,NewNode node, vis=None):
+        cdef char* res
+        res = GetNodeVisStyle_bn (node.value, NULL if type(vis)==None else <void*> vis)
+        return res
+    
+    def IsNodeRelated_bn (self,NewNode related_node,char* relation, NewNode node):
+        cdef bool_ns res
+        res = IsNodeRelated_bn (related_node.value, relation, node.value)
+        return res
+
+    def GetNetExpectedUtility_bn (self,NewNet net):
+        cdef util_bn res
+        res = GetNetExpectedUtility_bn (net.value)
+        return res
+
+    def NewSensvToFinding_bn (slef,NewNode t_node, NodeList v_nodes, int what_calc):
+        res = SenSV()
+        res.value = NewSensvToFinding_bn (t_node.value,  v_nodes.value, what_calc)
+        return res
+
+    def DeleteSensvToFinding_bn (self,SenSV s):
+        DeleteSensvToFinding_bn (s.value)
+
+    def NewDBManager_cs (self, char* connect_str,  str _options, Netica environ):
+        cdef char* options
+        res = DBmgr()
+        options = PyString_AsString(_options) if type(_options)== str else NULL
+        res.value = NewDBManager_cs (connect_str, options,environ.env if type(environ)== Netica else NULL)
+        free(options)
+        return res
+
+    def DeleteDBManager_cs (self,DBmgr dbmgr):
+        DeleteDBManager_cs (dbmgr.value)
+
+    def ExecuteDBSql_cs (self,DBmgr dbmgr, char* sql_cmnd, str _options):
+        cdef char* options
+        options = PyString_AsString(_options) if type(_options)== str else NULL
+        ExecuteDBSql_cs (dbmgr.value, sql_cmnd,options)
+        free(options)
+
+    def InsertFindingsIntoDB_bn (self,DBmgr dbmgr, NodeList nodes, char* column_names, char* tables, str _options):
+        cdef char* options
+        options = PyString_AsString(_options) if type(_options)== str else NULL
+        InsertFindingsIntoDB_bn (dbmgr.value, nodes.value, column_names, tables, options)
+        free(options)
+        
+
+    def NewNetTester_bn (self,NodeList test_nodes, NodeList unobsv_nodes, int tests):
+        res = Tester()
+        res.value = NewNetTester_bn (test_nodes.value, unobsv_nodes.value, tests)
+        return res
+
+    def DeleteNetTester_bn (self,Tester test):
+        DeleteNetTester_bn (test.value)
+
+    def GetTestErrorRate_bn (self,Tester test, NewNode node):
+        cdef double res
+        res = GetTestErrorRate_bn (test.value, node.value)
+        return res
+
+    def GetTestLogLoss_bn (self,Tester test, NewNode node):
+        cdef double res
+        res = GetTestLogLoss_bn (test.value, node.value)
+        return res
+
+    def GetTestQuadraticLoss_bn (self,Tester test, NewNode node):
+        cdef double res
+        res = GetTestQuadraticLoss_bn (test.value, node.value)
+        return res
+
+    def GetTestConfusion_bn (self,Tester test, NewNode node, state_bn predicted, state_bn actual):
+        cdef double res
+        res = GetTestConfusion_bn (test.value,  node.value, predicted, actual)
+        return res
+
+    def SetNetNumUndos_bn (self,NewNet net, int count_limit, double memory_limit, str _options):
+        cdef char* options
+        options = PyString_AsString(_options) if type(_options)== str else NULL
+        SetNetNumUndos_bn (net.value, count_limit, memory_limit, options)
+        free(options)
+
+
+
+    def CreateCustomReport_bn (self,NewNet net, NodeList sel_nodes, char* templat, str _options):
+        cdef char* options
+        cdef char* res
+        options = PyString_AsString(_options) if type(_options)== str else NULL
+        res = CreateCustomReport_bn (net.value, sel_nodes.value, templat, options)
+        free(options)
+        return res
+
+    def ControlConcurrency_ns (self,Netica environ, char* command, char* value):
+        cdef char* res
+        res = ControlConcurrency_ns (environ.env if type(environ)== Netica else NULL, command,value)
+        return res
+
+    def ControlNetCaching_bn (self,NewNet net, char* command, char* value, NodeList nodes):
+        cdef char* res
+        res = ControlNetCaching_bn (net.value, command, value, nodes.value)
+        return res
+
+    def ExpandNet_bn (self,NewNet net, int dimn, double result_time, double burn_time, str _options):
+        cdef char* options
+        res = NewNet()
+        options = PyString_AsString(_options) if type(_options)== str else NULL
+        res.value = ExpandNet_bn (net.value, dimn, result_time,  burn_time,  options)
+        free(options)
+        return res
+             
+    def SetNodeInputDelay_bn (self,NewNode node, int link_index, int dimension, char* delay):
+        SetNodeInputDelay_bn (node.value,link_index, dimension,  delay)
+
+    def SetNodePersistance_bn (self,NewNode node, int dimension,  char* persistance):
+        SetNodePersistance_bn (node.value, dimension, persistance)
+
+    cdef node_bn* __GetNodeAtTime_bn_DoubleList(self,net_bn* net,char* name,DoubleList time):
+        return GetNodeAtTime_bn (net, name, time.value)
+        
+    def GetNodeAtTime_bn (self,NewNet net, char* name, _time):
+        cdef double* time 
+        res = NewNode()
+        if type(_time)==DoubleList:
+            res.value = self.__GetNodeAtTime_bn_DoubleList( net.value,name,_time)
+        elif type(_time)==list:
+            time = <double *>malloc(len(_time)*cython.sizeof(double))
+            for i in range(len(_time)):
+                time[i] = <double>_time[i]
+            res.value = GetNodeAtTime_bn (net.value, name, time)
+        else:
+            free(time)
+            raise "time expected a list of double| DoubleList type: found %s" % type(_time)
+        free(time)
+        return res
+
+    def NewRandomGenerator_ns (self,char* seed, Netica environ, str _options):
+        cdef char* options
+        res = RandGen()
+        options = PyString_AsString(_options) if type(_options)== str else NULL
+        res.value = NewRandomGenerator_ns (seed,environ.env if type(environ)== Netica else NULL, options)
+        free(options)
+        return res
+
+    def DeleteRandomGen_ns (self,RandGen rand):
+        DeleteRandomGen_ns (rand.value)
+
+    def GetRandomGenState_ns (self,RandGen rand, str _options):
+        cdef char* options
+        cdef char* res
+        options = PyString_AsString(_options) if type(_options)== str else NULL
+        res = GetRandomGenState_ns (rand.value, options)
+        free(options)
+        return res
+
+    cdef double __GenerateRandomNumbers_ns_DoubleList(self,randgen_ns* rand,DoubleList results, int num, char* options):
+        return GenerateRandomNumbers_ns (rand, results.value, num, options)
+    
+    def GenerateRandomNumbers_ns (self,RandGen rand, _results, int num, str _options):
+        cdef double res
+        cdef double* results
+        cdef char* options
+        cdef int i
+        options = PyString_AsString(_options) if type(_options)== str else NULL
+        if type(_results)==DoubleList:
+            res = self.__GenerateRandomNumbers_ns_DoubleList(rand.value,_results, num, options)
+        elif type(_results)==list:
+            results = <double *>malloc(len(_results)*cython.sizeof(double))
+            for i in range(len(_results)):
+                results[i] = <double>_results[i]
+            res = GenerateRandomNumbers_ns (rand.value, results, num, options)
+            while _results:
+                _results.pop()
+            for j in results[:num]:
+                _results.append(j)
+        else:
+            res = GenerateRandomNumbers_ns (rand.value, results, num, options)
+        return_res = [j for j in results[:num]]
+        free(options)
+        free(results)
+        return res,return_res
+
+    def SetNetRandomGen_bn (self,NewNet net, RandGen rand, bool_ns is_private):
+        SetNetRandomGen_bn (net.value, rand.value, is_private)
+        
+    def EnterAction_bn (self,NewNode node, state_bn state):
+        EnterAction_bn (node.value, state)
+
+    def EnterActionValue_bn (self,NewNode node, double value):
+        EnterActionValue_bn (node.value,  value)
+
+    cdef void __EnterActionRandomized_bn_FloatList (self, node_bn* node, FloatList probs):
+        EnterActionRandomized_bn (node, probs.value)
+    
+    def EnterActionRandomized_bn (self,NewNode node, probs):
+        cdef prob_bn* _probs
+        if type(probs)== FloatList:
+            self.__EnterActionRandomized_bn_FloatList (node.value, probs)
+        elif type(probs)==list:
+            _probs = <prob_bn *>malloc(len(probs)*cython.sizeof(prob_bn))
+            for i in range(len(probs)):
+                _probs[i] = <prob_bn>probs[i]
+            EnterActionRandomized_bn (node.value, _probs)
+        else:
+            free(_probs)
+            raise "probs should be list of float| FloatList type: Found %s" % type(probs)
+        free(_probs)
+
+    def CleanupThreadEnding_ns (self,Netica environ):
+        CleanupThreadEnding_ns (environ.env)
+
+    def ExecuteScript_ns (self,Scripter scr, str _options):
+        cdef char* options
+        cdef char* res
+        options = PyString_AsString(_options) if type(_options)== str else NULL
+        res = ExecuteScript_ns (scr.value, options)
+        free(options)
+        return res
+    
+    cdef double __NthProb_bn_FloatList (self,FloatList probs,state_bn state):
+        return NthProb_bn (probs.value, state)
+    
+    def NthProb_bn (self,  probs, state_bn state):
+        cdef double res
+        cdef prob_bn* _probs
+        if type(probs)==FloatList:
+            res = self.__NthProb_bn_FloatList ( probs, state)
+        elif type(probs)==list:
+            _probs = <prob_bn *>malloc(len(probs)*cython.sizeof(prob_bn))
+            for i in range(len(probs)):
+                _probs[i] = <prob_bn>probs[i]
+            res = NthProb_bn (_probs, state)
+        else:
+            free(_probs)
+            raise "probs should be list of float| FloatList type: Found %s" % type(probs)
+        free(_probs)
+        return res
+    
+
+    cdef double __NthLevel_bn_DoubleList (self,DoubleList levels,state_bn state):
+        return NthLevel_bn( levels.value, state)
+    
+    def NthLevel_bn (self,  levels, state_bn state):
+        cdef double res
+        cdef level_bn* _levels
+        if type(levels)==FloatList:
+            res = self.__NthLevel_bn_FloatList ( levels, state)
+        elif type(levels)==list:
+            _levels = <level_bn *>malloc(len(levels)*cython.sizeof(level_bn))
+            for i in range(len(levels)):
+                _levels[i] = <level_bn>levels[i]
+            res = NthLevel_bn (_levels, state)
+        else:
+            free(_levels)
+            raise "levels should be list of float| FloatList type: Found %s" % type(levels)
+        free(_levels)
+        return res
+    
+    def NthChar_ns (self, char* _str, int index):
+        cdef int res
+        res = NthChar_ns (_str, index)
+        return res
+
+    cdef __SetNthState_bn_IntList(self,IntList states, int index, state_bn state):
+        SetNthState_bn (states.value, index, state)
+        
+    def SetNthState_bn (self, states, int index, state_bn state):
+        cdef state_bn* _states
+        if type(states)==IntList:
+            self.__SetNthState_bn_IntList(states, index,  state)
+        elif type(states)==list:
+            _states = <state_bn *>malloc(len(states)*cython.sizeof(state_bn))
+            SetNthState_bn ( _states, index, state)
+        else:
+            free(_states)
+            raise "states should be list of float| FloatList type: Found %s" % type(states)
+        free(_states)
+
+    def OptimizeDecisions_bn (self, NodeList nodes):
+        OptimizeDecisions_bn (nodes.value)
+
+    def NewNodeList_bn (int length, Netica environ):
+        res = NodeList()
+        res.value = NewNodeList_bn (length,environ.env if type(environ)== Netica else NULL)
+        return res
+
+## Not supported in windows
+    
+    def MostProbableSetting_bn (self,NewNet net, Setting cas, int nth):
+        MostProbableSetting_bn (net.value, cas.value, nth)
+    
+    def DeleteSetting_bn (self,Setting cas):
+        DeleteSetting_bn (cas.value)
+
+    def SetSettingState_bn (self,Setting cas, NewNode node, state_bn state):
+        SetSettingState_bn (cas.value, node.value, state)
+
+    def GetSettingState_bn (self,Setting cas, NewNode node):
+        cdef state_bn res
+        res = GetSettingState_bn (cas.value, node.value)
+        return res
+
+    def ZeroSetting_bn (self,Setting cas):
+        ZeroSetting_bn (cas.value)
+    
+    def DeleteScripter_ns (self,Scripter scr):
+        DeleteScripter_ns (scr.value)
+
+    def StartScriptRecorder_ns (self,Scripter scr,char* file_name,char* language, str _options):
+        cdef char* options
+        options = PyString_AsString(_options) if type(_options)== str else NULL
+        StartScriptRecorder_ns (scr.value,file_name, language,options)
+        free(options)
+
+    
+    def StopScriptRecorder_ns (self,Scripter scr,char* file_name, str _options):
+        cdef char* res
+        cdef char* options
+        options = PyString_AsString(_options) if type(_options)== str else NULL
+        res = StopScriptRecorder_ns (scr.value, file_name, options)
+        free(options)
+        return res
+
+    def GetScriptVar_ns (self,Scripter scr, char* name,char* _type):
+        cdef char* res
+        res = GetScriptVar_ns ( scr.value,  name, _type)
+        return res
+
+    def ClearScriptVars_ns (self,Scripter  scr, char* _options):
+        cdef char* options
+        options = PyString_AsString(_options) if type(_options)== str else NULL
+        ClearScriptVars_ns (scr.value, options)
+        free(options)
+
+    def NewSetting_bn (self,NodeList nodes, bool_ns load):
+        res = Setting()
+        res.value = NewSetting_bn ( nodes.value, load)
+        return res
+
+    def NewScripter_ns (self,Netica environ, char* file_name, char* language, str _options, str _script):
+        cdef char* options
+        cdef char* script
+        options = PyString_AsString(_options) if type(_options)== str else NULL
+        script = PyString_AsString(_script) if type(_script)== str else NULL
+        res = Scripter ()
+        res.value = NewScripter_ns (environ.env if type(environ)== Netica else NULL,file_name, language, options, script)
+        free(options)
+        free(script)
+        return res
+
+    def SetPassword_ns (self,Netica environ,char* password,char* options):
+        SetPassword_ns (environ.env if type(environ)==Netica else NULL,password,options)
+
+    def GetAppWindowPosition_ns (self,Netica environ,int left=0,int top=0,int width=0,int height=0,int status=0):        
+        GetAppWindowPosition_ns (environ.env if type(environ)==Netica else NULL, &left, &top, &width, &height, &status)
+        return (left, top, width, height, status)
+    
+    def SetAppWindowPosition_ns (self,Netica environ, int left, int top, int width, int height, int status):
+        SetAppWindowPosition_ns (environ.env if type(environ)==Netica else NULL,left,top,width,height,status)
+
+    def PrintToMessagesWindow_ns (self,Netica environ, mesg=None):
+        PrintToMessagesWindow_ns (environ.env if type(environ)==Netica else NULL, self.mesg)
+        if type(mesg)==bytearray:
+            while(len(mesg)):
+                mesg.pop()
+            for i in self.mesg:
+                mesg.append(i)
+        return self.mesg
+
+    
+#### couln't convert python to unsigned short*
+##    
+##    def GetNodeLabel_bn (self,NewNode node,unsigned short* label, int max_chars, str _options):
+##        cdef char* options
+##        cdef int res
+##        options = PyString_AsString(_options) if type(_options)== str else NULL
+##        res = GetNodeLabel_bn (node.value, label, max_chars, options)
+##        free(options)
+##        return res
+##
+##    def GetNodeStateLabel_bn (self,NewNode node, state_bn state,unsigned short* label, int max_chars,str _options):
+##        cdef char* options
+##        cdef int res
+##        options = PyString_AsString(_options) if type(_options)== str else NULL
+##        res = GetNodeStateLabel_bn (node.value, state, label, max_chars,options)
+##        free(options)
+##        return res
+##
+##    def GetChars_ns (self,char* _str, int index, unsigned short* dest, int num):
+##        cdef int res
+##        res = GetChars_ns (_str, index, dest, num)
+##        return res
 
 ####################################################################
     def GetUndefDbl_ns(self):
@@ -1977,7 +2411,8 @@ cdef class Netica:
         EnterFinding(node_name,state_name,net.value)
 
 
-
+cdef class Setting:
+    cdef setting_bn* value
 
 cdef class UserData:
     cdef void* value 
@@ -2021,6 +2456,9 @@ cdef class Tester:
 
 cdef class DBmgr:
     cdef dbmgr_cs* value
+
+cdef class Scripter:
+    cdef scripter_ns* value
     
 cdef class IntList:
     cdef int* value
@@ -2272,10 +2710,23 @@ cdef class LongList:
         except:
             pass
 
-cdef int callback (net_bn* net, eventtype_ns what, void* obj, void* info):
+cdef int callbackNet (net_bn* net, eventtype_ns what, void* obj, void* info):
     net_py = NewNet()
     net_py.value = net
     return (<object>obj).__temp__function__handler(net_py,what,<object>obj,<object>info)
 
-cdef int callbackNULL (net_bn* net, eventtype_ns what, void* obj, void* info):
+cdef int callbackNetNULL (net_bn* net, eventtype_ns what, void* obj, void* info):
     pass
+
+    
+cdef int callbackNode (node_bn* node, eventtype_ns what, void* obj, void* info):
+    node_py = NewNode()
+    node_py.value = node
+    return (<object>obj).__temp__function__handler(node_py,what,<object>obj,<object>info)
+
+cdef int callbackNodeNULL (node_bn* node, eventtype_ns what, void* obj, void* info):
+    pass
+
+
+
+    
