@@ -24,11 +24,11 @@ esac
 
 echo "Operating System Architecture : $Architecture"
 
-if $(uname -m | grep '64'); then
-cp -f Netica_API_504_Linux/lib/64bit/libnetica.a Netica_API_504_Linux/lib/libnetica.a
-else
-cp -f Netica_API_504_Linux/lib/32bit/libnetica.a Netica_API_504_Linux/lib/libnetica.a
-fi
+#if $(uname -m | grep '64'); then
+#cp -f Netica_API_504_Linux/lib/64bit/libnetica.a Netica_API_504_Linux/lib/libnetica.a
+#else
+#cp -f Netica_API_504_Linux/lib/32bit/libnetica.a Netica_API_504_Linux/lib/libnetica.a
+#fi
 
 echo "compiling"
 cp Netica_API_504_Linux/NeticaPy.pyx NeticaPy.pyx
