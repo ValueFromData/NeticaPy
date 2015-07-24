@@ -1399,7 +1399,7 @@ cdef class Netica:
             res = MostProbableConfig_bn (nodes.value,_config,nth)
         else:
             free(_config)
-            raise ValueError("States should be list of integer| Intlist type found %s" % type(config))
+            raise ValueError("config should be list of integer| Intlist type found %s" % type(config))
         free(_config)
     
     def AddNetListener_bn (self,NewNet net,func, _object, int _filter=-1):
@@ -1489,7 +1489,7 @@ cdef class Netica:
             res.value = GetNodeProbs_bn (node.value, p_states)
         else:
             free(p_states)
-            raise ValueError("States should be list of integer| Intlist type found %s" % type(parent_states))
+            raise ValueError("parent_states should be list of integer| Intlist type found %s" % type(parent_states))
         free(p_states)
         return res
 
@@ -1508,7 +1508,7 @@ cdef class Netica:
             res = GetNodeExperience_bn (node.value, p_states)
         else:
             free(p_states)
-            raise ValueError("States should be list of integer| Intlist type found %s" % type(parent_states))
+            raise ValueError("parent_states should be list of integer| Intlist type found %s" % type(parent_states))
         free(p_states)
         return res
 
@@ -1624,7 +1624,7 @@ cdef class Netica:
         else:
             free(_src_states)
             free(_dest_states)
-            raise ValueError("""Src States and Dest States should be list of integer | Intlist type found:
+            raise ValueError("""src_states and dest_states should be list of integer | Intlist type found:
                         Type of src_states %s and Type of dest_states %s""" % (type(src_states),type(dest_states)))
         free(_src_states)
         free(_dest_states)
@@ -1836,7 +1836,7 @@ cdef class Netica:
             res = GetNodeFuncReal_bn (node.value, _parent_states)
         else:
             free(_parent_states)
-            raise ValueError("new_order should be list of integer | Intlist type found:  %s" % type(parent_states))
+            raise ValueError("parent_states should be list of integer | Intlist type found:  %s" % type(parent_states))
         free(_parent_states)
         return res
     
@@ -1855,7 +1855,7 @@ cdef class Netica:
             res = GetNodeFuncState_bn (node.value, _parent_states)
         else:
             free(_parent_states)
-            raise ValueError("new_order should be list of integer | Intlist type found:  %s" % type(parent_states))
+            raise ValueError("parent_states should be list of integer | Intlist type found:  %s" % type(parent_states))
         free(_parent_states)
         return res
 
@@ -2209,6 +2209,471 @@ cdef class Netica:
         res.value = NewNodeList_bn (length,environ.env if type(environ)== Netica else NULL)
         return res
 
+    def GetUndefDbl_ns(self):
+        cdef double res
+        res = GetUndefDbl_ns()
+        return res
+    def GetInfinityDbl_ns(self):
+        cdef double res
+        res = GetInfinityDbl_ns()
+        return res
+    
+
+    def GetNodeBelief(self,char* node_name,char* state_name,NewNet net):
+        cdef double res
+        res = GetNodeBelief (node_name,state_name, net.value)
+        return res
+    
+    def EnterFinding(self,char* node_name, char* state_name, NewNet net):
+        EnterFinding(node_name,state_name,net.value)
+
+    def main_ex (self):
+        cdef int res
+        res = main_ex ()
+        return res
+
+    def GetNode (self,char* node_name, NewNet net):
+        res = NewNode()
+        res.value = GetNode (node_name, net.value)
+        return res
+
+    def SetNodeFinding (self,NewNode node, state_bn state):
+        SetNodeFinding (node.value,  state)
+
+    def SetNodeValue (self,NewNode node, double value):
+        SetNodeValue (node.value, value)
+
+    def SetNodeFuncState (self,NewNode node, state_bn value, *arg):
+        cdef node_bn* curNode
+        cdef char* statename
+        cdef state_bn* parent_states
+        cdef nodelist_bn* parents 
+        cdef int pn, numparents
+        parents = GetNodeParents_bn (node.value)
+        numparents = LengthNodeList_bn (parents)
+        parent_states = <state_bn *>malloc(numparents * sizeof(state_bn))
+        try:
+            for pn in range(numparents):
+                statename = <char*> arg[pn]
+                if statename[0] == '*':
+                    parent_states[pn] = <state_bn> EVERY_STATE
+                else:
+                    curNode = NthNode_bn (parents, pn)
+                    parent_states[pn] = GetStateNamed_bn (statename, curNode)
+            SetNodeFuncState_bn (node.value, parent_states, value)
+        finally:
+            free(parent_states)
+
+
+    def SetNodeFuncReal (self,NewNode node, double value, *arg):
+        cdef node_bn* curNode
+        cdef char* statename
+        cdef state_bn* parent_states
+        cdef const nodelist_bn* parents
+        cdef int pn, numparents
+        parents = GetNodeParents_bn (node.value)
+        numparents = LengthNodeList_bn (parents)
+        parent_states = <state_bn *>malloc(numparents * sizeof(state_bn))
+        try:
+            for pn in range(numparents):
+                statename = <char*> arg[pn]
+                if statename[0] == '*':
+                    parent_states[pn] = <state_bn> EVERY_STATE
+                else:
+                    curNode = NthNode_bn (parents, pn)
+                    parent_states[pn] = GetStateNamed_bn (statename, curNode)
+            SetNodeFuncReal_bn (node.value, parent_states, value)
+        finally:
+            free(parent_states)
+
+
+    def SetNodeProbs(self,NewNode node_obj, *arg):
+        cdef node_bn* node
+        cdef node_bn* curNode
+        cdef state_bn* parent_states
+        cdef prob_bn* probs
+        cdef char* statename
+        cdef int state, numstates
+        cdef const nodelist_bn* parents 
+        cdef int pn, numparents, i
+        node = node_obj.value
+        numstates = GetNodeNumberStates_bn (node)
+        parents = GetNodeParents_bn (node)
+        numparents = LengthNodeList_bn (parents)
+        parent_states = <state_bn *>malloc(numparents * sizeof(state_bn))
+        probs = <prob_bn *>malloc(numparents * sizeof(prob_bn))
+        try:
+            for pn in range(numparents):
+                statename = <char*> arg[pn]
+                if statename[0] == '*':
+                    parent_states[pn] = <state_bn> EVERY_STATE
+                else:
+                    curNode=NthNode_bn (parents, pn)
+                    parent_states[pn] = GetStateNamed_bn (statename, curNode)
+            i=numparents
+            for state in range(numstates):
+                probs[state] = <prob_bn> arg[i]
+                i+=1
+            SetNodeProbs_bn (node, parent_states, probs)
+        finally:
+            free(parent_states)
+            free(probs)
+
+
+    def SetNodeExper (self,NewNode node_obj, double value, *arg):
+        cdef node_bn* node
+        cdef node_bn* curNode
+        cdef char* statename
+        cdef state_bn* parent_states
+        cdef nodelist_bn* parents
+        cdef int pn, numparents
+        node = node_obj.value
+        numstates = GetNodeNumberStates_bn (node)
+        parents = GetNodeParents_bn (node)
+        numparents = LengthNodeList_bn (parents)
+        parent_states = <state_bn *>malloc(numparents * sizeof(state_bn))
+        try:
+            for pn in range(numparents):
+                statename = <char*> arg[pn]
+                if statename[0] == '*':
+                    parent_states[pn] = <state_bn> EVERY_STATE
+                else:
+                    curNode=NthNode_bn (parents, pn)
+                    parent_states[pn] = GetStateNamed_bn (statename, curNode)
+            SetNodeExperience_bn (node, parent_states, value)
+        finally:
+            free(parent_states)
+        
+    def MakeProbsUniform (self,NewNode node):
+         MakeProbsUniform (node.value)
+
+    def GetNodeAllProbs (self,NewNode node, probs=None, int num_entries=-1):
+        cdef prob_bn* _probs
+        cdef const nodelist_bn* parents 
+        if num_entries==-1:
+            parents = GetNodeParents_bn (node.value)
+            num_entries = <int> SizeCartesianProduct (parents) * GetNodeNumberStates_bn (node.value)
+        _probs = <prob_bn *>malloc(num_entries * sizeof(prob_bn))
+        GetNodeAllProbs (node.value, _probs, num_entries)
+        res = [i for i in _probs[:num_entries]]
+        if type(probs) == FloatList:
+            self.SetFloatval(probs,_probs)
+        else:
+            free(_probs)
+        return res
+    
+    cdef bool_ns __NextStates_IntList (self,IntList states, const nodelist_bn* nodes):
+        return NextStates (states.value, nodes)
+    
+    def NextStates (self,states, NodeList nodes):
+        cdef bool_ns res
+        cdef state_bn* _states
+        if type(states)==IntList:
+            res = self.__NextStates_IntList (states, nodes.value)
+        elif type(states)==list:
+            _states = <int *>malloc(len(states) * sizeof(int))
+            for i in range(len(states)):
+                _states[i] = states[i]
+            res = NextStates (_states, nodes.value)
+        else:
+            free(_states)
+            raise ValueError("states should be list of integer | Intlist type found:  %s" % type(states))
+        free(_states)
+        return res
+     
+    def PrintNodeList (self,NodeList nodes):
+        PrintNodeList (nodes.value)
+
+    def RetractFindingsOfNodes (self,NodeList nodes, bool_ns do_consts_too):
+        RetractFindingsOfNodes (nodes.value, do_consts_too)
+
+    def FindNodeNamed (self, char* name, NodeList nodes):
+        cdef int res
+        res = FindNodeNamed (name, nodes.value)
+        return res
+
+    def IndexOfNodeInList (self,NewNode node, NodeList nodes):
+        cdef int res
+        res = IndexOfNodeInList (node.value,nodes.value)
+        return res
+
+    def RemoveOneNodeFromList (self,NewNode node, NodeList nodes):
+        RemoveOneNodeFromList (node.value, nodes.value)
+
+    def RemoveNodeFromListIfThere (self,NewNode node, NodeList nodes):
+        RemoveNodeFromListIfThere (node.value, nodes.value)
+        
+    def RemoveNthNodeFast (self,int index, NodeList nodes):
+        RemoveNthNodeFast (index, nodes.value)
+        
+    def DeleteLink (self,NewNode parent, NewNode child):
+        DeleteLink (parent.value, child.value)
+
+    def DeleteLinks (self,NewNode parent, NewNode child):
+        DeleteLinks (parent.value, child.value)
+
+    def DeleteLinksEntering (self,NewNode child):
+        DeleteLinksEntering (child.value)
+
+    def SwitchNodeParent (self,NewNode parent, NewNode child, NewNode new_parent):
+        SwitchNodeParent (parent.value, child.value, new_parent.value)
+
+    def DeleteNodes (self,NodeList nodes):
+        DeleteNodes (nodes.value)
+
+    def IsLinkDisconnected (self,int link_index, NewNode node):
+        cdef bool_ns res
+        res = IsLinkDisconnected (link_index, node.value)
+        return res
+
+    def TransferNodes (self,NodeList nodes, NewNet new_net):
+        res = NodeList()
+        res.value = TransferNodes (nodes.value, new_net.value)
+        return res
+    
+    def DupNode (self,NewNode node):
+        res = NewNode()
+        res.value = DupNode (node.value)
+        return res
+
+    def DuplicateNode (self,NewNode node, NewNet new_net):
+        res = NewNode()
+        res.value = DuplicateNode (node.value, new_net.value)
+        return res
+
+    def NetNamed (self,char* name):
+        res = NewNet()
+        res.value = NetNamed(name)
+        return res
+        
+    def FormCliqueWith (self,NodeList nodes):
+        res = NewNode()
+        res.value = FormCliqueWith (nodes.value)
+        return res
+
+    def AbsorbNode (self,NewNode node):
+        AbsorbNode (node.value)
+
+    def DeleteNetTables (self,NewNet net):
+        DeleteNetTables (net.value)
+
+    def FadeCPTables (self,NodeList nodes, double degree):
+        FadeCPTables (nodes.value, degree)
+
+    def PrintNeticaVersion (self):
+        PrintNeticaVersion ()
+
+    def PrintErrors (self):
+        PrintErrors ()
+
+    def NewError (self,Netica environ, int number, errseverity_ns severity, char* mesg, *arg):
+        cdef char buf[400]
+        message = mesg % arg
+        res = Report()
+        buf = PyString_AsString(message)
+        res.value = NewError_ns (environ.env if type(environ)== Netica else NULL, number, severity, buf)
+        return res
+
+    def ClearErrors (self,Netica environ, errseverity_ns severity):
+        ClearErrors (environ.env if type(environ)== Netica else NULL, severity)
+
+    def SetNetUserString (self,NewNet net, char* fieldname, char* _str):
+        SetNetUserString (net.value, fieldname, _str)
+
+    def GetNetUserString (self,NewNet net, char* fieldname):
+        cdef char* res
+        res = GetNetUserString (net.value, fieldname)
+        return res
+    
+    def SetNetUserInt (self,NewNet net, char* fieldname, int num):
+        SetNetUserInt (net.value, fieldname,num)
+        
+    def GetNetUserInt (self,NewNet net, char* fieldname):
+        cdef long res
+        res = GetNetUserInt (net.value, fieldname)
+        return res
+
+    def SetNetUserNumber (self,NewNet net, char* fieldname, double num):
+        SetNetUserNumber (net.value, fieldname, num)
+
+    def GetNetUserNumber (self,NewNet net, char* fieldname):
+        cdef double res
+        res = GetNetUserNumber (net.value, fieldname)
+        return res
+
+    def SetNodeUserString (self,NewNode node, char* fieldname, char* _str):
+        SetNodeUserString (node.value,fieldname,_str)
+
+    def GetNodeUserString (self,NewNode node, char* fieldname):
+        cdef char* res
+        res = GetNodeUserString ( node.value, fieldname)
+        return res
+
+    def SetNodeUserInt (self,NewNode node, char* fieldname, int num):
+        SetNodeUserInt (node.value,fieldname,num)
+
+    def GetNodeUserInt (self,NewNode node, char* fieldname):
+        cdef long res
+        res = GetNodeUserInt (node.value, fieldname)
+        return res
+    
+    def SetNodeUserNumber (self,NewNode node, char* fieldname, double num):
+        SetNodeUserNumber (node.value,fieldname,num)
+
+    def GetNodeUserNumber (self,NewNode node, char* fieldname):
+        cdef double res
+        res = GetNodeUserNumber (node.value, fieldname)
+        return res
+
+    def PrintConfusionMatrix (self,Tester tester, NewNode node):
+        PrintConfusionMatrix (tester.value, node.value)
+
+    def CopyNodeRelation_bn (self,NewNode dest, NewNode src, NodeList parent_order_dest):
+        CopyNodeRelation_bn (dest.value, src.value, parent_order_dest.value)
+
+    
+    cdef int __MultiDimnIndex_IntList (self,IntList states, const nodelist_bn* nodes):
+        return MultiDimnIndex (states.value, nodes)
+    
+    def MultiDimnIndex (self, states, NodeList nodes):
+        cdef int res
+        cdef state_bn* _states
+        if type(states)==IntList:
+            res = self.__MultiDimnIndex_IntList (states, nodes.value)
+        elif type(states)== list:
+            _states = <state_bn *>malloc(len(states) * sizeof(state_bn))
+            for i in range(len(states)):
+                _states[i] = states[i]
+            res = MultiDimnIndex (_states, nodes.value)
+        else:
+            free(_states)
+            raise ValueError("states should be list of integer | Intlist type found:  %s" % type(states))
+        free(_states)
+        return res
+
+    def SizeCartesianProduct (self,NodeList nodes):
+        cdef double res
+        res = SizeCartesianProduct (nodes.value)
+        return res
+        
+    def MapNode (self,NewNode node, NewNet dest_net):
+        res = NewNode()
+        res.value = MapNode ( node.value, dest_net.value)
+        return res
+
+    def MapNodeList (self, NodeList nodes, NewNet dest_net):
+        res = NodeList()
+        res.value = MapNodeList (nodes.value, dest_net.value)
+        return res
+    
+    def MapNodeList1 (self,NodeList oldorder, NodeList oldnodes, NodeList newnodes):
+        res = NodeList()
+        res.value = MapNodeList1 (oldorder.value, oldnodes.value, newnodes.value)
+        return res
+
+    def DisconnectNodeGroup (self,NodeList nodes):
+        res = NodeList()
+        res.value = DisconnectNodeGroup (nodes.value)
+        return res
+
+    def NodeListToString (self,NodeList nodes):
+        cdef char* res
+        res = NodeListToString (nodes.value)
+
+    def CountCasesInFile (self,Stream casefile):
+        cdef long res
+        res = CountCasesInFile (casefile.value)
+        return res
+
+    def RemoveUnusedStates (self,NewNode node):
+        cdef int res
+        res = RemoveUnusedStates (node.value)
+        return res
+
+    def ExpectedValue (self, node, stddev):
+        return self.GetNodeExpectedValue_bn(node,stddev)[:2]
+
+    def PositionInNodeList (self,NewNode node, NodeList nodes):
+        cdef int res
+        res = PositionInNodeList (node.value, nodes.value)
+        return res
+
+    def RemoveNodeFromList (self,NewNode node, NodeList nodes):
+        RemoveNodeFromList (node.value, nodes.value)
+
+    def SetNodeAllProbs (self,NewNode node,probs):
+        self.SetNodeProbs_bn(node,[],probs)
+
+    def MakeInverseOrdering(self,order,int num,invorder):
+        res = []
+        _order =[]
+        if type(invorder)==list:
+            res = [int(i) for i in invorder]
+        elif type(invorder)==IntList:
+            res = [i for i in invorder[:num]]
+        else:
+            raise ("invorder should be an IntList |list of integer found: %s" % type(invorder))
+        if type(order)==list:
+            _order = [int(i) for i in order]
+        elif type(order)==IntList:
+            _order = [i for i in order[:num]]
+        else:
+            raise ("order should be an IntList |list of integer found: %s" % type(order))
+
+        for j in range(num):
+            res[j]=-1
+        for j in range(num):
+            res[_order[j]]=j
+        return res
+
+    def SetNodeStateNames (self,NewNode node, *arg):
+        cdef int state, numstates
+        numstates = GetNodeNumberStates_bn (node.value)
+        for state in range(numstates):
+            SetNodeStateName_bn (node.value, state, PyString_AsString(arg[state]))
+
+    def SetNodeFuncValue (self,NewNode node, double value, *arg):
+        cdef node_bn* curNode
+        cdef char* statename
+        cdef state_bn* parent_states
+        cdef const nodelist_bn* parents
+        cdef int pn, numparents
+        parents = GetNodeParents_bn (node.value)
+        numparents = LengthNodeList_bn (parents)
+        parent_states = <state_bn *>malloc(numparents * sizeof(state_bn))
+        try:
+            for pn in range(numparents):
+                statename = <char*> arg[pn]
+                if statename[0] == '*':
+                    parent_states[pn] = <state_bn> EVERY_STATE
+                else:
+                    curNode = NthNode_bn (parents, pn)
+                    parent_states[pn] = GetStateNamed_bn (statename, curNode)
+            if GetNodeType_bn (node.value) ==  DISCRETE_TYPE:
+               SetNodeFuncState_bn (node.value, parent_states, <int>value)
+            else:
+                SetNodeFuncReal_bn (node.value, parent_states, value)
+        finally:
+            free(parent_states)
+
+    cdef SetIntval(self,IntList obj,int* ptr):
+        free(obj.value)
+        obj.value = ptr
+        
+    cdef SetFloatval(self,FloatList obj,float* ptr):
+        free(obj.value)
+        obj.value = ptr
+        
+    cdef SetDoubleval(self,DoubleList obj,double* ptr):
+        free(obj.value)
+        obj.value = ptr
+        
+    cdef SetLongval(self,LongList obj,long* ptr):
+        free(obj.value)
+        obj.value = ptr
+
+
+
 ## Not supported in windows
     
     def MostProbableSetting_bn (self,NewNet net, Setting cas, int nth):
@@ -2317,99 +2782,6 @@ cdef class Netica:
 ##        return res
 
 ####################################################################
-    def GetUndefDbl_ns(self):
-        cdef double res
-        res = GetUndefDbl_ns()
-        return res
-    def GetInfinityDbl_ns(self):
-        cdef double res
-        res = GetInfinityDbl_ns()
-        return res
-    
-    def SetNodeFuncState (self,NewNode node, state_bn value, *arg):
-        cdef node_bn* curNode
-        cdef char* statename
-        cdef state_bn* parent_states
-        cdef nodelist_bn* parents 
-        cdef int pn, numparents
-        parents = GetNodeParents_bn (node.value)
-        numparents = LengthNodeList_bn (parents)
-        parent_states = <state_bn *>malloc(numparents * sizeof(state_bn))
-        try:
-            for pn in range(numparents):
-                statename = <char*> arg[pn]
-                if statename[0] == '*':
-                    parent_states[pn] = <state_bn> EVERY_STATE
-                else:
-                    curNode = NthNode_bn (parents, pn)
-                    parent_states[pn] = GetStateNamed_bn (statename, curNode)
-            SetNodeFuncState_bn (node.value, parent_states, value)
-        finally:
-            free(parent_states)
-
-
-    def SetNodeFuncReal (self,NewNode node, double value, *arg):
-        cdef node_bn* curNode
-        cdef char* statename
-        cdef state_bn* parent_states
-        cdef const nodelist_bn* parents
-        cdef int pn, numparents
-        parents = GetNodeParents_bn (node.value)
-        numparents = LengthNodeList_bn (parents)
-        parent_states = <state_bn *>malloc(numparents * sizeof(state_bn))
-        try:
-            for pn in range(numparents):
-                statename = <char*> arg[pn]
-                if statename[0] == '*':
-                    parent_states[pn] = <state_bn> EVERY_STATE
-                else:
-                    curNode = NthNode_bn (parents, pn)
-                    parent_states[pn] = GetStateNamed_bn (statename, curNode)
-            SetNodeFuncReal_bn (node.value, parent_states, value)
-        finally:
-            free(parent_states)
-
-
-    def SetNodeProbs(self,NewNode node_obj, *arg):
-        cdef node_bn* node
-        cdef node_bn* curNode
-        cdef state_bn* parent_states
-        cdef prob_bn* probs
-        cdef char* statename
-        cdef int state, numstates
-        cdef const nodelist_bn* parents 
-        cdef int pn, numparents, i
-        node = node_obj.value
-        numstates = GetNodeNumberStates_bn (node)
-        parents = GetNodeParents_bn (node)
-        numparents = LengthNodeList_bn (parents)
-        parent_states = <state_bn *>malloc(numparents * sizeof(state_bn))
-        probs = <prob_bn *>malloc(numparents * sizeof(prob_bn))
-        try:
-            for pn in range(numparents):
-                statename = <char*> arg[pn]
-                if statename[0] == '*':
-                    parent_states[pn] = <state_bn> EVERY_STATE
-                else:
-                    curNode=NthNode_bn (parents, pn)
-                    parent_states[pn] = GetStateNamed_bn (statename, curNode)
-            i=numparents
-            for state in range(numstates):
-                probs[state] = <prob_bn> arg[i]
-                i+=1
-            SetNodeProbs_bn (node, parent_states, probs)
-        finally:
-            free(parent_states)
-            free(probs)
-
-    def GetNodeBelief(self,char* node_name,char* state_name,NewNet net):
-        cdef double res
-        res = GetNodeBelief (node_name,state_name, net.value)
-        return res
-    
-    def EnterFinding(self,char* node_name, char* state_name, NewNet net):
-        EnterFinding(node_name,state_name,net.value)
-
 
 cdef class Setting:
     cdef setting_bn* value
@@ -2462,6 +2834,7 @@ cdef class Scripter:
     
 cdef class IntList:
     cdef int* value
+        
     def __getitem__(self, item):
 
         x=[]
@@ -2526,6 +2899,8 @@ cdef class IntList:
 
 cdef class FloatList:
     cdef float* value
+
+        
     def __getitem__(self, item):
 
         x=[]
@@ -2588,6 +2963,8 @@ cdef class FloatList:
 
 cdef class DoubleList:
     cdef double* value
+    
+        
     def __getitem__(self, item):
 
         x=[]
@@ -2650,6 +3027,7 @@ cdef class DoubleList:
 
 cdef class LongList:
     cdef long* value
+        
     def __getitem__(self, item):
 
         x=[]
@@ -2728,5 +3106,3 @@ cdef int callbackNodeNULL (node_bn* node, eventtype_ns what, void* obj, void* in
     pass
 
 
-
-    
